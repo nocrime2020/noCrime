@@ -32,7 +32,7 @@ public class crimeGUI {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 526, 645);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frame.getContentPane().setLayout(null);System.out.println();
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 10, 486, 586);
