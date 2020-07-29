@@ -36,6 +36,6 @@ public class crimeGUI {
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 10, 486, 586);
-		frame.getContentPane().add(panel);
+		frame.getContentPane().add(panel);System.out.println("gg");
 	}
 }
