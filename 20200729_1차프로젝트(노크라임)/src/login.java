@@ -32,25 +32,25 @@ public class login {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					login window = new login();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					login window = new login();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
 	public login() {
 		initialize();
-//		frame.setVisible(true);
+		frame.setVisible(true);
 	}
 
 	/**
@@ -82,6 +82,17 @@ public class login {
 		frame.getContentPane().add(txt_pw);
 		
 		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
+		btn_login.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				frame.dispose();
+				crime_main crime = new crime_main();
+//				@@성공시 회원은 범죄main창 이동 (@@관리자는 ASelect로 이동)
+//				@@실패시 아이디,비밀번호를 다시 확인해 주세요 팝업창!
+				
+			}
+		});
 		btn_login.setBounds(990, 52, 97, 23);
 		frame.getContentPane().add(btn_login);
 		
@@ -131,6 +142,14 @@ public class login {
 		frame.getContentPane().add(btn_signup);
 		
 		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+//				login.main(null);
+				login login = new login();
+			}
+		});
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\KakaoTalk_20200729_190949189.jpg"));
 		lblNewLabel_1.setBounds(66, 28, 223, 208);
 		frame.getContentPane().add(lblNewLabel_1);

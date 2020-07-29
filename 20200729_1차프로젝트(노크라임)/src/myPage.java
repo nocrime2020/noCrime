@@ -23,25 +23,25 @@ public class myPage {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					myPage window = new myPage();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					myPage window = new myPage();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
 	public myPage() {
 		initialize();
-//		frame.setVisible(true);
+		frame.setVisible(true);
 	}
 
 	/**
@@ -60,8 +60,8 @@ public class myPage {
 			public void mouseClicked(MouseEvent e) {
 				
 				frame.dispose();
-				crime_main.main(null);
-//				crime_main crime = new crime_main();
+//				crime_main.main(null);
+				crime_main crime = new crime_main();
 			}
 		});
 		lbl_title.setFont(new Font("±¼¸²", Font.PLAIN, 23));
@@ -89,8 +89,8 @@ public class myPage {
 			public void mouseClicked(MouseEvent e) {
 				
 				frame.dispose();
-				login.main(null);
-//				login login = new login();
+//				login.main(null);
+				login login = new login();
 				
 				
 			}
@@ -104,8 +104,8 @@ public class myPage {
 			public void mouseClicked(MouseEvent e) {
 				
 				frame.dispose();
-				login.main(null);
-//				login login = new login();
+//				login.main(null);
+				login login = new login();
 				
 			}
 		});
@@ -171,4 +171,5 @@ public class myPage {
 		btnNewButton_1_1.setBounds(365, 496, 97, 23);
 		frame.getContentPane().add(btnNewButton_1_1);
 	}
+
 }
