@@ -7,6 +7,10 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class login {
 
@@ -14,7 +18,6 @@ public class login {
 	private JTextField txt_id;
 	private JTextField txt_pw;
 	private JLabel lblNewLabel;
-	private JLabel lbl_title;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_4;
@@ -24,6 +27,7 @@ public class login {
 	private JTextField txt_newpw;
 	private JTextField txt_newemail;
 	private JButton btn_signup;
+	private JLabel lblNewLabel_1;
 
 	/**
 	 * Launch the application.
@@ -54,6 +58,7 @@ public class login {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(SystemColor.text);
 		frame.setBounds(100, 100, 1127, 777);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -72,45 +77,18 @@ public class login {
 		txt_id.setColumns(10);
 		
 		txt_pw = new JTextField();
-		txt_pw.setColumns(10);
 		txt_pw.setBounds(816, 53, 155, 21);
+		txt_pw.setColumns(10);
 		frame.getContentPane().add(txt_pw);
 		
 		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
-//		btn_login.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				
-//				frame.dispose();
-//				@@성공시 회원은 범죄main창 이동 (@@관리자는 ASelect로 이동)
-//				@@실패시 아이디,비밀번호를 다시 확인해 주세요 팝업창!
-//				
-//				
-//				
-//				
-//			}
-//		});
 		btn_login.setBounds(990, 52, 97, 23);
 		frame.getContentPane().add(btn_login);
 		
 		lblNewLabel = new JLabel("\uAC00\uC785\uD558\uAE30");
-		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 20));
 		lblNewLabel.setBounds(580, 141, 97, 30);
+		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 20));
 		frame.getContentPane().add(lblNewLabel);
-		
-		lbl_title = new JLabel("\uB178(Know) \uD06C\uB77C\uC784");
-		lbl_title.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				frame.dispose();
-				login.main(null);
-//				login login = new login();
-				
-			}
-		});
-		lbl_title.setFont(new Font("굴림", Font.PLAIN, 30));
-		lbl_title.setBounds(36, 28, 243, 46);
-		frame.getContentPane().add(lbl_title);
 		
 		lblNewLabel_2 = new JLabel("\uC774\uB984");
 		lblNewLabel_2.setBounds(580, 198, 57, 15);
@@ -129,35 +107,32 @@ public class login {
 		frame.getContentPane().add(lblNewLabel_5);
 		
 		txt_name = new JTextField();
-		txt_name.setColumns(10);
 		txt_name.setBounds(661, 195, 155, 21);
+		txt_name.setColumns(10);
 		frame.getContentPane().add(txt_name);
 		
 		txt_newid = new JTextField();
-		txt_newid.setColumns(10);
 		txt_newid.setBounds(661, 236, 155, 21);
+		txt_newid.setColumns(10);
 		frame.getContentPane().add(txt_newid);
 		
 		txt_newpw = new JTextField();
-		txt_newpw.setColumns(10);
 		txt_newpw.setBounds(661, 281, 155, 21);
+		txt_newpw.setColumns(10);
 		frame.getContentPane().add(txt_newpw);
 		
 		txt_newemail = new JTextField();
-		txt_newemail.setColumns(10);
 		txt_newemail.setBounds(661, 326, 155, 21);
+		txt_newemail.setColumns(10);
 		frame.getContentPane().add(txt_newemail);
 		
 		btn_signup = new JButton("\uAC00\uC785\uD558\uAE30");
-//		btn_signup.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//		
-//				전부 잘 입력되었다면(널값없고 이메일중복없다면) @@회원가입 성공! 팝업 (아닐시 @@다시 확인해주세요 팝업)
-//		
-//			}
-//		});
 		btn_signup.setBounds(580, 376, 97, 23);
 		frame.getContentPane().add(btn_signup);
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\KakaoTalk_20200729_190949189.jpg"));
+		lblNewLabel_1.setBounds(66, 28, 223, 208);
+		frame.getContentPane().add(lblNewLabel_1);
 	}
 }
