@@ -22,25 +22,25 @@ public class tipoff {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					tipoff window = new tipoff();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					tipoff window = new tipoff();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
 	public tipoff() {
 		initialize();
-//		frame.setVisible(true);
+		frame.setVisible(true);
 	}
 
 	/**
@@ -58,8 +58,8 @@ public class tipoff {
 			public void mouseClicked(MouseEvent e) {
 				
 				frame.dispose();
-				crime_main.main(null);
-//				crime_main crime = new crime_main();
+//				crime_main.main(null);
+				crime_main crime = new crime_main();
 				
 			}
 		});
@@ -118,8 +118,8 @@ public class tipoff {
 			public void mouseClicked(MouseEvent e) {
 				
 				frame.dispose();
-				login.main(null);
-//				login login = new login();
+//				login.main(null);
+				login login = new login();
 				
 			}
 		});

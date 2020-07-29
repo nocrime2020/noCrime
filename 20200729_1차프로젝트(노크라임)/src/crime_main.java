@@ -14,28 +14,29 @@ public class crime_main {
 
 	private JFrame frame;
 
+
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					crime_main window = new crime_main();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					crime_main window = new crime_main();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
 	public crime_main() {
 		initialize();
-//		frame.setVisible(true);
+		frame.setVisible(true);
 	}
 
 	/**
@@ -52,8 +53,8 @@ public class crime_main {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				crime_main.main(null);
-//				crime_main crime = new crime_main();
+//				crime_main.main(null);
+				crime_main crime = new crime_main();
 			}
 		});
 		lbl_title.setFont(new Font("±¼¸²", Font.PLAIN, 23));
@@ -94,8 +95,8 @@ public class crime_main {
 			public void mouseClicked(MouseEvent e) {
 				
 				frame.dispose();
-				myPage.main(null);
-//				myPage myPage = new myPage();
+//				myPage.main(null);
+				myPage myPage = new myPage();
 			}
 		});
 		lblNewLabel_2.setBounds(925, 43, 81, 15);
@@ -107,8 +108,8 @@ public class crime_main {
 			public void mouseClicked(MouseEvent e) {
 				
 				frame.dispose();
-				login.main(null);
-//				login login = new login();
+//				login.main(null);
+				login login = new login();
 				
 			}
 		});
@@ -121,8 +122,8 @@ public class crime_main {
 			public void mouseClicked(MouseEvent e) {
 				
 				frame.dispose();
-				tipoff.main(null);
-//				tipoff tipoff = new tipoff();
+//				tipoff.main(null);
+				tipoff tipoff = new tipoff();
 				
 				
 			}

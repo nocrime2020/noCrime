@@ -7,32 +7,32 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class A_select {
+public class admin_select {
 
 	private JFrame frame;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					A_select window = new A_select();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					A_select window = new A_select();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
-	public A_select() {
+	public admin_select() {
 		initialize();
-//		frame.setVisible(true);
+		frame.setVisible(true);
 	}
 
 	/**
@@ -49,8 +49,8 @@ public class A_select {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				A_tipoff.main(null);
-//				tipoff tipoff = new tipoff();
+//				admin_tipoff.main(null);
+				admin_tipoff admin_tipoff = new admin_tipoff();
 			
 			}
 		});
@@ -64,8 +64,8 @@ public class A_select {
 			public void mouseClicked(MouseEvent e) {
 				
 				frame.dispose();
-				A_member.main(null);
-//				A_member A_member = new A_member();
+//				admin_member.main(null);
+				admin_member admin_member = new admin_member();
 			}
 		});
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -78,8 +78,8 @@ public class A_select {
 			public void mouseClicked(MouseEvent e) {
 				
 				frame.dispose();
-				A_select.main(null);
-//				A_select A_select = new A_select();
+//				admin_select.main(null);
+				admin_select admin_select = new admin_select();
 			}
 		});
 		lbl_title.setFont(new Font("±¼¸²", Font.PLAIN, 23));
@@ -92,8 +92,8 @@ public class A_select {
 			public void mouseClicked(MouseEvent e) {
 				
 				frame.dispose();
-				crime_main.main(null);
-//				crime_main crime = new crime_main();
+//				crime_main.main(null);
+				crime_main crime = new crime_main();
 			}
 		});
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -110,8 +110,8 @@ public class A_select {
 			public void mouseClicked(MouseEvent e) {
 				
 				frame.dispose();
-				login.main(null);
-//				login login = new login();
+//				login.main(null);
+				login login = new login();
 				
 			}
 		});
