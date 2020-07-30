@@ -101,23 +101,30 @@ public class DAO {
 	}
 
 	// 회원정보 수정 메소드
-	public int update(String id, String pw, String newPwEmail, String check) {
+	public int update(updateVO updatevo) {
 
 		int cnt = 0;
 		try {
 			getConnection();
-			if (check.equals("password")) {
+			if (updatevo.getclick().equals("password")) {
 				String sql = "update member set pw = ? where id = ? and pw = ?";
 				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, newPwEmail);
-				psmt.setString(2, id);
-				psmt.setString(3, pw);
-			} else if (check.equals("email")) {
+				psmt.setString(1, updatevo.getNewPwEmail());
+				psmt.setString(2, updatevo.getId());
+				psmt.setString(3, updatevo.getPw());
+			} else if (updatevo.getclick().equals("email")) {
 				String sql = "update member set email = ? where id = ? and pw = ?";
 				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, newPwEmail);
-				psmt.setString(2, id);
-				psmt.setString(3, pw);
+				psmt.setString(1, updatevo.getNewPwEmail());
+				psmt.setString(2, updatevo.getId());
+				psmt.setString(3, updatevo.getPw());
+			} else if(updatevo.getclick().equals("passwordemail")) {
+				String sql = "update member set pw = ?, email = ? where id = ? and pw = ?";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, updatevo.getNewPw());
+				psmt.setString(2, updatevo.getNewEmail());
+				psmt.setString(3, updatevo.getId());
+				psmt.setString(4, updatevo.getPw());
 			}
 
 			cnt = psmt.executeUpdate(); // cnt ===> '영향을 받은 행의 개수'
@@ -130,31 +137,11 @@ public class DAO {
 		return cnt;
 	}
 
-	public int update(String id, String pw, String newPw, String newEmail, String check) {
-
-		int cnt = 0;
-		try {
-			getConnection();
-			String sql = "update member set pw = ? , email = ? where id = ? and pw = ?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, newEmail);
-			psmt.setString(2, id);
-			psmt.setString(3, pw);
-
-			cnt = psmt.executeUpdate(); // cnt ===> '영향을 받은 행의 개수'
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return cnt;
-	}
 
 	
 	
 	// 회원정보 탈퇴 메소드
-	public int delete(String id, String pw) {
+	public int delete(VO vo) {
 
 		int cnt = 0;
 		try {
@@ -163,8 +150,8 @@ public class DAO {
 			String sql = "DELETE FROM member WHERE id = ? and pw = ?"; // ?자리에 id나pw 적으면 id,pw라는 문자열이 들어가는 것
 
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
-			psmt.setString(2, pw);
+			psmt.setString(1, vo.getId());
+			psmt.setString(2, vo.getPw());
 
 			cnt = psmt.executeUpdate();
 

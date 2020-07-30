@@ -106,7 +106,7 @@ public class login {
 						admin_select asel = new admin_select();
 					} else {
 						frame.dispose();
-						crime_main crime = new crime_main();
+						crime_main crime = new crime_main(vo);
 					}
 				} else {
 					JOptionPane.showMessageDialog(null, "아이디 혹은 비밀번호를 다시 확인하세요", "로그인 실패", JOptionPane.WARNING_MESSAGE);

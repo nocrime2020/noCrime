@@ -2,6 +2,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -44,16 +46,17 @@ public class myPage {
 
 	/**
 	 * Create the application.
+	 * @param vo 
 	 */
-	public myPage() {
-		initialize();
+	public myPage(VO vo) {
+		initialize(vo);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(VO vo) {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
 		frame.setBounds(100, 100, 375, 812);
@@ -67,7 +70,7 @@ public class myPage {
 
 				frame.dispose();
 //				crime_main.main(null);
-				crime_main crime = new crime_main();
+				crime_main crime = new crime_main(vo);
 			}
 		});
 		lbl_title.setFont(new Font("굴림", Font.PLAIN, 23));
@@ -85,7 +88,7 @@ public class myPage {
 		lbl_editid.setBounds(28, 358, 217, 42);
 		frame.getContentPane().add(lbl_editid);
 
-		JLabel lbl_delectid = new JLabel("\uD68C\uC6D0\uD0C8\uD1F4");
+		JLabel lbl_delectid = new JLabel("\uD68C\uC6D0 \uD0C8\uD1F4");
 		lbl_delectid.setBackground(Color.WHITE);
 		lbl_delectid.setForeground(Color.BLACK);
 		lbl_delectid.setHorizontalAlignment(SwingConstants.LEFT);
@@ -148,9 +151,17 @@ public class myPage {
 		btn_deleteid.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
-				String id = txt_id.getText();
-				String pw = txt_pw.getText();
+				
+				
+				int result = JOptionPane.showConfirmDialog(null, "계속하시겠습니까?", "회원 탈퇴", JOptionPane.YES_NO_OPTION);
+				if (result == JOptionPane.YES_OPTION) {
+					//사용자가 탈퇴를 원하는 경우
+					dao.delete(vo);
+					
+					
+				} else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {
+					return;		//사용자가 탈퇴취소 혹은 창닫기 버튼을 누른 경우
+				}
 
 			}
 		});
@@ -232,16 +243,41 @@ public class myPage {
 				String pw = txt_pw.getText();
 				String newPw = txt_newpw.getText();
 				String newEmail = txt_newemail.getText();
-				//1. 수정용 vo를 만든다 (updateVO)
+				
 				//2. DAO update문을 수정한다! 매개변수를 vo만 받게!
 				//3. vo.getId()
 				
-				
-//				VO vo = new VO(id, pw, newPw, newEmail);
-//				int cnt = dao.update(vo, click);
-//				if()
-				
-				
+				if (click.equals("password")) {
+					updateVO updatevo = new updateVO(id, pw, newPw, click);
+					int cnt = dao.update(updatevo);
+					if (cnt > 0) {
+						JOptionPane.showMessageDialog(null, "비밀번호 수정 완료", "회원 정보 수정", JOptionPane.INFORMATION_MESSAGE);
+						frame.dispose();
+						login login = new login();
+					} else { 
+						JOptionPane.showMessageDialog(null, "정보 수정 실패", "회원 정보 수정", JOptionPane.ERROR_MESSAGE);
+					}
+				} else if (click.equals("email")) {
+					updateVO updatevo = new updateVO(id, pw, newEmail, click);
+					int cnt = dao.update(updatevo);
+					if (cnt > 0) {
+						JOptionPane.showMessageDialog(null, "이메일 수정 완료", "회원 정보 수정", JOptionPane.INFORMATION_MESSAGE);
+						frame.dispose();
+						login login = new login();
+					} else { 
+						JOptionPane.showMessageDialog(null, "정보 수정 실패", "회원 정보 수정", JOptionPane.ERROR_MESSAGE);
+					}
+				} else if (click.equals("passwordemail")) {
+					updateVO updatevo = new updateVO(id, pw, newPw, newEmail, click);
+					int cnt = dao.update(updatevo);
+					if (cnt > 0) {
+						JOptionPane.showMessageDialog(null, "회원 정보 수정 완료", "회원 정보 수정", JOptionPane.INFORMATION_MESSAGE);
+						frame.dispose();
+						login login = new login();
+					} else { 
+						JOptionPane.showMessageDialog(null, "정보 수정 실패", "회원 정보 수정", JOptionPane.ERROR_MESSAGE);
+					}
+				}
 				
 			}
 		});

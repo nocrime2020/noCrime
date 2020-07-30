@@ -38,15 +38,15 @@ public class crime_main {
 	/**
 	 * Create the application.
 	 */
-	public crime_main() {
-		initialize();
+	public crime_main(VO vo) {
+		initialize(vo);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(VO vo) {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
 		frame.setBounds(100, 100, 375,812);
@@ -91,7 +91,7 @@ public class crime_main {
 				
 				frame.dispose();
 //				myPage.main(null);
-				myPage myPage = new myPage();
+				myPage myPage = new myPage(vo);
 			}
 		});
 		lblNewLabel_2.setBounds(257, 38, 81, 15);

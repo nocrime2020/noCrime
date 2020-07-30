@@ -6,22 +6,22 @@ public class updateVO {
 	private String newPwEmail;
 	private String newPw;
 	private String newEmail;
-	private String check;
+	private String click;
 	
-	public updateVO(String id, String pw, String newPwEmail, String check) {
+	public updateVO(String id, String pw, String newPwEmail, String click) {
 		this.id = id;
 		this.pw = pw;
 		this.newPwEmail = newPwEmail;
-		this.check = check;
+		this.click = click;
 	}
 	
 	
-	public updateVO(String id, String pw, String newPw, String newEmail, String check) {
+	public updateVO(String id, String pw, String newPw, String newEmail, String click) {
 		this.id = id;
 		this.pw = pw;
 		this.newPw = newPw;
 		this.newEmail = newEmail;
-		this.check = check;
+		this.click = click;
 	}
 
 
@@ -75,13 +75,13 @@ public class updateVO {
 	}
 
 
-	public String getCheck() {
-		return check;
+	public String getclick() {
+		return click;
 	}
 
 
-	public void setCheck(String check) {
-		this.check = check;
+	public void setclick(String click) {
+		this.click = click;
 	}
 	
 	
