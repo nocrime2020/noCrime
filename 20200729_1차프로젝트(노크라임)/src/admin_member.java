@@ -14,7 +14,7 @@ import javax.swing.JButton;
 public class admin_member {
 
 	private JFrame frame;
-	private JTable table;
+	private JTable table_member;
 
 	/**
 	 * Launch the application.
@@ -35,15 +35,15 @@ public class admin_member {
 	/**
 	 * Create the application.
 	 */
-	public admin_member() {
-		initialize();
+	public admin_member(VO vo) {
+		initialize(vo);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(VO vo) {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
 		frame.setBounds(100, 100, 375, 812);
@@ -59,7 +59,7 @@ public class admin_member {
 				
 				frame.dispose();
 //				admin_select.main(null);
-				admin_select admin_select = new admin_select();
+				admin_select admin_select = new admin_select(vo);
 				
 			}
 		});
@@ -67,9 +67,9 @@ public class admin_member {
 		lbl_title.setBounds(12, 10, 103, 56);
 		frame.getContentPane().add(lbl_title);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("");
-		lblNewLabel_2_1.setIcon(new ImageIcon("C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\off_logout_17916.png"));
-		lblNewLabel_2_1.addMouseListener(new MouseAdapter() {
+		JLabel lbl_signout = new JLabel("");
+		lbl_signout.setIcon(new ImageIcon("C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\off_logout_17916.png"));
+		lbl_signout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
@@ -79,23 +79,23 @@ public class admin_member {
 				
 			}
 		});
-		lblNewLabel_2_1.setBounds(307, 10, 40, 29);
-		frame.getContentPane().add(lblNewLabel_2_1);
+		lbl_signout.setBounds(307, 10, 40, 29);
+		frame.getContentPane().add(lbl_signout);
 		
-		JLabel lblNewLabel_3 = new JLabel("\uD68C\uC6D0 \uAD00\uB9AC");
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 24));
-		lblNewLabel_3.setBounds(90, 76, 180, 60);
-		frame.getContentPane().add(lblNewLabel_3);
+		JLabel lbl_member = new JLabel("\uD68C\uC6D0 \uAD00\uB9AC");
+		lbl_member.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_member.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 24));
+		lbl_member.setBounds(90, 76, 180, 60);
+		frame.getContentPane().add(lbl_member);
 		
-		table = new JTable();
-		table.setBounds(37, 146, 287, 493);
-		frame.getContentPane().add(table);
+		table_member = new JTable();
+		table_member.setBounds(37, 146, 287, 493);
+		frame.getContentPane().add(table_member);
 		
-		JButton btnNewButton = new JButton("\uAC15\uC81C \uD0C8\uD1F4");
-		btnNewButton.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 14));
-		btnNewButton.setBounds(37, 666, 287, 43);
-		frame.getContentPane().add(btnNewButton);
+		JButton btn_deletemember = new JButton("\uAC15\uC81C \uD0C8\uD1F4");
+		btn_deletemember.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 14));
+		btn_deletemember.setBounds(37, 666, 287, 43);
+		frame.getContentPane().add(btn_deletemember);
 	}
 
 }

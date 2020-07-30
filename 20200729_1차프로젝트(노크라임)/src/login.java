@@ -101,7 +101,7 @@ public class login {
 				if(result != null) {
 					if (vo.getId().equals("admin")) {	//包府磊绰 包府磊其捞瘤
 						frame.dispose();
-						admin_select asel = new admin_select();
+						admin_select asel = new admin_select(vo);
 					} else {
 						frame.dispose();
 						crime_main crime = new crime_main(vo);
