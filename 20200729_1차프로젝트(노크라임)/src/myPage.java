@@ -46,7 +46,8 @@ public class myPage {
 
 	/**
 	 * Create the application.
-	 * @param vo 
+	 * 
+	 * @param vo
 	 */
 	public myPage(VO vo) {
 		initialize(vo);
@@ -151,18 +152,16 @@ public class myPage {
 		btn_deleteid.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				
+
 				int result = JOptionPane.showConfirmDialog(null, "계속하시겠습니까?", "회원 탈퇴", JOptionPane.YES_NO_OPTION);
 				if (result == JOptionPane.YES_OPTION) {
-					//사용자가 탈퇴를 원하는 경우
+					// 사용자가 탈퇴를 원하는 경우
 					dao.delete(vo);
 					frame.dispose();
 					login login = new login();
-					
-					
+
 				} else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {
-					return;		//사용자가 탈퇴취소 혹은 창닫기 버튼을 누른 경우
+					return; // 사용자가 탈퇴취소 혹은 창닫기 버튼을 누른 경우
 				}
 
 			}
@@ -217,9 +216,10 @@ public class myPage {
 		frame.getContentPane().add(lbl_newemail);
 
 		txt_newpw = new JTextField();
-		txt_newpw.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				click += "password"; 				//dao불러서 update실행할때 click이라는 변수도 마지막에 같이 보내주기 dao.update(id,pw,newpw or newemail, click)
+		txt_newpw.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				click += "password";
 			}
 		});
 		txt_newpw.setColumns(10);
@@ -227,8 +227,9 @@ public class myPage {
 		frame.getContentPane().add(txt_newpw);
 
 		txt_newemail = new JTextField();
-		txt_newemail.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		txt_newemail.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				click += "email";
 			}
 		});
@@ -237,18 +238,18 @@ public class myPage {
 		frame.getContentPane().add(txt_newemail);
 
 		JButton btn_okedit = new JButton("\uD655\uC778");
+
 		btn_okedit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+
 				String id = txt_id.getText();
 				String pw = txt_pw.getText();
 				String newPw = txt_newpw.getText();
 				String newEmail = txt_newemail.getText();
-				
-				//2. DAO update문을 수정한다! 매개변수를 vo만 받게!
-				//3. vo.getId()
-				
+
+				// 2. DAO update문을 수정한다! 매개변수를 vo만 받게!
+				// 3. vo.getId()
 				if (click.equals("password")) {
 					updateVO updatevo = new updateVO(id, pw, newPw, click);
 					int cnt = dao.update(updatevo);
@@ -256,7 +257,7 @@ public class myPage {
 						JOptionPane.showMessageDialog(null, "비밀번호 수정 완료", "회원 정보 수정", JOptionPane.INFORMATION_MESSAGE);
 						frame.dispose();
 						login login = new login();
-					} else { 
+					} else {
 						JOptionPane.showMessageDialog(null, "정보 수정 실패", "회원 정보 수정", JOptionPane.ERROR_MESSAGE);
 					}
 				} else if (click.equals("email")) {
@@ -266,21 +267,22 @@ public class myPage {
 						JOptionPane.showMessageDialog(null, "이메일 수정 완료", "회원 정보 수정", JOptionPane.INFORMATION_MESSAGE);
 						frame.dispose();
 						login login = new login();
-					} else { 
+					} else {
 						JOptionPane.showMessageDialog(null, "정보 수정 실패", "회원 정보 수정", JOptionPane.ERROR_MESSAGE);
 					}
 				} else if (click.equals("passwordemail")) {
+					System.out.println("들어옴?");
 					updateVO updatevo = new updateVO(id, pw, newPw, newEmail, click);
 					int cnt = dao.update(updatevo);
 					if (cnt > 0) {
 						JOptionPane.showMessageDialog(null, "회원 정보 수정 완료", "회원 정보 수정", JOptionPane.INFORMATION_MESSAGE);
 						frame.dispose();
 						login login = new login();
-					} else { 
+					} else {
 						JOptionPane.showMessageDialog(null, "정보 수정 실패", "회원 정보 수정", JOptionPane.ERROR_MESSAGE);
 					}
 				}
-				
+
 			}
 		});
 		btn_okedit.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
