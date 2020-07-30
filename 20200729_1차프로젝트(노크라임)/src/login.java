@@ -68,51 +68,24 @@ public class login {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lbl_id = new JLabel("ID");
-		lbl_id.setBounds(65, 194, 57, 15);
+		lbl_id.setBounds(65, 248, 57, 15);
 		lbl_id.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().add(lbl_id);
 		
 		JLabel lbl_pw = new JLabel("PASSWORD");
-		lbl_pw.setBounds(65, 237, 97, 15);
+		lbl_pw.setBounds(65, 291, 97, 15);
 		lbl_pw.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().add(lbl_pw);
 		
 		txt_id = new JTextField();
-		txt_id.setBounds(146, 191, 155, 21);
+		txt_id.setBounds(146, 245, 155, 21);
 		frame.getContentPane().add(txt_id);
 		txt_id.setColumns(10);
 		
 		txt_pw = new JTextField();
-		txt_pw.setBounds(146, 234, 155, 21);
+		txt_pw.setBounds(146, 288, 155, 21);
 		txt_pw.setColumns(10);
 		frame.getContentPane().add(txt_pw);
-		
-		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
-		btn_login.setBounds(129, 295, 97, 23);
-		btn_login.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				String id = txt_id.getText();
-				String pw = txt_pw.getText();
-				
-				VO vo = new VO(id, pw);
-				VO result = dao.login(vo);
-				
-				if(result != null) {
-					if (vo.getId().equals("admin")) {	//관리자는 관리자페이지
-						frame.dispose();
-						admin_select asel = new admin_select(vo);
-					} else {
-						frame.dispose();
-						crime_main crime = new crime_main(vo);
-					}
-				} else {
-					JOptionPane.showMessageDialog(null, "아이디 혹은 비밀번호를 다시 확인하세요", "로그인 실패", JOptionPane.WARNING_MESSAGE);
-				}
-				
-			}
-		});
-		frame.getContentPane().add(btn_login);
 		
 		lbl_signup = new JLabel("SIGN UP");
 		lbl_signup.setForeground(new Color(0, 0, 128));
@@ -205,5 +178,17 @@ public class login {
 		btn_signup.setBackground(new Color(204, 204, 255));
 		btn_signup.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
 		frame.getContentPane().add(btn_signup);
+		
+		JButton btn_signup_1 = new JButton("SIGN IN");
+		btn_signup_1.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
+		btn_signup_1.setBackground(new Color(204, 204, 255));
+		btn_signup_1.setBounds(65, 340, 236, 23);
+		frame.getContentPane().add(btn_signup_1);
+		
+		JLabel lbl_signup_1 = new JLabel("SIGN IN");
+		lbl_signup_1.setForeground(new Color(0, 0, 128));
+		lbl_signup_1.setFont(new Font("함초롬돋움", Font.BOLD, 24));
+		lbl_signup_1.setBounds(65, 185, 97, 30);
+		frame.getContentPane().add(lbl_signup_1);
 	}
 }
