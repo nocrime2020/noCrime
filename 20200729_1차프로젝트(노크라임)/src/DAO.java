@@ -1,5 +1,4 @@
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -46,9 +45,9 @@ public class DAO {
 	}
 
 	// Database Access Object
-	//로그인
+	// 로그인
 	public VO login(VO vo) {
-		
+
 		try {
 			getConnection();
 
@@ -58,14 +57,14 @@ public class DAO {
 			psmt.setString(1, vo.getId());
 //			psmt.setString(2, vo.getPw());
 			rs = psmt.executeQuery();
-			
-			if(rs.next()){
+
+			if (rs.next()) {
 				String dbpw = rs.getString(1);
-				if(dbpw.equals(vo.getPw())) {
-				}else{
-					vo = null; //잘못된 비번
+				if (dbpw.equals(vo.getPw())) {
+				} else {
+					vo = null; // 잘못된 비번
 				}
-			}else {	//미등록 아이디
+			} else { // 미등록 아이디
 				vo = null;
 			}
 		} catch (SQLException e) {
@@ -89,9 +88,7 @@ public class DAO {
 			psmt.setString(2, vo.getPw());
 			psmt.setString(3, vo.getName());
 			psmt.setString(4, vo.getEmail());
-			
-			
-			
+
 			cnt = psmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -104,14 +101,43 @@ public class DAO {
 	}
 
 	// 회원정보 수정 메소드
-	public int update(String id, String pw, String newPw) {
+	public int update(String id, String pw, String newPwEmail, String check) {
 
 		int cnt = 0;
 		try {
 			getConnection();
-			String sql = "update member set pw = ? where id = ? and pw = ?";
+			if (check.equals("password")) {
+				String sql = "update member set pw = ? where id = ? and pw = ?";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, newPwEmail);
+				psmt.setString(2, id);
+				psmt.setString(3, pw);
+			} else if (check.equals("email")) {
+				String sql = "update member set email = ? where id = ? and pw = ?";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, newPwEmail);
+				psmt.setString(2, id);
+				psmt.setString(3, pw);
+			}
+
+			cnt = psmt.executeUpdate(); // cnt ===> '영향을 받은 행의 개수'
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+
+	public int update(String id, String pw, String newPw, String newEmail, String check) {
+
+		int cnt = 0;
+		try {
+			getConnection();
+			String sql = "update member set pw = ? , email = ? where id = ? and pw = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, newPw);
+			psmt.setString(1, newEmail);
 			psmt.setString(2, id);
 			psmt.setString(3, pw);
 
@@ -125,6 +151,8 @@ public class DAO {
 		return cnt;
 	}
 
+	
+	
 	// 회원정보 탈퇴 메소드
 	public int delete(String id, String pw) {
 
@@ -159,7 +187,7 @@ public class DAO {
 			String sql = "SELECT * FROM member";
 
 			psmt = conn.prepareStatement(sql);
-			
+
 			rs = psmt.executeQuery();
 			int num = 1;
 			while (rs.next()) {
@@ -167,21 +195,17 @@ public class DAO {
 				String pw = rs.getString(2);
 				String name = rs.getString(3);
 				String email = rs.getString(4);
-				VO vo = new VO(id, pw, name, email);	//1~4가져와서 vo로 묶음
-				list.add(vo);	//리스트에 vo 담아서
-				
+				VO vo = new VO(id, pw, name, email); // 1~4가져와서 vo로 묶음
+				list.add(vo); // 리스트에 vo 담아서
+
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return list;	//반환해줌
+		return list; // 반환해줌
 	}
 
-	
-	
-	
-	
 }

@@ -18,10 +18,13 @@ import javax.swing.ImageIcon;
 public class myPage {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField txt_id;
+	private JTextField txt_pw;
+	private JTextField txt_newpw;
+	private JTextField txt_newemail;
+	String click = "";
+
+	DAO dao = new DAO();
 
 	/**
 	 * Launch the application.
@@ -56,12 +59,12 @@ public class myPage {
 		frame.setBounds(100, 100, 375, 812);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JLabel lbl_title = new JLabel("\uB178(Know) \uD06C\uB77C\uC784");
 		lbl_title.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+
 				frame.dispose();
 //				crime_main.main(null);
 				crime_main crime = new crime_main();
@@ -70,18 +73,18 @@ public class myPage {
 		lbl_title.setFont(new Font("굴림", Font.PLAIN, 23));
 		lbl_title.setBounds(28, 9, 217, 32);
 		frame.getContentPane().add(lbl_title);
-		
-		JLabel lblNewLabel = new JLabel("\uC54C\uB78C \uC124\uC815");
-		lblNewLabel.setFont(new Font("함초롬돋움", Font.BOLD, 18));
-		lblNewLabel.setBackground(Color.WHITE);
-		lblNewLabel.setBounds(28, 150, 189, 26);
-		frame.getContentPane().add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("\uD68C\uC6D0 \uC815\uBCF4 \uC218\uC815");
-		lblNewLabel_1.setFont(new Font("함초롬돋움", Font.BOLD, 18));
-		lblNewLabel_1.setBounds(28, 358, 217, 42);
-		frame.getContentPane().add(lblNewLabel_1);
-		
+
+		JLabel lbl_setAlarm = new JLabel("\uC54C\uB78C \uC124\uC815");
+		lbl_setAlarm.setFont(new Font("함초롬돋움", Font.BOLD, 18));
+		lbl_setAlarm.setBackground(Color.WHITE);
+		lbl_setAlarm.setBounds(28, 150, 189, 26);
+		frame.getContentPane().add(lbl_setAlarm);
+
+		JLabel lbl_editid = new JLabel("\uD68C\uC6D0 \uC815\uBCF4 \uC218\uC815");
+		lbl_editid.setFont(new Font("함초롬돋움", Font.BOLD, 18));
+		lbl_editid.setBounds(28, 358, 217, 42);
+		frame.getContentPane().add(lbl_editid);
+
 		JLabel lbl_delectid = new JLabel("\uD68C\uC6D0\uD0C8\uD1F4");
 		lbl_delectid.setBackground(Color.WHITE);
 		lbl_delectid.setForeground(Color.BLACK);
@@ -90,130 +93,160 @@ public class myPage {
 		lbl_delectid.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+
 				frame.dispose();
 //				login.main(null);
 				login login = new login();
-				
-				
+
 			}
 		});
 		lbl_delectid.setBounds(28, 617, 217, 32);
 		frame.getContentPane().add(lbl_delectid);
-		
-		JLabel lblNewLabel_2_1 = new JLabel("\uB85C\uADF8\uC544\uC6C3");
-		lblNewLabel_2_1.addMouseListener(new MouseAdapter() {
+
+		JLabel lbl_logout = new JLabel("\uB85C\uADF8\uC544\uC6C3");
+		lbl_logout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+
 				frame.dispose();
 //				login.main(null);
 				login login = new login();
+
+			}
+		});
+		lbl_logout.setBounds(1018, 22, 81, 15);
+		frame.getContentPane().add(lbl_logout);
+
+		JLabel lbl_startalarm = new JLabel("\uC54C\uB78C \uC2DC\uC791\uC2DC\uAC04 \uC124\uC815");
+		lbl_startalarm.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
+		lbl_startalarm.setBounds(29, 216, 178, 15);
+		frame.getContentPane().add(lbl_startalarm);
+
+		JLabel lbl_endalarm = new JLabel("\uC54C\uB78C \uC885\uB8CC\uC2DC\uAC04 \uC124\uC815");
+		lbl_endalarm.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
+		lbl_endalarm.setBounds(29, 255, 178, 15);
+		frame.getContentPane().add(lbl_endalarm);
+
+		JLabel lbl_cnt = new JLabel("\uBC94\uC8C4 \uBC1C\uC0DD \uD69F\uC218 \uC124\uC815");
+		lbl_cnt.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
+		lbl_cnt.setBounds(29, 290, 178, 15);
+		frame.getContentPane().add(lbl_cnt);
+
+		JComboBox combo_startalarm = new JComboBox();
+		combo_startalarm.setBounds(158, 213, 189, 21);
+		frame.getContentPane().add(combo_startalarm);
+
+		JComboBox combo_endalarm = new JComboBox();
+		combo_endalarm.setBounds(158, 252, 189, 21);
+		frame.getContentPane().add(combo_endalarm);
+
+		JComboBox combo_cntalarm = new JComboBox();
+		combo_cntalarm.setBounds(158, 287, 189, 21);
+		frame.getContentPane().add(combo_cntalarm);
+
+		JButton btn_deleteid = new JButton("\uC815\uB9D0 \uD0C8\uD1F4 \uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C ?");
+		btn_deleteid.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				String id = txt_id.getText();
+				String pw = txt_pw.getText();
+
+			}
+		});
+		btn_deleteid.setBounds(28, 675, 318, 32);
+		frame.getContentPane().add(btn_deleteid);
+
+		JLabel lbl_id = new JLabel("\uC544\uC774\uB514");
+		lbl_id.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
+		lbl_id.setBounds(28, 426, 178, 15);
+		frame.getContentPane().add(lbl_id);
+
+		JLabel lbl_pw = new JLabel("\uD604\uC7AC \uBE44\uBC00\uBC88\uD638");
+		lbl_pw.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
+		lbl_pw.setBounds(28, 465, 178, 15);
+		frame.getContentPane().add(lbl_pw);
+
+		txt_id = new JTextField();
+		txt_id.setBounds(158, 423, 189, 21);
+		frame.getContentPane().add(txt_id);
+		txt_id.setColumns(10);
+
+		txt_pw = new JTextField();
+		txt_pw.setColumns(10);
+		txt_pw.setBounds(158, 462, 189, 21);
+		frame.getContentPane().add(txt_pw);
+
+		JButton btn_okalarm = new JButton("\uD655\uC778");
+		btn_okalarm.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
+		btn_okalarm.setBounds(250, 325, 97, 23);
+		frame.getContentPane().add(btn_okalarm);
+
+		JLabel lbl_mypage = new JLabel("My Page");
+		lbl_mypage.setFont(new Font("함초롬돋움", Font.BOLD, 20));
+		lbl_mypage.setBounds(65, 64, 98, 60);
+		frame.getContentPane().add(lbl_mypage);
+
+		JLabel lbl_iconmypage = new JLabel("");
+		lbl_iconmypage.setIcon(new ImageIcon(
+				"C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\information_info_1565 (1).png"));
+		lbl_iconmypage.setBounds(27, 74, 26, 42);
+		frame.getContentPane().add(lbl_iconmypage);
+
+		JLabel lbl_newpw = new JLabel("\uBE44\uBC00\uBC88\uD638 \uC218\uC815");
+		lbl_newpw.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
+		lbl_newpw.setBounds(28, 500, 178, 15);
+		frame.getContentPane().add(lbl_newpw);
+
+		JLabel lbl_newemail = new JLabel("\uC774\uBA54\uC77C \uC218\uC815");
+		lbl_newemail.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
+		lbl_newemail.setBounds(28, 536, 178, 15);
+		frame.getContentPane().add(lbl_newemail);
+
+		txt_newpw = new JTextField();
+		txt_newpw.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				click += "password"; 				//dao불러서 update실행할때 click이라는 변수도 마지막에 같이 보내주기 dao.update(id,pw,newpw or newemail, click)
+			}
+		});
+		txt_newpw.setColumns(10);
+		txt_newpw.setBounds(158, 497, 189, 21);
+		frame.getContentPane().add(txt_newpw);
+
+		txt_newemail = new JTextField();
+		txt_newemail.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				click += "email";
+			}
+		});
+		txt_newemail.setColumns(10);
+		txt_newemail.setBounds(158, 533, 189, 21);
+		frame.getContentPane().add(txt_newemail);
+
+		JButton btn_okedit = new JButton("\uD655\uC778");
+		btn_okedit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				String id = txt_id.getText();
+				String pw = txt_pw.getText();
+				String newPw = txt_newpw.getText();
+				String newEmail = txt_newemail.getText();
+				//1. 수정용 vo를 만든다 (updateVO)
+				//2. DAO update문을 수정한다! 매개변수를 vo만 받게!
+				//3. vo.getId()
+				
+				
+//				VO vo = new VO(id, pw, newPw, newEmail);
+//				int cnt = dao.update(vo, click);
+//				if()
+				
+				
 				
 			}
 		});
-		lblNewLabel_2_1.setBounds(1018, 22, 81, 15);
-		frame.getContentPane().add(lblNewLabel_2_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("\uC54C\uB78C \uC2DC\uC791\uC2DC\uAC04 \uC124\uC815");
-		lblNewLabel_2.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
-		lblNewLabel_2.setBounds(29, 216, 178, 15);
-		frame.getContentPane().add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_2_2 = new JLabel("\uC54C\uB78C \uC885\uB8CC\uC2DC\uAC04 \uC124\uC815");
-		lblNewLabel_2_2.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
-		lblNewLabel_2_2.setBounds(29, 255, 178, 15);
-		frame.getContentPane().add(lblNewLabel_2_2);
-		
-		JLabel lblNewLabel_2_2_1 = new JLabel("\uBC94\uC8C4 \uBC1C\uC0DD \uD69F\uC218 \uC124\uC815");
-		lblNewLabel_2_2_1.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
-		lblNewLabel_2_2_1.setBounds(29, 290, 178, 15);
-		frame.getContentPane().add(lblNewLabel_2_2_1);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(158, 213, 189, 21);
-		frame.getContentPane().add(comboBox);
-		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(158, 252, 189, 21);
-		frame.getContentPane().add(comboBox_1);
-		
-		JComboBox comboBox_1_1 = new JComboBox();
-		comboBox_1_1.setBounds(158, 287, 189, 21);
-		frame.getContentPane().add(comboBox_1_1);
-		
-		JButton btnNewButton = new JButton("\uC815\uB9D0 \uD0C8\uD1F4 \uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C ?");
-		btnNewButton.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		btnNewButton.setForeground(Color.RED);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBounds(28, 675, 318, 32);
-		frame.getContentPane().add(btnNewButton);
-		
-		JLabel lblNewLabel_2_3 = new JLabel("\uC544\uC774\uB514");
-		lblNewLabel_2_3.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
-		lblNewLabel_2_3.setBounds(28, 426, 178, 15);
-		frame.getContentPane().add(lblNewLabel_2_3);
-		
-		JLabel lblNewLabel_2_3_1 = new JLabel("\uD604\uC7AC \uBE44\uBC00\uBC88\uD638");
-		lblNewLabel_2_3_1.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
-		lblNewLabel_2_3_1.setBounds(28, 465, 178, 15);
-		frame.getContentPane().add(lblNewLabel_2_3_1);
-		
-		textField = new JTextField();
-		textField.setBounds(158, 423, 189, 21);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(158, 462, 189, 21);
-		frame.getContentPane().add(textField_1);
-		
-		JButton btnNewButton_1 = new JButton("\uD655\uC778");
-		btnNewButton_1.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(250, 325, 97, 23);
-		frame.getContentPane().add(btnNewButton_1);
-		
-		JButton btnNewButton_1_1 = new JButton("\uD655\uC778");
-		btnNewButton_1_1.setBounds(365, 496, 97, 23);
-		frame.getContentPane().add(btnNewButton_1_1);
-		
-		JLabel lblNewLabel_3 = new JLabel("My Page");
-		lblNewLabel_3.setFont(new Font("함초롬돋움", Font.BOLD, 20));
-		lblNewLabel_3.setBounds(65, 64, 98, 60);
-		frame.getContentPane().add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\information_info_1565 (1).png"));
-		lblNewLabel_4.setBounds(27, 74, 26, 42);
-		frame.getContentPane().add(lblNewLabel_4);
-		
-		JLabel lblNewLabel_2_3_1_1 = new JLabel("\uBE44\uBC00\uBC88\uD638 \uC218\uC815");
-		lblNewLabel_2_3_1_1.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
-		lblNewLabel_2_3_1_1.setBounds(28, 500, 178, 15);
-		frame.getContentPane().add(lblNewLabel_2_3_1_1);
-		
-		JLabel lblNewLabel_2_3_1_1_1 = new JLabel("\uC774\uBA54\uC77C \uC218\uC815");
-		lblNewLabel_2_3_1_1_1.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
-		lblNewLabel_2_3_1_1_1.setBounds(28, 536, 178, 15);
-		frame.getContentPane().add(lblNewLabel_2_3_1_1_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(158, 497, 189, 21);
-		frame.getContentPane().add(textField_2);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(158, 533, 189, 21);
-		frame.getContentPane().add(textField_3);
-		
-		JButton btnNewButton_1_2 = new JButton("\uD655\uC778");
-		btnNewButton_1_2.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
-		btnNewButton_1_2.setBounds(250, 574, 97, 23);
-		frame.getContentPane().add(btnNewButton_1_2);
+		btn_okedit.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
+		btn_okedit.setBounds(250, 574, 97, 23);
+		frame.getContentPane().add(btn_okedit);
 	}
 }
