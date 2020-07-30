@@ -150,8 +150,8 @@ public class login {
 				login login = new login();
 			}
 		});
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\KakaoTalk_20200729_190949189.jpg"));
-		lblNewLabel_1.setBounds(66, 28, 223, 208);
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT031\\Desktop\\KakaoTalk_20200729_190949189.jpg"));
+		lblNewLabel_1.setBounds(65, 28, 223, 208);
 		frame.getContentPane().add(lblNewLabel_1);
 	}
 }
