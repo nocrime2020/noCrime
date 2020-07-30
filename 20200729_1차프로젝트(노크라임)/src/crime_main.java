@@ -189,11 +189,6 @@ public class crime_main {
 		txt_period.setBounds(113, 223, 226, 21);
 		panel.add(txt_period);
 		
-		JLabel lbl_reset = new JLabel("");
-		lbl_reset.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\small.png"));
-		lbl_reset.setBounds(313, 184, 25, 29);
-		panel.add(lbl_reset);
-		
 		JLabel lbl_crimeinfo = new JLabel("\uBC94\uC8C4 \uC815\uBCF4 \uC870\uD68C");
 		lbl_crimeinfo.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_crimeinfo.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 24));
@@ -221,10 +216,27 @@ public class crime_main {
 		frame.getContentPane().add(lbl_tipoff);
 		
 		JButton btn_search = new JButton("SEARCH");
+		btn_search.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel.setBounds(0, 106, 1, 1);
+			}
+		});
 		btn_search.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 12));
 		btn_search.setBackground(new Color(204, 204, 255));
 		btn_search.setBounds(12, 435, 324, 23);
 		panel.add(btn_search);
+		
+		JLabel lbl_reset = new JLabel("");
+		lbl_reset.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel.setBounds(0, 110, 359, 663);
+			}
+		});
+		lbl_reset.setBounds(12, 79, 25, 29);
+		frame.getContentPane().add(lbl_reset);
+		lbl_reset.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\small.png"));
 		
 	}
 }
