@@ -80,7 +80,7 @@ public class DAO {
 	}
 
 	// 회원가입 메소드
-	public int insert(String id, String pw, String name, String email) {
+	public int insert(VO vo) {
 		int cnt = 0;
 		try {
 			getConnection();
@@ -88,11 +88,13 @@ public class DAO {
 
 			psmt = conn.prepareStatement(sql);
 
-			psmt.setString(1, id);
-			psmt.setString(2, pw);
-			psmt.setString(3, name);
-			psmt.setString(4, email);
-
+			psmt.setString(1, vo.getId());
+			psmt.setString(2, vo.getPw());
+			psmt.setString(3, vo.getName());
+			psmt.setString(4, vo.getEmail());
+			
+			
+			
 			cnt = psmt.executeUpdate();
 
 		} catch (SQLException e) {

@@ -26,7 +26,7 @@ public class login {
 	private JTextField txt_name;
 	private JTextField txt_newid;
 	private JTextField txt_newpw;
-	private JTextField txt_newemail;
+	private JTextField txt_email;
 	private JButton btn_signup;
 	private JLabel lbl_title;
 
@@ -147,12 +147,42 @@ public class login {
 		txt_newpw.setColumns(10);
 		frame.getContentPane().add(txt_newpw);
 		
-		txt_newemail = new JTextField();
-		txt_newemail.setBounds(661, 326, 155, 21);
-		txt_newemail.setColumns(10);
-		frame.getContentPane().add(txt_newemail);
+		txt_email = new JTextField();
+		txt_email.setBounds(661, 326, 155, 21);
+		txt_email.setColumns(10);
+		frame.getContentPane().add(txt_email);
 		
 		btn_signup = new JButton("\uAC00\uC785\uD558\uAE30");
+		btn_signup.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				//textField에 있는 값들을 가지고 와주세요.
+				String id = txt_newid.getText();
+				String pw = txt_newpw.getText();
+				String name = txt_name.getText();
+				String email = txt_email.getText();
+				
+				//매개변수를 VO로 바꿔줘보세요!
+				VO vo = new VO(id, pw, name, email);
+				int cnt = dao.insert(vo);
+				if(cnt > 0) {
+					//팝업창을 띄워보아요!
+					//부모컴포넌트, 메세지, 제목, 아이콘모양
+					JOptionPane.showMessageDialog(null, "회원가입 완료. 로그인 하세요.", "회원가입", JOptionPane.INFORMATION_MESSAGE);
+					txt_newid.setText("");
+					txt_newpw.setText("");
+					txt_name.setText("");
+					txt_email.setText("");
+				} else {
+					//회원가입 실패했을 때 팝업창 띄우기!
+					JOptionPane.showMessageDialog(null, "사용할 수 없는 아이디 또는 이메일입니다.", "회원가입", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				
+				
+			}
+		});
 		btn_signup.setBounds(580, 376, 97, 23);
 		frame.getContentPane().add(btn_signup);
 		
