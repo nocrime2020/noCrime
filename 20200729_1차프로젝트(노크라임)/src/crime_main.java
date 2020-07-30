@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 
 public class crime_main {
 
@@ -162,5 +163,10 @@ public class crime_main {
 		JCheckBox chckbxNewCheckBox_2_2_1 = new JCheckBox("\uC545\uCDE8\uC720\uC778");
 		chckbxNewCheckBox_2_2_1.setBounds(486, 148, 89, 23);
 		frame.getContentPane().add(chckbxNewCheckBox_2_2_1);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\reset.png"));
+		lblNewLabel_4.setBounds(72, 236, 853,418);
+		frame.getContentPane().add(lblNewLabel_4);
 	}
 }
