@@ -69,17 +69,17 @@ public class tipoff {
 		frame.getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("\uBC94\uC8C4 \uC885\uB958");
-		lblNewLabel_1.setFont(new Font("함초롬돋움", Font.BOLD, 18));
-		lblNewLabel_1.setBounds(12, 318, 97, 29);
+		lblNewLabel_1.setFont(new Font("함초롬돋움", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(12, 317, 97, 29);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("\uBC94\uC8C4 \uBC1C\uC0DD\uC77C");
-		lblNewLabel_1_1.setFont(new Font("함초롬돋움", Font.BOLD, 18));
+		lblNewLabel_1_1.setFont(new Font("함초롬돋움", Font.BOLD, 15));
 		lblNewLabel_1_1.setBounds(12, 257, 97, 28);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("\uBC94\uC8C4 \uC7A5\uC18C");
-		lblNewLabel_1_2.setFont(new Font("함초롬돋움", Font.BOLD, 18));
+		lblNewLabel_1_2.setFont(new Font("함초롬돋움", Font.BOLD, 15));
 		lblNewLabel_1_2.setBounds(12, 151, 97, 28);
 		frame.getContentPane().add(lblNewLabel_1_2);
 		
@@ -113,8 +113,8 @@ public class tipoff {
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("\uC99D\uAC70 \uC790\uB8CC");
-		lblNewLabel_1_1_1.setFont(new Font("함초롬돋움", Font.BOLD, 18));
-		lblNewLabel_1_1_1.setBounds(15, 500, 97, 43);
+		lblNewLabel_1_1_1.setFont(new Font("함초롬돋움", Font.BOLD, 15));
+		lblNewLabel_1_1_1.setBounds(12, 512, 97, 43);
 		frame.getContentPane().add(lblNewLabel_1_1_1);
 		
 		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("\uC0C1\uD574\uD3ED\uD589");
@@ -169,11 +169,11 @@ public class tipoff {
 		comboBox_4.setBounds(110, 216, 151, 19);
 		frame.getContentPane().add(comboBox_4);
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\\uC791\uC740\uB85C\uACE0.png"));
-		lblNewLabel_3.setBounds(12, 10, 89, 49);
-		frame.getContentPane().add(lblNewLabel_3);
+		JLabel lblNewLabel_노크라임아이콘 = new JLabel("New label");
+		lblNewLabel_노크라임아이콘.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_노크라임아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\\uC791\uC740\uB85C\uACE0.png"));
+		lblNewLabel_노크라임아이콘.setBounds(12, 10, 89, 49);
+		frame.getContentPane().add(lblNewLabel_노크라임아이콘);
 		
 		JCheckBox chckbxNewCheckBox_2_2_2 = new JCheckBox("\uC0B4\uC778");
 		chckbxNewCheckBox_2_2_2.setBackground(new Color(230, 230, 250));
@@ -181,39 +181,39 @@ public class tipoff {
 		chckbxNewCheckBox_2_2_2.setBounds(193, 457, 49, 23);
 		frame.getContentPane().add(chckbxNewCheckBox_2_2_2);
 		
-		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\small.png"));
-		lblNewLabel_4.setBounds(299, 216, 25, 29);
-		frame.getContentPane().add(lblNewLabel_4);
+		JLabel lblNewLabel_초기화아이콘 = new JLabel("");
+		lblNewLabel_초기화아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\small.png"));
+		lblNewLabel_초기화아이콘.setBounds(287, 206, 25, 29);
+		frame.getContentPane().add(lblNewLabel_초기화아이콘);
 		
-		JLabel lblNewLabel_4_1 = new JLabel("");
-		lblNewLabel_4_1.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uAC15\uCD942.png"));
-		lblNewLabel_4_1.setBounds(110, 410, 25, 23);
-		frame.getContentPane().add(lblNewLabel_4_1);
+		JLabel lblNewLabel_강추아이콘 = new JLabel("");
+		lblNewLabel_강추아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uAC15\uCD942.png"));
+		lblNewLabel_강추아이콘.setBounds(110, 410, 25, 23);
+		frame.getContentPane().add(lblNewLabel_강추아이콘);
 		
-		JLabel lblNewLabel_4_1_1 = new JLabel("");
-		lblNewLabel_4_1_1.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uB0A9\uCE58.png"));
-		lblNewLabel_4_1_1.setBounds(96, 367, 25, 23);
-		frame.getContentPane().add(lblNewLabel_4_1_1);
+		JLabel lblNewLabel_납치아이콘 = new JLabel("");
+		lblNewLabel_납치아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uB0A9\uCE58.png"));
+		lblNewLabel_납치아이콘.setBounds(96, 367, 25, 23);
+		frame.getContentPane().add(lblNewLabel_납치아이콘);
 		
-		JLabel lblNewLabel_4_1_1_1 = new JLabel("");
-		lblNewLabel_4_1_1_1.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uD3ED\uC0C1.png"));
-		lblNewLabel_4_1_1_1.setBounds(110, 457, 25, 29);
-		frame.getContentPane().add(lblNewLabel_4_1_1_1);
+		JLabel lblNewLabel_상폭아이콘 = new JLabel("");
+		lblNewLabel_상폭아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uD3ED\uC0C1.png"));
+		lblNewLabel_상폭아이콘.setBounds(110, 457, 25, 29);
+		frame.getContentPane().add(lblNewLabel_상폭아이콘);
 		
-		JLabel lblNewLabel_4_1_1_2 = new JLabel("");
-		lblNewLabel_4_1_1_2.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC808\uAC15.png"));
-		lblNewLabel_4_1_1_2.setBounds(282, 410, 25, 23);
-		frame.getContentPane().add(lblNewLabel_4_1_1_2);
+		JLabel lblNewLabel_절강아이콘 = new JLabel("");
+		lblNewLabel_절강아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC808\uAC15.png"));
+		lblNewLabel_절강아이콘.setBounds(282, 410, 25, 23);
+		frame.getContentPane().add(lblNewLabel_절강아이콘);
 		
-		JLabel lblNewLabel_4_1_1_2_1 = new JLabel("");
-		lblNewLabel_4_1_1_2_1.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC0B42.png"));
-		lblNewLabel_4_1_1_2_1.setBounds(250, 457, 44, 29);
-		frame.getContentPane().add(lblNewLabel_4_1_1_2_1);
+		JLabel lblNewLabel_살인아이콘 = new JLabel("");
+		lblNewLabel_살인아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC0B42.png"));
+		lblNewLabel_살인아이콘.setBounds(250, 457, 44, 29);
+		frame.getContentPane().add(lblNewLabel_살인아이콘);
 		
-		JLabel lblNewLabel_4_1_1_2_2 = new JLabel("");
-		lblNewLabel_4_1_1_2_2.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC545\uC720.png"));
-		lblNewLabel_4_1_1_2_2.setBounds(282, 371, 25, 23);
-		frame.getContentPane().add(lblNewLabel_4_1_1_2_2);
+		JLabel lblNewLabel_악유아이콘 = new JLabel("");
+		lblNewLabel_악유아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC545\uC720.png"));
+		lblNewLabel_악유아이콘.setBounds(282, 371, 25, 23);
+		frame.getContentPane().add(lblNewLabel_악유아이콘);
 	}
 }
