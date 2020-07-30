@@ -47,9 +47,7 @@ public class DAO {
 
 	// Database Access Object
 	//로그인
-	public VO login(String id, String pw) {
-//		String result = "";
-		VO vo = null;
+	public VO login(VO vo) {
 		
 		try {
 			getConnection();
@@ -57,15 +55,18 @@ public class DAO {
 			String sql = "select pw from member where id = ?";
 
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
-//			psmt.setNString(2, pw);
+			psmt.setString(1, vo.getId());
+//			psmt.setString(2, vo.getPw());
 			rs = psmt.executeQuery();
 			
 			if(rs.next()){
-				String dbpw = rs.getString("pw");
-				if(dbpw.equals(pw)) {
-					vo = new VO(id, pw); //인증성공
-				} 
+				String dbpw = rs.getString(1);
+				if(dbpw.equals(vo.getPw())) {
+				}else{
+					vo = null; //잘못된 비번
+				}
+			}else {	//미등록 아이디
+				vo = null;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
