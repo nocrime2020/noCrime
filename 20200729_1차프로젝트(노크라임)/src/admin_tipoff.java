@@ -1,15 +1,20 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JTable;
+import javax.swing.JButton;
 
 public class admin_tipoff {
 
 	private JFrame frame;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -40,11 +45,13 @@ public class admin_tipoff {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 1127, 777);
+		frame.setBounds(100, 100, 375, 812);
+		frame.getContentPane().setBackground(new Color(230, 230, 250));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lbl_title = new JLabel("\uB178(Know) \uD06C\uB77C\uC784");
+		JLabel lbl_title = new JLabel("");
+		lbl_title.setIcon(new ImageIcon("C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\\uC791\uC740 \uD22C\uBA85.png"));
 		lbl_title.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -57,19 +64,12 @@ public class admin_tipoff {
 			}
 		});
 		lbl_title.setFont(new Font("±º∏≤", Font.PLAIN, 23));
-		lbl_title.setBounds(12, 10, 174, 39);
+		lbl_title.setBounds(12, 10, 103, 56);
 		frame.getContentPane().add(lbl_title);
 		
-		JLabel lblNewLabel = new JLabel("\uBC94\uC8C4 \uC81C\uBCF4 \uAD00\uB9AC ");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(300, 50, 474, 39);
-		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_3 = new JLabel("\uAD00\uB9AC\uC790\uB2D8 \uC548\uB155\uD558\uC138\uC694!");
-		lblNewLabel_3.setBounds(960, 26, 128, 15);
-		frame.getContentPane().add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_2_1 = new JLabel("\uB85C\uADF8\uC544\uC6C3");
+		JLabel lblNewLabel_2_1 = new JLabel("");
+		lblNewLabel_2_1.setIcon(new ImageIcon("C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\off_logout_17916.png"));
 		lblNewLabel_2_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -77,10 +77,25 @@ public class admin_tipoff {
 				frame.dispose();
 //				login.main(null);
 				login login = new login();
+				
 			}
 		});
-		lblNewLabel_2_1.setBounds(1030, 50, 81, 15);
+		lblNewLabel_2_1.setBounds(307, 10, 40, 29);
 		frame.getContentPane().add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_5 = new JLabel("\uC81C\uBCF4 \uAD00\uB9AC");
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 24));
+		lblNewLabel_5.setBounds(90, 76, 180, 60);
+		frame.getContentPane().add(lblNewLabel_5);
+		
+		table = new JTable();
+		table.setBounds(36, 169, 287, 493);
+		frame.getContentPane().add(table);
+		
+		JButton btnNewButton = new JButton("\uC804\uC1A1 \uD558\uAE30");
+		btnNewButton.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 14));
+		btnNewButton.setBounds(36, 682, 287, 43);
+		frame.getContentPane().add(btnNewButton);
 	}
-
 }

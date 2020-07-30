@@ -6,6 +6,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Color;
 
 public class admin_member {
 
@@ -40,14 +41,10 @@ public class admin_member {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 1127, 777);
+		frame.getContentPane().setBackground(new Color(230, 230, 250));
+		frame.setBounds(100, 100, 375, 812);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("\uD68C\uC6D0\uAD00\uB9AC");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(300, 50, 474, 39);
-		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lbl_title = new JLabel("\uB178(Know) \uD06C\uB77C\uC784");
 		lbl_title.addMouseListener(new MouseAdapter() {
@@ -61,12 +58,8 @@ public class admin_member {
 			}
 		});
 		lbl_title.setFont(new Font("±º∏≤", Font.PLAIN, 23));
-		lbl_title.setBounds(12, 10, 174, 39);
+		lbl_title.setBounds(12, 10, 194, 27);
 		frame.getContentPane().add(lbl_title);
-		
-		JLabel lblNewLabel_3 = new JLabel("\uAD00\uB9AC\uC790\uB2D8 \uC548\uB155\uD558\uC138\uC694!");
-		lblNewLabel_3.setBounds(970, 26, 129, 15);
-		frame.getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("\uB85C\uADF8\uC544\uC6C3");
 		lblNewLabel_2_1.addMouseListener(new MouseAdapter() {
@@ -78,8 +71,13 @@ public class admin_member {
 				login login = new login();
 			}
 		});
-		lblNewLabel_2_1.setBounds(1030, 51, 81, 15);
+		lblNewLabel_2_1.setBounds(278, 10, 81, 15);
 		frame.getContentPane().add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_3 = new JLabel("\uD68C\uC6D0 \uAD00\uB9AC");
+		lblNewLabel_3.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 24));
+		lblNewLabel_3.setBounds(50, 59, 180, 60);
+		frame.getContentPane().add(lblNewLabel_3);
 	}
 
 }
