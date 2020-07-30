@@ -20,6 +20,8 @@ public class myPage {
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
 
 	/**
 	 * Launch the application.
@@ -96,7 +98,7 @@ public class myPage {
 				
 			}
 		});
-		lbl_delectid.setBounds(28, 550, 217, 32);
+		lbl_delectid.setBounds(28, 617, 217, 32);
 		frame.getContentPane().add(lbl_delectid);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("\uB85C\uADF8\uC544\uC6C3");
@@ -147,15 +149,15 @@ public class myPage {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(28, 608, 318, 32);
+		btnNewButton.setBounds(28, 675, 318, 32);
 		frame.getContentPane().add(btnNewButton);
 		
-		JLabel lblNewLabel_2_3 = new JLabel("\uC774\uBA54\uC77C");
+		JLabel lblNewLabel_2_3 = new JLabel("\uC544\uC774\uB514");
 		lblNewLabel_2_3.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.PLAIN, 12));
 		lblNewLabel_2_3.setBounds(28, 426, 178, 15);
 		frame.getContentPane().add(lblNewLabel_2_3);
 		
-		JLabel lblNewLabel_2_3_1 = new JLabel("\uBE44\uBC00\uBC88\uD638");
+		JLabel lblNewLabel_2_3_1 = new JLabel("\uD604\uC7AC \uBE44\uBC00\uBC88\uD638");
 		lblNewLabel_2_3_1.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.PLAIN, 12));
 		lblNewLabel_2_3_1.setBounds(28, 465, 178, 15);
 		frame.getContentPane().add(lblNewLabel_2_3_1);
@@ -172,7 +174,7 @@ public class myPage {
 		
 		JButton btnNewButton_1 = new JButton("\uD655\uC778");
 		btnNewButton_1.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(250, 318, 97, 23);
+		btnNewButton_1.setBounds(250, 325, 97, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("\uD655\uC778");
@@ -181,12 +183,37 @@ public class myPage {
 		
 		JLabel lblNewLabel_3 = new JLabel("My Page");
 		lblNewLabel_3.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 20));
-		lblNewLabel_3.setBounds(66, 64, 97, 60);
+		lblNewLabel_3.setBounds(65, 64, 98, 60);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\information_info_1565 (1).png"));
 		lblNewLabel_4.setBounds(27, 74, 26, 42);
 		frame.getContentPane().add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_2_3_1_1 = new JLabel("\uBE44\uBC00\uBC88\uD638 \uC218\uC815");
+		lblNewLabel_2_3_1_1.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.PLAIN, 12));
+		lblNewLabel_2_3_1_1.setBounds(28, 500, 178, 15);
+		frame.getContentPane().add(lblNewLabel_2_3_1_1);
+		
+		JLabel lblNewLabel_2_3_1_1_1 = new JLabel("\uC774\uBA54\uC77C \uC218\uC815");
+		lblNewLabel_2_3_1_1_1.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.PLAIN, 12));
+		lblNewLabel_2_3_1_1_1.setBounds(28, 536, 178, 15);
+		frame.getContentPane().add(lblNewLabel_2_3_1_1_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(158, 497, 189, 21);
+		frame.getContentPane().add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(158, 533, 189, 21);
+		frame.getContentPane().add(textField_3);
+		
+		JButton btnNewButton_1_2 = new JButton("\uD655\uC778");
+		btnNewButton_1_2.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.PLAIN, 12));
+		btnNewButton_1_2.setBounds(250, 574, 97, 23);
+		frame.getContentPane().add(btnNewButton_1_2);
 	}
 }
