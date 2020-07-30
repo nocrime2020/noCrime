@@ -62,14 +62,11 @@ public class DAO {
 			if(rs.next()){
 				String dbpw = rs.getString(1);
 				if(dbpw.equals(vo.getPw())) {
-					System.out.println("성공");
 				}else{
 					vo = null; //잘못된 비번
-					System.out.println("잘못된비번");
 				}
 			}else {	//미등록 아이디
 				vo = null;
-				System.out.println("잘못된아이디");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
