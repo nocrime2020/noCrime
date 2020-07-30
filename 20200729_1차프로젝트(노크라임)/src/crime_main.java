@@ -83,9 +83,9 @@ public class crime_main {
 		lblNewLabel_강추아이콘.setBounds(113, 459, 25, 23);
 		frame.getContentPane().add(lblNewLabel_강추아이콘);
 		
-		JLabel lblNewLabel_2 = new JLabel("MY PAGE");
-		lblNewLabel_2.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		lblNewLabel_2.addMouseListener(new MouseAdapter() {
+		JLabel lbl_mypage = new JLabel("MY PAGE");
+		lbl_mypage.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		lbl_mypage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
@@ -94,8 +94,8 @@ public class crime_main {
 				myPage myPage = new myPage(vo);
 			}
 		});
-		lblNewLabel_2.setBounds(257, 38, 81, 15);
-		frame.getContentPane().add(lblNewLabel_2);
+		lbl_mypage.setBounds(257, 38, 81, 15);
+		frame.getContentPane().add(lbl_mypage);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("SIGN OUT");
 		lblNewLabel_2_1.setFont(new Font("함초롬돋움", Font.BOLD, 12));

@@ -88,12 +88,12 @@ public class myPage {
 		lbl_editid.setBounds(28, 358, 217, 42);
 		frame.getContentPane().add(lbl_editid);
 
-		JLabel lbl_delectid = new JLabel("\uD68C\uC6D0 \uD0C8\uD1F4");
-		lbl_delectid.setBackground(Color.WHITE);
-		lbl_delectid.setForeground(Color.BLACK);
-		lbl_delectid.setHorizontalAlignment(SwingConstants.LEFT);
-		lbl_delectid.setFont(new Font("함초롬돋움", Font.BOLD, 18));
-		lbl_delectid.addMouseListener(new MouseAdapter() {
+		JLabel lbl_deleteid = new JLabel("\uD68C\uC6D0 \uD0C8\uD1F4");
+		lbl_deleteid.setBackground(Color.WHITE);
+		lbl_deleteid.setForeground(Color.BLACK);
+		lbl_deleteid.setHorizontalAlignment(SwingConstants.LEFT);
+		lbl_deleteid.setFont(new Font("함초롬돋움", Font.BOLD, 18));
+		lbl_deleteid.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
@@ -103,8 +103,8 @@ public class myPage {
 
 			}
 		});
-		lbl_delectid.setBounds(28, 617, 217, 32);
-		frame.getContentPane().add(lbl_delectid);
+		lbl_deleteid.setBounds(28, 617, 217, 32);
+		frame.getContentPane().add(lbl_deleteid);
 
 		JLabel lbl_logout = new JLabel("\uB85C\uADF8\uC544\uC6C3");
 		lbl_logout.addMouseListener(new MouseAdapter() {
@@ -117,7 +117,7 @@ public class myPage {
 
 			}
 		});
-		lbl_logout.setBounds(1018, 22, 81, 15);
+		lbl_logout.setBounds(294, 9, 81, 15);
 		frame.getContentPane().add(lbl_logout);
 
 		JLabel lbl_startalarm = new JLabel("\uC54C\uB78C \uC2DC\uC791\uC2DC\uAC04 \uC124\uC815");
@@ -157,6 +157,8 @@ public class myPage {
 				if (result == JOptionPane.YES_OPTION) {
 					//사용자가 탈퇴를 원하는 경우
 					dao.delete(vo);
+					frame.dispose();
+					login login = new login();
 					
 					
 				} else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {

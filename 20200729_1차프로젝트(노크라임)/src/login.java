@@ -29,11 +29,9 @@ public class login {
 	private JTextField txt_newid;
 	private JTextField txt_newpw;
 	private JTextField txt_email;
-	private JButton btn_signup;
 	private JLabel lbl_title;
 
 	DAO dao = new DAO();
-	private JButton btn_signup_2;
 	
 	/**
 	 * Launch the application.
@@ -80,17 +78,17 @@ public class login {
 		frame.getContentPane().add(lbl_pw);
 		
 		txt_id = new JTextField();
-		txt_id.setBounds(146, 234, 155, 21);
+		txt_id.setBounds(146, 191, 155, 21);
 		frame.getContentPane().add(txt_id);
 		txt_id.setColumns(10);
 		
 		txt_pw = new JTextField();
-		txt_pw.setBounds(146, 191, 155, 21);
+		txt_pw.setBounds(146, 234, 155, 21);
 		txt_pw.setColumns(10);
 		frame.getContentPane().add(txt_pw);
 		
 		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
-		btn_login.setBounds(990, 52, 97, 23);
+		btn_login.setBounds(129, 295, 97, 23);
 		btn_login.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -162,18 +160,24 @@ public class login {
 		txt_email.setColumns(10);
 		frame.getContentPane().add(txt_email);
 		
-		btn_signup = new JButton("SIGN IN");
-		btn_signup.setBounds(65, 304, 97, 23);
-		btn_signup.setBackground(new Color(204, 204, 255));
-		btn_signup.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btn_signup.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
-		btn_signup.addMouseListener(new MouseAdapter() {
+		lbl_title = new JLabel("");
+		lbl_title.setBounds(39, -16, 282, 212);
+		lbl_title.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_title.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				frame.dispose();
+//				login.main(null);
+				login login = new login();
+			}
+		});
+		lbl_title.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\knowcrimelogo.png"));
+		frame.getContentPane().add(lbl_title);
+		
+		JButton btn_signup = new JButton("SIGN UP");
+		btn_signup.setBounds(65, 640, 236, 23);
+		btn_signup.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				//textField에 있는 값들을 가지고 와주세요.
 				String id = txt_newid.getText();
 				String pw = txt_newpw.getText();
@@ -196,40 +200,10 @@ public class login {
 					JOptionPane.showMessageDialog(null, "사용할 수 없는 아이디 또는 이메일입니다.", "회원가입", JOptionPane.ERROR_MESSAGE);
 				}
 				
-				
-				
 			}
 		});
+		btn_signup.setBackground(new Color(204, 204, 255));
+		btn_signup.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
 		frame.getContentPane().add(btn_signup);
-		
-		lbl_title = new JLabel("");
-		lbl_title.setBounds(39, -16, 282, 212);
-		lbl_title.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_title.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				frame.dispose();
-//				login.main(null);
-				login login = new login();
-			}
-		});
-		lbl_title.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\knowcrimelogo.png"));
-		frame.getContentPane().add(lbl_title);
-		
-		JButton btn_signup_1 = new JButton("SIGN UP");
-		btn_signup_1.setBounds(65, 640, 236, 23);
-		btn_signup_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn_signup_1.setBackground(new Color(204, 204, 255));
-		btn_signup_1.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
-		frame.getContentPane().add(btn_signup_1);
-		
-		btn_signup_2 = new JButton("SIGN UP");
-		btn_signup_2.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
-		btn_signup_2.setBackground(new Color(204, 204, 255));
-		btn_signup_2.setBounds(204, 304, 97, 23);
-		frame.getContentPane().add(btn_signup_2);
 	}
 }
