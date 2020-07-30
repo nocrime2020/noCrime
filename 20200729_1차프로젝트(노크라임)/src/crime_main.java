@@ -230,7 +230,7 @@ public class crime_main {
 		JLabel lbl_reset = new JLabel("");
 		lbl_reset.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent e) { 
 				panel.setBounds(0, 110, 359, 663);
 			}
 		});

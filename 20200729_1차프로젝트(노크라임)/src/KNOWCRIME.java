@@ -3,10 +3,10 @@ public class KNOWCRIME {
 
 	public static void main(String[] args) {
 //		
-//		login login = new login();
+		login login = new login();
 //		
 //
-		crime_main crime = new crime_main(new VO("",""));
+//		crime_main crime = new crime_main(new VO("",""));
 //		
 //		myPage myPage = new myPage();
 //		

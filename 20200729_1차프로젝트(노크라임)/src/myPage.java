@@ -270,8 +270,7 @@ public class myPage {
 					} else {
 						JOptionPane.showMessageDialog(null, "정보 수정 실패", "회원 정보 수정", JOptionPane.ERROR_MESSAGE);
 					}
-				} else if (click.equals("passwordemail")) {
-					System.out.println("들어옴?");
+				} else {
 					updateVO updatevo = new updateVO(id, pw, newPw, newEmail, click);
 					int cnt = dao.update(updatevo);
 					if (cnt > 0) {

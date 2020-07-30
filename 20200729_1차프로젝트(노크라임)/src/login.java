@@ -163,7 +163,7 @@ public class login {
 				if(cnt > 0) {
 					//팝업창을 띄워보아요!
 					//부모컴포넌트, 메세지, 제목, 아이콘모양
-					JOptionPane.showMessageDialog(null, "회원가입 완료. 로그인 하세요.", "회원가입", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "회원가입 완료.\n로그인 하세요.", "회원가입", JOptionPane.INFORMATION_MESSAGE);
 					txt_newid.setText("");
 					txt_newpw.setText("");
 					txt_name.setText("");
@@ -179,11 +179,36 @@ public class login {
 		btn_signup.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
 		frame.getContentPane().add(btn_signup);
 		
-		JButton btn_signup_1 = new JButton("SIGN IN");
-		btn_signup_1.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
-		btn_signup_1.setBackground(new Color(204, 204, 255));
-		btn_signup_1.setBounds(65, 340, 236, 23);
-		frame.getContentPane().add(btn_signup_1);
+		JButton btn_login = new JButton("SIGN IN");
+		btn_login.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				String id = txt_id.getText();
+				String pw = txt_pw.getText();
+
+				VO vo = new VO(id, pw);
+				VO result = dao.login(vo);
+
+				if(result != null) {
+					if (vo.getId().equals("admin")) {	//관리자는 관리자페이지
+						frame.dispose();
+						admin_select asel = new admin_select(vo);
+					} else {
+						frame.dispose();
+						crime_main crime = new crime_main(vo);
+					}
+				} else {
+					JOptionPane.showMessageDialog(null, "아이디 혹은 비밀번호를 다시 확인하세요", "로그인 실패", JOptionPane.WARNING_MESSAGE);
+				}
+				
+				
+			}
+		});
+		btn_login.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
+		btn_login.setBackground(new Color(204, 204, 255));
+		btn_login.setBounds(65, 340, 236, 23);
+		frame.getContentPane().add(btn_login);
 		
 		JLabel lbl_signup_1 = new JLabel("SIGN IN");
 		lbl_signup_1.setForeground(new Color(0, 0, 128));
