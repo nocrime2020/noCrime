@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -17,18 +18,20 @@ public class login {
 	private JFrame frame;
 	private JTextField txt_id;
 	private JTextField txt_pw;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
-	private JLabel lblNewLabel_5;
+	private JLabel lbl_signup;
+	private JLabel lbl_name;
+	private JLabel lbl_newid;
+	private JLabel lbl_newpw;
+	private JLabel lbl_email;
 	private JTextField txt_name;
 	private JTextField txt_newid;
 	private JTextField txt_newpw;
 	private JTextField txt_newemail;
 	private JButton btn_signup;
-	private JLabel lblNewLabel_1;
+	private JLabel lbl_title;
 
+	DAO dao = new DAO();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -85,37 +88,49 @@ public class login {
 		btn_login.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				String id = txt_id.getText();
+				String pw = txt_pw.getText();
 				
-				frame.dispose();
-				crime_main crime = new crime_main();
-//				@@성공시 회원은 범죄main창 이동 (@@관리자는 ASelect로 이동)
-//				@@실패시 아이디,비밀번호를 다시 확인해 주세요 팝업창!
+				VO vo = new VO(id, pw);
+				VO result = dao.login(vo);
+				
+				if(result != null) {
+					if (vo.getId().equals("admin")) {	//관리자는 관리자페이지
+						frame.dispose();
+						admin_select asel = new admin_select();
+					} else {
+						frame.dispose();
+						crime_main crime = new crime_main();
+					}
+				} else {
+					JOptionPane.showMessageDialog(null, "아이디 혹은 비밀번호를 다시 확인하세요", "로그인 실패", JOptionPane.WARNING_MESSAGE);
+				}
 				
 			}
 		});
 		btn_login.setBounds(990, 52, 97, 23);
 		frame.getContentPane().add(btn_login);
 		
-		lblNewLabel = new JLabel("\uAC00\uC785\uD558\uAE30");
-		lblNewLabel.setBounds(580, 141, 97, 30);
-		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 20));
-		frame.getContentPane().add(lblNewLabel);
+		lbl_signup = new JLabel("\uAC00\uC785\uD558\uAE30");
+		lbl_signup.setBounds(580, 141, 97, 30);
+		lbl_signup.setFont(new Font("굴림", Font.PLAIN, 20));
+		frame.getContentPane().add(lbl_signup);
 		
-		lblNewLabel_2 = new JLabel("\uC774\uB984");
-		lblNewLabel_2.setBounds(580, 198, 57, 15);
-		frame.getContentPane().add(lblNewLabel_2);
+		lbl_name = new JLabel("\uC774\uB984");
+		lbl_name.setBounds(580, 198, 57, 15);
+		frame.getContentPane().add(lbl_name);
 		
-		lblNewLabel_3 = new JLabel("\uC544\uC774\uB514");
-		lblNewLabel_3.setBounds(580, 239, 57, 15);
-		frame.getContentPane().add(lblNewLabel_3);
+		lbl_newid = new JLabel("\uC544\uC774\uB514");
+		lbl_newid.setBounds(580, 239, 57, 15);
+		frame.getContentPane().add(lbl_newid);
 		
-		lblNewLabel_4 = new JLabel("\uBE44\uBC00\uBC88\uD638");
-		lblNewLabel_4.setBounds(580, 284, 57, 15);
-		frame.getContentPane().add(lblNewLabel_4);
+		lbl_newpw = new JLabel("\uBE44\uBC00\uBC88\uD638");
+		lbl_newpw.setBounds(580, 284, 57, 15);
+		frame.getContentPane().add(lbl_newpw);
 		
-		lblNewLabel_5 = new JLabel("\uC774\uBA54\uC77C");
-		lblNewLabel_5.setBounds(580, 329, 57, 15);
-		frame.getContentPane().add(lblNewLabel_5);
+		lbl_email = new JLabel("\uC774\uBA54\uC77C");
+		lbl_email.setBounds(580, 329, 57, 15);
+		frame.getContentPane().add(lbl_email);
 		
 		txt_name = new JTextField();
 		txt_name.setBounds(661, 195, 155, 21);
@@ -141,8 +156,8 @@ public class login {
 		btn_signup.setBounds(580, 376, 97, 23);
 		frame.getContentPane().add(btn_signup);
 		
-		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+		lbl_title = new JLabel("");
+		lbl_title.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
@@ -150,8 +165,8 @@ public class login {
 				login login = new login();
 			}
 		});
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT031\\Desktop\\KakaoTalk_20200729_190949189.jpg"));
-		lblNewLabel_1.setBounds(65, 28, 223, 208);
-		frame.getContentPane().add(lblNewLabel_1);
+		lbl_title.setIcon(new ImageIcon("C:\\Users\\SMT031\\Desktop\\KakaoTalk_20200729_190949189.jpg"));
+		lbl_title.setBounds(65, 28, 223, 208);
+		frame.getContentPane().add(lbl_title);
 	}
 }

@@ -12,7 +12,7 @@ public class KNOWCRIME {
 //		
 //		tipoff tipoff = new tipoff();
 //		
-		admin_select A_select = new admin_select();
+//		admin_select A_select = new admin_select();
 //		
 //		admin_tipoff admin_tipoff = new admin_tipoff();
 //		

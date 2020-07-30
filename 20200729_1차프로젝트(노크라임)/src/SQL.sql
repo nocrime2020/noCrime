@@ -1,0 +1,1 @@
+INSERT INTO member VALUES('admin','admin','administrator','1@1');
