@@ -61,32 +61,32 @@ public class crime_main {
 		panel.setLayout(null);
 		
 		JLabel lbll_악유아이콘 = new JLabel("");
-		lbll_악유아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC545\uC720.png"));
+		lbll_악유아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uC545\uC720\uC2A4\uBAB0.png"));
 		lbll_악유아이콘.setBounds(285, 310, 25, 23);
 		panel.add(lbll_악유아이콘);
 		
 		JLabel lbl_상폭아이콘 = new JLabel("");
-		lbl_상폭아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uD3ED\uC0C1.png"));
+		lbl_상폭아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uD3ED\uC0C1\uC2A4\uBAB0.png"));
 		lbl_상폭아이콘.setBounds(113, 396, 25, 29);
 		panel.add(lbl_상폭아이콘);
 		
 		JLabel lbll_납치아이콘 = new JLabel("");
-		lbll_납치아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uB0A9\uCE582.png"));
+		lbll_납치아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uB0A9\uCE58\uC2A4\uBAB0.png"));
 		lbll_납치아이콘.setBounds(99, 306, 25, 23);
 		panel.add(lbll_납치아이콘);
 		
 		JLabel lbl_절강아이콘 = new JLabel("");
-		lbl_절강아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC808\uAC15.png"));
+		lbl_절강아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uC808\uAC15\uC2A4\uBAB0.png"));
 		lbl_절강아이콘.setBounds(285, 349, 25, 23);
 		panel.add(lbl_절강아이콘);
 		
 		JLabel lbl_살인아이콘 = new JLabel("");
-		lbl_살인아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC0B42.png"));
+		lbl_살인아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uC0B4\uC778\uC2A4\uBAB0.png"));
 		lbl_살인아이콘.setBounds(266, 396, 44, 29);
 		panel.add(lbl_살인아이콘);
 		
 		JLabel lbl_강추아이콘 = new JLabel("");
-		lbl_강추아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uAC15\uCD942.png"));
+		lbl_강추아이콘.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uAC15\uCD94\uC2A4\uBAB0.png"));
 		lbl_강추아이콘.setBounds(113, 349, 25, 23);
 		panel.add(lbl_강추아이콘);
 		
@@ -156,7 +156,7 @@ public class crime_main {
 		panel.add(check_살인);
 		
 		JLabel lbl_title = new JLabel("");
-		lbl_title.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740\uB85C\uACE0.png"));
+		lbl_title.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uC791\uC740\uB85C\uACE0.png"));
 		lbl_title.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_title.setBounds(12, 20, 89, 49);
 		frame.getContentPane().add(lbl_title);
