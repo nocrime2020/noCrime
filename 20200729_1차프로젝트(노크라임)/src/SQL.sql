@@ -8,7 +8,8 @@ INSERT INTO member VALUES('admin','admin','administrator','1@1');
 --constraints member_id_pk primary key(ID),
 --constraints member_email_uk unique (email)
 --);
-
+select * from member
+DELETE FROM member WHERE id = 'dd'
 insert into member values('abd12','3098','마현아','dkskdfjk@gmail.com');
 insert into member values('rksk12','4918','오송민','dksdsfad4545k@gmail.com');
 insert into member values('ekfk12','2853','김루본','hgfdhtjk@gmail.com');
@@ -62,4 +63,8 @@ insert into alarm values('ekfk12','2','20','15');
 insert into alarm values('akqk12','6','9','13');
 insert into alarm values('tkwk14','1','23','4');
 insert into alarm values('abd13','12','19','7');
+
+insert into member values('ff','2283','최슬아','ytutyfkdfjk@gmail.com');
+insert into member values('fff','22','최슬아','ffff');
+insert into member values('ffff','2283','최슬아','ggg');
 

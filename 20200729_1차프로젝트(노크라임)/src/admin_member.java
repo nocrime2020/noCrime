@@ -13,6 +13,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class admin_member {
 
@@ -20,6 +22,7 @@ public class admin_member {
    private JTable table_member;
 
    DAO dao = new DAO();
+   int cnt;
 
    /**
     * Launch the application.
@@ -111,21 +114,77 @@ public class admin_member {
       frame.getContentPane().add(scrollPane);
 
       JButton btn_deletemember = new JButton("\uAC15\uC81C \uD0C8\uD1F4");
-      btn_deletemember.addMouseListener(new MouseAdapter() {
-         @Override
-         public void mouseClicked(MouseEvent e) {
+      btn_deletemember.addActionListener(new ActionListener() {
+      	public void actionPerformed(ActionEvent e) {
+      		
+      		int row = table_member.getSelectedRow();
+      		//int col = table_member.getSelectedColumn();
+//      		Object value = table_member.getValueAt(row, 0);
+//      		System.out.println(value);
+//      		
+//      		String idid = (String) value;
+//
+//            int cnt = dao.deleteMember(idid);
             
-            int result = JOptionPane.showConfirmDialog(null, "선택한 회원을 탈퇴시키겠습니까?", "회원 관리", JOptionPane.YES_NO_OPTION);
+      	
+      		int result = JOptionPane.showConfirmDialog(null, "선택한 회원을 탈퇴시키겠습니까?", "회원 관리", JOptionPane.YES_NO_OPTION);
+      		
             if (result == JOptionPane.YES_OPTION) {
                // 관리자가 선택회원을 강제탈퇴 시키고 싶은 경우
-               return;
-
+            	
+            	if(row == 999999) {		//선택이 안된 상태
+            		JOptionPane.showMessageDialog(null, "선택된 목록이 없습니다.", "회원 관리", JOptionPane.INFORMATION_MESSAGE);
+            	
+            	} else {	//한 회원 선택한 상태
+            		row = table_member.getSelectedRow();
+            		int[] rows = (table_member.getSelectedRows());
+            		
+            		for (int i = 0; i < rows.length; i++) {
+            			
+            			Object value = table_member.getValueAt(rows[i], 0);
+            			String idid = (String) value;
+            			
+            			cnt = dao.deleteMember(idid);
+                		
+                		
+						
+					}
+            		
+            		if(cnt > 0) {
+            			JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
+            		}else {
+            			JOptionPane.showMessageDialog(null, "삭제 실패^^.");
+            		}
+            		
+            		
+            		 Object[][] data = new Object[memberList.size()][column.length];
+            	      for (int i = 0; i < memberList.size(); i++) {
+            	         data[i][0] = memberList.get(i).getId();
+            	         data[i][1] = memberList.get(i).getPw();
+            	         data[i][2] = memberList.get(i).getName();
+            	         data[i][3] = memberList.get(i).getEmail();
+            	      }
+            	      DefaultTableModel model = new DefaultTableModel(data, column);
+            	      table_member = new JTable(model); 
+            	      
+            	      table_member.setBounds(37, 146, 287, 493);
+            	      
+            	      JScrollPane scrollPane = new JScrollPane(table_member); //JScrollPane에 JTable을 담기
+            	      scrollPane.setBounds(37, 146, 287, 493);
+            	      frame.getContentPane().add(scrollPane);
+            		
+            		
+            		
+            	}
             } else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {
                return; // 관리자가 취소버튼 혹은 창닫기 버튼을 누른 경우
             }
-            
-         }
+      		
+      	}
       });
+      
+      
+      
       btn_deletemember.setFont(new Font("함초롬돋움", Font.BOLD, 14));
       btn_deletemember.setBounds(37, 666, 287, 43);
       frame.getContentPane().add(btn_deletemember);

@@ -194,6 +194,7 @@ public class DAO {
 		return list; // 반환해줌
 	}
 	
+	//제보테이블용
 	public ArrayList<tipoff_VO> allSelect1() {
 		ArrayList<tipoff_VO> list = new ArrayList<tipoff_VO>();
 		try {
@@ -224,4 +225,29 @@ public class DAO {
 		return list; // 반환해줌
 	}
 
+	//관리자의 회원강제탈퇴용
+	public int deleteMember(String id) {
+
+		int cnt = 0;
+		try {
+			getConnection(); 	//드라이버 로딩
+
+			String sql = "DELETE FROM member WHERE id = ?"; // ?자리에 id나pw 적으면 id,pw라는 문자열이 들어가는 것
+
+			psmt = conn.prepareStatement(sql);	//
+
+			psmt.setString(1, id);
+
+			cnt = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	
+	
 }
