@@ -259,17 +259,35 @@ public class crime_main {
 		JLabel lbl_reset = new JLabel("");
 		lbl_reset.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) { 
+			public void mouseClicked(MouseEvent arg0) {
+				kidnap=0;murder=0;rape=0;theft=0;violence=0;
+				JPanel panel = new JPanel();
+				panel.setBackground(new Color(230, 230, 250));
 				panel.setBounds(0, 110, 359, 663);
+				frame.getContentPane().add(panel);
+				panel.setLayout(null);
 			}
 		});
-		lbl_reset.setBounds(12, 79, 25, 29);
+		lbl_reset.setBounds(70, 79, 25, 29);
 		frame.getContentPane().add(lbl_reset);
 		lbl_reset.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\small.png"));
 		
 		JLabel lblNewLabel = new JLabel("\uC774\uC544\uB798\uB9AC\uC14B");
-		lblNewLabel.setBounds(0, 56, 69, 15);
+		lblNewLabel.setBounds(58, 56, 69, 15);
 		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lbl_fold = new JLabel("\uD3BC\uCE58\uAE30");
+		lbl_fold.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) { 
+				if(panel.getHeight()<100) {
+					panel.setBounds(0, 110, 359, 663);
+				}else
+					panel.setBounds(0, 110, 10, 10);
+			}
+		});
+		lbl_fold.setBounds(12, 79, 25, 29);
+		frame.getContentPane().add(lbl_fold);
 		
 	}
 }
