@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -13,8 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.xml.bind.ValidationEvent;
 
 public class admin_member {
 
@@ -140,20 +141,43 @@ public class admin_member {
 							String idid = (String) value;
 
 							cnt = dao.deleteMember(idid);
+					
 						}
 						if (cnt > 0) {
 							JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
+							model.fireTableDataChanged();
+//							table_member.
+//							DefaultTableModel model = (DefaultTableModel)table_member.getModel();
+//							table_member = new JTable(model); // JTable에 DefaultTableModel을 담기
+//							table_member.setBounds(37, 146, 287, 493);
+							
 						} else { // 목록선택을 안하고 삭제요청하는 상태
 							JOptionPane.showMessageDialog(null, "선택된 목록이 없습니다.", "회원 관리", JOptionPane.INFORMATION_MESSAGE);
 						}
 					} 
-					
-					
+
 				} else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {
+					DefaultTableModel model = (DefaultTableModel)table_member.getModel();
+					model.fireTableDataChanged();
 					return; // 관리자가 취소버튼 || 창닫기 버튼을 누른 경우
 				}
-
-//				table_member()
+				
+				
+				
+				
+//				DefaultTableModel model = (DefaultTableModel)table_member.getModel();
+//				model.setValueAt(null, 0, 0);
+//				System.out.println("dd");
+				
+				
+				
+//				DefaultTableModel model = (DefaultTableModel)table_member.getModel();
+//				model.setRowCount(0);
+				
+//				DefaultTableModel model = (DefaultTableModel)table_member.getModel();
+//				model.setNumRows(0);
+				
+				
 				
 				
 			}

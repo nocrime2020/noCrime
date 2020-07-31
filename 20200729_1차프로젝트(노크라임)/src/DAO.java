@@ -236,7 +236,7 @@ public class DAO {
 
 			psmt = conn.prepareStatement(sql);	//
 
-			psmt.setString(1, id);
+			psmt.setString(1, id);		//아이디만 가져와서 비교하면 되기때문)
 
 			cnt = psmt.executeUpdate();
 
@@ -248,6 +248,9 @@ public class DAO {
 		return cnt;
 	}
 	
-	
-	
+//	//Jtable(table_member) 내용 갱신
+//	public void jtableRefresh() {
+//		
+//	}
+//	
 }
