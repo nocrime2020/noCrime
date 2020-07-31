@@ -773,6 +773,7 @@ public class crime_main {
 					lbl_강4_1309.setVisible(false);
 					
 				}
+				System.out.println(combo_fromYear.getSelectedItem());
 			}
 		});
 		btn_search.setFont(new Font("함초롬돋움", Font.BOLD, 12));
@@ -841,6 +842,6 @@ public class crime_main {
 		});
 		lbl_reset.setBounds(73, 71, 97, 29);
 		frame.getContentPane().add(lbl_reset);
-
+		
 	}
 }
