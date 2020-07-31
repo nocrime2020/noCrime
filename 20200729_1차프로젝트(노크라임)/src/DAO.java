@@ -16,8 +16,8 @@ public class DAO {
 	// 데이터베이스와 연결하는 메소드 생성
 	private void getConnection() {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "hr";
-		String password = "hr";
+		String user = "kc";
+		String password = "kc";
 
 		try {
 			// 1.드라이버 동적로딩
@@ -176,7 +176,7 @@ public class DAO {
 			psmt = conn.prepareStatement(sql);
 
 			rs = psmt.executeQuery();
-			int num = 1;
+			
 			while (rs.next()) {
 				String id = rs.getString(1);
 				String pw = rs.getString(2);
@@ -191,6 +191,7 @@ public class DAO {
 		} finally {
 			close();
 		}
+		System.out.println(list.get(0).getId());
 		return list; // 반환해줌
 	}
 	
@@ -235,7 +236,7 @@ public class DAO {
 
 			psmt = conn.prepareStatement(sql);	//
 
-			psmt.setString(1, id);
+			psmt.setString(1, id);		//아이디만 가져와서 비교하면 되기때문)
 
 			cnt = psmt.executeUpdate();
 
@@ -247,13 +248,14 @@ public class DAO {
 		return cnt;
 	}
 	
+
 	public int sending_tipoff(String tip_info_id, String cr_type_id, String cr_date,String cr_loc_id, String cr_name) {
 
 		int cnt = 0;
 		try {
 			getConnection(); 	//드라이버 로딩
 
-			String sql = "INSERT INTO crime VALUES(?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
+			String sql = "INSERT INTO crime VALUES(?,?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
 
 			psmt = conn.prepareStatement(sql);	//
 
@@ -272,7 +274,4 @@ public class DAO {
 		}
 		return cnt;
 	}
-	
-	
-	
 }
