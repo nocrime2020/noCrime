@@ -1,3 +1,17 @@
+drop table member cascade constraints;
+drop table alarm cascade constraints;
+drop table crime_type cascade constraints;
+drop table crime_location cascade constraints;
+drop table tip_info cascade constraints;
+drop table tipoff cascade constraints;
+drop table crime cascade constraints;
+
+drop sequence cr_type_id_seq;
+drop sequence cr_loc_id_seq;
+drop sequence cr_id_seq;
+drop sequence tip_info_id_seq;
+drop sequence tip_id_seq;
+
 create table member
 (ID varchar2(16),
 PW varchar2(20) not null,
@@ -7,22 +21,48 @@ constraints member_id_pk primary key(ID),
 constraints member_email_uk unique (email)
 );
 
+create table alarm
+(id varchar2(20),
+set_start number(20),
+set_end number(20),
+cr_cnt number(20),
+constraints alarm_id_pk primary key(id),
+constraints alarm_id_fk foreign key(id) references member(id)
+);
+
+create table crime_type
+(cr_type_id varchar2(20),
+cr_type varchar2(20) not null,
+constraints crimetype_crtypeid_pk primary key(cr_type_id),
+constraints crimetype_crtype_CK CHECK (cr_type IN('살인', '상해폭행', '강간추행', '절도강도', '납치', '약취유인'))
+);
+
+create table crime_location
+(cr_loc_id varchar2(20),
+cr_city varchar2(20) not null,
+cr_gu varchar2(20),
+cr_address varchar2(70) not null,
+constraints crimelocation_crlocid_pk primary key(cr_loc_id)
+);
+
 create table tip_info
 (tip_info_id varchar2(20),
 cr_type_id varchar2(20) not null,
 cr_date date default SYSDATE not null,
 cr_loc_id varchar2(20) not null,
 evidence varchar2(70) not null,
-cr_name varchar2(70),
 constraints tipinfo_tipinfoid_pk primary key(tip_info_id),
-constraint tipinfo_crtypeid_fk foreign key(cr_type_id) references crime_type(cr_type_id),
-constraint tipinfo_crlocid_fk foreign key(cr_loc_id) references crime_location(cr_loc_id)
+constraints tipinfo_crtypeid_fk foreign key(cr_type_id) references crime_type(cr_type_id),
+constraints tipinfo_crlocid_fk foreign key(cr_loc_id) references crime_location(cr_loc_id)
 );
 
-CREATE SEQUENCE tip_info_id_seq
-increment by 1
-start with 1
-nocache;
+create table tipoff
+(tip_id varchar2(20),
+tip_info_id varchar2(20) not null,
+cr_name varchar2(70),
+constraints tipoff_tipid_pk primary key(tip_id),
+constraints tipoff_tipinfoid_fk foreign key(tip_info_id) references tip_info(tip_info_id)
+);
 
 create table crime
 (cr_id varchar2(20) not null,
@@ -33,21 +73,9 @@ tip_id varchar2(20),
 cr_name varchar2(70),
 constraints crime_crid_uk unique (cr_id),
 constraints crime_cridld_pk primary key(cr_id, cr_loc_id, cr_date),
-constraint crime_crlocid_fk foreign key(cr_loc_id) references crime_location(cr_loc_id),
-constraint crime_crtypeid_fk foreign key(cr_type_id) references crime_type(cr_type_id),
-constraint crime_tipid_fk foreign key(tip_id) references tipoff(tip_id)
-);
-
-CREATE SEQUENCE cr_id_seq
-increment by 1
-start with 1
-nocache;
-
-create table crime_type
-(cr_type_id varchar2(20),
-cr_type varchar2(20) not null,
-constraints crimetype_crtypeid_pk primary key(cr_type_id),
-constraints crimetype_crtype_CK CHECK (cr_type IN('살인', '상해폭행', '강간추행', '절도강도', '납치', '약취유인'))
+constraints crime_crlocid_fk foreign key(cr_loc_id) references crime_location(cr_loc_id),
+constraints crime_crtypeid_fk foreign key(cr_type_id) references crime_type(cr_type_id),
+constraints crime_tipid_fk foreign key(tip_id) references tipoff(tip_id)
 );
 
 CREATE SEQUENCE cr_type_id_seq
@@ -55,28 +83,25 @@ increment by 1
 start with 1
 nocache;
 
-create table crime_location
-(cr_loc_id varchar2(20),
-cr_city varchar2(20) not null,
-cr_gu varchar2(20),
-cr_address varchar2(70) not null,
-constraints crimelocation_crlocid_pk primary key(cr_loc_id)
-);
-
 CREATE SEQUENCE cr_loc_id_seq
 increment by 1
 start with 1
 nocache;
 
-create table alarm
-(id varchar2(20),
-set_start number(20),
-set_end number(20),
-cr_cnt number(20),
-constraints alarm_id_pk primary key(id),
-constraint alarm_id_fk foreign key(id) references member(id)
-);
+CREATE SEQUENCE cr_id_seq
+increment by 1
+start with 1
+nocache;
 
+CREATE SEQUENCE tip_info_id_seq
+increment by 1
+start with 1
+nocache;
+
+CREATE SEQUENCE tip_id_seq
+increment by 1
+start with 1
+nocache;
 
 insert into member values('admin','admin','마현아','dkskdfjk@f.com');
 insert into member values('abd12','3098','마현아','dkskdfjk@gmail.com');
@@ -108,7 +133,7 @@ insert into crime_type values('2','살인');
 insert into crime_type values('3','강간추행');
 insert into crime_type values('4','약취유인');
 insert into crime_type values('5','상해폭행');
-SELECT * FROM member
+
 insert into crime_location values('118','광주광역시','남구','송암로58번길');
 insert into crime_location values('119','광주광역시','남구','송암로76번길');
 
