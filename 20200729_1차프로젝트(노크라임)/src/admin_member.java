@@ -146,6 +146,7 @@ public class admin_member {
 						if (cnt > 0) {
 							JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
 							model.fireTableDataChanged();
+							table_member.setModel(model);
 //							table_member.
 //							DefaultTableModel model = (DefaultTableModel)table_member.getModel();
 //							table_member = new JTable(model); // JTable에 DefaultTableModel을 담기
