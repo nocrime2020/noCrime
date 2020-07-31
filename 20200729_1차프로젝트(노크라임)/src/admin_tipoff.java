@@ -1,21 +1,32 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 
+import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.JTable;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JScrollBar;
 
 public class admin_tipoff {
@@ -24,6 +35,8 @@ public class admin_tipoff {
 	private JTable table_tipoffmanage;
 
 	DAO dao = new DAO();
+
+	int cnt;
 	private JTable table;
 	private JTable table_1;
 	/**
@@ -101,33 +114,62 @@ public class admin_tipoff {
 		frame.getContentPane().add(lbl_tipoffmanage);
 
 		ArrayList<tipoff_VO> tipoffList = dao.allSelect1();
-		String[] column = { "범죄코드", "범죄장소", "발생일", "범죄종류", "제보코드", "범죄 세부명" };
+		String[] column = { "제보정보코드", "범죄종류", "범죄발생일", "범죄장소코드", "증거자료","범죄 세부명"};
 		Object[][] data = new Object[tipoffList.size()][column.length];
 		for (int i = 0; i < tipoffList.size(); i++) {
-			data[i][0] = tipoffList.get(i).getCr_id();
-			data[i][1] = tipoffList.get(i).getCr_loc_id();
+			data[i][0] = tipoffList.get(i).getTip_info_id();
+			data[i][1] = tipoffList.get(i).getCr_type_id();
 			data[i][2] = tipoffList.get(i).getCr_date();
-			data[i][3] = tipoffList.get(i).getCr_type_id();
-			data[i][4] = tipoffList.get(i).getTip_id();
+			data[i][3] = tipoffList.get(i).getCr_loc_id();
+			data[i][4] = tipoffList.get(i).getEvidence();
 			data[i][5] = tipoffList.get(i).getCr_name();
 		}
 
 		DefaultTableModel model = new DefaultTableModel(data, column); // DefaultTableModel 선언 후 데이터 담기
 		table_tipoffmanage = new JTable(model); // JTable에 DefaultTableModel을 담기
 		table_tipoffmanage.setBounds(37, 146, 287, 493);
-		
+
 		JScrollPane scrollPane = new JScrollPane(table_tipoffmanage);
 		scrollPane.setBounds(36, 146, 287, 493);
 		frame.getContentPane().add(scrollPane);
 
-
 		table_tipoffmanage.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-
 		JButton btn_upload = new JButton("\uC804\uC1A1 \uD558\uAE30");
+		btn_upload.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				int row = table_tipoffmanage.getSelectedRow();
+				int result = JOptionPane.showConfirmDialog(null, "전송 하기", "제보 관리", JOptionPane.YES_NO_OPTION);
+
+				if (result == JOptionPane.YES_OPTION) {
+					if (row != 0) {
+						row = table_tipoffmanage.getSelectedRow();
+						int[] rows = (table_tipoffmanage.getSelectedRows());
+
+						for (int i = 0; i < rows.length; i++) {
+							Object value = table_tipoffmanage.getValueAt(rows[i], 0);
+							String toto = (String) value;
+							cnt = dao.sending_tipoff(toto, toto, toto, toto, toto);
+						}
+						if (cnt > 0) {
+							JOptionPane.showMessageDialog(null, "전송이 완료되었습니다.");
+						} else {
+							JOptionPane.showMessageDialog(null, "선택된 목록이 없습니다.", "제보 관리",
+									JOptionPane.INFORMATION_MESSAGE);
+						}
+					}
+
+				} else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {
+					return;
+				}
+
+			}
+		});
+
 		btn_upload.setBounds(36, 682, 287, 43);
 		btn_upload.setFont(new Font("함초롬돋움", Font.BOLD, 14));
 		frame.getContentPane().add(btn_upload);
-		
+
 	}
 }

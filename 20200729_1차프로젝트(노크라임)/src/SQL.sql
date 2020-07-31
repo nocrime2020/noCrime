@@ -1,15 +1,17 @@
 INSERT INTO member VALUES('admin','admin','administrator','1@1');
 
---create table member
---(ID varchar2(16),
---PW varchar2(20) not null,
---NAME varchar2(32) not null,
---EMAIL varchar2(40) not null,
---constraints member_id_pk primary key(ID),
---constraints member_email_uk unique (email)
---);
+create table member
+(ID varchar2(16),
+PW varchar2(20) not null,
+NAME varchar2(32) not null,
+EMAIL varchar2(40) not null,
+constraints member_id_pk primary key(ID),
+constraints member_email_uk unique (email)
+);
 select * from member
-DELETE FROM member WHERE id = 'dd'
+
+
+insert into member values('admin','admin','마현아','dkskdfjk@f.com');
 insert into member values('abd12','3098','마현아','dkskdfjk@gmail.com');
 insert into member values('rksk12','4918','오송민','dksdsfad4545k@gmail.com');
 insert into member values('ekfk12','2853','김루본','hgfdhtjk@gmail.com');
@@ -43,15 +45,15 @@ insert into crime_type values('5','상해폭행');
 insert into crime_location values('118','광주광역시','남구','송암로58번길');
 insert into crime_location values('119','광주광역시','남구','송암로76번길');
 
-insert into tip_info values('1000001','강간추행','2017-09-24','118',null);
-insert into tip_info values('1000002','강간추행','2019-08-14','119',null);
-insert into tip_info values('1000003','약취유인','2018-05-24','118',null);
-insert into tip_info values('1000004','살인','2018-11-05','119',null);
-insert into tip_info values('1000005','상해폭행','2018-12-06','118',null);
-insert into tip_info values('1000006','상해폭행','2020-05-08','119',null);
-insert into tip_info values('1000007','약취유인','2019-09-04','118',null);
-insert into tip_info values('1000008','절도강도','2020-05-29','118',null);
-insert into tip_info values('1000009','약취유인','2020-05-28','118',null);
+insert into tip_info values('','1000001','강간추행','2017-09-24','118',null);
+insert into tip_info values('','1000002','강간추행','2019-08-14','119',null);
+insert into tip_info values('','1000003','약취유인','2018-05-24','118',null);
+insert into tip_info values('','1000004','살인','2018-11-05','119',null);
+insert into tip_info values('','1000005','상해폭행','2018-12-06','118',null);
+insert into tip_info values('','1000006','상해폭행','2020-05-08','119',null);
+insert into tip_info values('','1000007','약취유인','2019-09-04','118',null);
+insert into tip_info values('','1000008','절도강도','2020-05-29','118',null);
+insert into tip_info values('','1000009','약취유인','2020-05-28','118',null);
 
 insert into tipoff values('1000006','상해폭행','2020-05-08','119',null);
 insert into tipoff values('1000008','절도강도','2020-05-29','118',null);
