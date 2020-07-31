@@ -1,15 +1,17 @@
 INSERT INTO member VALUES('admin','admin','administrator','1@1');
 
---create table member
---(ID varchar2(16),
---PW varchar2(20) not null,
---NAME varchar2(32) not null,
---EMAIL varchar2(40) not null,
---constraints member_id_pk primary key(ID),
---constraints member_email_uk unique (email)
---);
+create table member
+(ID varchar2(16),
+PW varchar2(20) not null,
+NAME varchar2(32) not null,
+EMAIL varchar2(40) not null,
+constraints member_id_pk primary key(ID),
+constraints member_email_uk unique (email)
+);
 select * from member
 
+
+insert into member values('admin','admin','마현아','dkskdfjk@f.com');
 insert into member values('abd12','3098','마현아','dkskdfjk@gmail.com');
 insert into member values('rksk12','4918','오송민','dksdsfad4545k@gmail.com');
 insert into member values('ekfk12','2853','김루본','hgfdhtjk@gmail.com');
