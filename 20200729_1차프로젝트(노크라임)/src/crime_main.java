@@ -238,5 +238,9 @@ public class crime_main {
 		frame.getContentPane().add(lbl_reset);
 		lbl_reset.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\small.png"));
 		
+		JLabel lblNewLabel = new JLabel("\uC774\uC544\uB798\uB9AC\uC14B");
+		lblNewLabel.setBounds(0, 56, 69, 15);
+		frame.getContentPane().add(lblNewLabel);
+		
 	}
 }

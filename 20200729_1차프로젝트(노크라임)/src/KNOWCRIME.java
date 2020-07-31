@@ -6,7 +6,7 @@ public class KNOWCRIME {
 		login login = new login();
 //		
 //
-//		crime_main crime = new crime_main(new VO("",""));
+		crime_main crime = new crime_main(new VO("",""));
 //		
 //		myPage myPage = new myPage();
 //		
