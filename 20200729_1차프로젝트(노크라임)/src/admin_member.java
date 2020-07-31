@@ -142,6 +142,7 @@ public class admin_member {
 						if (cnt > 0) {
 							JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
 							model.fireTableDataChanged();
+							admin_member admin_member = new admin_member(vo);
 						} else { // 목록선택을 안하고 삭제요청하는 상태
 							JOptionPane.showMessageDialog(null, "선택된 목록이 없습니다.", "회원 관리", JOptionPane.INFORMATION_MESSAGE);
 						}
@@ -150,6 +151,7 @@ public class admin_member {
 				} else if((result==JOptionPane.CLOSED_OPTION)||(result==JOptionPane.NO_OPTION)) {
 //					DefaultTableModel model = (DefaultTableModel) table_member.getModel();
 					model.fireTableDataChanged();
+					admin_member admin_member = new admin_member(vo);
 					return; // 관리자가 취소버튼 || 창닫기 버튼을 누른 경우
 				}
 			
