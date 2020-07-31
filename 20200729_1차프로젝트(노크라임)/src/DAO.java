@@ -16,8 +16,8 @@ public class DAO {
 	// 데이터베이스와 연결하는 메소드 생성
 	private void getConnection() {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "kc";
-		String password = "kc";
+		String user = "hr";
+		String password = "hr";
 
 		try {
 			// 1.드라이버 동적로딩
@@ -51,11 +51,11 @@ public class DAO {
 		try {
 			getConnection();
 
-			String sql = "select pw from member where id = ?";
+			String sql = "select pw from member where id = ? and pw = ?";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getId());
-//			psmt.setString(2, vo.getPw());
+			psmt.setString(2, vo.getPw());
 			rs = psmt.executeQuery();
 
 			if (rs.next()) {
@@ -200,20 +200,19 @@ public class DAO {
 		try {
 			getConnection();
 
-			String sql = "SELECT * FROM crime";
+			String sql = "SELECT * FROM tip_info";
 
 			psmt = conn.prepareStatement(sql);
 
 			rs = psmt.executeQuery();
-			int num = 1;
 			while (rs.next()) {
-				String cr_id = rs.getString(1);
+				String tip_info_id = rs.getString(1);
 				String cr_loc_id = rs.getNString(2);
 				String cr_date = rs.getString(3);
 				String cr_type_id = rs.getString(4);
-				String tip_id = rs.getString(5);
+				String evidence = rs.getString(5);
 				String cr_name = rs.getString(6);
-				tipoff_VO vo = new tipoff_VO(cr_id, cr_loc_id, cr_date, cr_type_id, tip_id, cr_name); // 1~4가져와서 vo로 묶음
+				tipoff_VO vo = new tipoff_VO(tip_info_id, cr_loc_id, cr_date, cr_type_id, evidence, cr_name); // 1~4가져와서 vo로 묶음
 				list.add(vo); // 리스트에 vo 담아서
 			}
 
@@ -237,6 +236,32 @@ public class DAO {
 			psmt = conn.prepareStatement(sql);	//
 
 			psmt.setString(1, id);
+
+			cnt = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	public int sending_tipoff(String tip_info_id, String cr_type_id, String cr_date,String cr_loc_id, String cr_name) {
+
+		int cnt = 0;
+		try {
+			getConnection(); 	//드라이버 로딩
+
+			String sql = "INSERT INTO crime VALUES(?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
+
+			psmt = conn.prepareStatement(sql);	//
+
+			psmt.setString(1, cr_loc_id);
+			psmt.setString(2, cr_date);
+			psmt.setString(3, cr_type_id);
+			psmt.setString(4, tip_info_id);
+			psmt.setString(5, cr_name);
 
 			cnt = psmt.executeUpdate();
 
