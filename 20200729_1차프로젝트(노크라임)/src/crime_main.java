@@ -766,7 +766,7 @@ public class crime_main {
 					lbl_강3_1251.setVisible(false);
 					lbl_강4_1309.setVisible(false);
 				}
-				System.out.println((String)combo_fromYear.getSelectedItem()+(String)combo_fromMon.getSelectedItem()+(String)combo_fromDay.getSelectedItem());
+				System.out.println(Integer.parseInt(((String)combo_fromYear.getSelectedItem()+(String)combo_fromMon.getSelectedItem()+(String)combo_fromDay.getSelectedItem())));
 			}
 		});
 		btn_search.setFont(new Font("함초롬돋움", Font.BOLD, 12));
