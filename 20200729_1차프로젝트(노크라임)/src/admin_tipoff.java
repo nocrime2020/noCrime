@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
@@ -14,6 +16,7 @@ import java.util.ArrayList;
 
 import javax.swing.JTable;
 import javax.swing.JButton;
+import javax.swing.JScrollBar;
 
 public class admin_tipoff {
 
@@ -21,6 +24,8 @@ public class admin_tipoff {
 	private JTable table_tipoffmanage;
 
 	DAO dao = new DAO();
+	private JTable table;
+	private JTable table_1;
 	/**
 	 * Launch the application.
 	 */
@@ -53,9 +58,9 @@ public class admin_tipoff {
 		frame.setBounds(100, 100, 375, 812);
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
 
 		JLabel lbl_title = new JLabel("");
+		lbl_title.setBounds(12, 10, 103, 56);
 		lbl_title.setIcon(new ImageIcon(
 				"C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\\uC791\uC740 \uD22C\uBA85.png"));
 		lbl_title.addMouseListener(new MouseAdapter() {
@@ -69,11 +74,12 @@ public class admin_tipoff {
 
 			}
 		});
+		frame.getContentPane().setLayout(null);
 		lbl_title.setFont(new Font("굴림", Font.PLAIN, 23));
-		lbl_title.setBounds(12, 10, 103, 56);
 		frame.getContentPane().add(lbl_title);
 
 		JLabel lbl_signout = new JLabel("");
+		lbl_signout.setBounds(307, 10, 40, 29);
 		lbl_signout.setIcon(new ImageIcon(
 				"C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\off_logout_17916.png"));
 		lbl_signout.addMouseListener(new MouseAdapter() {
@@ -86,13 +92,12 @@ public class admin_tipoff {
 
 			}
 		});
-		lbl_signout.setBounds(307, 10, 40, 29);
 		frame.getContentPane().add(lbl_signout);
 
 		JLabel lbl_tipoffmanage = new JLabel("\uC81C\uBCF4 \uAD00\uB9AC");
+		lbl_tipoffmanage.setBounds(90, 76, 180, 60);
 		lbl_tipoffmanage.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_tipoffmanage.setFont(new Font("함초롬돋움", Font.BOLD, 24));
-		lbl_tipoffmanage.setBounds(90, 76, 180, 60);
 		frame.getContentPane().add(lbl_tipoffmanage);
 
 		ArrayList<tipoff_VO> tipoffList = dao.allSelect1();
@@ -110,13 +115,19 @@ public class admin_tipoff {
 		DefaultTableModel model = new DefaultTableModel(data, column); // DefaultTableModel 선언 후 데이터 담기
 		table_tipoffmanage = new JTable(model); // JTable에 DefaultTableModel을 담기
 		table_tipoffmanage.setBounds(37, 146, 287, 493);
+		
+		JScrollPane scrollPane = new JScrollPane(table_tipoffmanage);
+		scrollPane.setBounds(36, 146, 287, 493);
+		frame.getContentPane().add(scrollPane);
 
-		table_tipoffmanage = new JTable();
-		table_tipoffmanage.setBounds(36, 169, 287, 493);
+
+		table_tipoffmanage.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
 
 		JButton btn_upload = new JButton("\uC804\uC1A1 \uD558\uAE30");
-		btn_upload.setFont(new Font("함초롬돋움", Font.BOLD, 14));
 		btn_upload.setBounds(36, 682, 287, 43);
+		btn_upload.setFont(new Font("함초롬돋움", Font.BOLD, 14));
 		frame.getContentPane().add(btn_upload);
+		
 	}
 }
