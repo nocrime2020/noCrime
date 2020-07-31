@@ -233,28 +233,22 @@ public class crime_main {
 		JComboBox combo_toMon = new JComboBox();
 		combo_toMon.setBounds(204, 261, 50, 18);
 		panel.add(combo_toMon);
-		combo_toMon.setModel(new DefaultComboBoxModel(
-				new String[] { "", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+		combo_toMon.setModel(new DefaultComboBoxModel(new String[] {"", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"}));
 
 		JComboBox combo_fromMon = new JComboBox();
 		combo_fromMon.setBounds(204, 233, 50, 18);
 		panel.add(combo_fromMon);
-		combo_fromMon.setModel(new DefaultComboBoxModel(
-				new String[] { "", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+		combo_fromMon.setModel(new DefaultComboBoxModel(new String[] {"", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"}));
 
 		JComboBox combo_fromDay = new JComboBox();
 		combo_fromDay.setBounds(260, 233, 50, 18);
 		panel.add(combo_fromDay);
-		combo_fromDay.setModel(new DefaultComboBoxModel(new String[] { "", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-				"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
-				"27", "28", "29", "30", "31" }));
+		combo_fromDay.setModel(new DefaultComboBoxModel(new String[] {"", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 
 		JComboBox combo_toDay = new JComboBox();
 		combo_toDay.setBounds(260, 261, 50, 18);
 		panel.add(combo_toDay);
-		combo_toDay.setModel(new DefaultComboBoxModel(new String[] { "", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-				"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
-				"27", "28", "29", "30", "31" }));
+		combo_toDay.setModel(new DefaultComboBoxModel(new String[] {"", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 
 		JLabel lbl_from = new JLabel("\uBD80\uD130");
 		lbl_from.setBounds(314, 233, 33, 20);
@@ -771,9 +765,8 @@ public class crime_main {
 					lbl_강2_1280.setVisible(false);
 					lbl_강3_1251.setVisible(false);
 					lbl_강4_1309.setVisible(false);
-					
 				}
-				System.out.println(combo_fromYear.getSelectedItem());
+				System.out.println((String)combo_fromYear.getSelectedItem()+(String)combo_fromMon.getSelectedItem()+(String)combo_fromDay.getSelectedItem());
 			}
 		});
 		btn_search.setFont(new Font("함초롬돋움", Font.BOLD, 12));
