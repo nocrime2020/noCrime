@@ -1,6 +1,3 @@
-select * from member;
-INSERT INTO member VALUES('admin','admin','administrator','1@1');
-
 drop table member cascade constraints;
 drop table alarm cascade constraints;
 drop table crime_type cascade constraints;
@@ -159,11 +156,7 @@ insert into alarm values('akqk12','6','9','13');
 insert into alarm values('tkwk14','1','23','4');
 insert into alarm values('abd13','12','19','7');
 
-<<<<<<< HEAD
-insert into member values('ff','2283','최슬아','ytutyfkdfjk@gmail.com');
-insert into member values('fff','22','최슬아','ffff');
-insert into member values('ffff','2283','최슬아','ggg');
-=======
+
 
 --select * from member;
->>>>>>> branch 'master' of https://github.com/nocrime2020/noCrime.git
+
