@@ -16,11 +16,13 @@ import javax.swing.JTextField;
 import javax.swing.JPanel;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import javax.swing.JTextPane;
+import javax.swing.DropMode;
+import javax.swing.JTextArea;
 
 public class crime_main {
 
 	private JFrame frame;
-	private JTextField txt_period;
 	private int kidnap;
 	private int rape;
 	private int violence;
@@ -73,6 +75,62 @@ public class crime_main {
 				myPage myPage = new myPage(vo);
 			}
 		});
+		
+		JTextArea textArea_약 = new JTextArea();
+		textArea_약.setEditable(false);
+		textArea_약.setText("\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C58\uBC88\uAE38\r\n\uC57D\uCDE8 \uBC0F \uC720\uC778\r\n2017-02-01");
+		textArea_약.setBounds(170, 375, 177, 99);
+		frame.getContentPane().add(textArea_약);
+		textArea_약.setVisible(false);
+		
+		JTextArea textArea_약2 = new JTextArea();
+		textArea_약2.setEditable(false);
+		textArea_약2.setText("\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C58\uBC88\uAE38\r\n\uC57D\uCDE8 \uBC0F \uC720\uC778\r\n2020-05-28");
+		textArea_약2.setBounds(0, 375, 177, 99);
+		frame.getContentPane().add(textArea_약2);
+		textArea_약2.setVisible(false);
+		
+		JTextArea textArea_상 = new JTextArea();
+		textArea_상.setEditable(false);
+		textArea_상.setText("\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C58\uBC88\uAE38\r\n\uC0C1\uD574 \uBC0F \uD3ED\uD589\r\n2020-06-01");
+		textArea_상.setBounds(112, 206, 177, 99);
+		frame.getContentPane().add(textArea_상);
+		textArea_상.setVisible(false);
+		
+		JTextArea textArea_절 = new JTextArea();
+		textArea_절.setEditable(false);
+		textArea_절.setText("\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C58\uBC88\uAE38\r\n\uC808\uB3C4 \uBC0F \uAC15\uB3C4\r\n2019-05-18");
+		textArea_절.setBounds(98, 561, 177, 99);
+		frame.getContentPane().add(textArea_절);
+		textArea_절.setVisible(false);
+		
+		JLabel lbl_1030 = new JLabel("\uC0C1");
+		lbl_1030.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (textArea_상.isVisible()) {
+					textArea_상.setVisible(false);
+				}else{
+					textArea_상.setVisible(true);
+				}
+			}
+		});
+		lbl_1030.setBounds(192, 306, 22, 29);
+		frame.getContentPane().add(lbl_1030);
+		
+		JLabel lbl_1047 = new JLabel("\uC57D");
+		lbl_1047.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (textArea_약2.isVisible()) {
+					textArea_약2.setVisible(false);
+				}else{
+					textArea_약2.setVisible(true);
+				}
+			}
+		});
+		lbl_1047.setBounds(106, 484, 25, 29);
+		frame.getContentPane().add(lbl_1047);
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(230, 230, 250));
@@ -195,13 +253,6 @@ public class crime_main {
 		combo_street.setBounds(134, 159, 151, 19);
 		panel.add(combo_street);
 
-		txt_period = new JTextField();
-		txt_period.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		txt_period.setColumns(10);
-		txt_period.setBackground(new Color(248, 248, 255));
-		txt_period.setBounds(113, 223, 226, 21);
-		panel.add(txt_period);
-
 		JLabel lbl_crimeinfo = new JLabel("\uBC94\uC8C4 \uC815\uBCF4 \uC870\uD68C");
 		lbl_crimeinfo.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_crimeinfo.setFont(new Font("함초롬돋움", Font.BOLD, 24));
@@ -234,6 +285,44 @@ public class crime_main {
 		btn_search.setBackground(new Color(204, 204, 255));
 		btn_search.setBounds(12, 435, 324, 23);
 		panel.add(btn_search);
+		
+		JComboBox combo_fromYear = new JComboBox();
+		combo_fromYear.setModel(new DefaultComboBoxModel(new String[] {"", "1980", "1990", "2000", "2010", "2015", "2018", "2019", "2020"}));
+		combo_fromYear.setBounds(134, 224, 65, 18);
+		panel.add(combo_fromYear);
+		
+		JComboBox combo_fromMon = new JComboBox();
+		combo_fromMon.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+		combo_fromMon.setBounds(204, 224, 50, 18);
+		panel.add(combo_fromMon);
+		
+		JComboBox combo_fromDay = new JComboBox();
+		combo_fromDay.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		combo_fromDay.setBounds(260, 224, 50, 18);
+		panel.add(combo_fromDay);
+		
+		JComboBox combo_toYear = new JComboBox();
+		combo_toYear.setModel(new DefaultComboBoxModel(new String[] {"", "1980", "1990", "2000", "2010", "2015", "2018", "2019", "2020"}));
+		combo_toYear.setBounds(134, 252, 65, 18);
+		panel.add(combo_toYear);
+		
+		JComboBox combo_toMon = new JComboBox();
+		combo_toMon.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+		combo_toMon.setBounds(204, 252, 50, 18);
+		panel.add(combo_toMon);
+		
+		JComboBox combo_toDay = new JComboBox();
+		combo_toDay.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		combo_toDay.setBounds(260, 252, 50, 18);
+		panel.add(combo_toDay);
+		
+		JLabel lbl_from = new JLabel("\uBD80\uD130");
+		lbl_from.setBounds(314, 224, 33, 20);
+		panel.add(lbl_from);
+		
+		JLabel lbl_to = new JLabel("\uAE4C\uC9C0");
+		lbl_to.setBounds(314, 252, 33, 20);
+		panel.add(lbl_to);
 		lbl_mypage.setBounds(257, 38, 81, 15);
 		frame.getContentPane().add(lbl_mypage);
 
@@ -282,10 +371,15 @@ public class crime_main {
 				combo_city.setSelectedIndex(0);
 				combo_gu.setSelectedIndex(0);
 				combo_street.setSelectedIndex(0);
+				combo_fromYear.setSelectedIndex(0);
+				combo_fromMon.setSelectedIndex(0);
+				combo_fromDay.setSelectedIndex(0);
+				combo_toYear.setSelectedIndex(0);
+				combo_toMon.setSelectedIndex(0);
+				combo_toDay.setSelectedIndex(0);
 				if (panel.getHeight() < 100) {
 					panel.setBounds(0, 110, 359, 663);
-				} else
-					panel.setBounds(0, 110, 10, 10);
+				}
 			}
 		});
 		lbl_reset.setBounds(73, 71, 97, 29);
@@ -303,6 +397,39 @@ public class crime_main {
 		});
 		lbl_fold.setBounds(12, 79, 25, 29);
 		frame.getContentPane().add(lbl_fold);
+		
+		JLabel lbl_1001 = new JLabel("\uC808");
+		lbl_1001.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (textArea_절.isVisible()) {
+					textArea_절.setVisible(false);
+				}else{
+					textArea_절.setVisible(true);
+				}
+			}
+		});
+		lbl_1001.setBounds(176, 532, 25, 29);
+		frame.getContentPane().add(lbl_1001);
+		
+		JLabel lbl_1018 = new JLabel("\uC57D");
+		lbl_1018.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (textArea_약.isVisible()) {
+					textArea_약.setVisible(false);
+				}else{
+					textArea_약.setVisible(true);
+				}
+			}
+		});
+		lbl_1018.setBounds(292, 484, 25, 29);
+		frame.getContentPane().add(lbl_1018);
+		
+		JLabel lbl_58 = new JLabel("");
+		lbl_58.setIcon(new ImageIcon("C:\\pro_image\\58.png"));
+		lbl_58.setBounds(0, 110, 359, 663);
+		frame.getContentPane().add(lbl_58);
 
 	}
 }
