@@ -14,11 +14,19 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 public class crime_main {
 
 	private JFrame frame;
 	private JTextField txt_period;
+	private int kidnap;
+	private int rape;
+	private int violence;
+	private int theft;
+	private int murder;
+	
 
 	/**
 	 * Launch the application.
@@ -48,6 +56,8 @@ public class crime_main {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(VO vo) {
+		
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
 		frame.setBounds(100, 100, 375,812);
@@ -120,39 +130,58 @@ public class crime_main {
 		frame.getContentPane().add(lbl_signout);
 		
 		JCheckBox check_상해폭행 = new JCheckBox("\uC0C1\uD574\uD3ED\uD589");
+		check_상해폭행.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				violence = (e.getStateChange()==1)? 1:0;
+			}
+		});
 		check_상해폭행.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		check_상해폭행.setBackground(new Color(230, 230, 250));
-		check_상해폭행.setBounds(42, 396, 73, 23);
+		check_상해폭행.setBounds(42, 385, 73, 23);
 		panel.add(check_상해폭행);
 		
 		JCheckBox check_강간추행 = new JCheckBox("\uAC15\uAC04\uCD94\uD589");
+		check_강간추행.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				rape = (e.getStateChange()==1)? 1:0;
+			}
+		});
 		check_강간추행.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		check_강간추행.setBackground(new Color(230, 230, 250));
-		check_강간추행.setBounds(42, 349, 73, 23);
+		check_강간추행.setBounds(204, 349, 73, 23);
 		panel.add(check_강간추행);
 		
-		JCheckBox check_절도강간 = new JCheckBox("\uC808\uB3C4\uAC15\uAC04");
-		check_절도강간.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		check_절도강간.setBackground(new Color(230, 230, 250));
-		check_절도강간.setBounds(204, 349, 81, 23);
-		panel.add(check_절도강간);
-		
-		JCheckBox check_납치 = new JCheckBox("\uB0A9\uCE58");
-		check_납치.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		check_납치.setBackground(new Color(230, 230, 250));
-		check_납치.setBounds(42, 306, 57, 23);
-		panel.add(check_납치);
+		JCheckBox check_절도강도 = new JCheckBox("\uC808\uB3C4\uAC15\uB3C4");
+		check_절도강도.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				theft = (e.getStateChange()==1)? 1:0;
+			}
+		});
+		check_절도강도.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		check_절도강도.setBackground(new Color(230, 230, 250));
+		check_절도강도.setBounds(42, 310, 81, 23);
+		panel.add(check_절도강도);
 		
 		JCheckBox check_악취유인 = new JCheckBox("\uC545\uCDE8\uC720\uC778");
+		check_악취유인.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				kidnap = (e.getStateChange()==1)? 1:0;
+			}
+		});
 		check_악취유인.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		check_악취유인.setBackground(new Color(230, 230, 250));
-		check_악취유인.setBounds(204, 306, 81, 23);
+		check_악취유인.setBounds(204, 310, 81, 23);
 		panel.add(check_악취유인);
 		
 		JCheckBox check_살인 = new JCheckBox("\uC0B4\uC778");
+		check_살인.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				murder = (e.getStateChange()==1)? 1:0;
+			}
+		});
 		check_살인.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		check_살인.setBackground(new Color(230, 230, 250));
-		check_살인.setBounds(204, 396, 49, 23);
+		check_살인.setBounds(42, 349, 49, 23);
 		panel.add(check_살인);
 		
 		JLabel lbl_title = new JLabel("");
