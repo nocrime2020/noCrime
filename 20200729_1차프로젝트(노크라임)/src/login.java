@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
+import java.awt.TextField;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 
@@ -19,7 +20,7 @@ public class login {
 
 	private JFrame frame;
 	private JTextField txt_id;
-	private JTextField txt_pw;
+	private TextField txt_pw;
 	private JLabel lbl_signup;
 	private JLabel lbl_name;
 	private JLabel lbl_newid;
@@ -73,19 +74,23 @@ public class login {
 		frame.getContentPane().add(lbl_id);
 		
 		JLabel lbl_pw = new JLabel("PASSWORD");
-		lbl_pw.setBounds(65, 291, 97, 15);
+		lbl_pw.setBounds(65, 291, 75, 15);
 		lbl_pw.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().add(lbl_pw);
 		
-		txt_id = new JTextField();
+		TextField txt_id = new TextField();
 		txt_id.setBounds(146, 245, 155, 21);
 		frame.getContentPane().add(txt_id);
 		txt_id.setColumns(10);
 		
-		txt_pw = new JTextField();
+		TextField txt_pw = new TextField();
 		txt_pw.setBounds(146, 288, 155, 21);
 		txt_pw.setColumns(10);
 		frame.getContentPane().add(txt_pw);
+		
+		txt_pw.selectAll(); 	//입력된 모든 문자열 선택
+		txt_pw.setEchoChar('*');
+		
 		
 		lbl_signup = new JLabel("SIGN UP");
 		lbl_signup.setForeground(new Color(0, 0, 128));
@@ -113,22 +118,22 @@ public class login {
 		lbl_email.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().add(lbl_email);
 		
-		txt_name = new JTextField();
+		TextField txt_name = new TextField();
 		txt_name.setBounds(146, 456, 155, 21);
 		txt_name.setColumns(10);
 		frame.getContentPane().add(txt_name);
 		
-		txt_newid = new JTextField();
+		TextField txt_newid = new TextField();
 		txt_newid.setBounds(146, 497, 155, 21);
 		txt_newid.setColumns(10);
 		frame.getContentPane().add(txt_newid);
 		
-		txt_newpw = new JTextField();
+		TextField txt_newpw = new TextField();
 		txt_newpw.setBounds(146, 542, 155, 21);
 		txt_newpw.setColumns(10);
 		frame.getContentPane().add(txt_newpw);
 		
-		txt_email = new JTextField();
+		TextField txt_email = new TextField();
 		txt_email.setBounds(146, 587, 155, 21);
 		txt_email.setColumns(10);
 		frame.getContentPane().add(txt_email);
@@ -201,6 +206,7 @@ public class login {
 					}
 				} else {
 					JOptionPane.showMessageDialog(null, "아이디 혹은 비밀번호를 다시 확인하세요", "로그인 실패", JOptionPane.WARNING_MESSAGE);
+					txt_pw.setText("");
 				}
 				
 				

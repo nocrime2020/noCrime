@@ -107,6 +107,7 @@ increment by 1
 start with 1
 nocache;
 
+INSERT INTO member VALUES('admin','admin','administrator','1@1');
 insert into member values('admin','admin','마현아','dkskdfjk@f.com');
 insert into member values('abd12','3098','마현아','dkskdfjk@gmail.com');
 insert into member values('rksk12','4918','오송민','dksdsfad4545k@gmail.com');
@@ -158,6 +159,11 @@ insert into alarm values('akqk12','6','9','13');
 insert into alarm values('tkwk14','1','23','4');
 insert into alarm values('abd13','12','19','7');
 
+<<<<<<< HEAD
 insert into member values('ff','2283','최슬아','ytutyfkdfjk@gmail.com');
 insert into member values('fff','22','최슬아','ffff');
 insert into member values('ffff','2283','최슬아','ggg');
+=======
+
+--select * from member;
+>>>>>>> branch 'master' of https://github.com/nocrime2020/noCrime.git
