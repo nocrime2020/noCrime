@@ -822,6 +822,18 @@ public class crime_main {
 				lbl_절2_1048.setVisible(false);
 				lbl_절3_1077.setVisible(false);
 				lbl_절4_1106.setVisible(false);
+				textArea_강1.setVisible(false);
+				textArea_강2.setVisible(false);
+				textArea_강3.setVisible(false);
+				textArea_강4.setVisible(false);
+				textArea_상1.setVisible(false);
+				textArea_상2.setVisible(false);
+				textArea_상3.setVisible(false);
+				textArea_상4.setVisible(false);
+				textArea_절1.setVisible(false);
+				textArea_절2.setVisible(false);
+				textArea_절3.setVisible(false);
+				textArea_절4.setVisible(false);
 				if (panel.getHeight() < 100) {
 					panel.setBounds(0, 110, 359, 663);
 				}
