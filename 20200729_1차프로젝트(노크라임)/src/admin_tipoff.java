@@ -111,6 +111,9 @@ public class admin_tipoff {
 		table_tipoffmanage = new JTable(model); // JTable에 DefaultTableModel을 담기
 		table_tipoffmanage.setBounds(37, 146, 287, 493);
 
+		table_tipoffmanage = new JTable();
+		table_tipoffmanage.setBounds(36, 169, 287, 493);
+
 		JButton btn_upload = new JButton("\uC804\uC1A1 \uD558\uAE30");
 		btn_upload.setFont(new Font("함초롬돋움", Font.BOLD, 14));
 		btn_upload.setBounds(36, 682, 287, 43);
