@@ -1,14 +1,20 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 
+import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,6 +22,8 @@ import java.util.ArrayList;
 
 import javax.swing.JTable;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JScrollBar;
 
 public class admin_tipoff {
@@ -101,33 +109,73 @@ public class admin_tipoff {
 		frame.getContentPane().add(lbl_tipoffmanage);
 
 		ArrayList<tipoff_VO> tipoffList = dao.allSelect1();
-		String[] column = { "범죄코드", "범죄장소", "발생일", "범죄종류", "제보코드", "범죄 세부명" };
+		String[] column = { "", "범죄코드", "범죄장소", "발생일", "범죄종류", "제보코드", "범죄 세부명" };
 		Object[][] data = new Object[tipoffList.size()][column.length];
 		for (int i = 0; i < tipoffList.size(); i++) {
-			data[i][0] = tipoffList.get(i).getCr_id();
-			data[i][1] = tipoffList.get(i).getCr_loc_id();
-			data[i][2] = tipoffList.get(i).getCr_date();
-			data[i][3] = tipoffList.get(i).getCr_type_id();
-			data[i][4] = tipoffList.get(i).getTip_id();
-			data[i][5] = tipoffList.get(i).getCr_name();
+			data[i][0] = tipoffList.get(i).getCheck_tipoff();
+			data[i][1] = tipoffList.get(i).getCr_id();
+			data[i][2] = tipoffList.get(i).getCr_loc_id();
+			data[i][3] = tipoffList.get(i).getCr_date();
+			data[i][4] = tipoffList.get(i).getCr_type_id();
+			data[i][5] = tipoffList.get(i).getTip_id();
+			data[i][6] = tipoffList.get(i).getCr_name();
 		}
-
+		
 		DefaultTableModel model = new DefaultTableModel(data, column); // DefaultTableModel 선언 후 데이터 담기
 		table_tipoffmanage = new JTable(model); // JTable에 DefaultTableModel을 담기
 		table_tipoffmanage.setBounds(37, 146, 287, 493);
-		
+
 		JScrollPane scrollPane = new JScrollPane(table_tipoffmanage);
 		scrollPane.setBounds(36, 146, 287, 493);
 		frame.getContentPane().add(scrollPane);
 
-
 		table_tipoffmanage.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		
+		JCheckBox checkBox = new JCheckBox();
+		
 
+		DefaultTableCellRenderer dtcr1 = new DefaultTableCellRenderer() {
+			public void getTableCellRendererComponent
+			(JTable table, Object value, boolean hasFocus, int row, int column) {
+				JCheckBox checkBox = new JCheckBox();
+				checkBox.setSelected(((Boolean)value).booleanValue());
+				
+				checkBox.setHorizontalAlignment(JLabel.CENTER);
+			}
+		};
+		
+		table_tipoffmanage.getColumn("").setCellRenderer(dtcr1);
+		
+
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		JPanel panel = new JPanel(new BorderLayout());
+//		DefaultTableModel dtm = new DefaultTableModel(data, column);
+//		JTable table = new JTable(dtm);
+//
+//		table_tipoffmanage.getColumn("").setCellRenderer(dcr);
+//		JCheckBox box = new JCheckBox();
+//		box.setHorizontalAlignment(JLabel.CENTER);
+//		table_tipoffmanage.getColumn("ChkBox").setCellEditor(new DefaultCellEditor(box));
+//		JScrollPane jsp = new JScrollPane(table);
+//		panel.add(jsp, "Center");
+//		setContentPane(panel);
+//		pack();
+//		setVisible(true);
+//
+//		DefaultTableCellRenderer dcr = new DefaultTableCellRenderer() {
+//			public Component getTableCellRendererComponent // 셀렌더러
+//			(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+//				JCheckBox box = new JCheckBox();
+//				box.setSelected(((Boolean) value).booleanValue());
+//				box.setHorizontalAlignment(JLabel.CENTER);
+//				return box;
+//			}
+//		};
 
 		JButton btn_upload = new JButton("\uC804\uC1A1 \uD558\uAE30");
 		btn_upload.setBounds(36, 682, 287, 43);
 		btn_upload.setFont(new Font("함초롬돋움", Font.BOLD, 14));
 		frame.getContentPane().add(btn_upload);
-		
+
 	}
 }
