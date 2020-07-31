@@ -9,7 +9,7 @@ INSERT INTO member VALUES('admin','admin','administrator','1@1');
 --constraints member_email_uk unique (email)
 --);
 select * from member
-DELETE FROM member WHERE id = 'dd'
+
 insert into member values('abd12','3098','¸¶Çö¾Æ','dkskdfjk@gmail.com');
 insert into member values('rksk12','4918','¿À¼Û¹Î','dksdsfad4545k@gmail.com');
 insert into member values('ekfk12','2853','±è·çº»','hgfdhtjk@gmail.com');
