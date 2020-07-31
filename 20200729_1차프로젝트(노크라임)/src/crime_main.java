@@ -267,7 +267,6 @@ public class crime_main {
 		});
 		lbl_reset.setBounds(73, 71, 97, 29);
 		frame.getContentPane().add(lbl_reset);
-		lbl_reset.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\small.png"));
 		
 		JLabel lbl_fold = new JLabel("\uD3BC\uCE58\uAE30");
 		lbl_fold.addMouseListener(new MouseAdapter() {
