@@ -1,3 +1,6 @@
+select * from member;
+INSERT INTO member VALUES('admin','admin','administrator','1@1');
+
 drop table member cascade constraints;
 drop table alarm cascade constraints;
 drop table crime_type cascade constraints;
@@ -11,6 +14,7 @@ drop sequence cr_loc_id_seq;
 drop sequence cr_id_seq;
 drop sequence tip_info_id_seq;
 drop sequence tip_id_seq;
+
 
 create table member
 (ID varchar2(16),
@@ -112,22 +116,22 @@ insert into member values('akqk12','9114','이용훈','dsfahreahk@gmail.com');
 insert into member values('tkwk14','8212','정혜원','fghk@gmail.com');
 insert into member values('abd13','2283','최슬아','ytutyfkdfjk@gmail.com');
 
-insert into crime values('1001','118','2019-05-18','절도강도',null,null);
-insert into crime values('1018','118','2017-02-01','약취유인',null,null);
-insert into crime values('1030','118','2020-06-01','상해폭행',null,null);
-insert into crime values('1047','118','2020-05-28','약취유인',null,null);
-insert into crime values('1019','119','2020-05-29','절도강도',null,null);
-insert into crime values('1048','119','2010-02-01','절도강도',null,null);
-insert into crime values('1077','119','2019-08-05','절도강도',null,null);
-insert into crime values('1106','119','2020-05-20','절도강도',null,null);
-insert into crime values('1135','119','2019-06-13','상해폭행',null,null);
-insert into crime values('1164','119','2007-02-24','상해폭행',null,null);
-insert into crime values('1193','119','2009-01-31','상해폭행',null,null);
-insert into crime values('1222','119','2020-05-08','상해폭행',null,null);
-insert into crime values('1251','119','2005-11-29','강간추행',null,null);
-insert into crime values('1280','119','2017-11-18','강간추행',null,null);
-insert into crime values('1309','119','2019-08-14','강간추행',null,null);
-insert into crime values('1338','119','2017-12-26','강간추행',null,null);
+insert into crime values('1001','118','2019-05-18','1',null,null);
+insert into crime values('1018','118','2017-02-01','4',null,null);
+insert into crime values('1030','118','2020-06-01','5',null,null);
+insert into crime values('1047','118','2020-05-28','4',null,null);
+insert into crime values('1019','119','2020-05-29','1',null,null);
+insert into crime values('1048','119','2010-02-01','1',null,null);
+insert into crime values('1077','119','2019-08-05','1',null,null);
+insert into crime values('1106','119','2020-05-20','1',null,null);
+insert into crime values('1135','119','2019-06-13','5',null,null);
+insert into crime values('1164','119','2007-02-24','5',null,null);
+insert into crime values('1193','119','2009-01-31','5',null,null);
+insert into crime values('1222','119','2020-05-08','5',null,null);
+insert into crime values('1251','119','2005-11-29','3',null,null);
+insert into crime values('1280','119','2017-11-18','3',null,null);
+insert into crime values('1309','119','2019-08-14','3',null,null);
+insert into crime values('1338','119','2017-12-26','3',null,null);
 
 insert into crime_type values('1','절도강도');
 insert into crime_type values('2','살인');
@@ -155,5 +159,11 @@ insert into alarm values('akqk12','6','9','13');
 insert into alarm values('tkwk14','1','23','4');
 insert into alarm values('abd13','12','19','7');
 
+<<<<<<< HEAD
+insert into member values('ff','2283','최슬아','ytutyfkdfjk@gmail.com');
+insert into member values('fff','22','최슬아','ffff');
+insert into member values('ffff','2283','최슬아','ggg');
+=======
 
 --select * from member;
+>>>>>>> branch 'master' of https://github.com/nocrime2020/noCrime.git
