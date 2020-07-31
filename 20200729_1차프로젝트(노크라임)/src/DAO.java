@@ -193,5 +193,35 @@ public class DAO {
 		}
 		return list; // 반환해줌
 	}
+	
+	public ArrayList<tipoff_VO> allSelect1() {
+		ArrayList<tipoff_VO> list = new ArrayList<tipoff_VO>();
+		try {
+			getConnection();
+
+			String sql = "SELECT * FROM crime";
+
+			psmt = conn.prepareStatement(sql);
+
+			rs = psmt.executeQuery();
+			int num = 1;
+			while (rs.next()) {
+				String cr_id = rs.getString(1);
+				String cr_loc_id = rs.getNString(2);
+				String cr_date = rs.getString(3);
+				String cr_type_id = rs.getString(4);
+				String tip_id = rs.getString(5);
+				String cr_name = rs.getString(6);
+				tipoff_VO vo = new tipoff_VO(cr_id, cr_loc_id, cr_date, cr_type_id, tip_id, cr_name); // 1~4가져와서 vo로 묶음
+				list.add(vo); // 리스트에 vo 담아서
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list; // 반환해줌
+	}
 
 }
