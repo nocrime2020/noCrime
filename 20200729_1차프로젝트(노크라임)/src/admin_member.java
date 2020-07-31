@@ -106,7 +106,8 @@ public class admin_member {
 		DefaultTableModel model = new DefaultTableModel(data, column);
 		table_member = new JTable(model);
 		table_member.setBounds(37, 146, 287, 493);
-
+//		System.out.println();
+		
 		JButton btn_deletemember = new JButton("\uAC15\uC81C \uD0C8\uD1F4");
 		btn_deletemember.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 14));
 		btn_deletemember.setBounds(37, 666, 287, 43);
