@@ -1,5 +1,3 @@
-INSERT INTO member VALUES('admin','admin','administrator','1@1');
-
 create table member
 (ID varchar2(16),
 PW varchar2(20) not null,
@@ -110,7 +108,7 @@ insert into crime_type values('2','살인');
 insert into crime_type values('3','강간추행');
 insert into crime_type values('4','약취유인');
 insert into crime_type values('5','상해폭행');
-
+SELECT * FROM member
 insert into crime_location values('118','광주광역시','남구','송암로58번길');
 insert into crime_location values('119','광주광역시','남구','송암로76번길');
 
@@ -136,3 +134,4 @@ insert into member values('fff','22','최슬아','ffff');
 insert into member values('ffff','2283','최슬아','ggg');
 
 select * from member;
+INSERT INTO member VALUES('admin','admin','administrator','1@1');

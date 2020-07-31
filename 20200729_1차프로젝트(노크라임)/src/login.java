@@ -211,10 +211,10 @@ public class login {
 		btn_login.setBounds(65, 340, 236, 23);
 		frame.getContentPane().add(btn_login);
 		
-		JLabel lbl_signup_1 = new JLabel("SIGN IN");
-		lbl_signup_1.setForeground(new Color(0, 0, 128));
-		lbl_signup_1.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 24));
-		lbl_signup_1.setBounds(65, 185, 97, 30);
-		frame.getContentPane().add(lbl_signup_1);
+		JLabel lbl_signin = new JLabel("SIGN IN");
+		lbl_signin.setForeground(new Color(0, 0, 128));
+		lbl_signin.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 24));
+		lbl_signin.setBounds(65, 185, 97, 30);
+		frame.getContentPane().add(lbl_signin);
 	}
 }

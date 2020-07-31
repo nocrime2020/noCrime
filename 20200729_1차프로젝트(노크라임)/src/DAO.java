@@ -16,8 +16,8 @@ public class DAO {
 	// 데이터베이스와 연결하는 메소드 생성
 	private void getConnection() {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "hr";
-		String password = "hr";
+		String user = "kc";
+		String password = "kc";
 
 		try {
 			// 1.드라이버 동적로딩
@@ -176,7 +176,7 @@ public class DAO {
 			psmt = conn.prepareStatement(sql);
 
 			rs = psmt.executeQuery();
-			int num = 1;
+			
 			while (rs.next()) {
 				String id = rs.getString(1);
 				String pw = rs.getString(2);
@@ -191,6 +191,7 @@ public class DAO {
 		} finally {
 			close();
 		}
+		System.out.println(list.get(0).getId());
 		return list; // 반환해줌
 	}
 	
