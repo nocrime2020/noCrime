@@ -191,7 +191,7 @@ public class DAO {
 		} finally {
 			close();
 		}
-		System.out.println(list.get(0).getId());
+//		System.out.println(list.get(0).getId());
 		return list; // π›»Ø«ÿ¡‹
 	}
 	
