@@ -184,7 +184,6 @@ public class DAO {
 				String email = rs.getString(4);
 				VO vo = new VO(id, pw, name, email); // 1~4가져와서 vo로 묶음
 				list.add(vo); // 리스트에 vo 담아서
-
 			}
 
 		} catch (SQLException e) {
