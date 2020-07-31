@@ -1,7 +1,7 @@
 
 public class tipoff_VO {
 	
-	private int check_tipoff;
+	private boolean check_tipoff;
 	private String cr_id;
 	private String cr_loc_id;
 	private String cr_date;
@@ -10,7 +10,7 @@ public class tipoff_VO {
 	private String cr_name;
 	
 	
-	public tipoff_VO(int check_tipoff, String cr_id, String cr_loc_id, String cr_date, String cr_type_id, String tip_id, String cr_name) {
+	public tipoff_VO(boolean check_tipoff, String cr_id, String cr_loc_id, String cr_date, String cr_type_id, String tip_id, String cr_name) {
 		this.check_tipoff = check_tipoff;
 		this.cr_id = cr_id;
 		this.cr_loc_id = cr_loc_id;
@@ -19,7 +19,7 @@ public class tipoff_VO {
 		this.tip_id = tip_id;
 		this.cr_name = cr_name;
 	}
-	public int getCheck_tipoff() {
+	public boolean getCheck_tipoff() {
 		return check_tipoff;
 	}
 	public String getCr_id() {

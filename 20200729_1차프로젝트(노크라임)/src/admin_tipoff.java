@@ -14,6 +14,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -119,7 +120,7 @@ public class admin_tipoff {
 			data[i][5] = tipoffList.get(i).getTip_id();
 			data[i][6] = tipoffList.get(i).getCr_name();
 		}
-
+		
 		DefaultTableModel model = new DefaultTableModel(data, column); // DefaultTableModel 선언 후 데이터 담기
 		table_tipoffmanage = new JTable(model); // JTable에 DefaultTableModel을 담기
 		table_tipoffmanage.setBounds(37, 146, 287, 493);
@@ -129,6 +130,22 @@ public class admin_tipoff {
 		frame.getContentPane().add(scrollPane);
 
 		table_tipoffmanage.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		
+		JCheckBox checkBox = new JCheckBox();
+		
+
+		DefaultTableCellRenderer dtcr1 = new DefaultTableCellRenderer() {
+			public void getTableCellRendererComponent
+			(JTable table, Object value, boolean hasFocus, int row, int column) {
+				JCheckBox checkBox = new JCheckBox();
+				checkBox.setSelected(((Boolean)value).booleanValue());
+				
+				checkBox.setHorizontalAlignment(JLabel.CENTER);
+			}
+		};
+		
+		table_tipoffmanage.getColumn("").setCellRenderer(dtcr1);
+		
 
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //		JPanel panel = new JPanel(new BorderLayout());
