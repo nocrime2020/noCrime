@@ -39,7 +39,7 @@ public class crime_main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					crime_main window = new crime_main();
+					crime_main window = new crime_main(null);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -817,11 +817,10 @@ public class crime_main {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				panel.setBounds(0, 106, 1, 1);
-//				if (Integer.parseInt((String)combo_fromYear.getSelectedItem())>2015)
-				if ((combo_fromYear.getSelectedIndex() == 0
-						|| Integer.parseInt((String) combo_fromYear.getSelectedItem()) >= 2005)
-						&& (combo_toYear.getSelectedIndex() == 0
-								|| Integer.parseInt((String) combo_fromYear.getSelectedItem()) >= 2020)) {
+				//System.out.println(Integer.parseInt((String) combo_fromYear.getSelectedItem())+Integer.parseInt((String) combo_toYear.getSelectedItem()));
+				//System.out.println(Integer.parseInt((String) combo_toYear.getSelectedItem()));
+				if ((combo_fromYear.getSelectedIndex() == 0?true:Integer.parseInt((String) combo_fromYear.getSelectedItem()) <= 2005)
+						&& (combo_toYear.getSelectedIndex() == 0? true:Integer.parseInt((String) combo_toYear.getSelectedItem()) >= 2020)) {
 					if (combo_street.getSelectedIndex() == 1) {
 						panel_2.setVisible(false);
 						lbl_76.setVisible(false);
@@ -886,7 +885,7 @@ public class crime_main {
 						lbl_강3_1251.setVisible(false);
 						lbl_강4_1309.setVisible(false);
 					}
-				} else if (Integer.parseInt((String) combo_fromYear.getSelectedItem()) > 2010) {
+				} else if (combo_fromYear.getSelectedIndex()==0?false:Integer.parseInt((String) combo_fromYear.getSelectedItem()) > 2010) {
 					if (combo_street.getSelectedIndex() == 1) {
 						panel_2.setVisible(false);
 						lbl_76.setVisible(false);
@@ -920,43 +919,59 @@ public class crime_main {
 					}
 					if (violence == 1) {
 						lbl_상1_1135.setVisible(true);
+						lbl_상2_1164.setVisible(false);
+						lbl_상3_1193.setVisible(false);
 						lbl_상4_1222.setVisible(true);
 					} else {
 						lbl_상1_1135.setVisible(false);
+						lbl_상2_1164.setVisible(false);
+						lbl_상3_1193.setVisible(false);
 						lbl_상4_1222.setVisible(false);
 					}
 					if (theft == 1) {
 						lbl_절1_1019.setVisible(true);
+						lbl_절2_1048.setVisible(false);
 						lbl_절3_1077.setVisible(true);
 						lbl_절4_1106.setVisible(true);
 					} else {
 						lbl_절1_1019.setVisible(false);
+						lbl_절2_1048.setVisible(false);
 						lbl_절3_1077.setVisible(false);
 						lbl_절4_1106.setVisible(false);
 					}
 					if (rape == 1) {
 						lbl_강1_1338.setVisible(true);
 						lbl_강2_1280.setVisible(true);
+						lbl_강3_1251.setVisible(false);
 						lbl_강4_1309.setVisible(true);
 					} else {
 						lbl_강1_1338.setVisible(false);
 						lbl_강2_1280.setVisible(false);
+						lbl_강3_1251.setVisible(false);
 						lbl_강4_1309.setVisible(false);
 					}
-				}else {
+				}else if(combo_toYear.getSelectedIndex()==0?false:Integer.parseInt((String) combo_toYear.getSelectedItem()) <= 2016) {
 					if (combo_street.getSelectedIndex() == 1) {
 						panel_2.setVisible(false);
 						lbl_76.setVisible(false);
 						panel_1.setVisible(true);
 						lbl_58.setVisible(true);
 						if (kidnap == 1) {
+							lbl_약2_1047.setVisible(false);
+							lbl_약_1018.setVisible(false);
 						} else {
+							lbl_약2_1047.setVisible(false);
+							lbl_약_1018.setVisible(false);
 						}
 						if (violence == 1) {
+							lbl_상_1030.setVisible(false);
 						} else {
+							lbl_상_1030.setVisible(false);
 						}
 						if (theft == 1) {
+							lbl_절_1001.setVisible(false);
 						} else {
+							lbl_절_1001.setVisible(false);
 						}
 					} else if (combo_street.getSelectedIndex() == 2) {
 						panel_1.setVisible(false);
@@ -968,20 +983,36 @@ public class crime_main {
 					} else {
 					}
 					if (violence == 1) {
+						lbl_상1_1135.setVisible(false);
+						lbl_상4_1222.setVisible(false);
 						lbl_상2_1164.setVisible(true);
 						lbl_상3_1193.setVisible(true);
 					} else {
+						lbl_상1_1135.setVisible(false);
+						lbl_상4_1222.setVisible(false);
 						lbl_상2_1164.setVisible(false);
 						lbl_상3_1193.setVisible(false);
 					}
 					if (theft == 1) {
+						lbl_절1_1019.setVisible(false);
+						lbl_절3_1077.setVisible(false);
+						lbl_절4_1106.setVisible(false);
 						lbl_절2_1048.setVisible(true);
 					} else {
+						lbl_절1_1019.setVisible(false);
+						lbl_절3_1077.setVisible(false);
+						lbl_절4_1106.setVisible(false);
 						lbl_절2_1048.setVisible(false);
 					}
 					if (rape == 1) {
+						lbl_강1_1338.setVisible(false);
+						lbl_강2_1280.setVisible(false);
+						lbl_강4_1309.setVisible(false);
 						lbl_강3_1251.setVisible(true);
 					} else {
+						lbl_강1_1338.setVisible(false);
+						lbl_강2_1280.setVisible(false);
+						lbl_강4_1309.setVisible(false);
 						lbl_강3_1251.setVisible(false);
 					}
 				}
