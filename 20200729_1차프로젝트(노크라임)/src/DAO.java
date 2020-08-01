@@ -256,15 +256,14 @@ public class DAO {
 		try {
 			getConnection(); 	//드라이버 로딩
 
-			String sql = "INSERT INTO crime VALUES(?,TO_date(?),?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
+			String sql = "INSERT INTO crime VALUES(cr_id_seq.nextval,?,TO_date(?),?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
 
 			psmt = conn.prepareStatement(sql);	//
 
-			psmt.setString(1, cr_loc_id);
-			psmt.setString(2, cr_date);
-			psmt.setString(3, cr_type_id);
-			psmt.setString(4, tip_info_id);
-			psmt.setString(5, evidence);
+			psmt.setString(2, cr_loc_id);
+			psmt.setString(3, cr_date);
+			psmt.setString(4, cr_type_id);
+			psmt.setString(5, tip_info_id);
 			psmt.setString(6, cr_name);
 
 			cnt = psmt.executeUpdate();
