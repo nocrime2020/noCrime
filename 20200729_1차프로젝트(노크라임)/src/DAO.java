@@ -201,7 +201,7 @@ public class DAO {
 		try {
 			getConnection();
 
-			String sql = "SELECT tip_info_id,cr_loc_id, to_date(cr_date, 'YYYY-MM-DD'),"
+			String sql = "SELECT tip_info_id,cr_loc_id, to_char(cr_date, 'YYYY-MM-DD'),"
 					+"cr_type_id,evidence,cr_name FROM tip_info";
 
 			psmt = conn.prepareStatement(sql);
@@ -283,8 +283,31 @@ public class DAO {
 		try {
 			getConnection(); 	//드라이버 로딩
 
-			String sql = "INSERT INTO alarm VALUES(?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
+			String sql = "update alarm set set_start = ?, set_end = ?, cr_cnt = ? where id = ?";
+			psmt = conn.prepareStatement(sql);	//
+			
+			psmt.setInt(1, set_start);
+			psmt.setInt(2, set_end);
+			psmt.setInt(3, cr_cnt);
+			psmt.setString(4,vo.getId());
 
+			cnt = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	public int sending_alarm2(VO vo, int set_start, int set_end, int cr_cnt) {
+
+		int cnt = 0;
+		try {
+			getConnection(); 	//드라이버 로딩
+
+			String sql = "INSERT INTO alarm VALUES(?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
 			psmt = conn.prepareStatement(sql);	//
 			
 			psmt.setString(1, vo.getId());
@@ -301,6 +324,46 @@ public class DAO {
 		}
 		return cnt;
 	}
+
+public int check_alarm(VO vo) {
+
+	int cnt2 = 0;
+	try {
+		getConnection(); 	//드라이버 로딩
+		String sql = "select id from alarm WHERE id = ?"; // 
+
+		psmt = conn.prepareStatement(sql);	//
+		
+		psmt.setString(1, vo.getId());
+
+		cnt2 = psmt.executeUpdate();
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return cnt2;
+}
+public int save_alarminfo(VO vo) {
+
+	int cnt3 = 0;
+	try {
+		getConnection(); 	//드라이버 로딩
+		String sql = "select set_start from alarm where id = ? "; 
+		psmt = conn.prepareStatement(sql);	
+		
+		psmt.setString(1, vo.getId());
+		
+		cnt3 = psmt.executeUpdate();
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return cnt3;
+}
 }
 
 
