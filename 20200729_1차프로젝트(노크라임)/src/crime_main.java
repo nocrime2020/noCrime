@@ -820,7 +820,7 @@ public class crime_main {
 				//System.out.println(Integer.parseInt((String) combo_toYear.getSelectedItem()));
 				if ((combo_fromYear.getSelectedIndex() == 0?true:Integer.parseInt((String) combo_fromYear.getSelectedItem()) <= 2005)
 						&& (combo_toYear.getSelectedIndex() == 0? true:Integer.parseInt((String) combo_toYear.getSelectedItem()) >= 2020)) {
-					if (combo_street.getSelectedIndex() == 1) {
+					if (combo_street.getSelectedIndex() == 16) {
 						panel_2.setVisible(false);
 						lbl_76.setVisible(false);
 						panel_1.setVisible(true);
@@ -842,7 +842,7 @@ public class crime_main {
 						} else {
 							lbl_절_1001.setVisible(false);
 						}
-					} else if (combo_street.getSelectedIndex() == 2) {
+					} else if (combo_street.getSelectedIndex() == 17) {
 						panel_1.setVisible(false);
 						lbl_58.setVisible(false);
 						panel_2.setVisible(true);
@@ -885,7 +885,7 @@ public class crime_main {
 						lbl_강4_1309.setVisible(false);
 					}
 				} else if (combo_fromYear.getSelectedIndex()==0?false:Integer.parseInt((String) combo_fromYear.getSelectedItem()) > 2010) {
-					if (combo_street.getSelectedIndex() == 1) {
+					if (combo_street.getSelectedIndex() == 16) {
 						panel_2.setVisible(false);
 						lbl_76.setVisible(false);
 						panel_1.setVisible(true);
@@ -907,7 +907,7 @@ public class crime_main {
 						} else {
 							lbl_절_1001.setVisible(false);
 						}
-					} else if (combo_street.getSelectedIndex() == 2) {
+					} else if (combo_street.getSelectedIndex() == 17) {
 						panel_1.setVisible(false);
 						lbl_58.setVisible(false);
 						panel_2.setVisible(true);
@@ -950,7 +950,7 @@ public class crime_main {
 						lbl_강4_1309.setVisible(false);
 					}
 				}else if(combo_toYear.getSelectedIndex()==0?false:Integer.parseInt((String) combo_toYear.getSelectedItem()) <= 2016) {
-					if (combo_street.getSelectedIndex() == 1) {
+					if (combo_street.getSelectedIndex() == 16) {
 						panel_2.setVisible(false);
 						lbl_76.setVisible(false);
 						panel_1.setVisible(true);
@@ -972,7 +972,7 @@ public class crime_main {
 						} else {
 							lbl_절_1001.setVisible(false);
 						}
-					} else if (combo_street.getSelectedIndex() == 2) {
+					} else if (combo_street.getSelectedIndex() == 17) {
 						panel_1.setVisible(false);
 						lbl_58.setVisible(false);
 						panel_2.setVisible(true);
