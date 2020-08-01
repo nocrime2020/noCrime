@@ -199,10 +199,10 @@ public class login {
 				VO result = dao.login(vo);
 
 				if(result != null) {
-					if (vo.getId().equals("admin")) {	//관리자는 관리자페이지
+					if (vo.getId().equals("admin")) {	//관리자는 관리자페이지로
 						frame.dispose();
 						admin_select asel = new admin_select(vo);
-					} else {
+					} else {							//회원은 범죄조회페이지로
 						frame.dispose();
 						crime_main crime = new crime_main(vo);
 					}

@@ -147,7 +147,7 @@ public class DAO {
 		try {
 			getConnection();
 
-			String sql = "DELETE FROM member WHERE id = ? and pw = ?"; // ?자리에 id나pw 적으면 id,pw라는 문자열이 들어가는 것
+			String sql = "DELETE FROM member WHERE id = ? and pw = ?"; // 각각의 ?자리에 id와 pw를 적으면 id, pw라는 문자열이 들어가는 것
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getId());
