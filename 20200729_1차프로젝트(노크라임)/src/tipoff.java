@@ -2,6 +2,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
@@ -92,17 +94,8 @@ public class tipoff {
 		
 		JButton btn_send = new JButton("SEND");
 		btn_send.setBackground(new Color(204, 204, 255));
-		btn_send.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		
 		btn_send.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-//		btnNewButton_1.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//		
-//					나중에 팝업창 넣기	(e.g., 제보완료!)
-//			}
-//		});
 		btn_send.setBounds(12, 711, 324, 23);
 		frame.getContentPane().add(btn_send);
 		
@@ -142,6 +135,7 @@ public class tipoff {
 		frame.getContentPane().add(ck_kidnap);
 		
 		JComboBox combo_city = new JComboBox();
+		combo_city.setModel(new DefaultComboBoxModel(new String[] {"도시를 선택하세요", "서울특별시", "광주광역시"}));
 		combo_city.setBackground(new Color(204, 204, 255));
 		combo_city.setEditable(true);
 		combo_city.setFont(new Font("함초롬돋움", Font.BOLD, 12));
@@ -152,11 +146,12 @@ public class tipoff {
 		combo_gu.setBackground(new Color(204, 204, 255));
 		combo_gu.setEditable(true);
 		combo_gu.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		combo_gu.setModel(new DefaultComboBoxModel(new String[] {"\uAD11\uC0B0\uAD6C", "\uB3D9\uAD6C", "\uC11C\uAD6C", "\uB0A8\uAD6C", "\uBD81\uAD6C"}));
+		combo_gu.setModel(new DefaultComboBoxModel(new String[] {"구를 선택하세요", "광산구", "동구", "서구", "남구", "북구"}));
 		combo_gu.setBounds(110, 187, 151, 19);
 		frame.getContentPane().add(combo_gu);
 		
 		JComboBox combo_street = new JComboBox();
+		combo_street.setModel(new DefaultComboBoxModel(new String[] {"상세주소를 선택하세요", "2순환로","서문대로","서문대로402번길","서문대로473번길","서문대로499번길","서문대로517번길","서문대로556번길","서문대로627번길","송암로","송암로130번길","송암로24번길","송암로24번가길","송암로24번나길","송암로27번길","송암로42번길","송암로58번길","송암로76번길","송암로98번길","원효천길","원효천1길","원효천2길","입하길","입하1길","입하2길","입하2안길","효덕로","효덕로303번길","효천길","효천3로"}));
 		combo_street.setBackground(new Color(204, 204, 255));
 		combo_street.setEditable(true);
 		combo_street.setFont(new Font("함초롬돋움", Font.BOLD, 12));
@@ -183,9 +178,59 @@ public class tipoff {
 		ck_murder.setBounds(31, 410, 49, 23);
 		frame.getContentPane().add(ck_murder);
 		
+		
 		JLabel lbl_resetICON = new JLabel("");
+
+		//reset아이콘 클릭시 선택&&입력 정보 초기화 버튼
+		lbl_resetICON.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				combo_city.setSelectedIndex(0);
+				combo_gu.setSelectedIndex(0);
+				combo_street.setSelectedIndex(0);
+				txt_date.setText("");
+				ck_assault.setSelected(false);
+				ck_rape.setSelected(false);
+				ck_burglary.setSelected(false);
+				ck_kidnap.setSelected(false);
+				ck_murder.setSelected(false);
+			}
+		});
+		
+		btn_send.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int result = JOptionPane.showConfirmDialog(null, "입력한 정보로 제보 하시겠습니까?", "범죄 제보", JOptionPane.YES_NO_OPTION);
+				if (result == JOptionPane.YES_OPTION) {		// 사용자가 제보를 원하는 경우
+					
+					if ((combo_city.getSelectedIndex()!=0) && 
+						(combo_gu.getSelectedIndex()!=0) &&
+						(combo_street.getSelectedIndex()!=0) && 
+//						!txt_date.getText().equals("") && 
+						(ck_assault.isSelected() || 
+						 ck_rape.isSelected() || 
+						 ck_burglary.isSelected() || 
+						 ck_kidnap.isSelected() || 
+						 ck_murder.isSelected())
+						)	{	//안넣은 값 없이 다 쓴 경우
+						JOptionPane.showMessageDialog(null, "제보 완료.\n 영업일 1일이내 검토 후 범죄 정보에 조회됩니다.", "범죄 제보", JOptionPane.INFORMATION_MESSAGE);
+						frame.dispose();
+						tipoff tipoff = new tipoff(vo);
+					} else { //정보 입력 중 빠진 입력값이 있는 경우
+						JOptionPane.showMessageDialog(null, "입력되지 않은 정보가 존재합니다.", "범죄 제보", JOptionPane.ERROR_MESSAGE);
+					}
+					
+					
+				} else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {
+					return; // 사용자가 전송취소 혹은 창닫기 버튼을 누른 경우
+				}
+				
+			}
+		});
+		
+	
 		lbl_resetICON.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\small.png"));
-		lbl_resetICON.setBounds(269, 367, 25, 29);
+		lbl_resetICON.setBounds(290, 206, 25, 29);
 		frame.getContentPane().add(lbl_resetICON);
 		
 		JLabel lbl_rapeICON = new JLabel("");
@@ -227,3 +272,4 @@ public class tipoff {
 		frame.getContentPane().add(lbl_logout);
 	}
 }
+
