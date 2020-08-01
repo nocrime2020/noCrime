@@ -201,7 +201,8 @@ public class DAO {
 		try {
 			getConnection();
 
-			String sql = "SELECT * FROM tip_info";
+			String sql = "SELECT tip_info_id,cr_loc_id, to_date(cr_date, 'YYYY-MM-DD'),"
+					+"cr_type_id,evidence,cr_name FROM tip_info";
 
 			psmt = conn.prepareStatement(sql);
 
@@ -248,14 +249,14 @@ public class DAO {
 		return cnt;
 	}
 	
-
+//제보전송하기용
 	public int sending_tipoff(String tip_info_id, String cr_type_id, String cr_date,String cr_loc_id, String evidence,String cr_name) {
 
 		int cnt = 0;
 		try {
 			getConnection(); 	//드라이버 로딩
 
-			String sql = "INSERT INTO crime VALUES(?,to_date(?,'YYYY-MM-DD'),?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
+			String sql = "INSERT INTO crime VALUES(?,TO_date(?,'YYYY-MM-DD') ,?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
 
 			psmt = conn.prepareStatement(sql);	//
 
@@ -275,4 +276,32 @@ public class DAO {
 		}
 		return cnt;
 	}
+	
+	public int sending_alarm(VO vo, int set_start, int set_end, int cr_cnt) {
+
+		int cnt = 0;
+		try {
+			getConnection(); 	//드라이버 로딩
+
+			String sql = "INSERT INTO alarm VALUES(?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
+
+			psmt = conn.prepareStatement(sql);	//
+			
+			psmt.setString(1, vo.getId());
+			psmt.setInt(2, set_start);
+			psmt.setInt(3, set_end);
+			psmt.setInt(4, cr_cnt);
+
+			cnt = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
 }
+
+
+
