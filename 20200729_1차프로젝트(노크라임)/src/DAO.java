@@ -16,8 +16,8 @@ public class DAO {
 	// 데이터베이스와 연결하는 메소드 생성
 	private void getConnection() {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "hr";
-		String password = "hr";
+		String user = "kc";
+		String password = "kc";
 
 		try {
 			// 1.드라이버 동적로딩
@@ -249,13 +249,13 @@ public class DAO {
 	}
 	
 
-	public int sending_tipoff(String tip_info_id, String cr_type_id, String cr_date,String cr_loc_id, String cr_name) {
+	public int sending_tipoff(String tip_info_id, String cr_type_id, String cr_date,String cr_loc_id, String evidence,String cr_name) {
 
 		int cnt = 0;
 		try {
 			getConnection(); 	//드라이버 로딩
 
-			String sql = "INSERT INTO crime VALUES(?,?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
+			String sql = "INSERT INTO crime VALUES(?,?,?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
 
 			psmt = conn.prepareStatement(sql);	//
 
@@ -263,7 +263,8 @@ public class DAO {
 			psmt.setString(2, cr_date);
 			psmt.setString(3, cr_type_id);
 			psmt.setString(4, tip_info_id);
-			psmt.setString(5, cr_name);
+			psmt.setString(5, evidence);
+			psmt.setString(6, cr_name);
 
 			cnt = psmt.executeUpdate();
 

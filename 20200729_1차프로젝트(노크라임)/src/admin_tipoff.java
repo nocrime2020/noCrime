@@ -149,8 +149,8 @@ public class admin_tipoff {
 						for (int i = 0; i < rows.length; i++) {
 							Object value = table_tipoffmanage.getValueAt(rows[i], 0);
 							String toto = (String) value;
-							cnt = dao.sending_tipoff(toto, toto, toto, toto, toto);
-						}
+							cnt = dao.sending_tipoff(toto, toto, toto, toto,toto,toto);
+						} 
 						if (cnt > 0) {
 							JOptionPane.showMessageDialog(null, "전송이 완료되었습니다.");
 						} else {
