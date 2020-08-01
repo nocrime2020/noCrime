@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class myPage {
 
@@ -63,7 +65,8 @@ public class myPage {
 		frame.setBounds(100, 100, 375, 812);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
+		
+		//타이틀 누르면 범죄조회 페이지로
 		JLabel lbl_title = new JLabel("\uB178(Know) \uD06C\uB77C\uC784");
 		lbl_title.addMouseListener(new MouseAdapter() {
 			@Override
@@ -94,20 +97,12 @@ public class myPage {
 		lbl_deleteid.setForeground(Color.BLACK);
 		lbl_deleteid.setHorizontalAlignment(SwingConstants.LEFT);
 		lbl_deleteid.setFont(new Font("함초롬돋움", Font.BOLD, 18));
-		lbl_deleteid.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				frame.dispose();
-//				login.main(null);
-				login login = new login();
-
-			}
-		});
 		lbl_deleteid.setBounds(28, 617, 217, 32);
 		frame.getContentPane().add(lbl_deleteid);
 
 		JLabel lbl_logout = new JLabel("\uB85C\uADF8\uC544\uC6C3");
+		
+		//로그아웃버튼 클릭시 로그인&회원가입 페이지로	
 		lbl_logout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -148,18 +143,18 @@ public class myPage {
 		combo_cntalarm.setBounds(158, 287, 189, 21);
 		frame.getContentPane().add(combo_cntalarm);
 
+		
 		JButton btn_deleteid = new JButton("\uC815\uB9D0 \uD0C8\uD1F4 \uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C ?");
+		//회원탈퇴 구현
 		btn_deleteid.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
 				int result = JOptionPane.showConfirmDialog(null, "계속하시겠습니까?", "회원 탈퇴", JOptionPane.YES_NO_OPTION);
-				if (result == JOptionPane.YES_OPTION) {
-					// 사용자가 탈퇴를 원하는 경우
+				if (result == JOptionPane.YES_OPTION) {		// 사용자가 탈퇴를 원하는 경우
 					dao.delete(vo);
 					frame.dispose();
 					login login = new login();
-
 				} else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {
 					return; // 사용자가 탈퇴취소 혹은 창닫기 버튼을 누른 경우
 				}
@@ -216,10 +211,11 @@ public class myPage {
 		frame.getContentPane().add(lbl_newemail);
 
 		txt_newpw = new JTextField();
+		//회원정보 수정시 pw란 클릭했는지? email란 클릭했는지? 구분하기 위함 (주의! 클릭말고 tap으로 하면 에러 발생)
 		txt_newpw.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				click += "password";
+				click += "password";	
 			}
 		});
 		txt_newpw.setColumns(10);
@@ -227,10 +223,11 @@ public class myPage {
 		frame.getContentPane().add(txt_newpw);
 
 		txt_newemail = new JTextField();
+		//회원정보 수정시 pw란 클릭했는지? email란 클릭했는지? 구분하기 위함 (주의! 클릭말고 tap으로 하면 에러 발생)
 		txt_newemail.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				click += "email";
+				click += "email";		
 			}
 		});
 		txt_newemail.setColumns(10);
@@ -259,16 +256,25 @@ public class myPage {
 						login login = new login();
 					} else {
 						JOptionPane.showMessageDialog(null, "정보 수정 실패", "회원 정보 수정", JOptionPane.ERROR_MESSAGE);
+//						txt_newpw.setText("");
+//						txt_newemail.setText("");
+						myPage myPage = new myPage(vo);
 					}
 				} else if (click.equals("email")) {
 					updateVO updatevo = new updateVO(id, pw, newEmail, click);
 					int cnt = dao.update(updatevo);
 					if (cnt > 0) {
 						JOptionPane.showMessageDialog(null, "이메일 수정 완료", "회원 정보 수정", JOptionPane.INFORMATION_MESSAGE);
-						frame.dispose();
-						login login = new login();
+//						frame.dispose();
+//						login login = new login();
+//						txt_newemail.setText("");
+						myPage myPage = new myPage(vo);	//이메일만 수정시 굳이 로그인을 다시 할 필요는 없음
+								
 					} else {
 						JOptionPane.showMessageDialog(null, "정보 수정 실패", "회원 정보 수정", JOptionPane.ERROR_MESSAGE);
+//						txt_newpw.setText("");
+//						txt_newemail.setText("");
+						myPage myPage = new myPage(vo);
 					}
 				} else {
 					updateVO updatevo = new updateVO(id, pw, newPw, newEmail, click);
@@ -279,6 +285,9 @@ public class myPage {
 						login login = new login();
 					} else {
 						JOptionPane.showMessageDialog(null, "정보 수정 실패", "회원 정보 수정", JOptionPane.ERROR_MESSAGE);
+//						txt_newpw.setText("");
+//						txt_newemail.setText("");
+						myPage myPage = new myPage(vo);
 					}
 				}
 
