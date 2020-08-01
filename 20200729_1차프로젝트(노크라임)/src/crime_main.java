@@ -845,8 +845,7 @@ public class crime_main {
 //				textArea_Àý2.setVisible(false);
 //				textArea_Àý3.setVisible(false);
 //				textArea_Àý4.setVisible(false);
-				panel.disable();
-				//panel.enable();
+				
 				if (panel.getHeight() < 100) {
 					panel.setBounds(0, 110, 359, 663);
 				}
