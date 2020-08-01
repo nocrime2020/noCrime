@@ -19,17 +19,17 @@ import javax.swing.SwingConstants;
 public class login {
 
 	private JFrame frame;
-	private JTextField txt_id;
-	private TextField txt_pw;
+//	private JTextField txt_id;
+//	private TextField txt_pw;
 	private JLabel lbl_signup;
 	private JLabel lbl_name;
 	private JLabel lbl_newid;
 	private JLabel lbl_newpw;
 	private JLabel lbl_email;
-	private JTextField txt_name;
-	private JTextField txt_newid;
-	private JTextField txt_newpw;
-	private JTextField txt_email;
+//	private JTextField txt_name;
+//	private JTextField txt_newid;
+//	private JTextField txt_newpw;
+//	private JTextField txt_email;
 	private JLabel lbl_title;
 
 	DAO dao = new DAO();
@@ -89,7 +89,7 @@ public class login {
 		frame.getContentPane().add(txt_pw);
 		
 		txt_pw.selectAll(); 	//입력된 모든 문자열 선택
-		txt_pw.setEchoChar('*');
+		txt_pw.setEchoChar('*');	//비밀번호가 *로 나오게 설정
 		
 		
 		lbl_signup = new JLabel("SIGN UP");
@@ -152,6 +152,7 @@ public class login {
 		lbl_title.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\knowcrimelogo.png"));
 		frame.getContentPane().add(lbl_title);
 		
+		//회원가입 구현
 		JButton btn_signup = new JButton("SIGN UP");
 		btn_signup.setBounds(65, 640, 236, 23);
 		btn_signup.addActionListener(new ActionListener() {
@@ -169,13 +170,13 @@ public class login {
 					//팝업창을 띄워보아요!
 					//부모컴포넌트, 메세지, 제목, 아이콘모양
 					JOptionPane.showMessageDialog(null, "회원가입 완료.\n로그인 하세요.", "회원가입", JOptionPane.INFORMATION_MESSAGE);
-					txt_newid.setText("");
+					txt_newid.setText("");	//회원가입 후 텍스트란 리셋
 					txt_newpw.setText("");
 					txt_name.setText("");
 					txt_email.setText("");
 				} else {
 					//회원가입 실패했을 때 팝업창 띄우기!
-					JOptionPane.showMessageDialog(null, "사용할 수 없는 아이디 또는 이메일입니다.", "회원가입", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "사용할 수 없는 아이디 또는 이메일입니다.", "회원가입", JOptionPane.ERROR_MESSAGE);		//아이디:pk 이메일:uk
 				}
 				
 			}
@@ -186,6 +187,7 @@ public class login {
 		
 		JButton btn_login = new JButton("SIGN IN");
 	
+		//로그인 후 연결되는 페이지 설정
 		btn_login.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -197,10 +199,10 @@ public class login {
 				VO result = dao.login(vo);
 
 				if(result != null) {
-					if (vo.getId().equals("admin")) {	//관리자는 관리자페이지
+					if (vo.getId().equals("admin")) {	//관리자는 관리자페이지로
 						frame.dispose();
 						admin_select asel = new admin_select(vo);
-					} else {
+					} else {							//회원은 범죄조회페이지로
 						frame.dispose();
 						crime_main crime = new crime_main(vo);
 					}

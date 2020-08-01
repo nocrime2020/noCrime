@@ -83,7 +83,6 @@ public class admin_tipoff {
 				frame.dispose();
 //				admin_select.main(null);
 				admin_select admin_select = new admin_select(vo);
-//				login login = new login();
 
 			}
 		});

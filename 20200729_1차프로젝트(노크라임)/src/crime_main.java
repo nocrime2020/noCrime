@@ -122,8 +122,14 @@ public class crime_main {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				frame.dispose();
-				crime_main crime = new crime_main(vo);	//타이틀눌렀을때 다시 이 페이지 열림(=새로고침)
+				if (vo.getId().equals("admin")) {	//관리자는 관리자페이지로 돌아오고
+					frame.dispose();
+					admin_select asel = new admin_select(vo);
+				} else {							//회원은 메인페이지 새로 고침
+					frame.dispose();
+					crime_main crime = new crime_main(vo);
+				}
+				
 				
 			}
 		});
