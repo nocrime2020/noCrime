@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -23,6 +24,7 @@ public class tipoff {
 	private JTextField txt_date;
 
 	JFileChooser chooser;
+	ImageIcon ImageIcon;
 	
 	/**
 	 * Launch the application.
@@ -76,8 +78,10 @@ public class tipoff {
 		
 		chooser = new JFileChooser();	//파일 다이얼로그 생성
 		chooser.setCurrentDirectory(new File("C:\\"));
-//		chooser.setFileSelectionMode(chooser.());
-//		chooser.setPreferredSize(new Dimension(97, 586, 151, 109));
+//		Image pic = ImageIcon.getImage();
+//		Image chgimg = pic.getScaledInstance(151, 109, Image.SCALE_SMOOTH);
+//		ImageIcon Icon = new ImageIcon(chgimg);
+
 		btn_evidence.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -90,8 +94,10 @@ public class tipoff {
 					//사용자가 파일 선택 후 "열기" 버튼 누름
 					String filePath = chooser.getSelectedFile().getPath();	//파일경로를 가져옴
 					lbl_photo.setIcon(new ImageIcon(filePath));
-//				pack();
-				
+					
+					
+					
+					
 				} else {
 					//사용자가 창을 강제로 닫거나 취소 버튼을 누름
 					JOptionPane.showMessageDialog(null, "파일 선택 취소", "범죄 제보", JOptionPane.WARNING_MESSAGE );
