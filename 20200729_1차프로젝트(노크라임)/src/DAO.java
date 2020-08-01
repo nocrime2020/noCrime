@@ -214,7 +214,7 @@ public class DAO {
 				String cr_type_id = rs.getString(4);
 				String evidence = rs.getString(5);
 				String cr_name = rs.getString(6);
-				tipoff_VO vo = new tipoff_VO(tip_info_id, cr_loc_id, cr_date, cr_type_id, evidence, cr_name); // 1~4가져와서 vo로 묶음
+				tipoff_VO vo = new tipoff_VO(tip_info_id, cr_type_id, cr_date, cr_loc_id, evidence, cr_name); // 1~4가져와서 vo로 묶음
 				list.add(vo); // 리스트에 vo 담아서
 			}
 
@@ -256,15 +256,16 @@ public class DAO {
 		try {
 			getConnection(); 	//드라이버 로딩
 
-			String sql = "INSERT INTO crime VALUES(cr_id_seq.nextval,?,TO_date(?),?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
+			String sql = "INSERT INTO crime Values (cr_id_seq.nextval,?, to_date(?, 'YYYY-MM-DD'), ?, ?,?)";
+//					+"update crime(cr_id) set cr_id_seq.nextval where tip_info_id = ?;"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
 
 			psmt = conn.prepareStatement(sql);	//
 
-			psmt.setString(2, cr_loc_id);
-			psmt.setString(3, cr_date);
-			psmt.setString(4, cr_type_id);
-			psmt.setString(5, tip_info_id);
-			psmt.setString(6, cr_name);
+			psmt.setString(1, cr_loc_id);
+			psmt.setString(2, cr_date);
+			psmt.setString(3, cr_type_id);
+			psmt.setString(4, tip_info_id);
+			psmt.setString(5, cr_name);
 
 			cnt = psmt.executeUpdate();
 

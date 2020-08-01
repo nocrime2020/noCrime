@@ -144,13 +144,13 @@ public class admin_tipoff {
 				if (result == JOptionPane.YES_OPTION) {
 					if (row != 0) {
 						row = table_tipoffmanage.getSelectedRow();
-						int[] rows = (table_tipoffmanage.getSelectedRows());
-
-						for (int i = 0; i < rows.length; i++) {
-							Object value = table_tipoffmanage.getValueAt(rows[i], 0);
-							String toto = (String) value;
-							cnt = dao.sending_tipoff(toto, toto, toto, toto,toto,toto);
-						} 
+//						int[] rows = (table_tipoffmanage.getSelectedRows());
+						String[] toto=new String[6];
+						for (int i = 0; i < 6; i++) {
+							Object value = table_tipoffmanage.getValueAt(row, i);
+							toto[i] = (String) value;
+						}
+						cnt = dao.sending_tipoff(toto[0], toto[1], toto[2], toto[3],toto[4],toto[5]);
 						if (cnt > 0) {
 							JOptionPane.showMessageDialog(null, "전송이 완료되었습니다.");
 						} else {
