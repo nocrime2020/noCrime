@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class myPage {
 
@@ -142,8 +144,8 @@ public class myPage {
 		frame.getContentPane().add(combo_cntalarm);
 
 		
-		//회원탈퇴 구현
 		JButton btn_deleteid = new JButton("\uC815\uB9D0 \uD0C8\uD1F4 \uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C ?");
+		//회원탈퇴 구현
 		btn_deleteid.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -209,10 +211,11 @@ public class myPage {
 		frame.getContentPane().add(lbl_newemail);
 
 		txt_newpw = new JTextField();
+		//회원정보 수정시 pw란 클릭했는지? email란 클릭했는지? 구분하기 위함 (주의! 클릭말고 tap으로 하면 에러 발생)
 		txt_newpw.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				click += "password";
+				click += "password";	
 			}
 		});
 		txt_newpw.setColumns(10);
@@ -220,10 +223,11 @@ public class myPage {
 		frame.getContentPane().add(txt_newpw);
 
 		txt_newemail = new JTextField();
+		//회원정보 수정시 pw란 클릭했는지? email란 클릭했는지? 구분하기 위함 (주의! 클릭말고 tap으로 하면 에러 발생)
 		txt_newemail.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				click += "email";
+				click += "email";		
 			}
 		});
 		txt_newemail.setColumns(10);
@@ -252,16 +256,25 @@ public class myPage {
 						login login = new login();
 					} else {
 						JOptionPane.showMessageDialog(null, "정보 수정 실패", "회원 정보 수정", JOptionPane.ERROR_MESSAGE);
+//						txt_newpw.setText("");
+//						txt_newemail.setText("");
+						myPage myPage = new myPage(vo);
 					}
 				} else if (click.equals("email")) {
 					updateVO updatevo = new updateVO(id, pw, newEmail, click);
 					int cnt = dao.update(updatevo);
 					if (cnt > 0) {
 						JOptionPane.showMessageDialog(null, "이메일 수정 완료", "회원 정보 수정", JOptionPane.INFORMATION_MESSAGE);
-						frame.dispose();
-						login login = new login();
+//						frame.dispose();
+//						login login = new login();
+//						txt_newemail.setText("");
+						myPage myPage = new myPage(vo);	//이메일만 수정시 굳이 로그인을 다시 할 필요는 없음
+								
 					} else {
 						JOptionPane.showMessageDialog(null, "정보 수정 실패", "회원 정보 수정", JOptionPane.ERROR_MESSAGE);
+//						txt_newpw.setText("");
+//						txt_newemail.setText("");
+						myPage myPage = new myPage(vo);
 					}
 				} else {
 					updateVO updatevo = new updateVO(id, pw, newPw, newEmail, click);
@@ -272,6 +285,9 @@ public class myPage {
 						login login = new login();
 					} else {
 						JOptionPane.showMessageDialog(null, "정보 수정 실패", "회원 정보 수정", JOptionPane.ERROR_MESSAGE);
+//						txt_newpw.setText("");
+//						txt_newemail.setText("");
+						myPage myPage = new myPage(vo);
 					}
 				}
 

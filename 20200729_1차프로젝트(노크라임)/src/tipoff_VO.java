@@ -7,8 +7,9 @@ public class tipoff_VO {
 	private String cr_loc_id;
 	private String evidence;
 	private String cr_name;
-	public tipoff_VO(String tip_info_id, String cr_type_id, String cr_date, String cr_loc_id, String evidence,
-			String cr_name) {
+	
+	
+	public tipoff_VO(String tip_info_id, String cr_type_id, String cr_date, String cr_loc_id, String evidence, String cr_name) {
 		super();
 		this.tip_info_id = tip_info_id;
 		this.cr_type_id = cr_type_id;
@@ -17,6 +18,8 @@ public class tipoff_VO {
 		this.evidence = evidence;
 		this.cr_name = cr_name;
 	}
+	
+	
 	public String getTip_info_id() {
 		return tip_info_id;
 	}
