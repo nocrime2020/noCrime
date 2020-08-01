@@ -1,28 +1,28 @@
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JTextField;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JCheckBox;
-import javax.swing.DefaultComboBoxModel;
-import java.awt.Color;
-import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class tipoff {
 
 	private JFrame frame;
 	private JTextField txt_date;
 
+	JFileChooser chooser;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -65,6 +65,27 @@ public class tipoff {
 		frame.getContentPane().add(lbl_tipoff);
 		
 		JButton btn_evidence = new JButton("CHOOSE PHOTO");
+		
+		chooser = new JFileChooser();	//파일 다이얼로그 생성
+		btn_evidence.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG & JPG Images", "png", "jpg");
+				chooser.setFileFilter(filter); 		//파일 다이얼로그에 파일필터 설정
+				
+				//파일 다이얼로그 출력
+				int ret = chooser.showOpenDialog(null);	//열기창 정의
+				if(ret != JFileChooser.APPROVE_OPTION) {
+					//사용자가 창을 강제로 닫거나 취소 버튼을 누름
+					JOptionPane.showInternalMessageDialog(null, "증거 파일 선택 취소", "범죄 제보", JOptionPane.WARNING_MESSAGE );
+					return;
+				}
+				
+				//사용자가 파일 선택 후 "열기" 버튼 누름
+				String filePath = chooser.getSelectedFile().getPath();	//파일경로를 가져옴
+				
+			}
+		});
 		btn_evidence.setBackground(new Color(204, 204, 255));
 		btn_evidence.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		btn_evidence.setBounds(12, 553, 317, 23);
