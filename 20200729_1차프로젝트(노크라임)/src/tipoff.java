@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -64,9 +65,19 @@ public class tipoff {
 		lbl_tipoff.setBounds(78, 56, 234, 54);
 		frame.getContentPane().add(lbl_tipoff);
 		
+		JLabel lbl_photo = new JLabel("");
+		lbl_photo.setVerticalAlignment(SwingConstants.TOP);
+		lbl_photo.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_photo.setBounds(97, 586, 151, 109);
+		frame.getContentPane().add(lbl_photo);
+					
+		
 		JButton btn_evidence = new JButton("CHOOSE PHOTO");
 		
 		chooser = new JFileChooser();	//파일 다이얼로그 생성
+		chooser.setCurrentDirectory(new File("C:\\"));
+//		chooser.setFileSelectionMode(chooser.());
+//		chooser.setPreferredSize(new Dimension(97, 586, 151, 109));
 		btn_evidence.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -75,14 +86,17 @@ public class tipoff {
 				
 				//파일 다이얼로그 출력
 				int ret = chooser.showOpenDialog(null);	//열기창 정의
-				if(ret != JFileChooser.APPROVE_OPTION) {
+				if(ret == JFileChooser.APPROVE_OPTION) { //디렉토리를 선택했으면
+					//사용자가 파일 선택 후 "열기" 버튼 누름
+					String filePath = chooser.getSelectedFile().getPath();	//파일경로를 가져옴
+					lbl_photo.setIcon(new ImageIcon(filePath));
+//				pack();
+				
+				} else {
 					//사용자가 창을 강제로 닫거나 취소 버튼을 누름
-					JOptionPane.showInternalMessageDialog(null, "증거 파일 선택 취소", "범죄 제보", JOptionPane.WARNING_MESSAGE );
+					JOptionPane.showMessageDialog(null, "파일 선택 취소", "범죄 제보", JOptionPane.WARNING_MESSAGE );
 					return;
 				}
-				
-				//사용자가 파일 선택 후 "열기" 버튼 누름
-				String filePath = chooser.getSelectedFile().getPath();	//파일경로를 가져옴
 				
 			}
 		});
@@ -291,6 +305,7 @@ public class tipoff {
 		});
 		lbl_logout.setBounds(290, 10, 81, 15);
 		frame.getContentPane().add(lbl_logout);
+		
 	}
 }
 
