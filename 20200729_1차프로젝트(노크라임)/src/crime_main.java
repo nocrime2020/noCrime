@@ -1016,12 +1016,9 @@ public class crime_main {
 						lbl_강3_1251.setVisible(false);
 					}
 				}
-
-				// System.out.println(Integer.parseInt(((String)combo_fromYear.getSelectedItem()+(String)combo_fromMon.getSelectedItem()+(String)combo_fromDay.getSelectedItem())));
 			}
 		});
 		btn_search.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		btn_search.setBackground(new Color(204, 204, 255));
-
 	}
 }
