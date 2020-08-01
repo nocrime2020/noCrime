@@ -16,8 +16,8 @@ public class DAO {
 	// 데이터베이스와 연결하는 메소드 생성
 	private void getConnection() {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "kc";
-		String password = "kc";
+		String user = "hr";
+		String password = "hr";
 
 		try {
 			// 1.드라이버 동적로딩
