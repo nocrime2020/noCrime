@@ -215,15 +215,14 @@ public class crime_main {
 		combo_city.setBounds(134, 111, 151, 18);
 		panel.add(combo_city);
 		combo_city.setModel(new DefaultComboBoxModel(
-				new String[] { "", "\uAD11\uC8FC\uAD11\uC5ED\uC2DC", "\uC11C\uC6B8\uD2B9\uBCC4\uC2DC" }));
+				new String[] {"도시를 선택하세요", "서울특별시", "광주광역시"}));
 		combo_city.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		combo_city.setBackground(new Color(204, 204, 255));
 
 		JComboBox combo_gu = new JComboBox();
 		combo_gu.setBounds(134, 139, 151, 19);
 		panel.add(combo_gu);
-		combo_gu.setModel(new DefaultComboBoxModel(new String[] { "", "\uC11C\uAD6C", "\uB0A8\uAD6C", "\uB3D9\uAD6C",
-				"\uBD81\uAD6C", "\uAD11\uC0B0\uAD6C" }));
+		combo_gu.setModel(new DefaultComboBoxModel(new String[] {"구를 선택하세요", "광산구", "동구", "서구", "남구", "북구"}));
 		combo_gu.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		combo_gu.setBackground(new Color(204, 204, 255));
 
@@ -231,7 +230,7 @@ public class crime_main {
 		combo_street.setBounds(134, 168, 151, 19);
 		panel.add(combo_street);
 		combo_street.setModel(new DefaultComboBoxModel(
-				new String[] { "", "\uC1A1\uC554\uB85C58\uBC88\uAE38", "\uC1A1\uC554\uB85C76\uBC88\uAE38" }));
+				new String[] {"상세주소를 선택하세요", "2순환로","서문대로","서문대로402번길","서문대로473번길","서문대로499번길","서문대로517번길","서문대로556번길","서문대로627번길","송암로","송암로130번길","송암로24번길","송암로24번가길","송암로24번나길","송암로27번길","송암로42번길","송암로58번길","송암로76번길","송암로98번길","원효천길","원효천1길","원효천2길","입하길","입하1길","입하2길","입하2안길","효덕로","효덕로303번길","효천길","효천3로"}));
 		combo_street.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		combo_street.setBackground(new Color(204, 204, 255));
 
