@@ -10,7 +10,7 @@ public class DAO {
 
 	// 필드 ---> DAO클래스 전역에 닿을 수 있게 생성
 	private Connection conn = null;
-	private PreparedStatement psmt = null;
+	private PreparedStatement psmt = null;	//Statement 클래스 => SQL구문 실행, 스스로 sql구문 이해는 못함=전달역할)
 	private ResultSet rs = null;
 
 	// 데이터베이스와 연결하는 메소드 생성
@@ -45,7 +45,7 @@ public class DAO {
 	}
 
 	// Database Access Object
-	// 로그인
+	// 로그인 메소드
 	public VO login(VO vo) {
 
 		try {
@@ -67,6 +67,7 @@ public class DAO {
 			} else { // 미등록 아이디
 				vo = null;
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -100,9 +101,8 @@ public class DAO {
 		return cnt;
 	}
 
-	// 회원정보 수정 메소드
+	// 회원정보 수정 메소드 (비밀번호or이메일)
 	public int update(updateVO updatevo) {
-
 		int cnt = 0;
 		try {
 			getConnection();

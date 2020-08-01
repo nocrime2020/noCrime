@@ -8,7 +8,7 @@ public class VO {	//아래컬럼 하나로 묶어서 관리할 수 있는 메소드
 	private String email;
 	
 	public VO(String id, String pw, String name, String email) {
-		this.id = id;
+		this.id = id;		//인스턴스변수(this.id)와 매개변수로 정의된 지역변수(id)를 구분하기 위함.
 		this.pw = pw;
 		this.name = name;
 		this.email = email;
