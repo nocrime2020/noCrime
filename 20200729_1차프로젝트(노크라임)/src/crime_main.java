@@ -118,6 +118,15 @@ public class crime_main {
 		frame.getContentPane().add(lbl_signout);
 
 		JLabel lbl_title = new JLabel("");
+		lbl_title.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				frame.dispose();
+				crime_main crime = new crime_main(vo);	//타이틀눌렀을때 다시 이 페이지 열림(=새로고침)
+				
+			}
+		});
 		lbl_title.setIcon(new ImageIcon(
 				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uC791\uC740\uB85C\uACE0.png"));
 		lbl_title.setHorizontalAlignment(SwingConstants.CENTER);
@@ -125,6 +134,14 @@ public class crime_main {
 		frame.getContentPane().add(lbl_title);
 
 		JLabel lbl_tipoff = new JLabel("\uC81C\uBCF4\uD558\uAE30");
+		lbl_tipoff.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				tipoff tippoff = new tipoff(vo);				//제보하기 버튼 활성화
+				
+			}
+		});
 		lbl_tipoff.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		lbl_tipoff.setBounds(257, 56, 81, 15);
 		frame.getContentPane().add(lbl_tipoff);
