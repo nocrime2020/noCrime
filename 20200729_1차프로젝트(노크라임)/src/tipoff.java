@@ -190,23 +190,27 @@ public class tipoff {
 		ck_murder.setBounds(31, 410, 49, 23);
 		frame.getContentPane().add(ck_murder);
 		
-		JLabel lbl_resetICON = new JLabel("");
 		
+		JLabel lbl_resetICON = new JLabel("");
+
 		//reset아이콘 클릭시 선택&&입력 정보 초기화 버튼
 		lbl_resetICON.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				combo_city.setSelectedIndex(0);
+				combo_gu.setSelectedIndex(0);
+				combo_street.setSelectedIndex(0);
+				txt_date.setText("");
 				ck_assault.setSelected(false);
 				ck_rape.setSelected(false);
 				ck_burglary.setSelected(false);
 				ck_kidnap.setSelected(false);
 				ck_murder.setSelected(false);
-				
 			}
 		});
+		
 		lbl_resetICON.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\small.png"));
-		lbl_resetICON.setBounds(303, 206, 25, 29);
+		lbl_resetICON.setBounds(290, 206, 25, 29);
 		frame.getContentPane().add(lbl_resetICON);
 		
 		JLabel lbl_rapeICON = new JLabel("");
