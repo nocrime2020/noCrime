@@ -208,7 +208,7 @@ public class DAO {
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				String tip_info_id = rs.getString(1);
-				String cr_loc_id = rs.getNString(2);
+				String cr_loc_id = rs.getString(2);
 				String cr_date = rs.getString(3);
 				String cr_type_id = rs.getString(4);
 				String evidence = rs.getString(5);
@@ -255,7 +255,7 @@ public class DAO {
 		try {
 			getConnection(); 	//드라이버 로딩
 
-			String sql = "INSERT INTO crime VALUES(?,?,?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
+			String sql = "INSERT INTO crime VALUES(?,to_date(?,'YYYY-MM-DD'),?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입 
 
 			psmt = conn.prepareStatement(sql);	//
 
