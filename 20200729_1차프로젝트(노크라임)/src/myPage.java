@@ -33,6 +33,8 @@ public class myPage {
 	private JTextField occur_cnt;
 	
 	int cnt;
+	int cnt2;
+	int cnt3;
 
 	/**
 	 * Launch the application.
@@ -136,6 +138,16 @@ public class myPage {
 		frame.getContentPane().add(lbl_cnt);
 
 		JComboBox combo_startalarm = new JComboBox();
+		
+		cnt2 = dao.check_alarm(vo);
+			if (cnt2 > 0) {
+				String combo_startalarm1 = combo_startalarm.setSelectedIndex();
+				combo_startalarm.setModel(new DefaultComboBoxModel(new String[] { "", "12:00 AM", "1:00 AM", "2:00 AM",
+						"3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM",
+						"12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM",
+						"9:00 PM", "10:00 PM", "11:00 PM" }));
+			}
+		
 		combo_startalarm.setModel(new DefaultComboBoxModel(new String[] { "", "12:00 AM", "1:00 AM", "2:00 AM",
 				"3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM",
 				"12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM",
@@ -214,14 +226,24 @@ public class myPage {
 
 			if (result == JOptionPane.YES_OPTION) {
 				if ((combo_startalarm1 !=-1 && combo_endalarm1 != -1 && occur_cnt1 != 0)) {
-
-					cnt = dao.sending_alarm( vo , combo_startalarm1, combo_endalarm1, occur_cnt1);
+					
+					cnt2 = dao.check_alarm(vo);
+					if (cnt2 > 0) {
+						
+						
+						
+						cnt = dao.sending_alarm( vo , combo_startalarm1, combo_endalarm1, occur_cnt1);
+					}else {
+						cnt = dao.sending_alarm2( vo , combo_startalarm1, combo_endalarm1, occur_cnt1);
+					}
+					
 					
 					if (cnt > 0) {
 						JOptionPane.showMessageDialog(null, "알람이 설정 되었습니다.");
 					} else {
-						JOptionPane.showMessageDialog(null, "내용을 입력해주세요.", "마이페이지",
+						JOptionPane.showMessageDialog(null, "내용을 입력해주세요.", "알람",
 								JOptionPane.INFORMATION_MESSAGE);
+					
 					}
 				}
 			}
