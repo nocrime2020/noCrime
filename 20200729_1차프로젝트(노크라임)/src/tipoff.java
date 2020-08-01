@@ -2,6 +2,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
@@ -91,18 +93,23 @@ public class tipoff {
 		txt_date.setColumns(10);
 		
 		JButton btn_send = new JButton("SEND");
-		btn_send.setBackground(new Color(204, 204, 255));
-		btn_send.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btn_send.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int result = JOptionPane.showConfirmDialog(null, "입력한 정보로 제보 하시겠습니까?", "범죄 제보", JOptionPane.YES_NO_OPTION);
+				if (result == JOptionPane.YES_OPTION) {		// 사용자가 제보를 원하는 경우
+					JOptionPane.showMessageDialog(null, "제보 완료.\n 영업일 1일이내 검토 후 범죄 정보에 조회됩니다.", "회원가입", JOptionPane.INFORMATION_MESSAGE);
+					frame.dispose();
+					tipoff tipoff = new tipoff(vo);
+				} else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {
+					return; // 사용자가 전송취소 혹은 창닫기 버튼을 누른 경우
+				}
+				
 			}
 		});
+		btn_send.setBackground(new Color(204, 204, 255));
+		
 		btn_send.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-//		btnNewButton_1.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//		
-//					나중에 팝업창 넣기	(e.g., 제보완료!)
-//			}
-//		});
 		btn_send.setBounds(12, 711, 324, 23);
 		frame.getContentPane().add(btn_send);
 		
@@ -184,8 +191,22 @@ public class tipoff {
 		frame.getContentPane().add(ck_murder);
 		
 		JLabel lbl_resetICON = new JLabel("");
+		
+		//reset아이콘 클릭시 선택&&입력 정보 초기화 버튼
+		lbl_resetICON.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				ck_assault.setSelected(false);
+				ck_rape.setSelected(false);
+				ck_burglary.setSelected(false);
+				ck_kidnap.setSelected(false);
+				ck_murder.setSelected(false);
+				
+			}
+		});
 		lbl_resetICON.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\small.png"));
-		lbl_resetICON.setBounds(269, 367, 25, 29);
+		lbl_resetICON.setBounds(303, 206, 25, 29);
 		frame.getContentPane().add(lbl_resetICON);
 		
 		JLabel lbl_rapeICON = new JLabel("");
