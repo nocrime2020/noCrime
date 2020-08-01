@@ -34,7 +34,7 @@ create table crime_type
 (cr_type_id varchar2(20),
 cr_type varchar2(20) not null,
 constraints crimetype_crtypeid_pk primary key(cr_type_id),
-constraints crimetype_crtype_CK CHECK (cr_type IN('살인', '상해폭행', '강간추행', '절도강도', '납치', '약취유인'))
+constraints crimetype_crtype_CK CHECK (cr_type IN('살인', '상해폭행', '강간추행', '절도강도', '약취유인'))
 );
 
 create table crime_location
@@ -53,8 +53,8 @@ cr_loc_id varchar2(20) not null,
 evidence varchar2(70) /*not null*/,
 cr_name varchar2(70),
 constraints tipinfo_tipinfoid_pk primary key(tip_info_id),
-constraint tipinfo_crtypeid_fk foreign key(cr_type_id) references crime_type(cr_type_id),
-constraint tipinfo_crlocid_fk foreign key(cr_loc_id) references crime_location(cr_loc_id)
+constraints tipinfo_crtypeid_fk foreign key(cr_type_id) references crime_type(cr_type_id),
+constraints tipinfo_crlocid_fk foreign key(cr_loc_id) references crime_location(cr_loc_id)
 );
 
 
@@ -67,9 +67,9 @@ tip_info_id varchar2(20),
 cr_name varchar2(70),
 constraints crime_crid_uk unique (cr_id),
 constraints crime_cridld_pk primary key(cr_id, cr_loc_id, cr_date),
-constraint crime_crlocid_fk foreign key(cr_loc_id) references crime_location(cr_loc_id),
-constraint crime_crtypeid_fk foreign key(cr_type_id) references crime_type(cr_type_id),
-constraint crime_tipinfoid_fk foreign key(tip_info_id) references tip_info(tip_info_id)
+constraints crime_crlocid_fk foreign key(cr_loc_id) references crime_location(cr_loc_id),
+constraints crime_crtypeid_fk foreign key(cr_type_id) references crime_type(cr_type_id),
+constraints crime_tipinfoid_fk foreign key(tip_info_id) references tip_info(tip_info_id)
 );
 
 
