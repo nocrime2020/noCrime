@@ -99,7 +99,6 @@ start with 1
 nocache;
 
 INSERT INTO member VALUES('admin','admin','administrator','1@1');
-insert into member values('admin','admin','마현아','dkskdfjk@f.com');
 insert into member values('abd12','3098','마현아','dkskdfjk@gmail.com');
 insert into member values('rksk12','4918','오송민','dksdsfad4545k@gmail.com');
 insert into member values('ekfk12','2853','김루본','hgfdhtjk@gmail.com');
