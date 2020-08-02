@@ -221,7 +221,7 @@ public class tipoff {
 		rd_kidnap.setForeground(new Color(0, 0, 128));
 		rd_kidnap.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 12));
 		buttonGroup.add(rd_kidnap);
-		rd_kidnap.setBounds(193, 367, 81, 23);
+		rd_kidnap.setBounds(193, 367, 73, 23);
 		frame.getContentPane().add(rd_kidnap);
 		
 		JRadioButton rd_rape = new JRadioButton("\uAC15\uAC04\uCD94\uD589");
@@ -389,7 +389,7 @@ public class tipoff {
 		
 		JLabel lbl_murderICON = new JLabel("");
 		lbl_murderICON.setIcon(new ImageIcon(tipoff.class.getResource("/res/\uC0B4\uC778\uC2A4\uBAB0.png")));
-		lbl_murderICON.setBounds(90, 404, 31, 29);
+		lbl_murderICON.setBounds(104, 404, 31, 29);
 		frame.getContentPane().add(lbl_murderICON);
 		
 		JLabel lbl_kidnapICON = new JLabel("");

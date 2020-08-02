@@ -156,27 +156,27 @@ public class crime_main {
 
 		JLabel lbll_악유아이콘 = new JLabel("");
 		lbll_악유아이콘.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uB0A9\uCE58\uC2A4\uBAB0.png")));
-		lbll_악유아이콘.setBounds(273, 361, 25, 23);
+		lbll_악유아이콘.setBounds(293, 370, 25, 23);
 		panel.add(lbll_악유아이콘);
 
 		JLabel lbl_상폭아이콘 = new JLabel("");
 		lbl_상폭아이콘.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uD3ED\uC0C1\uC2A4\uBAB0.png")));
-		lbl_상폭아이콘.setBounds(113, 433, 25, 29);
+		lbl_상폭아이콘.setBounds(123, 433, 25, 29);
 		panel.add(lbl_상폭아이콘);
 
 		JLabel lbl_절강아이콘 = new JLabel("");
 		lbl_절강아이콘.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uC808\uAC15\uC2A4\uBAB0.png")));
-		lbl_절강아이콘.setBounds(113, 361, 25, 23);
+		lbl_절강아이콘.setBounds(123, 370, 25, 23);
 		panel.add(lbl_절강아이콘);
 
 		JLabel lbl_살인아이콘 = new JLabel("");
 		lbl_살인아이콘.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uC0B4\uC778\uC2A4\uBAB0.png")));
-		lbl_살인아이콘.setBounds(88, 403, 44, 29);
+		lbl_살인아이콘.setBounds(119, 403, 44, 29);
 		panel.add(lbl_살인아이콘);
 
 		JLabel lbl_강추아이콘 = new JLabel("");
 		lbl_강추아이콘.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uAC15\uCD94\uC2A4\uBAB0.png")));
-		lbl_강추아이콘.setBounds(283, 403, 25, 23);
+		lbl_강추아이콘.setBounds(293, 403, 25, 23);
 		panel.add(lbl_강추아이콘);
 
 		JLabel lbl_crimeinfo = new JLabel("\uBC94\uC8C4 \uC815\uBCF4 \uC870\uD68C");
