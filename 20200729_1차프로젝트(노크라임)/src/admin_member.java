@@ -61,7 +61,7 @@ public class admin_member {
 		frame.getContentPane().setLayout(null); //배치관리자 삭제  & 세팅해준 위치에 컴포턴트 삽입
 
 		JLabel lbl_title = new JLabel("");
-		lbl_title.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740 \uD22C\uBA85.png"));
+		lbl_title.setIcon(new ImageIcon(admin_member.class.getResource("/res/\uC791\uC740 \uD22C\uBA85.png")));
 		lbl_title.addMouseListener(new MouseAdapter() {
 			@Override // 회원가입 메소드
 			public void mouseClicked(MouseEvent e) {
@@ -77,8 +77,7 @@ public class admin_member {
 		
 		
 		JLabel lbl_signout = new JLabel("");
-		lbl_signout.setIcon(new ImageIcon(
-				"C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\off_logout_17916.png"));
+		lbl_signout.setIcon(new ImageIcon(admin_member.class.getResource("/res/logout2.png")));
 		lbl_signout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -92,6 +91,7 @@ public class admin_member {
 		frame.getContentPane().add(lbl_signout);
 
 		JLabel lbl_member = new JLabel("\uD68C\uC6D0 \uAD00\uB9AC");
+		lbl_member.setForeground(new Color(0, 0, 128));
 		lbl_member.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_member.setFont(new Font("함초롬돋움", Font.BOLD, 24));
 		lbl_member.setBounds(90, 76, 180, 60);

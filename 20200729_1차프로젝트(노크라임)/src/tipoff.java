@@ -72,7 +72,7 @@ public class tipoff {
 		lbl_tipoff.setForeground(new Color(0, 0, 128));
 		lbl_tipoff.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_tipoff.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 24));
-		lbl_tipoff.setBounds(60, 87, 234, 54);
+		lbl_tipoff.setBounds(62, 87, 234, 54);
 		frame.getContentPane().add(lbl_tipoff);
 		
 
@@ -197,7 +197,7 @@ public class tipoff {
 		rd_burglary.setForeground(new Color(0, 0, 128));
 		rd_burglary.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 12));
 		buttonGroup.add(rd_burglary);
-		rd_burglary.setBounds(31, 367, 81, 23);
+		rd_burglary.setBounds(31, 367, 73, 23);
 		frame.getContentPane().add(rd_burglary);
 		
 		JRadioButton rd_murder = new JRadioButton("\uC0B4\uC778");
@@ -205,7 +205,7 @@ public class tipoff {
 		rd_murder.setForeground(new Color(0, 0, 128));
 		rd_murder.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 12));
 		buttonGroup.add(rd_murder);
-		rd_murder.setBounds(31, 410, 81, 23);
+		rd_murder.setBounds(31, 410, 51, 23);
 		frame.getContentPane().add(rd_murder);
 		
 		JRadioButton rd_assault = new JRadioButton("\uC0C1\uD574\uD3ED\uD589");
@@ -213,7 +213,7 @@ public class tipoff {
 		rd_assault.setForeground(new Color(0, 0, 128));
 		rd_assault.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 12));
 		buttonGroup.add(rd_assault);
-		rd_assault.setBounds(31, 457, 81, 23);
+		rd_assault.setBounds(31, 457, 73, 23);
 		frame.getContentPane().add(rd_assault);
 		
 		JRadioButton rd_kidnap = new JRadioButton("\uC57D\uCDE8\uC720\uC778");
@@ -229,7 +229,7 @@ public class tipoff {
 		rd_rape.setForeground(new Color(0, 0, 128));
 		rd_rape.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 12));
 		buttonGroup.add(rd_rape);
-		rd_rape.setBounds(193, 410, 81, 23);
+		rd_rape.setBounds(193, 410, 73, 23);
 		frame.getContentPane().add(rd_rape);
 		
 		JComboBox combo_city = new JComboBox();
@@ -373,32 +373,32 @@ public class tipoff {
 		frame.getContentPane().add(lbl_resetICON);
 		
 		JLabel lbl_rapeICON = new JLabel("");
-		lbl_rapeICON.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uAC15\uCD942.png"));
+		lbl_rapeICON.setIcon(new ImageIcon(tipoff.class.getResource("/res/\uAC15\uCD94\uC2A4\uBAB0.png")));
 		lbl_rapeICON.setBounds(269, 410, 25, 23);
 		frame.getContentPane().add(lbl_rapeICON);
 		
 		JLabel lbl_assultICON = new JLabel("");
-		lbl_assultICON.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uD3ED\uC0C1.png"));
+		lbl_assultICON.setIcon(new ImageIcon(tipoff.class.getResource("/res/\uD3ED\uC0C1\uC2A4\uBAB0.png")));
 		lbl_assultICON.setBounds(110, 451, 25, 29);
 		frame.getContentPane().add(lbl_assultICON);
 		
 		JLabel lbl_burglaryICON = new JLabel("");
-		lbl_burglaryICON.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC808\uAC15.png"));
+		lbl_burglaryICON.setIcon(new ImageIcon(tipoff.class.getResource("/res/\uC808\uAC15\uC2A4\uBAB0.png")));
 		lbl_burglaryICON.setBounds(110, 367, 25, 23);
 		frame.getContentPane().add(lbl_burglaryICON);
 		
 		JLabel lbl_murderICON = new JLabel("");
-		lbl_murderICON.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC0B42.png"));
-		lbl_murderICON.setBounds(110, 404, 44, 29);
+		lbl_murderICON.setIcon(new ImageIcon(tipoff.class.getResource("/res/\uC0B4\uC778\uC2A4\uBAB0.png")));
+		lbl_murderICON.setBounds(90, 404, 31, 29);
 		frame.getContentPane().add(lbl_murderICON);
 		
 		JLabel lbl_kidnapICON = new JLabel("");
-		lbl_kidnapICON.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC545\uC720.png"));
+		lbl_kidnapICON.setIcon(new ImageIcon(tipoff.class.getResource("/res/\uB0A9\uCE58\uC2A4\uBAB0.png")));
 		lbl_kidnapICON.setBounds(269, 367, 25, 23);
 		frame.getContentPane().add(lbl_kidnapICON);
 		
 		JLabel lbl_logout = new JLabel("");
-		lbl_logout.setIcon(new ImageIcon("C:\\icon\\icon\\logout2.png"));
+		lbl_logout.setIcon(new ImageIcon(tipoff.class.getResource("/res/logout2.png")));
 		lbl_logout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -408,7 +408,7 @@ public class tipoff {
 				
 			}
 		});
-		lbl_logout.setBounds(290, 10, 81, 38);
+		lbl_logout.setBounds(306, 10, 102, 38);
 		frame.getContentPane().add(lbl_logout);
 		
 		JLabel lblNewLabel = new JLabel("YYYYMMDD (\uC22B\uC790\uB9CC \uC785\uB825\uD574\uC8FC\uC138\uC694) ");

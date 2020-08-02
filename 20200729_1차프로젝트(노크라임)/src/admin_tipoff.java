@@ -73,9 +73,8 @@ public class admin_tipoff {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JLabel lbl_title = new JLabel("");
-		lbl_title.setBounds(12, 10, 103, 56);
-		lbl_title.setIcon(new ImageIcon(
-				"C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\\uC791\uC740 \uD22C\uBA85.png"));
+		lbl_title.setBounds(128, 10, 103, 56);
+		lbl_title.setIcon(new ImageIcon(admin_tipoff.class.getResource("/res/\uC791\uC740 \uD22C\uBA85.png")));
 		lbl_title.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -92,8 +91,7 @@ public class admin_tipoff {
 
 		JLabel lbl_signout = new JLabel("");
 		lbl_signout.setBounds(307, 10, 40, 29);
-		lbl_signout.setIcon(new ImageIcon(
-				"C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\off_logout_17916.png"));
+		lbl_signout.setIcon(new ImageIcon(admin_tipoff.class.getResource("/res/logout2.png")));
 		lbl_signout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -107,6 +105,7 @@ public class admin_tipoff {
 		frame.getContentPane().add(lbl_signout);
 
 		JLabel lbl_tipoffmanage = new JLabel("\uC81C\uBCF4 \uAD00\uB9AC");
+		lbl_tipoffmanage.setForeground(new Color(0, 0, 128));
 		lbl_tipoffmanage.setBounds(90, 76, 180, 60);
 		lbl_tipoffmanage.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_tipoffmanage.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 24));
@@ -135,6 +134,7 @@ public class admin_tipoff {
 		table_tipoffmanage.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
 		JButton btn_upload = new JButton("\uC804\uC1A1 \uD558\uAE30");
+		btn_upload.setBackground(new Color(240, 240, 255));
 		btn_upload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 

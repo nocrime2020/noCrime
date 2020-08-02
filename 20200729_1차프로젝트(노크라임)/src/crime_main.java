@@ -59,6 +59,7 @@ public class crime_main {
 	private void initialize(VO_alarm vo_alarm) {
 		
 		frame = new JFrame();
+		frame.getContentPane().setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
 		frame.setBounds(100, 100, 375, 812);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -133,7 +134,7 @@ public class crime_main {
 
 			}
 		});
-		lbl_title.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740 \uD22C\uBA85.png"));
+		lbl_title.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uC791\uC740 \uD22C\uBA85.png")));
 		lbl_title.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_title.setBounds(135, 20, 89, 49);
 		frame.getContentPane().add(lbl_title);
@@ -154,27 +155,27 @@ public class crime_main {
 		frame.getContentPane().add(lbl_tipoff);
 
 		JLabel lbll_악유아이콘 = new JLabel("");
-		lbll_악유아이콘.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740icon\\\uB0A9\uCE58\uC2A4\uBAB0.png"));
+		lbll_악유아이콘.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uB0A9\uCE58\uC2A4\uBAB0.png")));
 		lbll_악유아이콘.setBounds(273, 361, 25, 23);
 		panel.add(lbll_악유아이콘);
 
 		JLabel lbl_상폭아이콘 = new JLabel("");
-		lbl_상폭아이콘.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740icon\\\uD3ED\uC0C1\uC2A4\uBAB0.png"));
+		lbl_상폭아이콘.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uD3ED\uC0C1\uC2A4\uBAB0.png")));
 		lbl_상폭아이콘.setBounds(113, 433, 25, 29);
 		panel.add(lbl_상폭아이콘);
 
 		JLabel lbl_절강아이콘 = new JLabel("");
-		lbl_절강아이콘.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740icon\\\uC808\uAC15\uC2A4\uBAB0.png"));
+		lbl_절강아이콘.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uC808\uAC15\uC2A4\uBAB0.png")));
 		lbl_절강아이콘.setBounds(113, 361, 25, 23);
 		panel.add(lbl_절강아이콘);
 
 		JLabel lbl_살인아이콘 = new JLabel("");
-		lbl_살인아이콘.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740icon\\\uC0B4\uC778\uC2A4\uBAB0.png"));
+		lbl_살인아이콘.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uC0B4\uC778\uC2A4\uBAB0.png")));
 		lbl_살인아이콘.setBounds(88, 403, 44, 29);
 		panel.add(lbl_살인아이콘);
 
 		JLabel lbl_강추아이콘 = new JLabel("");
-		lbl_강추아이콘.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740icon\\\uAC15\uCD94\uC2A4\uBAB0.png"));
+		lbl_강추아이콘.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uAC15\uCD94\uC2A4\uBAB0.png")));
 		lbl_강추아이콘.setBounds(283, 403, 25, 23);
 		panel.add(lbl_강추아이콘);
 
@@ -186,7 +187,7 @@ public class crime_main {
 		panel.add(lbl_crimeinfo);
 
 		JLabel lbl_fold = new JLabel("");
-		lbl_fold.setIcon(new ImageIcon("C:\\icon\\downarrow.png"));
+		lbl_fold.setIcon(new ImageIcon(crime_main.class.getResource("/res/downarrow.png")));
 		lbl_fold.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -787,7 +788,7 @@ public class crime_main {
 		lbl_76.setVisible(false);
 
 		JLabel lbl_reset = new JLabel("");
-		lbl_reset.setIcon(new ImageIcon("C:\\icon\\reset2.png"));
+		lbl_reset.setIcon(new ImageIcon(crime_main.class.getResource("/res/reset2.png")));
 		lbl_reset.setFont(new Font("굴림", Font.PLAIN, 14));
 		lbl_reset.addMouseListener(new MouseAdapter() {
 			@Override
@@ -852,7 +853,7 @@ public class crime_main {
 				}
 			}
 		});
-		lbl_reset.setBounds(36, 79, 97, 29);
+		lbl_reset.setBounds(36, 79, 36, 29);
 		frame.getContentPane().add(lbl_reset);
 
 		JButton btn_search = new JButton("SEARCH");

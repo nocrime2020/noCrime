@@ -65,7 +65,7 @@ public class myPage {
 
 		// 타이틀 누르면 범죄조회 페이지로
 		JLabel lbl_title = new JLabel("");
-		lbl_title.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740 \uD22C\uBA85.png"));
+		lbl_title.setIcon(new ImageIcon(myPage.class.getResource("/res/\uC791\uC740 \uD22C\uBA85.png")));
 		lbl_title.addMouseListener(new MouseAdapter() {
 			@Override // 회원가입 메소드
 			public void mouseClicked(MouseEvent e) {
@@ -77,7 +77,7 @@ public class myPage {
 		});
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\icon\\check.png"));
+		lblNewLabel_1.setIcon(new ImageIcon(myPage.class.getResource("/res/check.png")));
 		lblNewLabel_1.setBounds(29, 358, 47, 47);
 		frame.getContentPane().add(lblNewLabel_1);
 		lbl_title.setFont(new Font("굴림", Font.PLAIN, 23));
@@ -111,7 +111,7 @@ public class myPage {
 		frame.getContentPane().add(lbl_deleteid);
 
 		JLabel lbl_logout = new JLabel("");
-		lbl_logout.setIcon(new ImageIcon("C:\\icon\\logout2.png"));
+		lbl_logout.setIcon(new ImageIcon(myPage.class.getResource("/res/logout2.png")));
 
 		// 로그아웃버튼 클릭시 로그인&회원가입 페이지로
 		lbl_logout.addMouseListener(new MouseAdapter() {
@@ -395,12 +395,12 @@ public class myPage {
 		frame.getContentPane().add(btn_okedit);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\icon\\check.png"));
+		lblNewLabel.setIcon(new ImageIcon(myPage.class.getResource("/res/check.png")));
 		lblNewLabel.setBounds(28, 139, 47, 47);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("");
-		lblNewLabel_1_1.setIcon(new ImageIcon("C:\\icon\\check.png"));
+		lblNewLabel_1_1.setIcon(new ImageIcon(myPage.class.getResource("/res/check.png")));
 		lblNewLabel_1_1.setBounds(29, 602, 47, 47);
 		frame.getContentPane().add(lblNewLabel_1_1);
 	}

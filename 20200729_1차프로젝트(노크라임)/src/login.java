@@ -62,6 +62,7 @@ public class login {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		String url = getClass().getResource("").getPath() + "..\\..\\src\\res\\";
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
 		frame.setBounds(100, 100, 375, 812);
@@ -149,7 +150,7 @@ public class login {
 				login login = new login();
 			}
 		});
-		lbl_title.setIcon(new ImageIcon("C:\\icon\\\uB85C\uACE0.png"));
+		lbl_title.setIcon(new ImageIcon(login.class.getResource("/res/\uBC30\uACBD\uC5C6\uC74C.png")));
 		frame.getContentPane().add(lbl_title);
 		
 		//회원가입 구현
