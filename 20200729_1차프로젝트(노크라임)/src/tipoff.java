@@ -306,9 +306,9 @@ public class tipoff {
 						}
 						
 //						String date = null;
-						if (txt_date == null || txt_date.equals("")) {
-							return;
-						}
+//						if (txt_date == null || txt_date.equals("")) {
+//							return;
+//						}
 							
 						
 						String cr_type_id = crtyId;
@@ -384,6 +384,10 @@ public class tipoff {
 		});
 		lbl_logout.setBounds(290, 10, 81, 15);
 		frame.getContentPane().add(lbl_logout);
+		
+		JLabel lblNewLabel = new JLabel("YYYYMMDD (\uC22B\uC790\uB9CC \uC785\uB825\uD574\uC8FC\uC138\uC694) ");
+		lblNewLabel.setBounds(110, 288, 202, 15);
+		frame.getContentPane().add(lblNewLabel);
 		
 		
 		

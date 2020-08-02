@@ -439,14 +439,23 @@ public class DAO {
 			int cnt = 0;
 			try {
 				getConnection();
-				String sql = "insert into tip_info values(?,?,?,?)";
-
+				String sql = "";
+				if (tipoff_vo.getCr_date().equals("")) {
+				sql = "insert into tip_info values(tip_info_id_seq.nextval, ?, sysdate, ?, ?,null)";
 				psmt = conn.prepareStatement(sql);
 
 				psmt.setString(1, tipoff_vo.getCr_type_id());
-				psmt.setString(2, tipoff_vo.getCr_date());
-				psmt.setString(3, tipoff_vo.getCr_loc_id());
-				psmt.setString(4, tipoff_vo.getEvidence());
+				psmt.setString(2, tipoff_vo.getCr_loc_id());
+				psmt.setString(3, tipoff_vo.getEvidence());
+				}else {
+					sql = "insert into tip_info values(tip_info_id_seq.nextval, ?, to_date(?, 'YYYYMMDD'), ?, ?,null)";
+					psmt = conn.prepareStatement(sql);
+
+					psmt.setString(1, tipoff_vo.getCr_type_id());
+					psmt.setString(2, tipoff_vo.getCr_date());
+					psmt.setString(3, tipoff_vo.getCr_loc_id());
+					psmt.setString(4, tipoff_vo.getEvidence());
+				}
 
 				cnt = psmt.executeUpdate();
 

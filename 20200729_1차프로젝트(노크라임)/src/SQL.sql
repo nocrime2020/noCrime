@@ -90,7 +90,7 @@ nocache;
 
 CREATE SEQUENCE tip_info_id_seq
 increment by 1
-start with 1
+start with 1000010
 nocache;
 
 CREATE SEQUENCE tip_id_seq
