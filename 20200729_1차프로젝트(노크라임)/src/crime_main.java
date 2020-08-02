@@ -384,7 +384,7 @@ public class crime_main {
 		textArea_약.setEditable(false);
 		textArea_약.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C58\uBC88\uAE38\r\n\uC57D\uCDE8 \uBC0F \uC720\uC778\r\n2017-02-01");
-		textArea_약.setBounds(170, 375, 177, 99);
+		textArea_약.setBounds(170, 215, 177, 99);
 		panel_1.add(textArea_약);
 		textArea_약.setVisible(false);
 
@@ -392,7 +392,7 @@ public class crime_main {
 		textArea_약2.setEditable(false);
 		textArea_약2.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C58\uBC88\uAE38\r\n\uC57D\uCDE8 \uBC0F \uC720\uC778\r\n2020-05-28");
-		textArea_약2.setBounds(0, 375, 177, 99);
+		textArea_약2.setBounds(0, 215, 177, 99);
 		panel_1.add(textArea_약2);
 		textArea_약2.setVisible(false);
 
@@ -400,7 +400,7 @@ public class crime_main {
 		textArea_상.setEditable(false);
 		textArea_상.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C58\uBC88\uAE38\r\n\uC0C1\uD574 \uBC0F \uD3ED\uD589\r\n2020-06-01");
-		textArea_상.setBounds(112, 206, 177, 99);
+		textArea_상.setBounds(112, 46, 177, 99);
 		panel_1.add(textArea_상);
 		textArea_상.setVisible(false);
 
@@ -408,7 +408,7 @@ public class crime_main {
 		textArea_절.setEditable(false);
 		textArea_절.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C58\uBC88\uAE38\r\n\uC808\uB3C4 \uBC0F \uAC15\uB3C4\r\n2019-05-18");
-		textArea_절.setBounds(98, 561, 177, 99);
+		textArea_절.setBounds(98, 401, 177, 99);
 		panel_1.add(textArea_절);
 		textArea_절.setVisible(false);
 
@@ -424,7 +424,7 @@ public class crime_main {
 				}
 			}
 		});
-		lbl_상_1030.setBounds(192, 306, 22, 29);
+		lbl_상_1030.setBounds(192, 146, 22, 29);
 		panel_1.add(lbl_상_1030);
 		lbl_상_1030.setVisible(false);
 
@@ -440,7 +440,7 @@ public class crime_main {
 				}
 			}
 		});
-		lbl_약2_1047.setBounds(106, 484, 25, 29);
+		lbl_약2_1047.setBounds(106, 324, 25, 29);
 		panel_1.add(lbl_약2_1047);
 		lbl_약2_1047.setVisible(false);
 
@@ -456,7 +456,7 @@ public class crime_main {
 				}
 			}
 		});
-		lbl_절_1001.setBounds(176, 532, 25, 29);
+		lbl_절_1001.setBounds(176, 372, 25, 29);
 		panel_1.add(lbl_절_1001);
 		lbl_절_1001.setVisible(false);
 
@@ -472,7 +472,7 @@ public class crime_main {
 				}
 			}
 		});
-		lbl_약_1018.setBounds(292, 484, 25, 29);
+		lbl_약_1018.setBounds(292, 324, 25, 29);
 		panel_1.add(lbl_약_1018);
 		
 		JTextArea textArea_살 = new JTextArea();
