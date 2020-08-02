@@ -435,7 +435,7 @@ public class DAO {
 	}
 	
 	// tipoff에서 admin_tipoff로 제보정보 넘기는 메소드
-		public int tipoff_insert(VO vo) {
+		public int tipoff_insert(tipoff_VO tipoff_vo) {
 			int cnt = 0;
 			try {
 				getConnection();
@@ -443,10 +443,10 @@ public class DAO {
 
 				psmt = conn.prepareStatement(sql);
 
-				psmt.setString(1, vo.getId());
-				psmt.setString(2, vo.getPw());
-				psmt.setString(3, vo.getName());
-				psmt.setString(4, vo.getEmail());
+				psmt.setString(1, tipoff_vo.getCr_type_id());
+				psmt.setString(2, tipoff_vo.getCr_date());
+				psmt.setString(3, tipoff_vo.getCr_loc_id());
+				psmt.setString(4, tipoff_vo.getEvidence());
 
 				cnt = psmt.executeUpdate();
 
