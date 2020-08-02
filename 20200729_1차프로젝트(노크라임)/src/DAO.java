@@ -307,7 +307,7 @@ public class DAO {
 		try {
 			getConnection();
 
-			String sql = "select * from crime where id = 1";
+			String sql = "select * from crime where cr_id = '1'";
 
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();

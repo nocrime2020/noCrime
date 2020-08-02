@@ -59,11 +59,11 @@ public class crime_main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-//		JPanel panel = new JPanel();
-//		panel.setBackground(new Color(230, 230, 250));
-//		panel.setBounds(0, 110, 359, 663);
-//		frame.getContentPane().add(panel);
-//		panel.setLayout(null);
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(230, 230, 250));
+		panel.setBounds(0, 110, 359, 663);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(230, 230, 250));
@@ -72,12 +72,12 @@ public class crime_main {
 		panel_1.setLayout(null);
 		panel_1.setVisible(false);
 
-//		JPanel panel_2 = new JPanel();
-//		panel_2.setBackground(new Color(230, 230, 250));
-//		panel_2.setBounds(0, 110, 359, 663);
-//		frame.getContentPane().add(panel_2);
-//		panel_2.setLayout(null);
-//		panel_2.setVisible(false);
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(230, 230, 250));
+		panel_2.setBounds(0, 110, 359, 663);
+		frame.getContentPane().add(panel_2);
+		panel_2.setLayout(null);
+		panel_2.setVisible(false);
 
 		JLabel lbl_mypage = new JLabel("MY PAGE");
 		lbl_mypage.setFont(new Font("함초롬돋움", Font.BOLD, 12));
@@ -86,8 +86,8 @@ public class crime_main {
 			public void mouseClicked(MouseEvent e) {
 
 				frame.dispose();
-//				myPage.main(null);
-//				myPage myPage = new myPage(vo);
+				//myPage.main(null);
+				myPage myPage = new myPage(vo);
 			}
 		});
 
@@ -101,7 +101,7 @@ public class crime_main {
 			public void mouseClicked(MouseEvent e) {
 
 				frame.dispose();
-//				login.main(null);
+				login.main(null);
 				login login = new login();
 
 			}
@@ -114,10 +114,10 @@ public class crime_main {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				if (vo.getId().equals("admin")) { // 관리자는 관리자페이지로 돌아오고
+				if (vo.getId().equals("admin")) {  //관리자는 관리자페이지로 돌아오고
 					frame.dispose();
 					admin_select asel = new admin_select(vo);
-				} else { // 회원은 메인페이지 새로 고침
+				} else {  //회원은 메인페이지 새로 고침
 					frame.dispose();
 					crime_main crime = new crime_main(vo);
 				}
@@ -147,65 +147,65 @@ public class crime_main {
 		lbll_악유아이콘.setIcon(new ImageIcon(
 				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uC545\uC720\uC2A4\uBAB0.png"));
 		lbll_악유아이콘.setBounds(285, 310, 25, 23);
-//		panel.add(lbll_악유아이콘);
+		panel.add(lbll_악유아이콘);
 
 		JLabel lbl_상폭아이콘 = new JLabel("");
 		lbl_상폭아이콘.setIcon(new ImageIcon(
 				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uD3ED\uC0C1\uC2A4\uBAB0.png"));
 		lbl_상폭아이콘.setBounds(113, 396, 25, 29);
-//		panel.add(lbl_상폭아이콘);
+		panel.add(lbl_상폭아이콘);
 
 		JLabel lbll_납치아이콘 = new JLabel("");
 		lbll_납치아이콘.setIcon(new ImageIcon(
 				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uB0A9\uCE58\uC2A4\uBAB0.png"));
 		lbll_납치아이콘.setBounds(99, 306, 25, 23);
-//		panel.add(lbll_납치아이콘);
+		panel.add(lbll_납치아이콘);
 
 		JLabel lbl_절강아이콘 = new JLabel("");
 		lbl_절강아이콘.setIcon(new ImageIcon(
 				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uC808\uAC15\uC2A4\uBAB0.png"));
 		lbl_절강아이콘.setBounds(285, 349, 25, 23);
-//		panel.add(lbl_절강아이콘);
+		panel.add(lbl_절강아이콘);
 
 		JLabel lbl_살인아이콘 = new JLabel("");
 		lbl_살인아이콘.setIcon(new ImageIcon(
 				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uC0B4\uC778\uC2A4\uBAB0.png"));
 		lbl_살인아이콘.setBounds(266, 396, 44, 29);
-//		panel.add(lbl_살인아이콘);
+		panel.add(lbl_살인아이콘);
 
 		JLabel lbl_강추아이콘 = new JLabel("");
 		lbl_강추아이콘.setIcon(new ImageIcon(
 				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uAC15\uCD94\uC2A4\uBAB0.png"));
 		lbl_강추아이콘.setBounds(113, 349, 25, 23);
-//		panel.add(lbl_강추아이콘);
+		panel.add(lbl_강추아이콘);
 
 		JLabel lbl_crimeinfo = new JLabel("\uBC94\uC8C4 \uC815\uBCF4 \uC870\uD68C");
 		lbl_crimeinfo.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_crimeinfo.setFont(new Font("함초롬돋움", Font.BOLD, 24));
 		lbl_crimeinfo.setBounds(61, 25, 234, 54);
-//		panel.add(lbl_crimeinfo);
+		panel.add(lbl_crimeinfo);
 
-//		JLabel lbl_fold = new JLabel("\uD3BC\uCE58\uAE30");
-//		lbl_fold.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				if (panel.getHeight() < 200) {
-//					panel.setBounds(0, 110, 375, 702);
-//				} else
-//					panel.setBounds(0, 110, 5, 5);
-//			}
-//		});
-//		lbl_fold.setBounds(12, 79, 25, 29);
-//		frame.getContentPane().add(lbl_fold);
+		JLabel lbl_fold = new JLabel("\uD3BC\uCE58\uAE30");
+		lbl_fold.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (panel.getHeight() < 200) {
+					panel.setBounds(0, 110, 375, 702);
+				} else
+					panel.setBounds(0, 110, 5, 5);
+			}
+		});
+		lbl_fold.setBounds(12, 79, 25, 29);
+		frame.getContentPane().add(lbl_fold);
 
 		JLabel lbl_location = new JLabel("\uBC94\uC8C4 \uBC1C\uC0DD \uC704\uCE58");
 		lbl_location.setBounds(12, 105, 122, 28);
-//		panel.add(lbl_location);
+		panel.add(lbl_location);
 		lbl_location.setFont(new Font("함초롬돋움", Font.BOLD, 15));
 
 		JComboBox combo_city = new JComboBox();
 		combo_city.setBounds(134, 111, 151, 18);
-//		panel.add(combo_city);
+		panel.add(combo_city);
 		combo_city.setModel(new DefaultComboBoxModel(
 				new String[] {"도시를 선택하세요", "서울특별시", "광주광역시"}));
 		combo_city.setFont(new Font("함초롬돋움", Font.BOLD, 12));
@@ -213,14 +213,14 @@ public class crime_main {
 
 		JComboBox combo_gu = new JComboBox();
 		combo_gu.setBounds(134, 139, 151, 19);
-//		panel.add(combo_gu);
+		panel.add(combo_gu);
 		combo_gu.setModel(new DefaultComboBoxModel(new String[] {"구를 선택하세요", "광산구", "동구", "서구", "남구", "북구"}));
 		combo_gu.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		combo_gu.setBackground(new Color(204, 204, 255));
 
 		JComboBox combo_street = new JComboBox();
 		combo_street.setBounds(134, 168, 151, 19);
-//		panel.add(combo_street);
+		panel.add(combo_street);
 		combo_street.setModel(new DefaultComboBoxModel(
 				new String[] {"상세주소를 선택하세요", "2순환로","서문대로","서문대로402번길","서문대로473번길","서문대로499번길","서문대로517번길","서문대로556번길","서문대로627번길","송암로","송암로130번길","송암로24번길","송암로24번가길","송암로24번나길","송암로27번길","송암로42번길","송암로58번길","송암로76번길","송암로98번길","원효천길","원효천1길","원효천2길","입하길","입하1길","입하2길","입하2안길","효덕로","효덕로303번길","효천길","효천3로"}));
 		combo_street.setFont(new Font("함초롬돋움", Font.BOLD, 12));
@@ -228,63 +228,63 @@ public class crime_main {
 
 		JLabel lbl_date = new JLabel("\uBC94\uC8C4 \uBC1C\uC0DD\uC77C");
 		lbl_date.setBounds(12, 228, 97, 28);
-//		panel.add(lbl_date);
+		panel.add(lbl_date);
 		lbl_date.setFont(new Font("함초롬돋움", Font.BOLD, 15));
 
 		JComboBox combo_fromYear = new JComboBox();
 		combo_fromYear.setBounds(134, 233, 65, 18);
-//		panel.add(combo_fromYear);
+		panel.add(combo_fromYear);
 		combo_fromYear.setModel(new DefaultComboBoxModel(
 				new String[] { "", "1980", "1990", "2000", "2010", "2015", "2018", "2019", "2020" }));
 
 		JComboBox combo_toYear = new JComboBox();
 		combo_toYear.setBounds(134, 261, 65, 18);
-//		panel.add(combo_toYear);
+		panel.add(combo_toYear);
 		combo_toYear.setModel(new DefaultComboBoxModel(
 				new String[] { "", "1980", "1990", "2000", "2010", "2015", "2018", "2019", "2020" }));
 
 		JComboBox combo_toMon = new JComboBox();
 		combo_toMon.setBounds(204, 261, 50, 18);
-//		panel.add(combo_toMon);
+		panel.add(combo_toMon);
 		combo_toMon.setModel(new DefaultComboBoxModel(
 				new String[] { "", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
 		JComboBox combo_fromMon = new JComboBox();
 		combo_fromMon.setBounds(204, 233, 50, 18);
-//		panel.add(combo_fromMon);
+		panel.add(combo_fromMon);
 		combo_fromMon.setModel(new DefaultComboBoxModel(
 				new String[] { "", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
 		JComboBox combo_fromDay = new JComboBox();
 		combo_fromDay.setBounds(260, 233, 50, 18);
-//		panel.add(combo_fromDay);
+		panel.add(combo_fromDay);
 		combo_fromDay.setModel(new DefaultComboBoxModel(new String[] { "", "01", "02", "03", "04", "05", "06", "07",
 				"08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
 				"25", "26", "27", "28", "29", "30", "31" }));
 
 		JComboBox combo_toDay = new JComboBox();
 		combo_toDay.setBounds(260, 261, 50, 18);
-//		panel.add(combo_toDay);
+		panel.add(combo_toDay);
 		combo_toDay.setModel(new DefaultComboBoxModel(new String[] { "", "01", "02", "03", "04", "05", "06", "07", "08",
 				"09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25",
 				"26", "27", "28", "29", "30", "31" }));
 
 		JLabel lbl_from = new JLabel("\uBD80\uD130");
 		lbl_from.setBounds(314, 233, 33, 20);
-//		panel.add(lbl_from);
+		panel.add(lbl_from);
 
 		JLabel lbl_to = new JLabel("\uAE4C\uC9C0");
 		lbl_to.setBounds(314, 261, 33, 20);
-//		panel.add(lbl_to);
+		panel.add(lbl_to);
 
 		JLabel lbl_sort = new JLabel("\uBC94\uC8C4 \uC885\uB958");
 		lbl_sort.setBounds(12, 276, 97, 29);
-//		panel.add(lbl_sort);
+		panel.add(lbl_sort);
 		lbl_sort.setFont(new Font("함초롬돋움", Font.BOLD, 15));
 
 		JCheckBox check_절도강도 = new JCheckBox("\uC808\uB3C4\uAC15\uB3C4");
 		check_절도강도.setBounds(42, 319, 81, 23);
-//		panel.add(check_절도강도);
+		panel.add(check_절도강도);
 		check_절도강도.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == 1) {
@@ -299,7 +299,7 @@ public class crime_main {
 
 		JCheckBox check_살인 = new JCheckBox("\uC0B4\uC778");
 		check_살인.setBounds(42, 358, 49, 23);
-//		panel.add(check_살인);
+		panel.add(check_살인);
 		check_살인.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == 1) {
@@ -314,7 +314,7 @@ public class crime_main {
 
 		JCheckBox check_상해폭행 = new JCheckBox("\uC0C1\uD574\uD3ED\uD589");
 		check_상해폭행.setBounds(42, 394, 73, 23);
-//		panel.add(check_상해폭행);
+		panel.add(check_상해폭행);
 		check_상해폭행.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == 1) {
@@ -329,7 +329,7 @@ public class crime_main {
 
 		JCheckBox check_악취유인 = new JCheckBox("\uC545\uCDE8\uC720\uC778");
 		check_악취유인.setBounds(204, 319, 81, 23);
-//		panel.add(check_악취유인);
+		panel.add(check_악취유인);
 		check_악취유인.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == 1) {
@@ -344,7 +344,7 @@ public class crime_main {
 
 		JCheckBox check_강간추행 = new JCheckBox("\uAC15\uAC04\uCD94\uD589");
 		check_강간추행.setBounds(204, 358, 73, 23);
-//		panel.add(check_강간추행);
+		panel.add(check_강간추행);
 		check_강간추행.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == 1) {
@@ -487,7 +487,7 @@ public class crime_main {
 		textArea_강2.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uAC15\uAC04 \uBC0F \uCD94\uD589\r\n2017-11-18\r\n");
 		textArea_강2.setBounds(182, 85, 177, 99);
-//		panel_2.add(textArea_강2);
+		panel_2.add(textArea_강2);
 		textArea_강2.setVisible(false);
 
 		JTextArea textArea_강1 = new JTextArea();
@@ -495,7 +495,7 @@ public class crime_main {
 		textArea_강1.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uAC15\uAC04 \uBC0F \uCD94\uD589\r\n2017-12-26");
 		textArea_강1.setBounds(85, 92, 177, 99);
-//		panel_2.add(textArea_강1);
+		panel_2.add(textArea_강1);
 		textArea_강1.setVisible(false);
 
 		JTextArea textArea_강3 = new JTextArea();
@@ -503,7 +503,7 @@ public class crime_main {
 		textArea_강3.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uAC15\uAC04 \uBC0F \uCD94\uD589\r\n2005-11-29");
 		textArea_강3.setBounds(170, 87, 177, 99);
-//		panel_2.add(textArea_강3);
+		panel_2.add(textArea_강3);
 		textArea_강3.setVisible(false);
 
 		JTextArea textArea_상3 = new JTextArea();
@@ -511,7 +511,7 @@ public class crime_main {
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC0C1\uD574 \uBC0F \uD3ED\uD589\r\n2009-01-31");
 		textArea_상3.setEditable(false);
 		textArea_상3.setBounds(34, 142, 177, 99);
-//		panel_2.add(textArea_상3);
+		panel_2.add(textArea_상3);
 		textArea_상3.setVisible(false);
 
 		JTextArea textArea_강4 = new JTextArea();
@@ -519,7 +519,7 @@ public class crime_main {
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC0C1\uD574 \uBC0F \uD3ED\uD589\r\n2019-08-14");
 		textArea_강4.setEditable(false);
 		textArea_강4.setBounds(0, 198, 177, 99);
-//		panel_2.add(textArea_강4);
+		panel_2.add(textArea_강4);
 		textArea_강4.setVisible(false);
 
 		JTextArea textArea_절2 = new JTextArea();
@@ -527,7 +527,7 @@ public class crime_main {
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC808\uB3C4 \uBC0F \uAC15\uB3C4\r\n2010-02-01");
 		textArea_절2.setEditable(false);
 		textArea_절2.setBounds(177, 178, 177, 99);
-//		panel_2.add(textArea_절2);
+		panel_2.add(textArea_절2);
 		textArea_절2.setVisible(false);
 
 		JTextArea textArea_상1 = new JTextArea();
@@ -535,7 +535,7 @@ public class crime_main {
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC0C1\uD574 \uBC0F \uD3ED\uD589\r\n2019-06-13\r\n");
 		textArea_상1.setEditable(false);
 		textArea_상1.setBounds(0, 397, 177, 99);
-//		panel_2.add(textArea_상1);
+		panel_2.add(textArea_상1);
 		textArea_상1.setVisible(false);
 
 		JTextArea textArea_상4 = new JTextArea();
@@ -543,7 +543,7 @@ public class crime_main {
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC0C1\uD574 \uBC0F \uD3ED\uD589\r\n2020-05-08\r\n");
 		textArea_상4.setEditable(false);
 		textArea_상4.setBounds(182, 434, 177, 99);
-//		panel_2.add(textArea_상4);
+		panel_2.add(textArea_상4);
 		textArea_상4.setVisible(false);
 
 		JTextArea textArea_절1 = new JTextArea();
@@ -551,7 +551,7 @@ public class crime_main {
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC808\uB3C4 \uBC0F \uAC15\uB3C4\r\n2020-05-29");
 		textArea_절1.setEditable(false);
 		textArea_절1.setBounds(170, 152, 177, 99);
-//		panel_2.add(textArea_절1);
+		panel_2.add(textArea_절1);
 		textArea_절1.setVisible(false);
 
 		JTextArea textArea_상2 = new JTextArea();
@@ -559,7 +559,7 @@ public class crime_main {
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC0C1\uD574 \uBC0F \uD3ED\uD589\r\n2007-02-24");
 		textArea_상2.setEditable(false);
 		textArea_상2.setBounds(0, 154, 177, 99);
-//		panel_2.add(textArea_상2);
+		panel_2.add(textArea_상2);
 		textArea_상2.setVisible(false);
 
 		JTextArea textArea_절3 = new JTextArea();
@@ -567,7 +567,7 @@ public class crime_main {
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC808\uB3C4 \uBC0F \uAC15\uB3C4\r\n2019-08-05");
 		textArea_절3.setEditable(false);
 		textArea_절3.setBounds(129, 178, 177, 99);
-//		panel_2.add(textArea_절3);
+		panel_2.add(textArea_절3);
 		textArea_절3.setVisible(false);
 
 		JTextArea textArea_절4 = new JTextArea();
@@ -575,7 +575,7 @@ public class crime_main {
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC808\uB3C4 \uBC0F \uAC15\uB3C4\r\n2020-05-20");
 		textArea_절4.setEditable(false);
 		textArea_절4.setBounds(64, 336, 177, 99);
-//		panel_2.add(textArea_절4);
+		panel_2.add(textArea_절4);
 		textArea_절4.setVisible(false);
 
 		JLabel lbl_강2_1280 = new JLabel("\uAC15");
@@ -590,7 +590,7 @@ public class crime_main {
 			}
 		});
 		lbl_강2_1280.setBounds(273, 184, 23, 26);
-//		panel_2.add(lbl_강2_1280);
+		panel_2.add(lbl_강2_1280);
 		lbl_강2_1280.setVisible(false);
 
 		JLabel lbl_강1_1338 = new JLabel("\uAC15");
@@ -605,7 +605,7 @@ public class crime_main {
 			}
 		});
 		lbl_강1_1338.setBounds(248, 184, 23, 26);
-//		panel_2.add(lbl_강1_1338);
+		panel_2.add(lbl_강1_1338);
 		lbl_강1_1338.setVisible(false);
 
 		JLabel lbl_강3_1251 = new JLabel("\uAC15");
@@ -620,7 +620,7 @@ public class crime_main {
 			}
 		});
 		lbl_강3_1251.setBounds(283, 196, 23, 26);
-//		panel_2.add(lbl_강3_1251);
+		panel_2.add(lbl_강3_1251);
 		lbl_강3_1251.setVisible(false);
 
 		JLabel lbl_절2_1048 = new JLabel("\uC808");
@@ -635,7 +635,7 @@ public class crime_main {
 			}
 		});
 		lbl_절2_1048.setBounds(324, 270, 23, 26);
-//		panel_2.add(lbl_절2_1048);
+		panel_2.add(lbl_절2_1048);
 		lbl_절2_1048.setVisible(false);
 
 		JLabel lbl_상1_1135 = new JLabel("\uC0C1");
@@ -650,7 +650,7 @@ public class crime_main {
 			}
 		});
 		lbl_상1_1135.setBounds(125, 376, 23, 26);
-//		panel_2.add(lbl_상1_1135);
+		panel_2.add(lbl_상1_1135);
 		lbl_상1_1135.setVisible(false);
 
 		JLabel lbl_절4_1106 = new JLabel("\uC808");
@@ -665,7 +665,7 @@ public class crime_main {
 			}
 		});
 		lbl_절4_1106.setBounds(188, 432, 23, 26);
-//		panel_2.add(lbl_절4_1106);
+		panel_2.add(lbl_절4_1106);
 		lbl_절4_1106.setVisible(false);
 
 		JLabel lbl_상4_1222 = new JLabel("\uC0C1");
@@ -680,7 +680,7 @@ public class crime_main {
 			}
 		});
 		lbl_상4_1222.setBounds(227, 406, 23, 26);
-//		panel_2.add(lbl_상4_1222);
+		panel_2.add(lbl_상4_1222);
 		lbl_상4_1222.setVisible(false);
 
 		JLabel lbl_강4_1309 = new JLabel("\uAC15");
@@ -695,7 +695,7 @@ public class crime_main {
 			}
 		});
 		lbl_강4_1309.setBounds(54, 300, 23, 26);
-//		panel_2.add(lbl_강4_1309);
+		panel_2.add(lbl_강4_1309);
 		lbl_강4_1309.setVisible(false);
 
 		JLabel lbl_상2_1164 = new JLabel("\uC0C1");
@@ -710,7 +710,7 @@ public class crime_main {
 			}
 		});
 		lbl_상2_1164.setBounds(125, 251, 23, 26);
-//		panel_2.add(lbl_상2_1164);
+		panel_2.add(lbl_상2_1164);
 		lbl_상2_1164.setVisible(false);
 
 		JLabel lbl_상3_1193 = new JLabel("\uC0C1");
@@ -725,7 +725,7 @@ public class crime_main {
 			}
 		});
 		lbl_상3_1193.setBounds(167, 238, 23, 26);
-//		panel_2.add(lbl_상3_1193);
+		panel_2.add(lbl_상3_1193);
 		lbl_상3_1193.setVisible(false);
 
 		JLabel lbl_절3_1077 = new JLabel("\uC808");
@@ -740,7 +740,7 @@ public class crime_main {
 			}
 		});
 		lbl_절3_1077.setBounds(244, 270, 23, 26);
-//		panel_2.add(lbl_절3_1077);
+		panel_2.add(lbl_절3_1077);
 		lbl_절3_1077.setVisible(false);
 
 		JLabel lbl_절1_1019 = new JLabel("\uC808");
@@ -755,13 +755,13 @@ public class crime_main {
 			}
 		});
 		lbl_절1_1019.setBounds(308, 251, 23, 26);
-//		panel_2.add(lbl_절1_1019);
+		panel_2.add(lbl_절1_1019);
 		lbl_절1_1019.setVisible(false);
 
 		JLabel lbl_76 = new JLabel("");
 		lbl_76.setIcon(new ImageIcon("C:\\pro_image\\76.png"));
 		lbl_76.setBounds(0, 0, 359, 663);
-//		panel_2.add(lbl_76);
+		panel_2.add(lbl_76);
 		lbl_76.setVisible(false);
 
 		JLabel lbl_reset = new JLabel("\uB9AC\uC14B");
@@ -821,223 +821,221 @@ public class crime_main {
 				textArea_절3.setVisible(false);
 				textArea_절4.setVisible(false);
 
-//				if (panel.getHeight() < 100) {
-//					panel.setBounds(0, 110, 359, 663);
-//				}
+				if (panel.getHeight() < 100) {
+					panel.setBounds(0, 110, 359, 663);
+				}
 			}
 		});
 		lbl_reset.setBounds(73, 71, 97, 29);
 		frame.getContentPane().add(lbl_reset);
 
-//		JButton btn_search = new JButton("SEARCH");
-//		btn_search.setBounds(12, 444, 324, 23);
-//		panel.add(btn_search);
-//		btn_search.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				panel.setBounds(0, 106, 1, 1);
-//				//System.out.println(Integer.parseInt((String) combo_fromYear.getSelectedItem())+Integer.parseInt((String) combo_toYear.getSelectedItem()));
-//				//System.out.println(Integer.parseInt((String) combo_toYear.getSelectedItem()));
-//				if ((combo_fromYear.getSelectedIndex() == 0?true:Integer.parseInt((String) combo_fromYear.getSelectedItem()) <= 2005)
-//						&& (combo_toYear.getSelectedIndex() == 0? true:Integer.parseInt((String) combo_toYear.getSelectedItem()) >= 2020)) {
-//					if (combo_street.getSelectedIndex() == 16) {
-//						panel_2.setVisible(false);
-//						lbl_76.setVisible(false);
-//						panel_1.setVisible(true);
-//						lbl_58.setVisible(true);
-//						if (kidnap == 1) {
-//							lbl_약2_1047.setVisible(true);
-//							lbl_약_1018.setVisible(true);
-//						} else {
-//							lbl_약2_1047.setVisible(false);
-//							lbl_약_1018.setVisible(false);
-//						}
-//						if (violence == 1) {
-//							lbl_상_1030.setVisible(true);
-//						} else {
-//							lbl_상_1030.setVisible(false);
-//						}
-//						if (theft == 1) {
-//							lbl_절_1001.setVisible(true);
-//						} else {
-//							lbl_절_1001.setVisible(false);
-//						}
-//					} else if (combo_street.getSelectedIndex() == 17) {
-//						panel_1.setVisible(false);
-//						lbl_58.setVisible(false);
-////						panel_2.setVisible(true);
-//						lbl_76.setVisible(true);
-//					}
-//					if (kidnap == 1) {
-//					} else {
-//					}
-//					if (violence == 1) {
-//						lbl_상1_1135.setVisible(true);
-//						lbl_상2_1164.setVisible(true);
-//						lbl_상3_1193.setVisible(true);
-//						lbl_상4_1222.setVisible(true);
-//					} else {
-//						lbl_상1_1135.setVisible(false);
-//						lbl_상2_1164.setVisible(false);
-//						lbl_상3_1193.setVisible(false);
-//						lbl_상4_1222.setVisible(false);
-//					}
-//					if (theft == 1) {
-//						lbl_절1_1019.setVisible(true);
-//						lbl_절2_1048.setVisible(true);
-//						lbl_절3_1077.setVisible(true);
-//						lbl_절4_1106.setVisible(true);
-//					} else {
-//						lbl_절1_1019.setVisible(false);
-//						lbl_절2_1048.setVisible(false);
-//						lbl_절3_1077.setVisible(false);
-//						lbl_절4_1106.setVisible(false);
-//					}
-//					if (rape == 1) {
-//						lbl_강1_1338.setVisible(true);
-//						lbl_강2_1280.setVisible(true);
-//						lbl_강3_1251.setVisible(true);
-//						lbl_강4_1309.setVisible(true);
-//					} else {
-//						lbl_강1_1338.setVisible(false);
-//						lbl_강2_1280.setVisible(false);
-//						lbl_강3_1251.setVisible(false);
-//						lbl_강4_1309.setVisible(false);
-//					}
-//				} else if (combo_fromYear.getSelectedIndex()==0?false:Integer.parseInt((String) combo_fromYear.getSelectedItem()) > 2010) {
-//					if (combo_street.getSelectedIndex() == 16) {
-////						panel_2.setVisible(false);
-//						lbl_76.setVisible(false);
-//						panel_1.setVisible(true);
-//						lbl_58.setVisible(true);
-//						if (kidnap == 1) {
-//							lbl_약2_1047.setVisible(true);
-//							lbl_약_1018.setVisible(true);
-//						} else {
-//							lbl_약2_1047.setVisible(false);
-//							lbl_약_1018.setVisible(false);
-//						}
-//						if (violence == 1) {
-//							lbl_상_1030.setVisible(true);
-//						} else {
-//							lbl_상_1030.setVisible(false);
-//						}
-//						if (theft == 1) {
-//							lbl_절_1001.setVisible(true);
-//						} else {
-//							lbl_절_1001.setVisible(false);
-//						}
-//					} else if (combo_street.getSelectedIndex() == 17) {
-//						panel_1.setVisible(false);
-//						lbl_58.setVisible(false);
-////						panel_2.setVisible(true);
-//						lbl_76.setVisible(true);
-//					}
-//					if (kidnap == 1) {
-//					} else {
-//					}
-//					if (violence == 1) {
-//						lbl_상1_1135.setVisible(true);
-//						lbl_상2_1164.setVisible(false);
-//						lbl_상3_1193.setVisible(false);
-//						lbl_상4_1222.setVisible(true);
-//					} else {
-//						lbl_상1_1135.setVisible(false);
-//						lbl_상2_1164.setVisible(false);
-//						lbl_상3_1193.setVisible(false);
-//						lbl_상4_1222.setVisible(false);
-//					}
-//					if (theft == 1) {
-//						lbl_절1_1019.setVisible(true);
-//						lbl_절2_1048.setVisible(false);
-//						lbl_절3_1077.setVisible(true);
-//						lbl_절4_1106.setVisible(true);
-//					} else {
-//						lbl_절1_1019.setVisible(false);
-//						lbl_절2_1048.setVisible(false);
-//						lbl_절3_1077.setVisible(false);
-//						lbl_절4_1106.setVisible(false);
-//					}
-//					if (rape == 1) {
-//						lbl_강1_1338.setVisible(true);
-//						lbl_강2_1280.setVisible(true);
-//						lbl_강3_1251.setVisible(false);
-//						lbl_강4_1309.setVisible(true);
-//					} else {
-//						lbl_강1_1338.setVisible(false);
-//						lbl_강2_1280.setVisible(false);
-//						lbl_강3_1251.setVisible(false);
-//						lbl_강4_1309.setVisible(false);
-//					}
-//				}else if(combo_toYear.getSelectedIndex()==0?false:Integer.parseInt((String) combo_toYear.getSelectedItem()) <= 2016) {
-//					if (combo_street.getSelectedIndex() == 16) {
-//						panel_2.setVisible(false);
-//						lbl_76.setVisible(false);
-//						panel_1.setVisible(true);
-//						lbl_58.setVisible(true);
-//						if (kidnap == 1) {
-//							lbl_약2_1047.setVisible(false);
-//							lbl_약_1018.setVisible(false);
-//						} else {
-//							lbl_약2_1047.setVisible(false);
-//							lbl_약_1018.setVisible(false);
-//						}
-//						if (violence == 1) {
-//							lbl_상_1030.setVisible(false);
-//						} else {
-//							lbl_상_1030.setVisible(false);
-//						}
-//						if (theft == 1) {
-//							lbl_절_1001.setVisible(false);
-//						} else {
-//							lbl_절_1001.setVisible(false);
-//						}
-//					} else if (combo_street.getSelectedIndex() == 17) {
-//						panel_1.setVisible(false);
-//						lbl_58.setVisible(false);
-////						panel_2.setVisible(true);
-//						lbl_76.setVisible(true);
-//					}
-//					if (kidnap == 1) {
-//					} else {
-//					}
-//					if (violence == 1) {
-//						lbl_상1_1135.setVisible(false);
-//						lbl_상4_1222.setVisible(false);
-//						lbl_상2_1164.setVisible(true);
-//						lbl_상3_1193.setVisible(true);
-//					} else {
-//						lbl_상1_1135.setVisible(false);
-//						lbl_상4_1222.setVisible(false);
-//						lbl_상2_1164.setVisible(false);
-//						lbl_상3_1193.setVisible(false);
-//					}
-//					if (theft == 1) {
-//						lbl_절1_1019.setVisible(false);
-//						lbl_절3_1077.setVisible(false);
-//						lbl_절4_1106.setVisible(false);
-//						lbl_절2_1048.setVisible(true);
-//					} else {
-//						lbl_절1_1019.setVisible(false);
-//						lbl_절3_1077.setVisible(false);
-//						lbl_절4_1106.setVisible(false);
-//						lbl_절2_1048.setVisible(false);
-//					}
-//					if (rape == 1) {
-//						lbl_강1_1338.setVisible(false);
-//						lbl_강2_1280.setVisible(false);
-//						lbl_강4_1309.setVisible(false);
-//						lbl_강3_1251.setVisible(true);
-//					} else {
-//						lbl_강1_1338.setVisible(false);
-//						lbl_강2_1280.setVisible(false);
-//						lbl_강4_1309.setVisible(false);
-//						lbl_강3_1251.setVisible(false);
-//					}
-//				}
-//			}
-//		});
-//		btn_search.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-//		btn_search.setBackground(new Color(204, 204, 255));
+		JButton btn_search = new JButton("SEARCH");
+		btn_search.setBounds(12, 444, 324, 23);
+		panel.add(btn_search);
+		btn_search.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel.setBounds(0, 106, 1, 1);
+				if ((combo_fromYear.getSelectedIndex() == 0?true:Integer.parseInt((String) combo_fromYear.getSelectedItem()) <= 2005)
+						&& (combo_toYear.getSelectedIndex() == 0? true:Integer.parseInt((String) combo_toYear.getSelectedItem()) >= 2020)) {
+					if (combo_street.getSelectedIndex() == 16) {
+						panel_2.setVisible(false);
+						lbl_76.setVisible(false);
+						panel_1.setVisible(true);
+						lbl_58.setVisible(true);
+						if (kidnap == 1) {
+							lbl_약2_1047.setVisible(true);
+							lbl_약_1018.setVisible(true);
+						} else {
+							lbl_약2_1047.setVisible(false);
+							lbl_약_1018.setVisible(false);
+						}
+						if (violence == 1) {
+							lbl_상_1030.setVisible(true);
+						} else {
+							lbl_상_1030.setVisible(false);
+						}
+						if (theft == 1) {
+							lbl_절_1001.setVisible(true);
+						} else {
+							lbl_절_1001.setVisible(false);
+						}
+					} else if (combo_street.getSelectedIndex() == 17) {
+						panel_1.setVisible(false);
+						lbl_58.setVisible(false);
+						panel_2.setVisible(true);
+						lbl_76.setVisible(true);
+					}
+					if (kidnap == 1) {
+					} else {
+					}
+					if (violence == 1) {
+						lbl_상1_1135.setVisible(true);
+						lbl_상2_1164.setVisible(true);
+						lbl_상3_1193.setVisible(true);
+						lbl_상4_1222.setVisible(true);
+					} else {
+						lbl_상1_1135.setVisible(false);
+						lbl_상2_1164.setVisible(false);
+						lbl_상3_1193.setVisible(false);
+						lbl_상4_1222.setVisible(false);
+					}
+					if (theft == 1) {
+						lbl_절1_1019.setVisible(true);
+						lbl_절2_1048.setVisible(true);
+						lbl_절3_1077.setVisible(true);
+						lbl_절4_1106.setVisible(true);
+					} else {
+						lbl_절1_1019.setVisible(false);
+						lbl_절2_1048.setVisible(false);
+						lbl_절3_1077.setVisible(false);
+						lbl_절4_1106.setVisible(false);
+					}
+					if (rape == 1) {
+						lbl_강1_1338.setVisible(true);
+						lbl_강2_1280.setVisible(true);
+						lbl_강3_1251.setVisible(true);
+						lbl_강4_1309.setVisible(true);
+					} else {
+						lbl_강1_1338.setVisible(false);
+						lbl_강2_1280.setVisible(false);
+						lbl_강3_1251.setVisible(false);
+						lbl_강4_1309.setVisible(false);
+					}
+				} else if (combo_fromYear.getSelectedIndex()==0?false:Integer.parseInt((String) combo_fromYear.getSelectedItem()) > 2010) {
+					if (combo_street.getSelectedIndex() == 16) {
+						panel_2.setVisible(false);
+						lbl_76.setVisible(false);
+						panel_1.setVisible(true);
+						lbl_58.setVisible(true);
+						if (kidnap == 1) {
+							lbl_약2_1047.setVisible(true);
+							lbl_약_1018.setVisible(true);
+						} else {
+							lbl_약2_1047.setVisible(false);
+							lbl_약_1018.setVisible(false);
+						}
+						if (violence == 1) {
+							lbl_상_1030.setVisible(true);
+						} else {
+							lbl_상_1030.setVisible(false);
+						}
+						if (theft == 1) {
+							lbl_절_1001.setVisible(true);
+						} else {
+							lbl_절_1001.setVisible(false);
+						}
+					} else if (combo_street.getSelectedIndex() == 17) {
+						panel_1.setVisible(false);
+						lbl_58.setVisible(false);
+						panel_2.setVisible(true);
+						lbl_76.setVisible(true);
+					}
+					if (kidnap == 1) {
+					} else {
+					}
+					if (violence == 1) {
+						lbl_상1_1135.setVisible(true);
+						lbl_상2_1164.setVisible(false);
+						lbl_상3_1193.setVisible(false);
+						lbl_상4_1222.setVisible(true);
+					} else {
+						lbl_상1_1135.setVisible(false);
+						lbl_상2_1164.setVisible(false);
+						lbl_상3_1193.setVisible(false);
+						lbl_상4_1222.setVisible(false);
+					}
+					if (theft == 1) {
+						lbl_절1_1019.setVisible(true);
+						lbl_절2_1048.setVisible(false);
+						lbl_절3_1077.setVisible(true);
+						lbl_절4_1106.setVisible(true);
+					} else {
+						lbl_절1_1019.setVisible(false);
+						lbl_절2_1048.setVisible(false);
+						lbl_절3_1077.setVisible(false);
+						lbl_절4_1106.setVisible(false);
+					}
+					if (rape == 1) {
+						lbl_강1_1338.setVisible(true);
+						lbl_강2_1280.setVisible(true);
+						lbl_강3_1251.setVisible(false);
+						lbl_강4_1309.setVisible(true);
+					} else {
+						lbl_강1_1338.setVisible(false);
+						lbl_강2_1280.setVisible(false);
+						lbl_강3_1251.setVisible(false);
+						lbl_강4_1309.setVisible(false);
+					}
+				}else if(combo_toYear.getSelectedIndex()==0?false:Integer.parseInt((String) combo_toYear.getSelectedItem()) <= 2016) {
+					if (combo_street.getSelectedIndex() == 16) {
+						panel_2.setVisible(false);
+						lbl_76.setVisible(false);
+						panel_1.setVisible(true);
+						lbl_58.setVisible(true);
+						if (kidnap == 1) {
+							lbl_약2_1047.setVisible(false);
+							lbl_약_1018.setVisible(false);
+						} else {
+							lbl_약2_1047.setVisible(false);
+							lbl_약_1018.setVisible(false);
+						}
+						if (violence == 1) {
+							lbl_상_1030.setVisible(false);
+						} else {
+							lbl_상_1030.setVisible(false);
+						}
+						if (theft == 1) {
+							lbl_절_1001.setVisible(false);
+						} else {
+							lbl_절_1001.setVisible(false);
+						}
+					} else if (combo_street.getSelectedIndex() == 17) {
+						panel_1.setVisible(false);
+						lbl_58.setVisible(false);
+						panel_2.setVisible(true);
+						lbl_76.setVisible(true);
+					}
+					if (kidnap == 1) {
+					} else {
+					}
+					if (violence == 1) {
+						lbl_상1_1135.setVisible(false);
+						lbl_상4_1222.setVisible(false);
+						lbl_상2_1164.setVisible(true);
+						lbl_상3_1193.setVisible(true);
+					} else {
+						lbl_상1_1135.setVisible(false);
+						lbl_상4_1222.setVisible(false);
+						lbl_상2_1164.setVisible(false);
+						lbl_상3_1193.setVisible(false);
+					}
+					if (theft == 1) {
+						lbl_절1_1019.setVisible(false);
+						lbl_절3_1077.setVisible(false);
+						lbl_절4_1106.setVisible(false);
+						lbl_절2_1048.setVisible(true);
+					} else {
+						lbl_절1_1019.setVisible(false);
+						lbl_절3_1077.setVisible(false);
+						lbl_절4_1106.setVisible(false);
+						lbl_절2_1048.setVisible(false);
+					}
+					if (rape == 1) {
+						lbl_강1_1338.setVisible(false);
+						lbl_강2_1280.setVisible(false);
+						lbl_강4_1309.setVisible(false);
+						lbl_강3_1251.setVisible(true);
+					} else {
+						lbl_강1_1338.setVisible(false);
+						lbl_강2_1280.setVisible(false);
+						lbl_강4_1309.setVisible(false);
+						lbl_강3_1251.setVisible(false);
+					}
+				}
+			}
+		});
+		btn_search.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		btn_search.setBackground(new Color(204, 204, 255));
 	}
 }
