@@ -138,7 +138,7 @@ public class admin_select {
 				
 				frame.dispose();
 //				crime_main.main(null);
-				crime_main crime = new crime_main(dao.check_alarm2(vo));
+				crime_main crime = new crime_main(new VO_alarm(vo.getId(),null,null,null));
 			}
 		});
 		frame.getContentPane().add(btn_crimemain);

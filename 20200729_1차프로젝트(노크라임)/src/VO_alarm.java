@@ -11,14 +11,14 @@ public class VO_alarm {
 		this.set_end = set_end;
 		this.cr_cnt = cr_cnt;
 	}
+	public String getSet_start() {
+		return set_start;
+	}
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
-	}
-	public String getSet_start() {
-		return set_start;
 	}
 	public void setSet_start(String set_start) {
 		this.set_start = set_start;
@@ -35,6 +35,4 @@ public class VO_alarm {
 	public void setCr_cnt(String cr_cnt) {
 		this.cr_cnt = cr_cnt;
 	}
-	
-	
 }
