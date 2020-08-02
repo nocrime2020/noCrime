@@ -348,7 +348,7 @@ public class crime_main {
 		check_상해폭행.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		check_상해폭행.setBackground(new Color(230, 230, 250));
 
-		JCheckBox check_악취유인 = new JCheckBox("\uC545\uCDE8\uC720\uC778");
+		JCheckBox check_악취유인 = new JCheckBox("\uC57D\uCDE8\uC720\uC778");
 		check_악취유인.setForeground(new Color(0, 0, 128));
 		check_악취유인.setBounds(204, 364, 81, 23);
 		panel.add(check_악취유인);
@@ -412,7 +412,8 @@ public class crime_main {
 		panel_1.add(textArea_절);
 		textArea_절.setVisible(false);
 
-		JLabel lbl_상_1030 = new JLabel("\uC0C1");
+		JLabel lbl_상_1030 = new JLabel("");
+		lbl_상_1030.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uD3ED\uC0C1\uC2A4\uBAB0.png")));
 		lbl_상_1030.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -427,7 +428,8 @@ public class crime_main {
 		panel_1.add(lbl_상_1030);
 		lbl_상_1030.setVisible(false);
 
-		JLabel lbl_약2_1047 = new JLabel("\uC57D2");
+		JLabel lbl_약2_1047 = new JLabel("");
+		lbl_약2_1047.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uB0A9\uCE58\uC2A4\uBAB0.png")));
 		lbl_약2_1047.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -442,7 +444,8 @@ public class crime_main {
 		panel_1.add(lbl_약2_1047);
 		lbl_약2_1047.setVisible(false);
 
-		JLabel lbl_절_1001 = new JLabel("\uC808");
+		JLabel lbl_절_1001 = new JLabel("");
+		lbl_절_1001.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uC808\uAC15\uC2A4\uBAB0.png")));
 		lbl_절_1001.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -457,7 +460,8 @@ public class crime_main {
 		panel_1.add(lbl_절_1001);
 		lbl_절_1001.setVisible(false);
 
-		JLabel lbl_약_1018 = new JLabel("\uC57D");
+		JLabel lbl_약_1018 = new JLabel("");
+		lbl_약_1018.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uB0A9\uCE58\uC2A4\uBAB0.png")));
 		lbl_약_1018.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -481,7 +485,8 @@ public class crime_main {
 		panel_1.add(textArea_살);
 		textArea_살.setVisible(false);
 		
-		JLabel lbl_살_New = new JLabel("\uC0B4");
+		JLabel lbl_살_New = new JLabel("");
+		lbl_살_New.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uC0B4\uC778\uC2A4\uBAB0.png")));
 		lbl_살_New.setEnabled(false);
 		if (dao.sended()) {
 			lbl_살_New.setEnabled(true);
@@ -500,7 +505,7 @@ public class crime_main {
 		panel_1.add(lbl_살_New);
 
 		JLabel lbl_58 = new JLabel("");
-		lbl_58.setIcon(new ImageIcon("C:\\pro_image\\58.png"));
+		lbl_58.setIcon(new ImageIcon(crime_main.class.getResource("/res/58\uAE38.png")));
 		lbl_58.setBounds(0, 0, 359, 663);
 		panel_1.add(lbl_58);
 		lbl_58.setVisible(false);
@@ -601,7 +606,8 @@ public class crime_main {
 		panel_2.add(textArea_절4);
 		textArea_절4.setVisible(false);
 
-		JLabel lbl_강2_1280 = new JLabel("\uAC15");
+		JLabel lbl_강2_1280 = new JLabel("");
+		lbl_강2_1280.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uAC15\uCD94\uC2A4\uBAB0.png")));
 		lbl_강2_1280.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -616,7 +622,8 @@ public class crime_main {
 		panel_2.add(lbl_강2_1280);
 		lbl_강2_1280.setVisible(false);
 
-		JLabel lbl_강1_1338 = new JLabel("\uAC15");
+		JLabel lbl_강1_1338 = new JLabel("");
+		lbl_강1_1338.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uAC15\uCD94\uC2A4\uBAB0.png")));
 		lbl_강1_1338.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -631,7 +638,8 @@ public class crime_main {
 		panel_2.add(lbl_강1_1338);
 		lbl_강1_1338.setVisible(false);
 
-		JLabel lbl_강3_1251 = new JLabel("\uAC15");
+		JLabel lbl_강3_1251 = new JLabel("");
+		lbl_강3_1251.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uAC15\uCD94\uC2A4\uBAB0.png")));
 		lbl_강3_1251.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -646,7 +654,8 @@ public class crime_main {
 		panel_2.add(lbl_강3_1251);
 		lbl_강3_1251.setVisible(false);
 
-		JLabel lbl_절2_1048 = new JLabel("\uC808");
+		JLabel lbl_절2_1048 = new JLabel("");
+		lbl_절2_1048.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uC808\uAC15\uC2A4\uBAB0.png")));
 		lbl_절2_1048.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -661,7 +670,8 @@ public class crime_main {
 		panel_2.add(lbl_절2_1048);
 		lbl_절2_1048.setVisible(false);
 
-		JLabel lbl_상1_1135 = new JLabel("\uC0C1");
+		JLabel lbl_상1_1135 = new JLabel("");
+		lbl_상1_1135.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uD3ED\uC0C1\uC2A4\uBAB0.png")));
 		lbl_상1_1135.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -676,7 +686,8 @@ public class crime_main {
 		panel_2.add(lbl_상1_1135);
 		lbl_상1_1135.setVisible(false);
 
-		JLabel lbl_절4_1106 = new JLabel("\uC808");
+		JLabel lbl_절4_1106 = new JLabel("");
+		lbl_절4_1106.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uC808\uAC15\uC2A4\uBAB0.png")));
 		lbl_절4_1106.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -691,7 +702,8 @@ public class crime_main {
 		panel_2.add(lbl_절4_1106);
 		lbl_절4_1106.setVisible(false);
 
-		JLabel lbl_상4_1222 = new JLabel("\uC0C1");
+		JLabel lbl_상4_1222 = new JLabel("");
+		lbl_상4_1222.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uD3ED\uC0C1\uC2A4\uBAB0.png")));
 		lbl_상4_1222.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -706,7 +718,8 @@ public class crime_main {
 		panel_2.add(lbl_상4_1222);
 		lbl_상4_1222.setVisible(false);
 
-		JLabel lbl_강4_1309 = new JLabel("\uAC15");
+		JLabel lbl_강4_1309 = new JLabel("");
+		lbl_강4_1309.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uAC15\uCD94\uC2A4\uBAB0.png")));
 		lbl_강4_1309.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -721,7 +734,8 @@ public class crime_main {
 		panel_2.add(lbl_강4_1309);
 		lbl_강4_1309.setVisible(false);
 
-		JLabel lbl_상2_1164 = new JLabel("\uC0C1");
+		JLabel lbl_상2_1164 = new JLabel("");
+		lbl_상2_1164.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uD3ED\uC0C1\uC2A4\uBAB0.png")));
 		lbl_상2_1164.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -736,7 +750,8 @@ public class crime_main {
 		panel_2.add(lbl_상2_1164);
 		lbl_상2_1164.setVisible(false);
 
-		JLabel lbl_상3_1193 = new JLabel("\uC0C1");
+		JLabel lbl_상3_1193 = new JLabel("");
+		lbl_상3_1193.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uD3ED\uC0C1\uC2A4\uBAB0.png")));
 		lbl_상3_1193.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -751,7 +766,8 @@ public class crime_main {
 		panel_2.add(lbl_상3_1193);
 		lbl_상3_1193.setVisible(false);
 
-		JLabel lbl_절3_1077 = new JLabel("\uC808");
+		JLabel lbl_절3_1077 = new JLabel("");
+		lbl_절3_1077.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uC808\uAC15\uC2A4\uBAB0.png")));
 		lbl_절3_1077.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -766,7 +782,8 @@ public class crime_main {
 		panel_2.add(lbl_절3_1077);
 		lbl_절3_1077.setVisible(false);
 
-		JLabel lbl_절1_1019 = new JLabel("\uC808");
+		JLabel lbl_절1_1019 = new JLabel("");
+		lbl_절1_1019.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uC808\uAC15\uC2A4\uBAB0.png")));
 		lbl_절1_1019.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -782,7 +799,7 @@ public class crime_main {
 		lbl_절1_1019.setVisible(false);
 
 		JLabel lbl_76 = new JLabel("");
-		lbl_76.setIcon(new ImageIcon("C:\\pro_image\\76.png"));
+		lbl_76.setIcon(new ImageIcon(crime_main.class.getResource("/res/76\uAE38.png")));
 		lbl_76.setBounds(0, 0, 359, 663);
 		panel_2.add(lbl_76);
 		lbl_76.setVisible(false);
