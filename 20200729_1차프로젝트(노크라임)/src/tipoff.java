@@ -18,6 +18,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 
 public class tipoff {
 
@@ -28,6 +30,7 @@ public class tipoff {
 	
 	JFileChooser chooser;
 	ImageIcon ImageIcon;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 	/**
 	 * Launch the application.
@@ -150,29 +153,60 @@ public class tipoff {
 		lbl_evidence.setBounds(12, 512, 97, 43);
 		frame.getContentPane().add(lbl_evidence);
 		
-		JCheckBox ck_assault = new JCheckBox("\uC0C1\uD574\uD3ED\uD589");
-		ck_assault.setBackground(new Color(230, 230, 250));
-		ck_assault.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		ck_assault.setBounds(31, 457, 73, 23);
-		frame.getContentPane().add(ck_assault);
+//		JCheckBox ck_assault = new JCheckBox("\uC0C1\uD574\uD3ED\uD589");
+//		ck_assault.setBackground(new Color(230, 230, 250));
+//		ck_assault.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+//		ck_assault.setBounds(263, 633, 73, 23);
+//		frame.getContentPane().add(ck_assault);
+//		
+//		JCheckBox ck_rape = new JCheckBox("\uAC15\uAC04\uCD94\uD589");
+//		ck_rape.setBackground(new Color(230, 230, 250));
+//		ck_rape.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+//		ck_rape.setBounds(256, 682, 73, 23);
+//		frame.getContentPane().add(ck_rape);
+//		
+//		JCheckBox ck_burglary = new JCheckBox("\uC808\uB3C4\uAC15\uB3C4");
+//		ck_burglary.setBackground(new Color(230, 230, 250));
+//		ck_burglary.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+//		ck_burglary.setBounds(270, 586, 81, 23);
+//		frame.getContentPane().add(ck_burglary);
+//		
+//		JCheckBox ck_kidnap = new JCheckBox("\uC57D\uCDE8\uC720\uC778");
+//		ck_kidnap.setBackground(new Color(230, 230, 250));
+//		ck_kidnap.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+//		ck_kidnap.setBounds(256, 658, 81, 23);
+//		frame.getContentPane().add(ck_kidnap);
+//		
+//		JCheckBox ck_murder = new JCheckBox("\uC0B4\uC778");
+//		ck_murder.setBackground(new Color(230, 230, 250));
+//		ck_murder.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+//		ck_murder.setBounds(280, 611, 49, 23);
+//		frame.getContentPane().add(ck_murder);
 		
-		JCheckBox ck_rape = new JCheckBox("\uAC15\uAC04\uCD94\uD589");
-		ck_rape.setBackground(new Color(230, 230, 250));
-		ck_rape.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		ck_rape.setBounds(193, 410, 73, 23);
-		frame.getContentPane().add(ck_rape);
+		JRadioButton rd_burglary = new JRadioButton("\uC808\uB3C4\uAC15\uB3C4");
+		buttonGroup.add(rd_burglary);
+		rd_burglary.setBounds(31, 367, 81, 23);
+		frame.getContentPane().add(rd_burglary);
 		
-		JCheckBox ck_burglary = new JCheckBox("\uC808\uB3C4\uAC15\uB3C4");
-		ck_burglary.setBackground(new Color(230, 230, 250));
-		ck_burglary.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		ck_burglary.setBounds(31, 367, 81, 23);
-		frame.getContentPane().add(ck_burglary);
+		JRadioButton rd_murder = new JRadioButton("\uC0B4\uC778");
+		buttonGroup.add(rd_murder);
+		rd_murder.setBounds(31, 410, 81, 23);
+		frame.getContentPane().add(rd_murder);
 		
-		JCheckBox ck_kidnap = new JCheckBox("\uC57D\uCDE8\uC720\uC778");
-		ck_kidnap.setBackground(new Color(230, 230, 250));
-		ck_kidnap.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		ck_kidnap.setBounds(193, 367, 81, 23);
-		frame.getContentPane().add(ck_kidnap);
+		JRadioButton rd_assault = new JRadioButton("\uC0C1\uD574\uD3ED\uD589");
+		buttonGroup.add(rd_assault);
+		rd_assault.setBounds(31, 457, 81, 23);
+		frame.getContentPane().add(rd_assault);
+		
+		JRadioButton rd_kidnap = new JRadioButton("\uC57D\uCDE8\uC720\uC778");
+		buttonGroup.add(rd_kidnap);
+		rd_kidnap.setBounds(193, 367, 81, 23);
+		frame.getContentPane().add(rd_kidnap);
+		
+		JRadioButton rd_rape = new JRadioButton("\uAC15\uAC04\uCD94\uD589");
+		buttonGroup.add(rd_rape);
+		rd_rape.setBounds(193, 410, 81, 23);
+		frame.getContentPane().add(rd_rape);
 		
 		JComboBox combo_city = new JComboBox();
 		combo_city.setModel(new DefaultComboBoxModel(new String[] {"도시를 선택하세요", "서울특별시", "광주광역시"}));
@@ -212,11 +246,6 @@ public class tipoff {
 		lbl_title.setBounds(12, 10, 184, 36);
 		frame.getContentPane().add(lbl_title);
 		
-		JCheckBox ck_murder = new JCheckBox("\uC0B4\uC778");
-		ck_murder.setBackground(new Color(230, 230, 250));
-		ck_murder.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		ck_murder.setBounds(31, 410, 49, 23);
-		frame.getContentPane().add(ck_murder);
 		
 		
 		JLabel lbl_resetICON = new JLabel("");
@@ -229,11 +258,11 @@ public class tipoff {
 				combo_gu.setSelectedIndex(0);
 				combo_street.setSelectedIndex(0);
 				txt_date.setText("");
-				ck_assault.setSelected(false);
-				ck_rape.setSelected(false);
-				ck_burglary.setSelected(false);
-				ck_kidnap.setSelected(false);
-				ck_murder.setSelected(false);
+//				ck_assault.setSelected(false);
+//				ck_rape.setSelected(false);
+//				ck_burglary.setSelected(false);
+//				ck_kidnap.setSelected(false);
+//				ck_murder.setSelected(false);
 			}
 		});
 		
@@ -247,13 +276,17 @@ public class tipoff {
 						(combo_gu.getSelectedIndex()!=0) &&
 						(combo_street.getSelectedIndex()!=0) && 
 //						!txt_date.getText().equals("") && 
-						(ck_assault.isSelected() || 
-						 ck_rape.isSelected() || 
-						 ck_burglary.isSelected() || 
-						 ck_kidnap.isSelected() || 
-						 ck_murder.isSelected())
+						(rd_assault.isSelected() || 
+						 rd_rape.isSelected() || 
+						 rd_burglary.isSelected() || 
+						 rd_kidnap.isSelected() || 
+						 rd_murder.isSelected())
 						)	{	//안넣은 값 없이 다 쓴 경우
 						JOptionPane.showMessageDialog(null, "제보 완료.\n 영업일 1일이내 검토 후 범죄 정보에 조회됩니다.", "범죄 제보", JOptionPane.INFORMATION_MESSAGE);
+						
+						
+						
+						
 						frame.dispose();
 						tipoff tipoff = new tipoff(vo);
 					} else { //정보 입력 중 빠진 입력값이 있는 경우
@@ -310,6 +343,8 @@ public class tipoff {
 		});
 		lbl_logout.setBounds(290, 10, 81, 15);
 		frame.getContentPane().add(lbl_logout);
+		
+		
 		
 	}
 }
