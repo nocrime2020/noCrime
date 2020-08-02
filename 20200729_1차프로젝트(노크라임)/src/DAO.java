@@ -197,7 +197,7 @@ public class DAO {
 		try {
 			getConnection();
 
-			String sql = "SELECT tip_info_id,cr_loc_id, to_date(cr_date, 'YYYY-MM-DD'),"
+			String sql = "SELECT tip_info_id,cr_loc_id, to_char(cr_date, 'YYYY-MM-DD'),"
 					+ "cr_type_id,evidence,cr_name FROM tip_info";
 
 			psmt = conn.prepareStatement(sql);
