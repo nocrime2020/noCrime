@@ -415,4 +415,22 @@ public class DAO {
 		return vo1;
 	}
 
+	public int delete_alarm(VO vo) {
+		int cnt4 = 0;
+		try {
+			getConnection(); // 드라이버 로딩
+			String sql = "delete from alarm where id = ? ";
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, vo.getId());
+
+			cnt4 = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt4;
+	}
 }
