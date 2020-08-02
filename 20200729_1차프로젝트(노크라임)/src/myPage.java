@@ -72,7 +72,7 @@ public class myPage {
 
 				frame.dispose();
 //				crime_main.main(null);
-				crime_main crime = new crime_main(vo);
+				crime_main crime = new crime_main(dao.check_alarm2(vo));
 			}
 		});
 		

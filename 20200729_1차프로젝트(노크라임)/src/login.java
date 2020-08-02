@@ -206,7 +206,11 @@ public class login {
 						admin_select asel = new admin_select(vo);
 					} else {							//회원은 범죄조회페이지로
 						frame.dispose();
-						crime_main crime = new crime_main(vo);
+						if(dao.check_alarm(vo)==0) {
+							crime_main crime = new crime_main(new VO_alarm(vo.getId(),null,null,null));
+						}else {
+							crime_main crime = new crime_main(dao.check_alarm2(vo));
+						}
 					}
 				} else {
 					JOptionPane.showMessageDialog(null, "아이디 혹은 비밀번호를 다시 확인하세요", "로그인 실패", JOptionPane.WARNING_MESSAGE);

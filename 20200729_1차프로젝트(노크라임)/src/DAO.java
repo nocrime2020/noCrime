@@ -223,7 +223,7 @@ public class DAO {
 		}
 		return list; // 반환해줌
 	}
-	
+
 	// 관리자의 회원강제탈퇴용
 	public int deleteMember(String id) {
 
@@ -282,7 +282,8 @@ public class DAO {
 		try {
 			getConnection(); // 드라이버 로딩
 
-			String sql = "update alarm set set_start = ?, set_end = ?, cr_cnt = ? where id = ? "; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입
+			String sql = "update alarm set set_start = ?, set_end = ?, cr_cnt = ? where id = ? "; // ?자리에 TIPOFF 테이블에
+																									// 들어갈 제보정보 삽입
 
 			psmt = conn.prepareStatement(sql); //
 
@@ -347,25 +348,34 @@ public class DAO {
 		return cnt2;
 	}
 
-	public int save_alarminfo(VO_alarm vo) {
-
-		int cnt3 = 0;
-		try {
-			getConnection(); // 드라이버 로딩
-			String sql = "select * from alarm where id = ? ";
-			psmt = conn.prepareStatement(sql);
-
-			psmt.setString(1, vo.getId());
-
-			cnt3 = psmt.executeUpdate();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return cnt3;
-	}
+//	public int save_alarminfo(VO vo) {
+//
+//		int cnt3 = 0;
+//		try {
+//			getConnection(); // 드라이버 로딩
+//			String sql = "select * from alarm where id = ? ";
+//			psmt = conn.prepareStatement(sql);
+//
+//			psmt.setString(1, vo.getId());
+//
+//			rs = psmt.executeQuery();
+//			while(rs.next()) {
+//				String id = rs.getString(1);
+//				String cr_loc_id = rs.getString(2);
+//				String cr_date = rs.getString(3);
+//				String cr_type_id = rs.getString(4);
+//				String evidence = rs.getString(5);
+//				String cr_name = rs.getString(6);
+//				tipoff_VO vo = new tipoff_VO(tip_info_id, cr_type_id, cr_date, cr_loc_id, evidence, cr_name); // 1~4가져와서
+//			}
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+//		return cnt3;
+//	}
 
 	// 제보관리에서 범죄정보로 데이터를 넘겼는지 확인용
 	public boolean sended() {
@@ -433,41 +443,67 @@ public class DAO {
 		}
 		return cnt4;
 	}
-	
+
 	// tipoff에서 admin_tipoff로 제보정보 넘기는 메소드
-		public int tipoff_insert(tipoff_VO tipoff_vo) {
-			int cnt = 0;
-			try {
-				getConnection();
-				String sql = "";
-				if (tipoff_vo.getCr_date().equals("")) {
+	public int tipoff_insert(tipoff_VO tipoff_vo) {
+		int cnt = 0;
+		try {
+			getConnection();
+			String sql = "";
+			if (tipoff_vo.getCr_date().equals("")) {
 				sql = "insert into tip_info values(tip_info_id_seq.nextval, ?, sysdate, ?, ?,null)";
 				psmt = conn.prepareStatement(sql);
 
 				psmt.setString(1, tipoff_vo.getCr_type_id());
 				psmt.setString(2, tipoff_vo.getCr_loc_id());
 				psmt.setString(3, tipoff_vo.getEvidence());
-				}else {
-					sql = "insert into tip_info values(tip_info_id_seq.nextval, ?, to_date(?, 'YYYYMMDD'), ?, ?,null)";
-					psmt = conn.prepareStatement(sql);
+			} else {
+				sql = "insert into tip_info values(tip_info_id_seq.nextval, ?, to_date(?, 'YYYYMMDD'), ?, ?,null)";
+				psmt = conn.prepareStatement(sql);
 
-					psmt.setString(1, tipoff_vo.getCr_type_id());
-					psmt.setString(2, tipoff_vo.getCr_date());
-					psmt.setString(3, tipoff_vo.getCr_loc_id());
-					psmt.setString(4, tipoff_vo.getEvidence());
-				}
-
-				cnt = psmt.executeUpdate();
-
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close();
+				psmt.setString(1, tipoff_vo.getCr_type_id());
+				psmt.setString(2, tipoff_vo.getCr_date());
+				psmt.setString(3, tipoff_vo.getCr_loc_id());
+				psmt.setString(4, tipoff_vo.getEvidence());
 			}
 
-			return cnt;
+			cnt = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
 		}
-		
-		
-		
+
+		return cnt;
+	}
+	
+	//VO알람을 id,pw,name,email이 포함된 VO로 전환
+	public VO alarmToVO(VO_alarm vo_alarm) {
+		VO vo2 = null;
+		try {
+			getConnection();
+
+			String sql = "SELECT * FROM member where id = ?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1,vo_alarm.getId());
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String id = rs.getString(1);
+				String pw = rs.getString(2);
+				String name = rs.getString(3);
+				String email = rs.getString(4);
+				vo2 = new VO(id, pw, name, email); // 1~4가져와서 vo로 묶음
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return vo2; // 반환해줌
+	}
+
 }

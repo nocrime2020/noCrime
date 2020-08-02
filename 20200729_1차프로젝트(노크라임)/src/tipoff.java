@@ -239,7 +239,7 @@ public class tipoff {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				crime_main crime = new crime_main(vo);
+				crime_main crime = new crime_main(dao.check_alarm2(vo));
 				
 			}
 		});

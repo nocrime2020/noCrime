@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 public class admin_select {
 
 	private JFrame frame;
+	DAO dao = new DAO();
 
 	/**
 	 * Launch the application.
@@ -60,7 +61,7 @@ public class admin_select {
 
 				frame.dispose();
 //				crime_main.main(null);
-				crime_main crime = new crime_main(vo);
+				crime_main crime = new crime_main(dao.check_alarm2(vo));
 			}
 		});
 		lbl_title.setFont(new Font("±¼¸²", Font.PLAIN, 23));
@@ -136,7 +137,7 @@ public class admin_select {
 				
 				frame.dispose();
 //				crime_main.main(null);
-				crime_main crime = new crime_main(vo);
+				crime_main crime = new crime_main(dao.check_alarm2(vo));
 			}
 		});
 		frame.getContentPane().add(btn_crimemain);

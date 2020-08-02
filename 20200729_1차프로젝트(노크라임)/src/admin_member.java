@@ -68,7 +68,7 @@ public class admin_member {
 
 				frame.dispose();
 //				crime_main.main(null);
-				crime_main crime = new crime_main(vo);
+				crime_main crime = new crime_main(dao.check_alarm2(vo));
 			}
 		});
 		lbl_title.setFont(new Font("함초롬돋움", Font.BOLD, 12));

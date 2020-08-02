@@ -51,12 +51,12 @@ public class crime_main {
 		});
 	}
 
-	public crime_main(VO vo) {
-		initialize(vo);
+	public crime_main(VO_alarm vo_alarm) {
+		initialize(vo_alarm);
 		frame.setVisible(true);
 	}
 
-	private void initialize(VO vo) {
+	private void initialize(VO_alarm vo_alarm) {
 		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
@@ -93,7 +93,7 @@ public class crime_main {
 
 				frame.dispose();
 				//myPage.main(null);
-				myPage myPage = new myPage(vo);
+				myPage myPage = new myPage(dao.alarmToVO(vo_alarm));
 			}
 		});
 
@@ -121,12 +121,12 @@ public class crime_main {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				if (vo.getId().equals("admin")) {  //관리자는 관리자페이지로 돌아오고
+				if (vo_alarm.getId().equals("admin")) {  //관리자는 관리자페이지로 돌아오고
 					frame.dispose();
-					admin_select asel = new admin_select(vo);
+					admin_select asel = new admin_select(dao.alarmToVO(vo_alarm));
 				} else {  //회원은 메인페이지 새로 고침
 					frame.dispose();
-					crime_main crime = new crime_main(vo);
+					crime_main crime = new crime_main(vo_alarm);
 				}
 
 			}
@@ -142,7 +142,7 @@ public class crime_main {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				tipoff tippoff = new tipoff(vo); // 제보하기 버튼 활성화
+				tipoff tippoff = new tipoff(dao.alarmToVO(vo_alarm)); // 제보하기 버튼 활성화
 
 			}
 		});
