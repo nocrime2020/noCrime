@@ -332,6 +332,7 @@ public class tipoff {
 					
 					
 				} else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {
+					JOptionPane.showMessageDialog(null, "제보 취소", "범죄 제보", JOptionPane.WARNING_MESSAGE );
 					return; // 사용자가 전송취소 혹은 창닫기 버튼을 누른 경우
 				}
 				
