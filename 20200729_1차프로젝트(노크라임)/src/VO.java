@@ -15,6 +15,9 @@ public class VO {	//아래컬럼 하나로 묶어서 관리할 수 있는 메소드
 		this.email = email;
 	}
 
+
+
+
 	public VO(String id, String pw) {
 		this.id = id;
 		this.pw = pw;
@@ -58,7 +61,10 @@ public class VO {	//아래컬럼 하나로 묶어서 관리할 수 있는 메소드
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+
+
+
 	
 	
 }

@@ -34,9 +34,11 @@ public class myPage {
 	DAO dao = new DAO();
 	private JTextField occur_cnt;
 
+	
 	int cnt;
 	int cnt2;
 	int cnt3;
+	
 
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
@@ -125,53 +127,69 @@ public class myPage {
 		lbl_cnt.setBounds(29, 290, 178, 15);
 		frame.getContentPane().add(lbl_cnt);	
 
-
+//////////////
 		JComboBox combo_startalarm = new JComboBox();	
+		combo_startalarm.setBounds(158, 213, 189, 21);
+		frame.getContentPane().add(combo_startalarm);
 
-
-//<<<<<<< HEAD
-//		cnt2 = dao.check_alarm(vo);
-//			if (cnt2 > 0) {	
-//				String combo_startalarm1 = combo_startalarm.setSelectedIndex();
-//				combo_startalarm.setModel(new DefaultComboBoxModel(new String[] { "", "12:00 AM", "1:00 AM", "2:00 AM",
-//						"3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM",
-//						"12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM",	
-//						"9:00 PM", "10:00 PM", "11:00 PM" }));
-//			}	
 		cnt2 = dao.check_alarm(vo);
-			if (cnt2 > 0) {
+		VO_alarm al_vo = dao.check_alarm2(vo);
+			if (cnt2 > 0) { // 아이디가 이미 등록되어 있을 때, 초기에 기존 알람시작시간 불러옴
 				//String combo_startalarm1 = combo_startalarm.setSelectedIndex(vo);	
-				combo_startalarm.setModel(new DefaultComboBoxModel(new String[] { "", "12:00 AM", "1:00 AM", "2:00 AM",
+				combo_startalarm.setModel(new DefaultComboBoxModel(new String[] {al_vo.getSet_start() , "12:00 AM", "1:00 AM", "2:00 AM",
 						"3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM",
 						"12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM",
 						"9:00 PM", "10:00 PM", "11:00 PM" }));
 			}
-//>>>>>>> branch 'master' of https://github.com/nocrime2020/noCrime.git	         close();
-		combo_startalarm.setModel(new DefaultComboBoxModel(new String[] { "", "12:00 AM", "1:00 AM", "2:00 AM",
+			else {
+				combo_startalarm.setModel(new DefaultComboBoxModel(new String[] { "", "12:00 AM", "1:00 AM", "2:00 AM",
 				"3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM",
 				"12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM",
 				"9:00 PM", "10:00 PM", "11:00 PM" }));
-		combo_startalarm.setBounds(158, 213, 189, 21);
-		frame.getContentPane().add(combo_startalarm);
-
+			}
 		combo_startalarm.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		combo_startalarm.setBackground(new Color(204, 204, 255));
-
+////////////////////
 		JComboBox combo_endalarm = new JComboBox();
 		combo_endalarm.setBounds(158, 252, 189, 21);	
 		frame.getContentPane().add(combo_endalarm);
-		combo_endalarm.setModel(new DefaultComboBoxModel(new String[] { "", "12:00 AM", "1:00 AM", "2:00 AM",
-				"3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM",
-				"12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM",	
-				"9:00 PM", "10:00 PM", "11:00 PM" }));
+		
+		cnt2 = dao.check_alarm(vo);
+		VO_alarm al_vo1 = dao.check_alarm2(vo);
+		if (cnt2 > 0) { // 아이디가 이미 등록되어 있을 때, 초기에 기존 알람시작시간 불러옴
+			combo_endalarm.setModel(new DefaultComboBoxModel(new String[] {al_vo1.getSet_end() , "12:00 AM", "1:00 AM", "2:00 AM",
+					"3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM",
+					"12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM",
+					"9:00 PM", "10:00 PM", "11:00 PM" }));
+		}
+
+		else {
+			combo_endalarm.setModel(new DefaultComboBoxModel(new String[] { al_vo1.getSet_end(), "12:00 AM", "1:00 AM", "2:00 AM",
+			"3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM",
+			"12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM",
+			"9:00 PM", "10:00 PM", "11:00 PM" }));
+		}
 		combo_endalarm.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		combo_endalarm.setBackground(new Color(204, 204, 255));
-
+//////////////////
 		occur_cnt = new JTextField();
+		
+		
+		cnt2 = dao.check_alarm(vo);
+		VO_alarm al_vo2 = dao.check_alarm2(vo);
+		if (cnt2 > 0) {
+			occur_cnt.setText(al_vo2.getCr_cnt());
+		}
+		else {		
+		}
+		
+		
 		occur_cnt.setBounds(158, 290, 189, 21);
 		frame.getContentPane().add(occur_cnt);
 		occur_cnt.setColumns(10);	
 
+		
+/////////////////
 		JButton btn_deleteid = new JButton("\uC815\uB9D0 \uD0C8\uD1F4 \uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C ?");
 		// 회원탈퇴 구현
 		btn_deleteid.addMouseListener(new MouseAdapter() {

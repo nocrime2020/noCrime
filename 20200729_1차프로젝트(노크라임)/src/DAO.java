@@ -301,7 +301,73 @@ public class DAO {
 		return cnt;
 	}
 
-	//제보관리에서 범죄정보로 데이터를 넘겼는지 확인용
+	public int sending_alarm2(VO vo, int set_start, int set_end, int cr_cnt) {
+
+		int cnt = 0;
+		try {
+			getConnection(); // 드라이버 로딩
+
+			String sql = "INSERT INTO alarm VALUES(?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입
+			psmt = conn.prepareStatement(sql); //
+
+			psmt.setString(1, vo.getId());
+			psmt.setInt(2, set_start);
+			psmt.setInt(3, set_end);
+			psmt.setInt(4, cr_cnt);
+
+			cnt = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+
+	public int check_alarm(VO vo) {
+		int cnt2 = 0;
+		try {
+			getConnection(); // 드라이버 로딩
+			String sql = "select id from alarm WHERE id = ?"; //
+
+			psmt = conn.prepareStatement(sql); //
+
+			psmt.setString(1, vo.getId());
+
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				cnt2 = 1;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt2;
+	}
+
+	public int save_alarminfo(VO_alarm vo) {
+
+		int cnt3 = 0;
+		try {
+			getConnection(); // 드라이버 로딩
+			String sql = "select * from alarm where id = ? ";
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, vo.getId());
+
+			cnt3 = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt3;
+	}
+
+	// 제보관리에서 범죄정보로 데이터를 넘겼는지 확인용
 	public boolean sended() {
 		boolean result = false;
 		try {
@@ -322,4 +388,31 @@ public class DAO {
 		}
 		return result;
 	}
+
+	public VO_alarm check_alarm2(VO vo) {
+		VO_alarm vo1 = null;
+		try {
+			getConnection(); // 드라이버 로딩
+			String sql = "select * from alarm WHERE id = ?"; //
+
+			psmt = conn.prepareStatement(sql); //
+			psmt.setString(1, vo.getId());
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String id = rs.getString(1);
+				String set_start = rs.getString(2);
+				String set_end = rs.getString(3);
+				String cr_cnt = rs.getString(4);
+				vo1 = new VO_alarm(id, set_start, set_end, cr_cnt);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return vo1;
+	}
+
 }
