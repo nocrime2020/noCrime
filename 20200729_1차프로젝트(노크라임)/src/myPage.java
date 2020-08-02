@@ -247,6 +247,9 @@ public class myPage {
 		txt_id.setColumns(10);
 
 		txt_pw = new JTextField();
+		txt_pw.setBackground(new Color(255, 250, 250));
+		txt_pw.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		txt_pw.setBounds(158, 460, 189, 21);
 		txt_pw.setColumns(10);
 		frame.getContentPane().add(txt_pw);
 
