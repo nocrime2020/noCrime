@@ -92,10 +92,14 @@ public class crime_main {
 		lbl_mypage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
+				if (vo_alarm.getId().equals("admin")) {	//관리자는 관리자페이지로
+					frame.dispose();
+					admin_select asel = new admin_select(new VO(vo_alarm.getId(),null,null,null));
+				}else {
 				frame.dispose();
 				//myPage.main(null);
 				myPage myPage = new myPage(dao.alarmToVO(vo_alarm));
+				}
 			}
 		});
 

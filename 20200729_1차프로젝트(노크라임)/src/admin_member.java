@@ -24,6 +24,7 @@ public class admin_member {
 
 	DAO dao = new DAO();
 	int cnt;
+	int chkalrm;
 
 	/**
 	 * Launch the application.
@@ -68,7 +69,7 @@ public class admin_member {
 
 				frame.dispose();
 //				crime_main.main(null);
-				crime_main crime = new crime_main(dao.check_alarm2(vo));
+				admin_select admin_select = new admin_select(vo);
 			}
 		});
 		lbl_title.setFont(new Font("함초롬돋움", Font.BOLD, 12));
@@ -140,8 +141,11 @@ public class admin_member {
 						for (int i = 0; i < rows.length; i++) {
 							Object value = table_member.getValueAt(rows[i], 0);
 							String idid = (String) value;
-			
-							cnt = dao.deleteMember(idid);
+							chkalrm = dao.check_alarm(new VO(idid,null,null,null));
+							if (chkalrm>0) {
+								dao.delete_alarm(new VO(idid,null,null,null));
+							}
+							cnt += dao.deleteMember(idid);
 						}
 						if (cnt > 0) {
 							JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
