@@ -53,18 +53,18 @@ public class admin_select {
 		
 		
 		JLabel lbl_title = new JLabel("");
-		lbl_title.setIcon(new ImageIcon("C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\\uC791\uC740 \uD22C\uBA85.png"));
+		lbl_title.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740 \uD22C\uBA85.png"));
 		lbl_title.addMouseListener(new MouseAdapter() {
-			@Override
+			@Override // 회원가입 메소드
 			public void mouseClicked(MouseEvent e) {
-				
+
 				frame.dispose();
-//				admin_select.main(null);
-				admin_select admin_select = new admin_select(vo);
+//				crime_main.main(null);
+				crime_main crime = new crime_main(vo);
 			}
 		});
 		lbl_title.setFont(new Font("굴림", Font.PLAIN, 23));
-		lbl_title.setBounds(12, 10, 103, 56);
+		lbl_title.setBounds(131, 9, 97, 55);
 		frame.getContentPane().add(lbl_title);
 		
 		
@@ -90,6 +90,7 @@ public class admin_select {
 		frame.getContentPane().add(lbl_selectpage);
 		
 		JButton btn_tipoffmanage = new JButton("\uC81C\uBCF4\uAD00\uB9AC \uD398\uC774\uC9C0");
+		btn_tipoffmanage.setBackground(new Color(204, 204, 255));
 		btn_tipoffmanage.setBackground(SystemColor.activeCaption);
 		btn_tipoffmanage.setFont(new Font("함초롬돋움", Font.BOLD, 16));
 		btn_tipoffmanage.setBounds(50, 219, 253, 75);
@@ -105,6 +106,7 @@ public class admin_select {
 		frame.getContentPane().add(btn_tipoffmanage);
 		
 		JButton btn_membermanage = new JButton("\uD68C\uC6D0\uAD00\uB9AC \uD398\uC774\uC9C0");
+		btn_membermanage.setBackground(new Color(204, 204, 255));
 		btn_membermanage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -124,6 +126,7 @@ public class admin_select {
 		frame.getContentPane().add(btn_membermanage);
 		
 		JButton btn_crimemain = new JButton("\uBC94\uC8C4\uC815\uBCF4 \uD398\uC774\uC9C0");
+		btn_crimemain.setBackground(new Color(204, 204, 255));
 		btn_crimemain.setBackground(SystemColor.activeCaption);
 		btn_crimemain.setFont(new Font("함초롬돋움", Font.BOLD, 16));
 		btn_crimemain.setBounds(50, 480, 253, 75);

@@ -14,6 +14,8 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.EtchedBorder;
 
 public class admin_member {
 
@@ -59,22 +61,21 @@ public class admin_member {
 		frame.getContentPane().setLayout(null);
 
 		JLabel lbl_title = new JLabel("");
-		lbl_title.setIcon(new ImageIcon(
-				"C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\\uC791\uC740 \uD22C\uBA85.png"));
+		lbl_title.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740 \uD22C\uBA85.png"));
 		lbl_title.addMouseListener(new MouseAdapter() {
-			@Override
+			@Override // 회원가입 메소드
 			public void mouseClicked(MouseEvent e) {
 
 				frame.dispose();
-//            admin_select.main(null);
-				admin_select admin_select = new admin_select(vo);
-
+//				crime_main.main(null);
+				crime_main crime = new crime_main(vo);
 			}
 		});
-		lbl_title.setFont(new Font("굴림", Font.PLAIN, 23));
-		lbl_title.setBounds(12, 10, 103, 56);
+		lbl_title.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		lbl_title.setBounds(131, 9, 97, 55);
 		frame.getContentPane().add(lbl_title);
-
+		
+		
 		JLabel lbl_signout = new JLabel("");
 		lbl_signout.setIcon(new ImageIcon(
 				"C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\off_logout_17916.png"));
@@ -107,13 +108,16 @@ public class admin_member {
 		}
 		DefaultTableModel model = new DefaultTableModel(data, column); // DefaultTableModel 선언 후 데이터 담기
 		table_member = new JTable(model); // JTable에 DefaultTableModel을 담기
+		table_member.setFont(new Font("함초롬돋움", Font.PLAIN, 12));
 		table_member.setBounds(37, 146, 287, 493);
 
-		JScrollPane scrollPane = new JScrollPane(table_member); // JScrollPane에 JTable을 담기
+		JScrollPane scrollPane = new JScrollPane(table_member);
+		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		scrollPane.setBounds(37, 146, 287, 493);
 		frame.getContentPane().add(scrollPane);
 
 		JButton btn_deletemember = new JButton("\uAC15\uC81C \uD0C8\uD1F4");
+		btn_deletemember.setBackground(new Color(204, 204, 255));
 		btn_deletemember.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
