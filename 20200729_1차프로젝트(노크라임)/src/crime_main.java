@@ -85,6 +85,7 @@ public class crime_main {
 		panel_2.setVisible(false);
 
 		JLabel lbl_mypage = new JLabel("MY PAGE");
+		lbl_mypage.setForeground(new Color(0, 0, 128));
 		lbl_mypage.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		lbl_mypage.addMouseListener(new MouseAdapter() {
 			@Override
@@ -100,6 +101,7 @@ public class crime_main {
 		frame.getContentPane().add(lbl_mypage);
 
 		JLabel lbl_signout = new JLabel("SIGN OUT");
+		lbl_signout.setForeground(new Color(0, 0, 128));
 		lbl_signout.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		lbl_signout.addMouseListener(new MouseAdapter() {
 			@Override
@@ -129,13 +131,13 @@ public class crime_main {
 
 			}
 		});
-		lbl_title.setIcon(new ImageIcon(
-				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uC791\uC740\uB85C\uACE0.png"));
+		lbl_title.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740 \uD22C\uBA85.png"));
 		lbl_title.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_title.setBounds(12, 20, 89, 49);
 		frame.getContentPane().add(lbl_title);
 
 		JLabel lbl_tipoff = new JLabel("\uC81C\uBCF4\uD558\uAE30");
+		lbl_tipoff.setForeground(new Color(0, 0, 128));
 		lbl_tipoff.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -149,48 +151,39 @@ public class crime_main {
 		frame.getContentPane().add(lbl_tipoff);
 
 		JLabel lbll_악유아이콘 = new JLabel("");
-		lbll_악유아이콘.setIcon(new ImageIcon(
-				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uC545\uC720\uC2A4\uBAB0.png"));
-		lbll_악유아이콘.setBounds(285, 310, 25, 23);
+		lbll_악유아이콘.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740icon\\\uB0A9\uCE58\uC2A4\uBAB0.png"));
+		lbll_악유아이콘.setBounds(273, 316, 25, 23);
 		panel.add(lbll_악유아이콘);
 
 		JLabel lbl_상폭아이콘 = new JLabel("");
-		lbl_상폭아이콘.setIcon(new ImageIcon(
-				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uD3ED\uC0C1\uC2A4\uBAB0.png"));
-		lbl_상폭아이콘.setBounds(113, 396, 25, 29);
+		lbl_상폭아이콘.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740icon\\\uD3ED\uC0C1\uC2A4\uBAB0.png"));
+		lbl_상폭아이콘.setBounds(113, 388, 25, 29);
 		panel.add(lbl_상폭아이콘);
 
-		JLabel lbll_납치아이콘 = new JLabel("");
-		lbll_납치아이콘.setIcon(new ImageIcon(
-				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uB0A9\uCE58\uC2A4\uBAB0.png"));
-		lbll_납치아이콘.setBounds(99, 306, 25, 23);
-		panel.add(lbll_납치아이콘);
-
 		JLabel lbl_절강아이콘 = new JLabel("");
-		lbl_절강아이콘.setIcon(new ImageIcon(
-				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uC808\uAC15\uC2A4\uBAB0.png"));
-		lbl_절강아이콘.setBounds(285, 349, 25, 23);
+		lbl_절강아이콘.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740icon\\\uC808\uAC15\uC2A4\uBAB0.png"));
+		lbl_절강아이콘.setBounds(113, 316, 25, 23);
 		panel.add(lbl_절강아이콘);
 
 		JLabel lbl_살인아이콘 = new JLabel("");
-		lbl_살인아이콘.setIcon(new ImageIcon(
-				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uC0B4\uC778\uC2A4\uBAB0.png"));
-		lbl_살인아이콘.setBounds(266, 396, 44, 29);
+		lbl_살인아이콘.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740icon\\\uC0B4\uC778\uC2A4\uBAB0.png"));
+		lbl_살인아이콘.setBounds(88, 358, 44, 29);
 		panel.add(lbl_살인아이콘);
 
 		JLabel lbl_강추아이콘 = new JLabel("");
-		lbl_강추아이콘.setIcon(new ImageIcon(
-				"C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\\uC791\uC740icon\\\uAC15\uCD94\uC2A4\uBAB0.png"));
-		lbl_강추아이콘.setBounds(113, 349, 25, 23);
+		lbl_강추아이콘.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740icon\\\uAC15\uCD94\uC2A4\uBAB0.png"));
+		lbl_강추아이콘.setBounds(283, 358, 25, 23);
 		panel.add(lbl_강추아이콘);
 
 		JLabel lbl_crimeinfo = new JLabel("\uBC94\uC8C4 \uC815\uBCF4 \uC870\uD68C");
+		lbl_crimeinfo.setForeground(new Color(0, 0, 128));
 		lbl_crimeinfo.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_crimeinfo.setFont(new Font("함초롬돋움", Font.BOLD, 24));
 		lbl_crimeinfo.setBounds(61, 25, 234, 54);
 		panel.add(lbl_crimeinfo);
 
-		JLabel lbl_fold = new JLabel("\uD3BC\uCE58\uAE30");
+		JLabel lbl_fold = new JLabel("");
+		lbl_fold.setIcon(new ImageIcon("C:\\icon\\downarrow.png"));
 		lbl_fold.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -204,34 +197,39 @@ public class crime_main {
 		frame.getContentPane().add(lbl_fold);
 
 		JLabel lbl_location = new JLabel("\uBC94\uC8C4 \uBC1C\uC0DD \uC704\uCE58");
+		lbl_location.setForeground(new Color(0, 0, 128));
 		lbl_location.setBounds(12, 105, 122, 28);
 		panel.add(lbl_location);
 		lbl_location.setFont(new Font("함초롬돋움", Font.BOLD, 15));
 
 		JComboBox combo_city = new JComboBox();
-		combo_city.setBounds(134, 111, 151, 18);
+		combo_city.setForeground(new Color(0, 0, 128));
+		combo_city.setBounds(134, 111, 174, 18);
 		panel.add(combo_city);
 		combo_city.setModel(new DefaultComboBoxModel(
 				new String[] {"도시를 선택하세요", "서울특별시", "광주광역시"}));
-		combo_city.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		combo_city.setFont(new Font("함초롬돋움", Font.BOLD, 10));
 		combo_city.setBackground(new Color(204, 204, 255));
 
 		JComboBox combo_gu = new JComboBox();
-		combo_gu.setBounds(134, 139, 151, 19);
+		combo_gu.setForeground(new Color(0, 0, 128));
+		combo_gu.setBounds(134, 139, 174, 19);
 		panel.add(combo_gu);
 		combo_gu.setModel(new DefaultComboBoxModel(new String[] {"구를 선택하세요", "광산구", "동구", "서구", "남구", "북구"}));
-		combo_gu.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		combo_gu.setFont(new Font("함초롬돋움", Font.BOLD, 10));
 		combo_gu.setBackground(new Color(204, 204, 255));
 
 		JComboBox combo_street = new JComboBox();
-		combo_street.setBounds(134, 168, 151, 19);
+		combo_street.setForeground(new Color(0, 0, 128));
+		combo_street.setBounds(134, 168, 174, 19);
 		panel.add(combo_street);
 		combo_street.setModel(new DefaultComboBoxModel(
 				new String[] {"상세주소를 선택하세요", "2순환로","서문대로","서문대로402번길","서문대로473번길","서문대로499번길","서문대로517번길","서문대로556번길","서문대로627번길","송암로","송암로130번길","송암로24번길","송암로24번가길","송암로24번나길","송암로27번길","송암로42번길","송암로58번길","송암로76번길","송암로98번길","원효천길","원효천1길","원효천2길","입하길","입하1길","입하2길","입하2안길","효덕로","효덕로303번길","효천길","효천3로"}));
-		combo_street.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		combo_street.setFont(new Font("함초롬돋움", Font.BOLD, 10));
 		combo_street.setBackground(new Color(204, 204, 255));
 
 		JLabel lbl_date = new JLabel("\uBC94\uC8C4 \uBC1C\uC0DD\uC77C");
+		lbl_date.setForeground(new Color(0, 0, 128));
 		lbl_date.setBounds(12, 228, 97, 28);
 		panel.add(lbl_date);
 		lbl_date.setFont(new Font("함초롬돋움", Font.BOLD, 15));
@@ -255,6 +253,7 @@ public class crime_main {
 				new String[] { "", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
 		JComboBox combo_fromMon = new JComboBox();
+		combo_fromMon.setBackground(new Color(204, 204, 255));
 		combo_fromMon.setBounds(204, 233, 50, 18);
 		panel.add(combo_fromMon);
 		combo_fromMon.setModel(new DefaultComboBoxModel(
@@ -275,19 +274,25 @@ public class crime_main {
 				"26", "27", "28", "29", "30", "31" }));
 
 		JLabel lbl_from = new JLabel("\uBD80\uD130");
+		lbl_from.setForeground(new Color(0, 0, 128));
+		lbl_from.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		lbl_from.setBounds(314, 233, 33, 20);
 		panel.add(lbl_from);
 
 		JLabel lbl_to = new JLabel("\uAE4C\uC9C0");
+		lbl_to.setForeground(new Color(0, 0, 128));
+		lbl_to.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		lbl_to.setBounds(314, 261, 33, 20);
 		panel.add(lbl_to);
 
 		JLabel lbl_sort = new JLabel("\uBC94\uC8C4 \uC885\uB958");
+		lbl_sort.setForeground(new Color(0, 0, 128));
 		lbl_sort.setBounds(12, 276, 97, 29);
 		panel.add(lbl_sort);
 		lbl_sort.setFont(new Font("함초롬돋움", Font.BOLD, 15));
 
 		JCheckBox check_절도강도 = new JCheckBox("\uC808\uB3C4\uAC15\uB3C4");
+		check_절도강도.setForeground(new Color(0, 0, 128));
 		check_절도강도.setBounds(42, 319, 81, 23);
 		panel.add(check_절도강도);
 		check_절도강도.addItemListener(new ItemListener() {
@@ -303,6 +308,7 @@ public class crime_main {
 		check_절도강도.setBackground(new Color(230, 230, 250));
 
 		JCheckBox check_살인 = new JCheckBox("\uC0B4\uC778");
+		check_살인.setForeground(new Color(0, 0, 128));
 		check_살인.setBounds(42, 358, 49, 23);
 		panel.add(check_살인);
 		check_살인.addItemListener(new ItemListener() {
@@ -318,6 +324,7 @@ public class crime_main {
 		check_살인.setBackground(new Color(230, 230, 250));
 
 		JCheckBox check_상해폭행 = new JCheckBox("\uC0C1\uD574\uD3ED\uD589");
+		check_상해폭행.setForeground(new Color(0, 0, 128));
 		check_상해폭행.setBounds(42, 394, 73, 23);
 		panel.add(check_상해폭행);
 		check_상해폭행.addItemListener(new ItemListener() {
@@ -333,6 +340,7 @@ public class crime_main {
 		check_상해폭행.setBackground(new Color(230, 230, 250));
 
 		JCheckBox check_악취유인 = new JCheckBox("\uC545\uCDE8\uC720\uC778");
+		check_악취유인.setForeground(new Color(0, 0, 128));
 		check_악취유인.setBounds(204, 319, 81, 23);
 		panel.add(check_악취유인);
 		check_악취유인.addItemListener(new ItemListener() {
@@ -348,6 +356,7 @@ public class crime_main {
 		check_악취유인.setBackground(new Color(230, 230, 250));
 
 		JCheckBox check_강간추행 = new JCheckBox("\uAC15\uAC04\uCD94\uD589");
+		check_강간추행.setForeground(new Color(0, 0, 128));
 		check_강간추행.setBounds(204, 358, 73, 23);
 		panel.add(check_강간추행);
 		check_강간추행.addItemListener(new ItemListener() {
@@ -769,7 +778,8 @@ public class crime_main {
 		panel_2.add(lbl_76);
 		lbl_76.setVisible(false);
 
-		JLabel lbl_reset = new JLabel("\uB9AC\uC14B");
+		JLabel lbl_reset = new JLabel("");
+		lbl_reset.setIcon(new ImageIcon("C:\\icon\\reset2.png"));
 		lbl_reset.setFont(new Font("굴림", Font.PLAIN, 14));
 		lbl_reset.addMouseListener(new MouseAdapter() {
 			@Override
@@ -834,7 +844,7 @@ public class crime_main {
 				}
 			}
 		});
-		lbl_reset.setBounds(73, 71, 97, 29);
+		lbl_reset.setBounds(49, 79, 97, 29);
 		frame.getContentPane().add(lbl_reset);
 
 		JButton btn_search = new JButton("SEARCH");
