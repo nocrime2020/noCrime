@@ -287,6 +287,10 @@ public class tipoff {
 						
 						
 						
+						
+						
+						
+						
 						frame.dispose();
 						tipoff tipoff = new tipoff(vo);
 					} else { //정보 입력 중 빠진 입력값이 있는 경우

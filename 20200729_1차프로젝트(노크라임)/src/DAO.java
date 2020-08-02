@@ -247,7 +247,7 @@ public class DAO {
 		return cnt;
 	}
 
-//제보전송하기용
+//메인으로 제보전송하기용
 	public int sending_tipoff(String tip_info_id, String cr_type_id, String cr_date, String cr_loc_id, String evidence,
 			String cr_name) {
 
