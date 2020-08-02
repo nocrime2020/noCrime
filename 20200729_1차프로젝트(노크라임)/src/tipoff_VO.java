@@ -10,7 +10,7 @@ public class tipoff_VO {
 	
 	
 	public tipoff_VO(String tip_info_id, String cr_type_id, String cr_date, String cr_loc_id, String evidence, String cr_name) {
-		super();
+//		super();
 		this.tip_info_id = tip_info_id;
 		this.cr_type_id = cr_type_id;
 		this.cr_date = cr_date;
@@ -18,6 +18,15 @@ public class tipoff_VO {
 		this.evidence = evidence;
 		this.cr_name = cr_name;
 	}
+	
+	public tipoff_VO(String cr_type_id, String cr_date, String cr_loc_id, String evidence) {
+		this.cr_type_id = cr_type_id;
+		this.cr_date = cr_date;
+		this.cr_loc_id = cr_loc_id;
+		this.evidence = evidence;
+	}
+	
+//	public tipoff_VO(St)
 	
 	
 	public String getTip_info_id() {

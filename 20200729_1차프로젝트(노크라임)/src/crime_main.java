@@ -23,6 +23,8 @@ import javax.swing.DropMode;
 import javax.swing.JTextArea;
 import javax.swing.JTable;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
+
 import java.awt.CardLayout;
 
 public class crime_main {
@@ -866,6 +868,11 @@ public class crime_main {
 						} else {
 							lbl_절_1001.setVisible(false);
 						}
+						if (murder == 1) {
+							lbl_살_New.setVisible(true);
+						}else {
+							lbl_살_New.setVisible(false);
+						}
 					} else if (combo_street.getSelectedIndex() == 17) {
 						panel_1.setVisible(false);
 						lbl_58.setVisible(false);
@@ -930,6 +937,11 @@ public class crime_main {
 							lbl_절_1001.setVisible(true);
 						} else {
 							lbl_절_1001.setVisible(false);
+						}
+						if (murder == 1) {
+							lbl_살_New.setVisible(true);
+						}else {
+							lbl_살_New.setVisible(false);
 						}
 					} else if (combo_street.getSelectedIndex() == 17) {
 						panel_1.setVisible(false);
@@ -996,6 +1008,11 @@ public class crime_main {
 						} else {
 							lbl_절_1001.setVisible(false);
 						}
+						if (murder == 1) {
+							lbl_살_New.setVisible(true);
+						}else {
+							lbl_살_New.setVisible(false);
+						}
 					} else if (combo_street.getSelectedIndex() == 17) {
 						panel_1.setVisible(false);
 						lbl_58.setVisible(false);
@@ -1050,6 +1067,7 @@ public class crime_main {
 						}
 					}if(cnt >= 5&&currentTime.getHour()>1&&currentTime.getHour()>24) {
 						System.out.println("알람");
+						JOptionPane.showMessageDialog(null, "회원님이 설정하신 수 이상의 범죄가 탐지되었습니다.", "알람",JOptionPane.INFORMATION_MESSAGE);
 					}
 				}if (lbl_76.isVisible()) {
 					crime_cnt = new boolean[] {lbl_강2_1280.isVisible(),lbl_강1_1338.isVisible(),lbl_강3_1251.isVisible(),lbl_절2_1048.isVisible(),lbl_상1_1135.isVisible(),
@@ -1061,6 +1079,7 @@ public class crime_main {
 						}
 					}if(cnt >= 5&&currentTime.getHour()>1&&currentTime.getHour()>24) {
 						System.out.println("알람");
+						JOptionPane.showMessageDialog(null, "회원님이 설정하신 수 이상의 범죄가 탐지되었습니다.", "알람",JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 			}

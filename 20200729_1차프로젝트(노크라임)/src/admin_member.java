@@ -58,7 +58,7 @@ public class admin_member {
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
 		frame.setBounds(100, 100, 375, 812);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frame.getContentPane().setLayout(null); //배치관리자 삭제  & 세팅해준 위치에 컴포턴트 삽입
 
 		JLabel lbl_title = new JLabel("");
 		lbl_title.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740 \uD22C\uBA85.png"));
