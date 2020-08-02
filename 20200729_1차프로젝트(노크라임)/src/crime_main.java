@@ -7,6 +7,8 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalTime;
+
 import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -32,6 +34,7 @@ public class crime_main {
 	private int theft;
 	private int murder;
 	DAO dao = new DAO();
+	int cnt = 0;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -52,7 +55,7 @@ public class crime_main {
 	}
 
 	private void initialize(VO vo) {
-
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
 		frame.setBounds(100, 100, 375, 812);
@@ -820,7 +823,10 @@ public class crime_main {
 				textArea_절2.setVisible(false);
 				textArea_절3.setVisible(false);
 				textArea_절4.setVisible(false);
-
+				lbl_58.setVisible(false);
+				lbl_76.setVisible(false);
+				lbl_살_New.setVisible(false);
+				textArea_살.setVisible(false);
 				if (panel.getHeight() < 100) {
 					panel.setBounds(0, 110, 359, 663);
 				}
@@ -1031,6 +1037,30 @@ public class crime_main {
 						lbl_강2_1280.setVisible(false);
 						lbl_강4_1309.setVisible(false);
 						lbl_강3_1251.setVisible(false);
+					}
+				}
+				cnt = 0;
+				LocalTime currentTime = LocalTime.now();
+				boolean[] crime_cnt;
+				if (lbl_58.isVisible()) {
+					crime_cnt = new boolean[] {lbl_상_1030.isVisible(),lbl_약2_1047.isVisible(),lbl_절_1001.isVisible(),lbl_약_1018.isVisible(),lbl_살_New.isVisible()};
+					for(int i = 0; i < crime_cnt.length;i++) {
+						if (crime_cnt[i]) {
+							cnt++;
+						}
+					}if(cnt >= 5&&currentTime.getHour()>1&&currentTime.getHour()>24) {
+						System.out.println("알람");
+					}
+				}if (lbl_76.isVisible()) {
+					crime_cnt = new boolean[] {lbl_강2_1280.isVisible(),lbl_강1_1338.isVisible(),lbl_강3_1251.isVisible(),lbl_절2_1048.isVisible(),lbl_상1_1135.isVisible(),
+					lbl_절4_1106.isVisible(),lbl_상4_1222.isVisible(),lbl_강4_1309.isVisible(),lbl_상2_1164.isVisible(),
+					lbl_상3_1193.isVisible(),lbl_절3_1077.isVisible(),lbl_절1_1019.isVisible()};
+					for(int i = 0; i < crime_cnt.length;i++) {
+						if (crime_cnt[i]) {
+							cnt++;
+						}
+					}if(cnt >= 5&&currentTime.getHour()>1&&currentTime.getHour()>24) {
+						System.out.println("알람");
 					}
 				}
 			}
