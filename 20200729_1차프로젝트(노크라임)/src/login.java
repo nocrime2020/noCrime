@@ -69,22 +69,22 @@ public class login {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lbl_id = new JLabel("ID");
-		lbl_id.setBounds(49, 247, 106, 15);
-		lbl_id.setFont(new Font("함초롬돋움", Font.BOLD, 14));
+		lbl_id.setBounds(65, 248, 57, 15);
+		lbl_id.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().add(lbl_id);
 		
 		JLabel lbl_pw = new JLabel("PASSWORD");
-		lbl_pw.setBounds(49, 290, 106, 15);
-		lbl_pw.setFont(new Font("함초롬돋움", Font.BOLD, 14));
+		lbl_pw.setBounds(65, 291, 75, 15);
+		lbl_pw.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().add(lbl_pw);
 		
 		TextField txt_id = new TextField();
-		txt_id.setBounds(161, 241, 155, 21);
+		txt_id.setBounds(146, 245, 155, 21);
 		frame.getContentPane().add(txt_id);
 		txt_id.setColumns(10);
 		
 		TextField txt_pw = new TextField();
-		txt_pw.setBounds(161, 284, 155, 21);
+		txt_pw.setBounds(146, 288, 155, 21);
 		txt_pw.setColumns(10);
 		frame.getContentPane().add(txt_pw);
 		
@@ -94,47 +94,47 @@ public class login {
 		
 		lbl_signup = new JLabel("SIGN UP");
 		lbl_signup.setForeground(new Color(0, 0, 128));
-		lbl_signup.setBounds(49, 404, 106, 30);
-		lbl_signup.setFont(new Font("함초롬돋움", Font.BOLD, 25));
+		lbl_signup.setBounds(65, 405, 97, 30);
+		lbl_signup.setFont(new Font("함초롬돋움", Font.BOLD, 24));
 		frame.getContentPane().add(lbl_signup);
 		
 		lbl_name = new JLabel("NAME");
-		lbl_name.setBounds(49, 458, 106, 15);
-		lbl_name.setFont(new Font("함초롬돋움", Font.BOLD, 14));
+		lbl_name.setBounds(65, 459, 57, 15);
+		lbl_name.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().add(lbl_name);
 		
 		lbl_newid = new JLabel("ID");
-		lbl_newid.setBounds(49, 499, 106, 15);
-		lbl_newid.setFont(new Font("함초롬돋움", Font.BOLD, 14));
+		lbl_newid.setBounds(65, 500, 57, 15);
+		lbl_newid.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().add(lbl_newid);
 		
 		lbl_newpw = new JLabel("PASSWORD");
-		lbl_newpw.setBounds(49, 544, 106, 15);
-		lbl_newpw.setFont(new Font("함초롬돋움", Font.BOLD, 14));
+		lbl_newpw.setBounds(65, 545, 65, 15);
+		lbl_newpw.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().add(lbl_newpw);
 		
 		lbl_email = new JLabel("EMAIL");
-		lbl_email.setBounds(49, 589, 57, 15);
-		lbl_email.setFont(new Font("함초롬돋움", Font.BOLD, 14));
+		lbl_email.setBounds(65, 590, 57, 15);
+		lbl_email.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().add(lbl_email);
 		
 		TextField txt_name = new TextField();
-		txt_name.setBounds(161, 452, 155, 21);
+		txt_name.setBounds(146, 456, 155, 21);
 		txt_name.setColumns(10);
 		frame.getContentPane().add(txt_name);
 		
 		TextField txt_newid = new TextField();
-		txt_newid.setBounds(161, 493, 155, 21);
+		txt_newid.setBounds(146, 497, 155, 21);
 		txt_newid.setColumns(10);
 		frame.getContentPane().add(txt_newid);
 		
 		TextField txt_newpw = new TextField();
-		txt_newpw.setBounds(161, 538, 155, 21);
+		txt_newpw.setBounds(146, 542, 155, 21);
 		txt_newpw.setColumns(10);
 		frame.getContentPane().add(txt_newpw);
 		
 		TextField txt_email = new TextField();
-		txt_email.setBounds(161, 583, 155, 21);
+		txt_email.setBounds(146, 587, 155, 21);
 		txt_email.setColumns(10);
 		frame.getContentPane().add(txt_email);
 		
@@ -152,11 +152,9 @@ public class login {
 		lbl_title.setIcon(new ImageIcon("C:\\icon\\\uB85C\uACE0.png"));
 		frame.getContentPane().add(lbl_title);
 		
-		
-		
 		//회원가입 구현
 		JButton btn_signup = new JButton("SIGN UP");
-		btn_signup.setBounds(49, 639, 267, 30);
+		btn_signup.setBounds(65, 640, 236, 23);
 		btn_signup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//textField에 있는 값들을 가지고 와주세요.
@@ -184,7 +182,7 @@ public class login {
 			}
 		});
 		btn_signup.setBackground(new Color(204, 204, 255));
-		btn_signup.setFont(new Font("함초롬돋움", Font.BOLD, 16));
+		btn_signup.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().add(btn_signup);
 		
 		JButton btn_login = new JButton("SIGN IN");
@@ -206,11 +204,7 @@ public class login {
 						admin_select asel = new admin_select(vo);
 					} else {							//회원은 범죄조회페이지로
 						frame.dispose();
-						if(dao.check_alarm(vo)==0) {
-							crime_main crime = new crime_main(new VO_alarm(vo.getId(),null,null,null));
-						}else {
-							crime_main crime = new crime_main(dao.check_alarm2(vo));
-						}
+						crime_main crime = new crime_main(vo);
 					}
 				} else {
 					JOptionPane.showMessageDialog(null, "아이디 혹은 비밀번호를 다시 확인하세요", "로그인 실패", JOptionPane.WARNING_MESSAGE);
@@ -220,15 +214,15 @@ public class login {
 				
 			}
 		});
-		btn_login.setFont(new Font("함초롬돋움", Font.BOLD, 16));
+		btn_login.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		btn_login.setBackground(new Color(204, 204, 255));
-		btn_login.setBounds(49, 339, 267, 30);
+		btn_login.setBounds(65, 340, 236, 23);
 		frame.getContentPane().add(btn_login);
 		
 		JLabel lbl_signin = new JLabel("SIGN IN");
 		lbl_signin.setForeground(new Color(0, 0, 128));
-		lbl_signin.setFont(new Font("함초롬돋움", Font.BOLD, 25));
-		lbl_signin.setBounds(49, 184, 97, 30);
+		lbl_signin.setFont(new Font("함초롬돋움", Font.BOLD, 24));
+		lbl_signin.setBounds(65, 185, 97, 30);
 		frame.getContentPane().add(lbl_signin);
 	}
 }
