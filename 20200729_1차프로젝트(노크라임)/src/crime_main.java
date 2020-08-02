@@ -52,7 +52,8 @@ public class crime_main {
 	}
 
 	private void initialize(VO vo) {
-
+		int cnt = 0;
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
 		frame.setBounds(100, 100, 375, 812);
@@ -1037,5 +1038,16 @@ public class crime_main {
 		});
 		btn_search.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		btn_search.setBackground(new Color(204, 204, 255));
+		
+		boolean[] crime_cnt;
+		if (lbl_58.isVisible()) {
+			crime_cnt = new boolean[] {lbl_상_1030.isVisible(),lbl_약2_1047.isVisible(),lbl_절_1001.isVisible(),lbl_약_1018.isVisible(),lbl_살_New.isVisible()};
+			for(int i = 0; i < crime_cnt.length;i++) {
+				if (crime_cnt[i]) {
+					cnt++;
+				}
+			}
+		}
+		lbl_강1_1338.isVisible();
 	}
 }
