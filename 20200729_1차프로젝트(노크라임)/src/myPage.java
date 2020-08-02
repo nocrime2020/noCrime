@@ -172,14 +172,14 @@ public class myPage {
 			combo_endalarm.setModel(new DefaultComboBoxModel(new String[] { al_vo1.getSet_end() + ":00", "12:00 AM",
 					"1:00 AM", "2:00 AM", "3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM",
 					"10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM",
-					"6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "10:00 PM", "11:00 PM" }));
+					"6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "10:00 PM", "11:00 PM", "12:00 AM" }));
 		}
 
 		else {
 			combo_endalarm.setModel(new DefaultComboBoxModel(new String[] { "", "12:00 AM", "1:00 AM", "2:00 AM",
 					"3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM",
 					"12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM",
-					"9:00 PM", "10:00 PM", "11:00 PM" }));
+					"9:00 PM", "10:00 PM", "11:00 PM", "12:00 AM" }));
 		}
 		combo_endalarm.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		combo_endalarm.setBackground(new Color(204, 204, 255));
@@ -189,10 +189,11 @@ public class myPage {
 		occur_cnt.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 
 		cnt2 = dao.check_alarm(vo);
-		VO_alarm al_vo2 = dao.check_alarm2(vo);
 		if (cnt2 > 0) {
+			VO_alarm al_vo2 = dao.check_alarm2(vo);
 			occur_cnt.setText(al_vo2.getCr_cnt());
 		} else {
+			VO_alarm al_vo2 = new VO_alarm(vo.getId(),null,null,null);
 		}
 
 		occur_cnt.setBounds(158, 290, 189, 21);
@@ -267,6 +268,7 @@ public class myPage {
 					if ((combo_startalarm1 != -1 && combo_endalarm1 != -1 && occur_cnt1 != 0)) {
 						cnt2 = dao.check_alarm(vo);
 						if (cnt2 > 0) {
+							System.out.println("되나요?");
 							cnt = dao.sending_alarm(vo, combo_startalarm1, combo_endalarm1, occur_cnt1);
 						} else {
 							cnt = dao.sending_alarm2(vo, combo_startalarm1, combo_endalarm1, occur_cnt1);

@@ -1105,11 +1105,10 @@ public class crime_main {
 						if (crime_cnt[i]) {
 							cnt++;
 						}
-					}if(cnt >= 5&&currentTime.getHour()>1&&currentTime.getHour()>24) {
-						System.out.println("알람");
+					}if(cnt >= Integer.parseInt(vo_alarm.getCr_cnt())&&currentTime.getHour()>Integer.parseInt(vo_alarm.getSet_start())&&currentTime.getHour()<Integer.parseInt(vo_alarm.getSet_end())) {
 						JOptionPane.showMessageDialog(null, "회원님이 설정하신 수 이상의 범죄가 탐지되었습니다.", "알람",JOptionPane.INFORMATION_MESSAGE);
 					}
-				}if (lbl_76.isVisible()) {
+				}else if (lbl_76.isVisible()) {
 					crime_cnt = new boolean[] {lbl_강2_1280.isVisible(),lbl_강1_1338.isVisible(),lbl_강3_1251.isVisible(),lbl_절2_1048.isVisible(),lbl_상1_1135.isVisible(),
 					lbl_절4_1106.isVisible(),lbl_상4_1222.isVisible(),lbl_강4_1309.isVisible(),lbl_상2_1164.isVisible(),
 					lbl_상3_1193.isVisible(),lbl_절3_1077.isVisible(),lbl_절1_1019.isVisible()};
@@ -1117,8 +1116,7 @@ public class crime_main {
 						if (crime_cnt[i]) {
 							cnt++;
 						}
-					}if(cnt >= 5&&currentTime.getHour()>1&&currentTime.getHour()>24) {
-						System.out.println("알람");
+					}if(cnt >= Integer.parseInt(vo_alarm.getCr_cnt())&&currentTime.getHour()>Integer.parseInt(vo_alarm.getSet_start())&&currentTime.getHour()<Integer.parseInt(vo_alarm.getSet_end())) {
 						JOptionPane.showMessageDialog(null, "회원님이 설정하신 수 이상의 범죄가 탐지되었습니다.", "알람",JOptionPane.INFORMATION_MESSAGE);
 					}
 				}

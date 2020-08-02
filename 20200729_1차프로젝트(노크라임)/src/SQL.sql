@@ -150,7 +150,7 @@ insert into crime values('1309','119',to_date('19/08/14'),'3',null,null);
 insert into crime values('1338','119',to_date('17/12/26'),'3',null,null);
 
 
-
+select * from alarm;
 
 --select * from member;
 
