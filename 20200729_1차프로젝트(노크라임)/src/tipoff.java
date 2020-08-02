@@ -61,15 +61,18 @@ public class tipoff {
 	 */
 	private void initialize(VO vo) {
 		frame = new JFrame();
+		frame.getContentPane().setForeground(new Color(0, 0, 128));
+		frame.getContentPane().setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
 		frame.setBounds(100, 100, 375,812);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lbl_tipoff = new JLabel("\uBC1C\uC0DD \uBC94\uC8C4 \uC81C\uBCF4");
+		lbl_tipoff.setForeground(new Color(0, 0, 128));
 		lbl_tipoff.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_tipoff.setFont(new Font("함초롬돋움", Font.BOLD, 24));
-		lbl_tipoff.setBounds(78, 56, 234, 54);
+		lbl_tipoff.setBounds(60, 87, 234, 54);
 		frame.getContentPane().add(lbl_tipoff);
 		
 
@@ -116,24 +119,27 @@ public class tipoff {
 		frame.getContentPane().add(btn_evidence);
 		
 		JLabel lbl_sort = new JLabel("\uBC94\uC8C4 \uC885\uB958");
+		lbl_sort.setForeground(new Color(0, 0, 128));
 		lbl_sort.setFont(new Font("함초롬돋움", Font.BOLD, 15));
-		lbl_sort.setBounds(12, 317, 97, 29);
+		lbl_sort.setBounds(12, 324, 97, 29);
 		frame.getContentPane().add(lbl_sort);
 		
 		JLabel lbl_date = new JLabel("\uBC94\uC8C4 \uBC1C\uC0DD\uC77C");
+		lbl_date.setForeground(new Color(0, 0, 128));
 		lbl_date.setFont(new Font("함초롬돋움", Font.BOLD, 15));
-		lbl_date.setBounds(12, 257, 97, 28);
+		lbl_date.setBounds(12, 259, 97, 28);
 		frame.getContentPane().add(lbl_date);
 		
 		JLabel lbl_location = new JLabel("\uBC94\uC8C4 \uC7A5\uC18C");
+		lbl_location.setForeground(new Color(0, 0, 128));
 		lbl_location.setFont(new Font("함초롬돋움", Font.BOLD, 15));
-		lbl_location.setBounds(12, 151, 97, 28);
+		lbl_location.setBounds(12, 152, 81, 28);
 		frame.getContentPane().add(lbl_location);
 		
 		txt_date = new JTextField();
 		txt_date.setBackground(new Color(248, 248, 255));
 		txt_date.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		txt_date.setBounds(110, 263, 226, 21);
+		txt_date.setBounds(110, 263, 219, 21);
 		frame.getContentPane().add(txt_date);
 		txt_date.setColumns(10);
 		
@@ -151,6 +157,7 @@ public class tipoff {
 		frame.getContentPane().add(txt_notice);
 		
 		JLabel lbl_evidence = new JLabel("\uC99D\uAC70 \uC790\uB8CC");
+		lbl_evidence.setForeground(new Color(0, 0, 128));
 		lbl_evidence.setFont(new Font("함초롬돋움", Font.BOLD, 15));
 		lbl_evidence.setBounds(12, 512, 97, 43);
 		frame.getContentPane().add(lbl_evidence);
@@ -186,55 +193,73 @@ public class tipoff {
 //		frame.getContentPane().add(ck_murder);
 		
 		JRadioButton rd_burglary = new JRadioButton("\uC808\uB3C4\uAC15\uB3C4");
+		rd_burglary.setBackground(new Color(230, 230, 250));
+		rd_burglary.setForeground(new Color(0, 0, 128));
+		rd_burglary.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		buttonGroup.add(rd_burglary);
 		rd_burglary.setBounds(31, 367, 81, 23);
 		frame.getContentPane().add(rd_burglary);
 		
 		JRadioButton rd_murder = new JRadioButton("\uC0B4\uC778");
+		rd_murder.setBackground(new Color(230, 230, 250));
+		rd_murder.setForeground(new Color(0, 0, 128));
+		rd_murder.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		buttonGroup.add(rd_murder);
 		rd_murder.setBounds(31, 410, 81, 23);
 		frame.getContentPane().add(rd_murder);
 		
 		JRadioButton rd_assault = new JRadioButton("\uC0C1\uD574\uD3ED\uD589");
+		rd_assault.setBackground(new Color(230, 230, 250));
+		rd_assault.setForeground(new Color(0, 0, 128));
+		rd_assault.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		buttonGroup.add(rd_assault);
 		rd_assault.setBounds(31, 457, 81, 23);
 		frame.getContentPane().add(rd_assault);
 		
 		JRadioButton rd_kidnap = new JRadioButton("\uC57D\uCDE8\uC720\uC778");
+		rd_kidnap.setBackground(new Color(230, 230, 250));
+		rd_kidnap.setForeground(new Color(0, 0, 128));
+		rd_kidnap.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		buttonGroup.add(rd_kidnap);
 		rd_kidnap.setBounds(193, 367, 81, 23);
 		frame.getContentPane().add(rd_kidnap);
 		
 		JRadioButton rd_rape = new JRadioButton("\uAC15\uAC04\uCD94\uD589");
+		rd_rape.setBackground(new Color(230, 230, 250));
+		rd_rape.setForeground(new Color(0, 0, 128));
+		rd_rape.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		buttonGroup.add(rd_rape);
 		rd_rape.setBounds(193, 410, 81, 23);
 		frame.getContentPane().add(rd_rape);
 		
 		JComboBox combo_city = new JComboBox();
+		combo_city.setForeground(new Color(0, 0, 128));
 		combo_city.setModel(new DefaultComboBoxModel(new String[] {"도시를 선택하세요", "서울특별시", "광주광역시"}));
 		combo_city.setBackground(new Color(204, 204, 255));
 		combo_city.setEditable(true);
-		combo_city.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		combo_city.setBounds(110, 159, 151, 18);
+		combo_city.setFont(new Font("함초롬돋움", Font.BOLD, 10));
+		combo_city.setBounds(110, 159, 219, 18);
 		frame.getContentPane().add(combo_city);
 		
 		JComboBox combo_gu = new JComboBox();
+		combo_gu.setForeground(new Color(0, 0, 128));
 		combo_gu.setBackground(new Color(204, 204, 255));
 		combo_gu.setEditable(true);
-		combo_gu.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		combo_gu.setFont(new Font("함초롬돋움", Font.BOLD, 10));
 		combo_gu.setModel(new DefaultComboBoxModel(new String[] {"구를 선택하세요", "광산구", "동구", "서구", "남구", "북구"}));
-		combo_gu.setBounds(110, 187, 151, 19);
+		combo_gu.setBounds(110, 187, 219, 19);
 		frame.getContentPane().add(combo_gu);
 		
 		JComboBox combo_street = new JComboBox();
+		combo_street.setForeground(new Color(0, 0, 128));
 		combo_street.setModel(new DefaultComboBoxModel(new String[] {"상세주소를 선택하세요", "2순환로","서문대로","서문대로402번길","서문대로473번길","서문대로499번길","서문대로517번길","서문대로556번길","서문대로627번길","송암로","송암로130번길","송암로24번길","송암로24번가길","송암로24번나길","송암로27번길","송암로42번길","송암로58번길","송암로76번길","송암로98번길","원효천길","원효천1길","원효천2길","입하길","입하1길","입하2길","입하2안길","효덕로","효덕로303번길","효천길","효천3로"}));
 		combo_street.setBackground(new Color(204, 204, 255));
 		combo_street.setEditable(true);
-		combo_street.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		combo_street.setBounds(110, 216, 151, 19);
+		combo_street.setFont(new Font("함초롬돋움", Font.BOLD, 10));
+		combo_street.setBounds(110, 216, 219, 19);
 		frame.getContentPane().add(combo_street);
 		
-		JLabel lbl_title = new JLabel("\uB178(Know) \uD06C\uB77C\uC784");
+		JLabel lbl_title = new JLabel("");
 		lbl_title.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -244,8 +269,8 @@ public class tipoff {
 			}
 		});
 		lbl_title.setFont(new Font("굴림", Font.PLAIN, 23));
-		lbl_title.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\\uC791\uC740\uB85C\uACE0.png"));
-		lbl_title.setBounds(12, 10, 184, 36);
+		lbl_title.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740icon\\\uC791\uC740\uB85C\uACE0.png"));
+		lbl_title.setBounds(127, 10, 105, 54);
 		frame.getContentPane().add(lbl_title);
 		
 		
@@ -372,7 +397,8 @@ public class tipoff {
 		lbl_kidnapICON.setBounds(269, 367, 25, 23);
 		frame.getContentPane().add(lbl_kidnapICON);
 		
-		JLabel lbl_logout = new JLabel("\uB85C\uADF8\uC544\uC6C3");
+		JLabel lbl_logout = new JLabel("");
+		lbl_logout.setIcon(new ImageIcon("C:\\icon\\icon\\logout2.png"));
 		lbl_logout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -382,11 +408,14 @@ public class tipoff {
 				
 			}
 		});
-		lbl_logout.setBounds(290, 10, 81, 15);
+		lbl_logout.setBounds(290, 10, 81, 38);
 		frame.getContentPane().add(lbl_logout);
 		
 		JLabel lblNewLabel = new JLabel("YYYYMMDD (\uC22B\uC790\uB9CC \uC785\uB825\uD574\uC8FC\uC138\uC694) ");
-		lblNewLabel.setBounds(110, 288, 202, 15);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setForeground(new Color(0, 0, 128));
+		lblNewLabel.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		lblNewLabel.setBounds(110, 288, 219, 15);
 		frame.getContentPane().add(lblNewLabel);
 		
 		
