@@ -98,7 +98,7 @@ public class myPage {
 		lbl_editid.setHorizontalAlignment(SwingConstants.LEFT);
 		lbl_editid.setVerticalAlignment(SwingConstants.BOTTOM);
 		lbl_editid.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 18));
-		lbl_editid.setBounds(71, 358, 275, 42);
+		lbl_editid.setBounds(71, 352, 275, 42);
 		frame.getContentPane().add(lbl_editid);
 
 		JLabel lbl_deleteid = new JLabel("\uD68C\uC6D0 \uD0C8\uD1F4");
@@ -107,7 +107,7 @@ public class myPage {
 		lbl_deleteid.setForeground(new Color(0, 0, 128));
 		lbl_deleteid.setHorizontalAlignment(SwingConstants.LEFT);
 		lbl_deleteid.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 18));
-		lbl_deleteid.setBounds(71, 617, 275, 32);
+		lbl_deleteid.setBounds(71, 607, 275, 32);
 		frame.getContentPane().add(lbl_deleteid);
 
 		JLabel lbl_logout = new JLabel("");
@@ -226,7 +226,7 @@ public class myPage {
 				}
 			}
 		});
-		btn_deleteid.setBounds(28, 675, 318, 32);
+		btn_deleteid.setBounds(28, 659, 318, 32);
 		frame.getContentPane().add(btn_deleteid);
 
 		JLabel lbl_id = new JLabel("\uC544\uC774\uB514");
@@ -401,7 +401,7 @@ public class myPage {
 		
 		JLabel lblNewLabel_1_1 = new JLabel("");
 		lblNewLabel_1_1.setIcon(new ImageIcon("C:\\icon\\check.png"));
-		lblNewLabel_1_1.setBounds(29, 606, 47, 47);
+		lblNewLabel_1_1.setBounds(29, 602, 47, 47);
 		frame.getContentPane().add(lblNewLabel_1_1);
 	}
 }
