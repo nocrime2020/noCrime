@@ -223,7 +223,7 @@ public class DAO {
 		}
 		return list; // 반환해줌
 	}
-
+	
 	// 관리자의 회원강제탈퇴용
 	public int deleteMember(String id) {
 
@@ -433,4 +433,29 @@ public class DAO {
 		}
 		return cnt4;
 	}
+	
+	// tipoff에서 admin_tipoff로 제보정보 넘기는 메소드
+		public int tipoff_insert(VO vo) {
+			int cnt = 0;
+			try {
+				getConnection();
+				String sql = "insert into tip_info values(?,?,?,?)";
+
+				psmt = conn.prepareStatement(sql);
+
+				psmt.setString(1, vo.getId());
+				psmt.setString(2, vo.getPw());
+				psmt.setString(3, vo.getName());
+				psmt.setString(4, vo.getEmail());
+
+				cnt = psmt.executeUpdate();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+
+			return cnt;
+		}
 }
