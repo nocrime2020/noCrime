@@ -1,25 +1,23 @@
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.JRadioButton;
-import javax.swing.ButtonGroup;
 
 public class tipoff {
 
@@ -306,7 +304,12 @@ public class tipoff {
 						} else if (combo_city.getSelectedIndex()==2 && combo_gu.getSelectedIndex()==4 && combo_street.getSelectedIndex()==17) {
 							loc = "119";
 						}
-
+						
+//						String date = null;
+						if (txt_date == null || txt_date.equals("")) {
+							return;
+						}
+							
 						
 						String cr_type_id = crtyId;
 						String cr_date = txt_date.getText();
