@@ -31,10 +31,8 @@ public class crime_main {
 	private int violence;
 	private int theft;
 	private int murder;
+	DAO dao = new DAO();
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -48,17 +46,11 @@ public class crime_main {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public crime_main(VO vo) {
 		initialize(vo);
 		frame.setVisible(true);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize(VO vo) {
 
 		frame = new JFrame();
@@ -95,7 +87,7 @@ public class crime_main {
 
 				frame.dispose();
 //				myPage.main(null);
-				myPage myPage = new myPage(vo);
+//				myPage myPage = new myPage(vo);
 			}
 		});
 
@@ -456,14 +448,33 @@ public class crime_main {
 		lbl_약_1018.setBounds(292, 484, 25, 29);
 		panel_1.add(lbl_약_1018);
 		
-		JLabel lbl_살_New = new JLabel("\uC0B4");
-		lbl_살_New.setBounds(74, 203, 22, 29);
-		panel_1.add(lbl_살_New);
-		
 		JTextArea textArea_살 = new JTextArea();
+		textArea_살.setEnabled(false);
+		if (dao.sended()) {
+			textArea_살.setEnabled(true);
+		}
 		textArea_살.setText("\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C58\uBC88\uAE38\r\n\uC0B4\uC778\r\n2020-06-01");
 		textArea_살.setBounds(0, 106, 177, 99);
 		panel_1.add(textArea_살);
+		textArea_살.setVisible(false);
+		
+		JLabel lbl_살_New = new JLabel("\uC0B4");
+		lbl_살_New.setEnabled(false);
+		if (dao.sended()) {
+			lbl_살_New.setEnabled(true);
+		}
+		lbl_살_New.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				if (textArea_살.isVisible()) {
+					textArea_살.setVisible(false);
+				} else {
+					textArea_살.setVisible(true);
+				}
+			}
+		});
+		lbl_살_New.setBounds(74, 203, 22, 29);
+		panel_1.add(lbl_살_New);
 
 		JLabel lbl_58 = new JLabel("");
 		lbl_58.setIcon(new ImageIcon("C:\\pro_image\\58.png"));

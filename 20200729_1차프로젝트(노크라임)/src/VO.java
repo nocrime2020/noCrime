@@ -6,6 +6,7 @@ public class VO {	//아래컬럼 하나로 묶어서 관리할 수 있는 메소드
 	private String pw;
 	private String name;
 	private String email;
+	private int[] settings;
 	
 	public VO(String id, String pw, String name, String email) {
 		this.id = id;		//인스턴스변수(this.id)와 매개변수로 정의된 지역변수(id)를 구분하기 위함.
@@ -19,7 +20,20 @@ public class VO {	//아래컬럼 하나로 묶어서 관리할 수 있는 메소드
 		this.pw = pw;
 	}
 	
+	public VO(String id, int[] settings) {
+		this.id = id;
+		this.settings = settings;
+	}
 	
+	
+	public int[] getSettings() {
+		return settings;
+	}
+
+	public void setSettings(int[] settings) {
+		this.settings = settings;
+	}
+
 	public String getId() {
 		return id;
 	}
