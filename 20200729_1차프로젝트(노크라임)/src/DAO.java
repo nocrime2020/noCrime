@@ -282,14 +282,14 @@ public class DAO {
 		try {
 			getConnection(); // 드라이버 로딩
 
-			String sql = "INSERT INTO alarm VALUES(?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입
+			String sql = "update alarm set set_start = ?, set_end = ?, cr_cnt = ? where id = ? "; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입
 
 			psmt = conn.prepareStatement(sql); //
 
-			psmt.setString(1, vo.getId());
-			psmt.setInt(2, set_start);
-			psmt.setInt(3, set_end);
-			psmt.setInt(4, cr_cnt);
+			psmt.setInt(1, set_start);
+			psmt.setInt(2, set_end);
+			psmt.setInt(3, cr_cnt);
+			psmt.setString(4, vo.getId());
 
 			cnt = psmt.executeUpdate();
 
