@@ -134,7 +134,7 @@ public class admin_tipoff {
 		table_tipoffmanage.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
 		JButton btn_upload = new JButton("\uC804\uC1A1 \uD558\uAE30");
-		btn_upload.setBackground(new Color(240, 240, 255));
+		btn_upload.setBackground(new Color(204, 204, 255));
 		btn_upload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
