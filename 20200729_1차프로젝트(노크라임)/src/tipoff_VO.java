@@ -26,6 +26,8 @@ public class tipoff_VO {
 		this.evidence = evidence;
 	}
 	
+//	public tipoff_VO(St)
+	
 	
 	public String getTip_info_id() {
 		return tip_info_id;

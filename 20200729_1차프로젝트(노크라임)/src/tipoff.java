@@ -30,6 +30,7 @@ public class tipoff {
 	
 	JFileChooser chooser;
 	ImageIcon ImageIcon;
+	String eviPath = "";
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 	/**
@@ -85,6 +86,7 @@ public class tipoff {
 		chooser = new JFileChooser();	//파일 다이얼로그 생성
 		chooser.setCurrentDirectory(new File("C:\\"));
 		
+		
 		btn_evidence.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -96,6 +98,8 @@ public class tipoff {
 				int ret = chooser.showOpenDialog(null);	//열기창 정의
 				if(ret == JFileChooser.APPROVE_OPTION) { //디렉토리를 선택했으면  //사용자가 파일 선택 후 "열기" 버튼 누름
 					String filePath = chooser.getSelectedFile().getPath();	//파일경로를 가져옴
+//					System.out.println(filePath);
+					eviPath = filePath;
 					Image temp = new ImageIcon(filePath).getImage();
 					lbl_photo.setIcon(new ImageIcon(temp.getScaledInstance(151, 109, Image.SCALE_SMOOTH)));
 					
@@ -282,17 +286,46 @@ public class tipoff {
 						 rd_kidnap.isSelected() || 
 						 rd_murder.isSelected())
 						)	{	//안넣은 값 없이 다 쓴 경우
-						JOptionPane.showMessageDialog(null, "제보 완료.\n 영업일 1일이내 검토 후 범죄 정보에 조회됩니다.", "범죄 제보", JOptionPane.INFORMATION_MESSAGE);
+						
+						String crtyId = "";
+						if (rd_burglary.isSelected()==true) {
+							crtyId = "1";
+						} else if (rd_murder.isSelected()==true) {
+							crtyId = "2";
+						} else if (rd_rape.isSelected()==true) {
+							crtyId = "3";
+						} else if (rd_kidnap.isSelected()==true) {
+							crtyId = "4";
+						} else if (rd_assault.isSelected()==true) {
+							crtyId = "5";
+						}
+						
+						String loc = "";
+						if (combo_city.getSelectedIndex()==2 && combo_gu.getSelectedIndex()==4 && combo_street.getSelectedIndex()==16) {
+							loc = "118";
+						} else if (combo_city.getSelectedIndex()==2 && combo_gu.getSelectedIndex()==4 && combo_street.getSelectedIndex()==17) {
+							loc = "119";
+						}
+
+						
+						String cr_type_id = crtyId;
+						String cr_date = txt_date.getText();
+						String cr_loc_id = loc;
+						String evidence = eviPath;
+						
+						
+						tipoff_VO tipoff_vo = new tipoff_VO(cr_type_id, cr_date, cr_loc_id, evidence);
+						int cnt = dao.tipoff_insert(tipoff_vo);
+						if (cnt > 0) {
+							JOptionPane.showMessageDialog(null, "제보 완료.\n 영업일 1일이내 검토 후 범죄 정보에 조회됩니다.", "범죄 제보", JOptionPane.INFORMATION_MESSAGE);
+							frame.dispose();
+							tipoff tipoff = new tipoff(vo);
+							
+						}
 						
 						
 						
 						
-						
-						
-						
-						
-						frame.dispose();
-						tipoff tipoff = new tipoff(vo);
 					} else { //정보 입력 중 빠진 입력값이 있는 경우
 						JOptionPane.showMessageDialog(null, "입력되지 않은 정보가 존재합니다.", "범죄 제보", JOptionPane.ERROR_MESSAGE);
 					}
