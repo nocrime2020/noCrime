@@ -54,7 +54,7 @@ public class admin_select {
 		
 		
 		JLabel lbl_title = new JLabel("");
-		lbl_title.setIcon(new ImageIcon("C:\\icon\\\uC791\uC740 \uD22C\uBA85.png"));
+		lbl_title.setIcon(new ImageIcon(admin_select.class.getResource("/res/\uC791\uC740 \uD22C\uBA85.png")));
 		lbl_title.addMouseListener(new MouseAdapter() {
 			@Override // 회원가입 메소드
 			public void mouseClicked(MouseEvent e) {
@@ -70,7 +70,7 @@ public class admin_select {
 		
 		
 		JLabel lbl_signout = new JLabel("");
-		lbl_signout.setIcon(new ImageIcon("C:\\Users\\SMT053\\Desktop\\\uAE30\uBCF8\uD504\uB85C\uC81D\uD2B8\uC0B0\uCD9C\uBB3C\\\uB178\uD06C\uB77C\uC784\\icon\\off_logout_17916.png"));
+		lbl_signout.setIcon(new ImageIcon(admin_select.class.getResource("/res/logout2.png")));
 		lbl_signout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -85,6 +85,7 @@ public class admin_select {
 		frame.getContentPane().add(lbl_signout);
 		
 		JLabel lbl_selectpage = new JLabel("\uAD00\uB9AC\uC790 \uBA54\uB274");
+		lbl_selectpage.setForeground(new Color(0, 0, 128));
 		lbl_selectpage.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_selectpage.setFont(new Font("함초롬돋움", Font.BOLD, 24));
 		lbl_selectpage.setBounds(89, 100, 180, 60);
@@ -94,7 +95,7 @@ public class admin_select {
 		btn_tipoffmanage.setBackground(new Color(204, 204, 255));
 		btn_tipoffmanage.setBackground(SystemColor.activeCaption);
 		btn_tipoffmanage.setFont(new Font("함초롬돋움", Font.BOLD, 16));
-		btn_tipoffmanage.setBounds(50, 219, 253, 75);
+		btn_tipoffmanage.setBounds(53, 219, 253, 75);
 		btn_tipoffmanage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -114,7 +115,7 @@ public class admin_select {
 		});
 		btn_membermanage.setBackground(SystemColor.activeCaption);
 		btn_membermanage.setFont(new Font("함초롬돋움", Font.BOLD, 16));
-		btn_membermanage.setBounds(50, 349, 253, 75);
+		btn_membermanage.setBounds(53, 349, 253, 75);
 		btn_membermanage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -130,7 +131,7 @@ public class admin_select {
 		btn_crimemain.setBackground(new Color(204, 204, 255));
 		btn_crimemain.setBackground(SystemColor.activeCaption);
 		btn_crimemain.setFont(new Font("함초롬돋움", Font.BOLD, 16));
-		btn_crimemain.setBounds(50, 480, 253, 75);
+		btn_crimemain.setBounds(53, 480, 253, 75);
 		btn_crimemain.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
