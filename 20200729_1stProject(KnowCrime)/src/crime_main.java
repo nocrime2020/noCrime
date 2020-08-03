@@ -385,6 +385,9 @@ public class crime_main {
 		check_강간추행.setBackground(new Color(230, 230, 250));
 
 		JTextArea textArea_약 = new JTextArea();
+		textArea_약.setBackground(new Color(230, 230, 250));
+		textArea_약.setForeground(new Color(0, 0, 128));
+		textArea_약.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		textArea_약.setEditable(false);
 		textArea_약.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C58\uBC88\uAE38\r\n\uC57D\uCDE8 \uBC0F \uC720\uC778\r\n2017-02-01");
@@ -393,6 +396,9 @@ public class crime_main {
 		textArea_약.setVisible(false);
 
 		JTextArea textArea_약2 = new JTextArea();
+		textArea_약2.setForeground(new Color(0, 0, 128));
+		textArea_약2.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_약2.setBackground(new Color(230, 230, 250));
 		textArea_약2.setEditable(false);
 		textArea_약2.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C58\uBC88\uAE38\r\n\uC57D\uCDE8 \uBC0F \uC720\uC778\r\n2020-05-28");
@@ -401,6 +407,9 @@ public class crime_main {
 		textArea_약2.setVisible(false);
 
 		JTextArea textArea_상 = new JTextArea();
+		textArea_상.setBackground(new Color(230, 230, 250));
+		textArea_상.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_상.setForeground(new Color(0, 0, 128));
 		textArea_상.setEditable(false);
 		textArea_상.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C58\uBC88\uAE38\r\n\uC0C1\uD574 \uBC0F \uD3ED\uD589\r\n2020-06-01");
@@ -409,6 +418,9 @@ public class crime_main {
 		textArea_상.setVisible(false);
 
 		JTextArea textArea_절 = new JTextArea();
+		textArea_절.setBackground(new Color(230, 230, 250));
+		textArea_절.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_절.setForeground(new Color(0, 0, 128));
 		textArea_절.setEditable(false);
 		textArea_절.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C58\uBC88\uAE38\r\n\uC808\uB3C4 \uBC0F \uAC15\uB3C4\r\n2019-05-18");
@@ -480,6 +492,9 @@ public class crime_main {
 		panel_1.add(lbl_약_1018);
 		
 		JTextArea textArea_살 = new JTextArea();
+		textArea_살.setBackground(new Color(230, 230, 250));
+		textArea_살.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_살.setForeground(new Color(0, 0, 128));
 		textArea_살.setEnabled(false);
 		if (dao.sended()) {
 			textArea_살.setEnabled(true);
@@ -515,6 +530,9 @@ public class crime_main {
 		lbl_58.setVisible(false);
 
 		JTextArea textArea_강2 = new JTextArea();
+		textArea_강2.setForeground(new Color(0, 0, 128));
+		textArea_강2.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_강2.setBackground(new Color(230, 230, 250));
 		textArea_강2.setEditable(false);
 		textArea_강2.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uAC15\uAC04 \uBC0F \uCD94\uD589\r\n2017-11-18\r\n");
@@ -523,6 +541,9 @@ public class crime_main {
 		textArea_강2.setVisible(false);
 
 		JTextArea textArea_강1 = new JTextArea();
+		textArea_강1.setForeground(new Color(0, 0, 128));
+		textArea_강1.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_강1.setBackground(new Color(230, 230, 250));
 		textArea_강1.setEditable(false);
 		textArea_강1.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uAC15\uAC04 \uBC0F \uCD94\uD589\r\n2017-12-26");
@@ -531,6 +552,9 @@ public class crime_main {
 		textArea_강1.setVisible(false);
 
 		JTextArea textArea_강3 = new JTextArea();
+		textArea_강3.setForeground(new Color(0, 0, 128));
+		textArea_강3.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_강3.setBackground(new Color(230, 230, 250));
 		textArea_강3.setEditable(false);
 		textArea_강3.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uAC15\uAC04 \uBC0F \uCD94\uD589\r\n2005-11-29");
@@ -539,6 +563,9 @@ public class crime_main {
 		textArea_강3.setVisible(false);
 
 		JTextArea textArea_상3 = new JTextArea();
+		textArea_상3.setForeground(new Color(0, 0, 128));
+		textArea_상3.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_상3.setBackground(new Color(230, 230, 250));
 		textArea_상3.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC0C1\uD574 \uBC0F \uD3ED\uD589\r\n2009-01-31");
 		textArea_상3.setEditable(false);
@@ -547,6 +574,9 @@ public class crime_main {
 		textArea_상3.setVisible(false);
 
 		JTextArea textArea_강4 = new JTextArea();
+		textArea_강4.setForeground(new Color(0, 0, 128));
+		textArea_강4.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_강4.setBackground(new Color(230, 230, 250));
 		textArea_강4.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC0C1\uD574 \uBC0F \uD3ED\uD589\r\n2019-08-14");
 		textArea_강4.setEditable(false);
@@ -555,6 +585,9 @@ public class crime_main {
 		textArea_강4.setVisible(false);
 
 		JTextArea textArea_절2 = new JTextArea();
+		textArea_절2.setForeground(new Color(0, 0, 128));
+		textArea_절2.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_절2.setBackground(new Color(230, 230, 250));
 		textArea_절2.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC808\uB3C4 \uBC0F \uAC15\uB3C4\r\n2010-02-01");
 		textArea_절2.setEditable(false);
@@ -563,6 +596,9 @@ public class crime_main {
 		textArea_절2.setVisible(false);
 
 		JTextArea textArea_상1 = new JTextArea();
+		textArea_상1.setForeground(new Color(0, 0, 128));
+		textArea_상1.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_상1.setBackground(new Color(230, 230, 250));
 		textArea_상1.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC0C1\uD574 \uBC0F \uD3ED\uD589\r\n2019-06-13\r\n");
 		textArea_상1.setEditable(false);
@@ -571,6 +607,9 @@ public class crime_main {
 		textArea_상1.setVisible(false);
 
 		JTextArea textArea_상4 = new JTextArea();
+		textArea_상4.setForeground(new Color(0, 0, 128));
+		textArea_상4.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_상4.setBackground(new Color(230, 230, 250));
 		textArea_상4.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC0C1\uD574 \uBC0F \uD3ED\uD589\r\n2020-05-08\r\n");
 		textArea_상4.setEditable(false);
@@ -579,6 +618,9 @@ public class crime_main {
 		textArea_상4.setVisible(false);
 
 		JTextArea textArea_절1 = new JTextArea();
+		textArea_절1.setForeground(new Color(0, 0, 128));
+		textArea_절1.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_절1.setBackground(new Color(230, 230, 250));
 		textArea_절1.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC808\uB3C4 \uBC0F \uAC15\uB3C4\r\n2020-05-29");
 		textArea_절1.setEditable(false);
@@ -587,6 +629,9 @@ public class crime_main {
 		textArea_절1.setVisible(false);
 
 		JTextArea textArea_상2 = new JTextArea();
+		textArea_상2.setForeground(new Color(0, 0, 128));
+		textArea_상2.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_상2.setBackground(new Color(230, 230, 250));
 		textArea_상2.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC0C1\uD574 \uBC0F \uD3ED\uD589\r\n2007-02-24");
 		textArea_상2.setEditable(false);
@@ -595,6 +640,9 @@ public class crime_main {
 		textArea_상2.setVisible(false);
 
 		JTextArea textArea_절3 = new JTextArea();
+		textArea_절3.setForeground(new Color(0, 0, 128));
+		textArea_절3.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_절3.setBackground(new Color(230, 230, 250));
 		textArea_절3.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC808\uB3C4 \uBC0F \uAC15\uB3C4\r\n2019-08-05");
 		textArea_절3.setEditable(false);
@@ -603,6 +651,9 @@ public class crime_main {
 		textArea_절3.setVisible(false);
 
 		JTextArea textArea_절4 = new JTextArea();
+		textArea_절4.setForeground(new Color(0, 0, 128));
+		textArea_절4.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		textArea_절4.setBackground(new Color(230, 230, 250));
 		textArea_절4.setText(
 				"\r\n\uAD11\uC8FC\uAD11\uC5ED\uC2DC \uB0A8\uAD6C \uC1A1\uC554\uB85C76\uBC88\uAE38\r\n\uC808\uB3C4 \uBC0F \uAC15\uB3C4\r\n2020-05-20");
 		textArea_절4.setEditable(false);
