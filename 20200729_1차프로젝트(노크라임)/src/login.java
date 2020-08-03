@@ -1,7 +1,6 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -11,7 +10,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
 import java.awt.TextField;
 import java.awt.Color;
 import javax.swing.SwingConstants;
@@ -19,17 +17,11 @@ import javax.swing.SwingConstants;
 public class login {
 
 	private JFrame frame;
-//	private JTextField txt_id;
-//	private TextField txt_pw;
 	private JLabel lbl_signup;
 	private JLabel lbl_name;
 	private JLabel lbl_newid;
 	private JLabel lbl_newpw;
 	private JLabel lbl_email;
-//	private JTextField txt_name;
-//	private JTextField txt_newid;
-//	private JTextField txt_newpw;
-//	private JTextField txt_email;
 	private JLabel lbl_title;
 
 	DAO dao = new DAO();
