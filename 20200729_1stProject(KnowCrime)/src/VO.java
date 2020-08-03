@@ -5,7 +5,6 @@ public class VO {
    private String pw;
    private String name;
    private String email;
-   private int[] settings;
    
    //회원가입 기능 구현시 사용
    public VO(String id, String pw, String name, String email) {
@@ -20,23 +19,6 @@ public class VO {
       this.id = id;
       this.pw = pw;
    }
-   
-   
-   
-   public VO(String id, int[] settings) {
-      this.id = id;
-      this.settings = settings;
-   }
-   
-   
-   public int[] getSettings() {
-      return settings;
-   }
-
-   public void setSettings(int[] settings) {
-      this.settings = settings;
-   }
-
    
    
    

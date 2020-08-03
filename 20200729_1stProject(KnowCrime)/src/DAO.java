@@ -56,7 +56,6 @@ public class DAO {
          String sql = "select pw from member where id = ? and pw = ?";
 
          psmt = conn.prepareStatement(sql);
-         
          psmt.setString(1, vo.getId()); //login페이지에서 사용자가 txtfield에 기재한 정보들보고 select문 사용하여 pw가져와 봄
          psmt.setString(2, vo.getPw());
          
@@ -88,7 +87,6 @@ public class DAO {
          String sql = "insert into member values(?,?,?,?)";
 
          psmt = conn.prepareStatement(sql);
-
          psmt.setString(1, vo.getId());      //login페이지에서 사용자가 txtfield에 기재한 정보들 DB에 insert
          psmt.setString(2, vo.getPw());
          psmt.setString(3, vo.getName());
@@ -281,17 +279,15 @@ public class DAO {
       return cnt;
    }
 
+   //알람 설정하는 메소드 (기존 알람 존재)
    public int sending_alarm(VO vo, int set_start, int set_end, int cr_cnt) {
-
       int cnt = 0;
       try {
          getConnection(); // 드라이버 로딩
-
-         String sql = "update alarm set set_start = ?, set_end = ?, cr_cnt = ? where id = ? "; // ?자리에 TIPOFF 테이블에
-                                                                           // 들어갈 제보정보 삽입
+         //기존알람 갱신하는 것이므로 UPDATE
+         String sql = "update alarm set set_start = ?, set_end = ?, cr_cnt = ? where id = ? ";
 
          psmt = conn.prepareStatement(sql); //
-
          psmt.setInt(1, set_start);
          psmt.setInt(2, set_end);
          psmt.setInt(3, cr_cnt);
@@ -307,15 +303,15 @@ public class DAO {
       return cnt;
    }
 
+ //알람 설정하는 메소드 (기존 알람 미존재)
    public int sending_alarm2(VO vo, int set_start, int set_end, int cr_cnt) {
-
       int cnt = 0;
       try {
          getConnection(); // 드라이버 로딩
-
+         //기존알람 없으므로 INSERT
          String sql = "INSERT INTO alarm VALUES(?,?,?,?)"; // ?자리에 TIPOFF 테이블에 들어갈 제보정보 삽입
+       
          psmt = conn.prepareStatement(sql); //
-
          psmt.setString(1, vo.getId());
          psmt.setInt(2, set_start);
          psmt.setInt(3, set_end);
@@ -336,10 +332,10 @@ public class DAO {
       int cnt2 = 0;
       try {
          getConnection(); // 드라이버 로딩
+         
          String sql = "select id from alarm WHERE id = ?"; //
 
          psmt = conn.prepareStatement(sql); //
-
          psmt.setString(1, vo.getId());
 
          rs = psmt.executeQuery();
@@ -416,7 +412,6 @@ public class DAO {
          String sql = "select * from alarm WHERE id = ?";
 
          psmt = conn.prepareStatement(sql);
-        
          psmt.setString(1, vo.getId());
 
          rs = psmt.executeQuery();
@@ -437,13 +432,15 @@ public class DAO {
       return vo1;
    }
 
+   //설정된 알람 삭제하는 메소드
    public int delete_alarm(VO vo) {
       int cnt4 = 0;
       try {
          getConnection(); // 드라이버 로딩
+         
          String sql = "delete from alarm where id = ? ";
+         
          psmt = conn.prepareStatement(sql);
-
          psmt.setString(1, vo.getId());
 
          cnt4 = psmt.executeUpdate();
@@ -461,7 +458,9 @@ public class DAO {
       int cnt = 0;
       try {
          getConnection();
+        
          String sql = "";
+       
          if (tipoff_vo.getCr_date().equals("")) {
             sql = "insert into tip_info values(tip_info_id_seq.nextval, ?, sysdate, ?, ?,null)";
             psmt = conn.prepareStatement(sql);
