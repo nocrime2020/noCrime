@@ -1,4 +1,3 @@
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,18 +13,12 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.SwingConstants;
-import javax.swing.JTextField;
 import javax.swing.JPanel;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
-import javax.swing.JTextPane;
-import javax.swing.DropMode;
 import javax.swing.JTextArea;
-import javax.swing.JTable;
-import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 
-import java.awt.CardLayout;
 
 public class crime_main {
 
@@ -35,23 +28,25 @@ public class crime_main {
 	private int violence;
 	private int theft;
 	private int murder;
+	
 	DAO dao = new DAO();
+	
 	int cnt = 0;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					crime_main window = new crime_main(null);
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					crime_main window = new crime_main(null);
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
-	public crime_main(VO_alarm vo_alarm) {
+	public crime_main(VO_alarm vo_alarm) {	//알람기능이 이 페이지에서 조건에 맞게 작동해야 하기 때문에 
 		initialize(vo_alarm);
 		frame.setVisible(true);
 	}
@@ -89,20 +84,14 @@ public class crime_main {
 		lbl_mypage.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_mypage.setForeground(new Color(0, 0, 128));
 		lbl_mypage.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		//회원의 마마이페이지 이동 
 		lbl_mypage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (vo_alarm.getId().equals("admin")) {	//관리자는 관리자페이지로
-					frame.dispose();
-					admin_select asel = new admin_select(new VO(vo_alarm.getId(),null,null,null));
-				}else {
 				frame.dispose();
-				//myPage.main(null);
-				myPage myPage = new myPage(dao.alarmToVO(vo_alarm));
-				}
+				myPage myPage = new myPage(dao.alarmToVO(vo_alarm));	
 			}
 		});
-
 		lbl_mypage.setBounds(257, 38, 81, 15);
 		frame.getContentPane().add(lbl_mypage);
 
@@ -110,32 +99,30 @@ public class crime_main {
 		lbl_signout.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_signout.setForeground(new Color(0, 0, 128));
 		lbl_signout.setFont(new Font("함초롬돋움", Font.BOLD, 12));
+		//로그아웃
 		lbl_signout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
 				frame.dispose();
 				login.main(null);
 				login login = new login();
-
 			}
 		});
 		lbl_signout.setBounds(257, 20, 81, 15);
 		frame.getContentPane().add(lbl_signout);
 
 		JLabel lbl_title = new JLabel("");
+		//타이틀로고 클릭시 이동할 페이지 설정
 		lbl_title.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
 				if (vo_alarm.getId().equals("admin")) {  //관리자는 관리자페이지로 돌아오고
 					frame.dispose();
-					admin_select asel = new admin_select(dao.alarmToVO(vo_alarm));
-				} else {  //회원은 메인페이지 새로 고침
+					admin_select asel = new admin_select(dao.alarmToVO(vo_alarm)); //알람테이블의 아이디값 받아와서 admin아닌지 구분하여 회원인지 구분!
+				} else { 								 //회원은 메인페이지 새로 고침
 					frame.dispose();
 					crime_main crime = new crime_main(vo_alarm);
 				}
-
 			}
 		});
 		lbl_title.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uC791\uC740 \uD22C\uBA85.png")));
@@ -146,12 +133,12 @@ public class crime_main {
 		JLabel lbl_tipoff = new JLabel("\uC81C\uBCF4\uD558\uAE30");
 		lbl_tipoff.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_tipoff.setForeground(new Color(0, 0, 128));
+		// 제보하기 버튼 클릭시
 		lbl_tipoff.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				tipoff tippoff = new tipoff(dao.alarmToVO(vo_alarm)); // 제보하기 버튼 활성화
-
+				tipoff tippoff = new tipoff(dao.alarmToVO(vo_alarm)); // //알람테이블의 아이디값 계속 받아가고 있음
 			}
 		});
 		lbl_tipoff.setFont(new Font("함초롬돋움", Font.BOLD, 12));
@@ -192,12 +179,13 @@ public class crime_main {
 
 		JLabel lbl_fold = new JLabel("");
 		lbl_fold.setIcon(new ImageIcon(crime_main.class.getResource("/res/downarrow.png")));
+		//조회조건 적는 칸 접는 버튼
 		lbl_fold.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (panel.getHeight() < 200) {
+				if (panel.getHeight() < 200) {			//작게 접어진 상태면 702로 세로크기 키우고
 					panel.setBounds(0, 110, 375, 702);
-				} else
+				} else									//펼쳐진 상태라면 세로크기 5로 줄임
 					panel.setBounds(0, 110, 5, 5);
 			}
 		});
@@ -214,8 +202,7 @@ public class crime_main {
 		combo_city.setForeground(new Color(0, 0, 128));
 		combo_city.setBounds(134, 111, 174, 18);
 		panel.add(combo_city);
-		combo_city.setModel(new DefaultComboBoxModel(
-				new String[] {"도시를 선택하세요", "서울특별시", "광주광역시"}));
+		combo_city.setModel(new DefaultComboBoxModel(new String[] {"도시를 선택하세요", "서울특별시", "광주광역시"}));
 		combo_city.setFont(new Font("함초롬돋움", Font.BOLD, 10));
 		combo_city.setBackground(new Color(204, 204, 255));
 
@@ -231,8 +218,7 @@ public class crime_main {
 		combo_street.setForeground(new Color(0, 0, 128));
 		combo_street.setBounds(134, 168, 174, 19);
 		panel.add(combo_street);
-		combo_street.setModel(new DefaultComboBoxModel(
-				new String[] {"상세주소를 선택하세요", "2순환로","서문대로","서문대로402번길","서문대로473번길","서문대로499번길","서문대로517번길","서문대로556번길","서문대로627번길","송암로","송암로130번길","송암로24번길","송암로24번가길","송암로24번나길","송암로27번길","송암로42번길","송암로58번길","송암로76번길","송암로98번길","원효천길","원효천1길","원효천2길","입하길","입하1길","입하2길","입하2안길","효덕로","효덕로303번길","효천길","효천3로"}));
+		combo_street.setModel(new DefaultComboBoxModel(new String[] {"상세주소를 선택하세요", "2순환로","서문대로","서문대로402번길","서문대로473번길","서문대로499번길","서문대로517번길","서문대로556번길","서문대로627번길","송암로","송암로130번길","송암로24번길","송암로24번가길","송암로24번나길","송암로27번길","송암로42번길","송암로58번길","송암로76번길","송암로98번길","원효천길","원효천1길","원효천2길","입하길","입하1길","입하2길","입하2안길","효덕로","효덕로303번길","효천길","효천3로"}));
 		combo_street.setFont(new Font("함초롬돋움", Font.BOLD, 10));
 		combo_street.setBackground(new Color(204, 204, 255));
 
@@ -246,29 +232,25 @@ public class crime_main {
 		combo_fromYear.setBackground(new Color(204, 204, 255));
 		combo_fromYear.setBounds(134, 233, 65, 18);
 		panel.add(combo_fromYear);
-		combo_fromYear.setModel(new DefaultComboBoxModel(
-				new String[] { "", "1980", "1990", "2000", "2010", "2015", "2018", "2019", "2020" }));
+		combo_fromYear.setModel(new DefaultComboBoxModel(new String[] { "", "1980", "1990", "2000", "2010", "2015", "2018", "2019", "2020" }));
 
 		JComboBox combo_toYear = new JComboBox();
 		combo_toYear.setBackground(new Color(204, 204, 255));
 		combo_toYear.setBounds(134, 261, 65, 18);
 		panel.add(combo_toYear);
-		combo_toYear.setModel(new DefaultComboBoxModel(
-				new String[] { "", "1980", "1990", "2000", "2010", "2015", "2018", "2019", "2020" }));
+		combo_toYear.setModel(new DefaultComboBoxModel(new String[] { "", "1980", "1990", "2000", "2010", "2015", "2018", "2019", "2020" }));
 
 		JComboBox combo_toMon = new JComboBox();
 		combo_toMon.setBackground(new Color(204, 204, 255));
 		combo_toMon.setBounds(204, 261, 50, 18);
 		panel.add(combo_toMon);
-		combo_toMon.setModel(new DefaultComboBoxModel(
-				new String[] { "", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+		combo_toMon.setModel(new DefaultComboBoxModel(new String[] { "", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
 		JComboBox combo_fromMon = new JComboBox();
 		combo_fromMon.setBackground(new Color(204, 204, 255));
 		combo_fromMon.setBounds(204, 233, 50, 18);
 		panel.add(combo_fromMon);
-		combo_fromMon.setModel(new DefaultComboBoxModel(
-				new String[] { "", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+		combo_fromMon.setModel(new DefaultComboBoxModel(new String[] { "", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
 		JComboBox combo_fromDay = new JComboBox();
 		combo_fromDay.setBackground(new Color(204, 204, 255));

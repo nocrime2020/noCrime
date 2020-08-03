@@ -32,7 +32,7 @@ public class DAO {
          e.printStackTrace();
       }
    }
-
+   
    // 데이터베이스 자원을 반납하는 닫기 메소드
    private void close() {
       try {
@@ -47,6 +47,7 @@ public class DAO {
       }
    }
 
+   
    // 로그인 메소드
    public VO login(VO vo) {
 
@@ -78,6 +79,7 @@ public class DAO {
       return vo;
    }
 
+   
    // 회원가입 메소드 (login.java)
    public int insert(VO vo) {
       int cnt = 0;
@@ -103,6 +105,7 @@ public class DAO {
       return cnt;
    }
 
+   
    // 회원정보 수정 메소드 (비밀번호 || 이메일 || 비밀번호&&이메일 )
    public int update(updateVO updatevo) {
       int cnt = 0;
@@ -139,6 +142,7 @@ public class DAO {
       return cnt;
    }
 
+   
    // 회원정보 탈퇴 메소드
    public int delete(VO vo) {
 
@@ -162,6 +166,7 @@ public class DAO {
       return cnt;
    }
 
+   
    // 메소드명 -> allSelect()
    // 리턴타입은 여러분들이 생각해보세요!
    // 내부에서 출력 x
@@ -194,6 +199,7 @@ public class DAO {
       return list; // 반환해줌
    }
 
+   
    // 제보테이블용
    public ArrayList<tipoff_VO> allSelect1() {
       ArrayList<tipoff_VO> list = new ArrayList<tipoff_VO>();
@@ -227,6 +233,7 @@ public class DAO {
       return list; // 반환해줌
    }
 
+   
    // 관리자의 회원강제탈퇴용
    public int deleteMember(String id) {
 
@@ -250,7 +257,8 @@ public class DAO {
       return cnt;
    }
 
-//메인으로 제보전송하기용
+   
+   //메인으로 제보전송하기용
    public int sending_tipoff(String tip_info_id, String cr_type_id, String cr_date, String cr_loc_id, String evidence,
          String cr_name) {
 
@@ -279,6 +287,7 @@ public class DAO {
       return cnt;
    }
 
+   
    //알람 설정하는 메소드 (기존 알람 존재)
    public int sending_alarm(VO vo, int set_start, int set_end, int cr_cnt) {
       int cnt = 0;
@@ -303,6 +312,7 @@ public class DAO {
       return cnt;
    }
 
+   
  //알람 설정하는 메소드 (기존 알람 미존재)
    public int sending_alarm2(VO vo, int set_start, int set_end, int cr_cnt) {
       int cnt = 0;
@@ -327,6 +337,7 @@ public class DAO {
       return cnt;
    }
 
+   
    //알람이 있는 회원인지? 설정하지않아 없는 회원인지? 체크해주는 메소드
    public int check_alarm(VO vo) {
       int cnt2 = 0;
@@ -352,6 +363,7 @@ public class DAO {
       return cnt2;
    }
 
+   
 //   public int save_alarminfo(VO vo) {
 //
 //      int cnt3 = 0;
@@ -381,6 +393,7 @@ public class DAO {
 //      return cnt3;
 //   }
 
+   
    // 제보관리에서 범죄정보로 데이터를 넘겼는지 확인용
    public boolean sended() {
       boolean result = false;
@@ -403,6 +416,7 @@ public class DAO {
       return result;
    }
 
+   
    //알람이 있는 회원의 알람설정(myPage)
    public VO_alarm check_alarm2(VO vo) {
       VO_alarm vo1 = null;
@@ -432,6 +446,7 @@ public class DAO {
       return vo1;
    }
 
+   
    //설정된 알람 삭제하는 메소드
    public int delete_alarm(VO vo) {
       int cnt4 = 0;
@@ -489,7 +504,8 @@ public class DAO {
       return cnt;
    }
 
-   // VO알람을 id,pw,name,email이 포함된 VO로 전환
+   
+   // VO알람(alarm테이블의 모든column 관리하는 VO_alarm)을 id,pw,name,email이 포함된 VO로 전환
    public VO alarmToVO(VO_alarm vo_alarm) {
       VO vo2 = null;
       try {
@@ -498,7 +514,7 @@ public class DAO {
          String sql = "SELECT * FROM member where id = ?";
 
          psmt = conn.prepareStatement(sql);
-         psmt.setString(1, vo_alarm.getId());
+         psmt.setString(1, vo_alarm.getId());	//알람정보 저장된 id를 가져옴
 
          rs = psmt.executeQuery();
 
@@ -507,8 +523,9 @@ public class DAO {
             String pw = rs.getString(2);
             String name = rs.getString(3);
             String email = rs.getString(4);
-            vo2 = new VO(id, pw, name, email); // 1~4가져와서 vo로 묶음
+            vo2 = new VO(id, pw, name, email); // (1)~(4)가져와서 vo로 묶음
          }
+         
       } catch (SQLException e) {
          e.printStackTrace();
       } finally {
@@ -517,6 +534,7 @@ public class DAO {
       return vo2; // 반환해줌
    }
 
+   
    public void alarmPlayer() {
 	      player.play(DAO.class.getResource("").getPath() + "..\\src\\res\\ppipp.mp3");
 	   }

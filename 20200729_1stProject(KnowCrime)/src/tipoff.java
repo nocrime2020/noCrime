@@ -26,9 +26,9 @@ public class tipoff {
 
 	DAO dao = new DAO();
 	
-	JFileChooser chooser;
-	ImageIcon ImageIcon;
-	String eviPath = "";
+	JFileChooser chooser;	//파일 다이얼로그 생성 위함
+	ImageIcon ImageIcon;	//파일경로의 사진 불러오기 위함
+	String eviPath = "";	//파일경로 저장하여 불러오기 위함
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 	/**
@@ -51,7 +51,7 @@ public class tipoff {
 	/**
 	 * Create the application.
 	 */
-	public tipoff(VO vo) {
+	public tipoff(VO vo) {		
 		initialize(vo);
 		frame.setVisible(true);
 	}
@@ -59,7 +59,7 @@ public class tipoff {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(VO vo) {
+	private void initialize(VO vo) {	//회원 정보 받아옴
 		frame = new JFrame();
 		frame.getContentPane().setForeground(new Color(0, 0, 128));
 		frame.getContentPane().setFont(new Font("함초롬돋움", Font.BOLD, 12));
@@ -75,43 +75,37 @@ public class tipoff {
 		lbl_tipoff.setBounds(62, 87, 234, 54);
 		frame.getContentPane().add(lbl_tipoff);
 		
-
-		
-		JButton btn_evidence = new JButton("CHOOSE PHOTO");
-		
-		
 		JLabel lbl_photo = new JLabel("");
 		lbl_photo.setBounds(97, 586, 151, 109);
 		frame.getContentPane().add(lbl_photo);
 
+		
 		chooser = new JFileChooser();	//파일 다이얼로그 생성
-		chooser.setCurrentDirectory(new File("C:\\"));
+		chooser.setCurrentDirectory(new File("C:\\"));	//파일찾기 시 c드라이브 처음 뜨게끔 설정
 		
-		
+		JButton btn_evidence = new JButton("CHOOSE PHOTO");
+		//제보를 위한 증거사진 pc에서 가져오기
 		btn_evidence.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG & JPG Images", "png", "jpg");
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG & JPG Images", "png", "jpg");	//png와 jpg형식으로 받아오게하고, 사용자에게 알려주기위해 "~&~" 써줌
 				chooser.setFileFilter(filter); 		//파일 다이얼로그에 파일필터 설정
 				
 				//파일 다이얼로그 출력
-				int ret = chooser.showOpenDialog(null);	//열기창 정의
-				if(ret == JFileChooser.APPROVE_OPTION) { //디렉토리를 선택했으면  //사용자가 파일 선택 후 "열기" 버튼 누름
+				int ret = chooser.showOpenDialog(null);		//열기창 정의
+				if(ret == JFileChooser.APPROVE_OPTION) {    //사용자가 파일 선택 후 "열기" 버튼 누름 (//디렉토리를 선택했으면)
 					String filePath = chooser.getSelectedFile().getPath();	//파일경로를 가져옴
-//					System.out.println(filePath);
-					eviPath = filePath;
-					Image temp = new ImageIcon(filePath).getImage();
-					lbl_photo.setIcon(new ImageIcon(temp.getScaledInstance(151, 109, Image.SCALE_SMOOTH)));
-					
-				} else { 													//사용자가 창을 강제로 닫거나 취소 버튼을 누름
-					JOptionPane.showMessageDialog(null, "파일 선택 취소", "범죄 제보", JOptionPane.WARNING_MESSAGE );
+					eviPath = filePath;	//파일경로를 저장해줌
+					Image temp = new ImageIcon(filePath).getImage();	//경로의 이미지를 이미지temp에 저장해주고
+					lbl_photo.setIcon(new ImageIcon(temp.getScaledInstance(151, 109, Image.SCALE_SMOOTH)));	//해당 크기와 설정된 이미지보정효과로 lbl_photo에 이미지를 불러온다
+				} else { 								   //사용자가 창을 강제로 닫거나 취소 버튼을 누름
+					JOptionPane.showMessageDialog(null, "증거사진 업로드 취소", "범죄 제보", JOptionPane.WARNING_MESSAGE );
 					return;
 				}
 				
 			}
 		});
-		
+
 		
 		btn_evidence.setBackground(new Color(204, 204, 255));
 		btn_evidence.setFont(new Font("함초롬돋움", Font.BOLD, 12));
@@ -162,7 +156,7 @@ public class tipoff {
 		lbl_evidence.setBounds(12, 512, 97, 43);
 		frame.getContentPane().add(lbl_evidence);
 		
-//		JCheckBox ck_assault = new JCheckBox("\uC0C1\uD574\uD3ED\uD589");
+//		JCheckBox ck_assault = new JCheckBox("\uC0C1\uD574\uD3ED\uD589");			//체크박스 대신 라디오박스로 변경(라디오박스는 그룹설정시 자동으로1개만 선택할 수 있게 해주기 때문)
 //		ck_assault.setBackground(new Color(230, 230, 250));
 //		ck_assault.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 //		ck_assault.setBounds(263, 633, 73, 23);
@@ -260,12 +254,16 @@ public class tipoff {
 		frame.getContentPane().add(combo_street);
 		
 		JLabel lbl_title = new JLabel("");
+		//타이틀로고 클릭시 범죄조회 페이지로 이동
 		lbl_title.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				crime_main crime = new crime_main(dao.check_alarm2(vo));
-				
+				if (dao.check_alarm(vo) > 0) {		//알람정보가 저장되어있다면  바로 메인(범죄조회페이지)으로 이동
+					crime_main crime = new crime_main(dao.check_alarm2(vo));
+				}else {
+					crime_main crime = new crime_main(new VO_alarm(vo.getId(),null,null,null));
+				}
 			}
 		});
 		lbl_title.setFont(new Font("굴림", Font.PLAIN, 23));
@@ -275,41 +273,45 @@ public class tipoff {
 		
 		
 		
-		JLabel lbl_resetICON = new JLabel("");
-
-		//reset아이콘 클릭시 선택&&입력 정보 초기화 버튼
-		lbl_resetICON.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				combo_city.setSelectedIndex(0);
-				combo_gu.setSelectedIndex(0);
-				combo_street.setSelectedIndex(0);
-				txt_date.setText("");
-//				ck_assault.setSelected(false);
-//				ck_rape.setSelected(false);
-//				ck_burglary.setSelected(false);
-//				ck_kidnap.setSelected(false);
-//				ck_murder.setSelected(false);
-			}
-		});
+//		JLabel lbl_resetICON = new JLabel("");
+//		//reset아이콘 클릭시 선택&&입력 정보 초기화 버튼
+//		lbl_resetICON.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				combo_city.setSelectedIndex(0);
+//				combo_gu.setSelectedIndex(0);
+//				combo_street.setSelectedIndex(0);
+//				txt_date.setText("");
+////				ck_assault.setSelected(false);
+////				ck_rape.setSelected(false);
+////				ck_burglary.setSelected(false);
+////				ck_kidnap.setSelected(false);
+////				ck_murder.setSelected(false);
+//			}
+//		});
+//		lbl_resetICON.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\small.png"));
+//		lbl_resetICON.setBounds(290, 206, 25, 29);
+//		frame.getContentPane().add(lbl_resetICON);
 		
 		btn_send.addMouseListener(new MouseAdapter() {
 			@Override
+			//제보하기
 			public void mouseClicked(MouseEvent e) {
 				int result = JOptionPane.showConfirmDialog(null, "입력한 정보로 제보 하시겠습니까?", "범죄 제보", JOptionPane.YES_NO_OPTION);
 				if (result == JOptionPane.YES_OPTION) {		// 사용자가 제보를 원하는 경우
 					
-					if ((combo_city.getSelectedIndex()!=0) && 
+					if ((combo_city.getSelectedIndex()!=0) && 		//콤보값들(날짜)이 선택되어있고
 						(combo_gu.getSelectedIndex()!=0) &&
 						(combo_street.getSelectedIndex()!=0) && 
-//						!txt_date.getText().equals("") && 
-						(rd_assault.isSelected() || 
+//						!txt_date.getText().equals("") && 				//(날짜는 미입력시 sysdate로 자동으로 입력됨)
+						(rd_assault.isSelected() || 				//범죄종류가 1개선택되어있으면
 						 rd_rape.isSelected() || 
 						 rd_burglary.isSelected() || 
 						 rd_kidnap.isSelected() || 
 						 rd_murder.isSelected())
 						)	{	//안넣은 값 없이 다 쓴 경우
 						
+						//범죄종류구분에 따른 코드 지정
 						String crtyId = "";
 						if (rd_burglary.isSelected()==true) {
 							crtyId = "1";
@@ -323,7 +325,8 @@ public class tipoff {
 							crtyId = "5";
 						}
 						
-						String loc = "";
+						//주소코드 지정
+						String loc = "";							
 						if (combo_city.getSelectedIndex()==2 && combo_gu.getSelectedIndex()==4 && combo_street.getSelectedIndex()==16) {
 							loc = "118";
 						} else if (combo_city.getSelectedIndex()==2 && combo_gu.getSelectedIndex()==4 && combo_street.getSelectedIndex()==17) {
@@ -334,13 +337,12 @@ public class tipoff {
 //						if (txt_date == null || txt_date.equals("")) {
 //							return;
 //						}
-							
 						
+			
 						String cr_type_id = crtyId;
 						String cr_date = txt_date.getText();
 						String cr_loc_id = loc;
 						String evidence = eviPath;
-						
 						
 						tipoff_VO tipoff_vo = new tipoff_VO(cr_type_id, cr_date, cr_loc_id, evidence);
 						int cnt = dao.tipoff_insert(tipoff_vo);
@@ -348,29 +350,17 @@ public class tipoff {
 							JOptionPane.showMessageDialog(null, "제보 완료.\n 영업일 1일이내 검토 후 범죄 정보에 조회됩니다.", "범죄 제보", JOptionPane.INFORMATION_MESSAGE);
 							frame.dispose();
 							tipoff tipoff = new tipoff(vo);
-							
 						}
-						
-						
-						
-						
 					} else { //정보 입력 중 빠진 입력값이 있는 경우
 						JOptionPane.showMessageDialog(null, "입력되지 않은 정보가 존재합니다.", "범죄 제보", JOptionPane.ERROR_MESSAGE);
 					}
-					
 					
 				} else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {
 					JOptionPane.showMessageDialog(null, "제보 취소", "범죄 제보", JOptionPane.WARNING_MESSAGE );
 					return; // 사용자가 전송취소 혹은 창닫기 버튼을 누른 경우
 				}
-				
 			}
 		});
-		
-	
-		lbl_resetICON.setIcon(new ImageIcon("C:\\Users\\SMT044\\Desktop\\\uB178\uD06C\uB77C\uC784\\crimeicon\\small.png"));
-		lbl_resetICON.setBounds(290, 206, 25, 29);
-		frame.getContentPane().add(lbl_resetICON);
 		
 		JLabel lbl_rapeICON = new JLabel("");
 		lbl_rapeICON.setIcon(new ImageIcon(tipoff.class.getResource("/res/\uAC15\uCD94\uC2A4\uBAB0.png")));
@@ -399,13 +389,12 @@ public class tipoff {
 		
 		JLabel lbl_logout = new JLabel("");
 		lbl_logout.setIcon(new ImageIcon(tipoff.class.getResource("/res/logout2.png")));
+		//로그아웃 클릭
 		lbl_logout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
 				frame.dispose();
 				login login = new login();
-				
 			}
 		});
 		lbl_logout.setBounds(306, 10, 102, 38);
@@ -417,8 +406,6 @@ public class tipoff {
 		lblNewLabel.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		lblNewLabel.setBounds(110, 288, 219, 15);
 		frame.getContentPane().add(lblNewLabel);
-		
-		
 		
 	}
 }
