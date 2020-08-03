@@ -201,7 +201,7 @@ public class login {
                } else {                     //회원은 범죄조회페이지로
                   frame.dispose();
                   if(dao.check_alarm(vo)==0) {      //알람이 없는 회원이라면
-                     crime_main crime = new crime_main(new VO_alarm(vo.getId(),null,null,null));
+                     crime_main crime = new crime_main(new VO_alarm(vo.getId(),null,null,null));	//'아이디만 가져오고 알람시작,종료시간 및 횟수는 없다'
                   }else {                        //알람을 설정하여 있는 회원이라면
                      crime_main crime = new crime_main(dao.check_alarm2(vo));
                   }

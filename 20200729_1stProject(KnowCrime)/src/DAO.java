@@ -407,13 +407,16 @@ public class DAO {
       return result;
    }
 
+   //알람이 있는 회원의 알람설정(myPage)
    public VO_alarm check_alarm2(VO vo) {
       VO_alarm vo1 = null;
       try {
          getConnection(); // 드라이버 로딩
-         String sql = "select * from alarm WHERE id = ?"; //
+        
+         String sql = "select * from alarm WHERE id = ?";
 
-         psmt = conn.prepareStatement(sql); //
+         psmt = conn.prepareStatement(sql);
+        
          psmt.setString(1, vo.getId());
 
          rs = psmt.executeQuery();
@@ -425,6 +428,7 @@ public class DAO {
             String cr_cnt = rs.getString(4);
             vo1 = new VO_alarm(id, set_start, set_end, cr_cnt);
          }
+         
       } catch (SQLException e) {
          e.printStackTrace();
       } finally {
