@@ -258,7 +258,7 @@ public class myPage {
 		btn_okalarm.setBackground(new Color(204, 204, 255));
 		btn_okalarm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
 				int combo_startalarm1 = combo_startalarm.getSelectedIndex() - 1;
 				int combo_endalarm1 = combo_endalarm.getSelectedIndex() - 1;
 				int occur_cnt1 = Integer.parseInt(occur_cnt.getText().toString());
@@ -272,6 +272,22 @@ public class myPage {
 							cnt = dao.sending_alarm(vo, combo_startalarm1, combo_endalarm1, occur_cnt1);
 						} else {
 							cnt = dao.sending_alarm2(vo, combo_startalarm1, combo_endalarm1, occur_cnt1);
+						}
+
+						if (cnt > 0) {
+							JOptionPane.showMessageDialog(null, "알람이 설정 되었습니다.");
+						} else {
+							JOptionPane.showMessageDialog(null, "내용을 입력해주세요.", "알람", JOptionPane.INFORMATION_MESSAGE);
+						}
+					}else if(!combo_startalarm.getSelectedItem().equals("")&&!combo_endalarm.getSelectedItem().equals("")&& occur_cnt1 != 0) {
+						cnt2 = dao.check_alarm(vo);
+						if (cnt2 > 0) {
+							System.out.println("되나요?");
+							cnt = dao.sending_alarm(vo, Integer.parseInt(dao.check_alarm2(vo).getSet_start()),
+									Integer.parseInt(dao.check_alarm2(vo).getSet_end()), occur_cnt1);
+						} else {
+							cnt = dao.sending_alarm2(vo, Integer.parseInt(dao.check_alarm2(vo).getSet_start()), 
+									Integer.parseInt(dao.check_alarm2(vo).getSet_end()), occur_cnt1);
 						}
 
 						if (cnt > 0) {
