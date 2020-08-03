@@ -56,7 +56,7 @@ public class crime_main {
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
-		frame.setBounds(100, 100, 375, 812);
+		frame.setBounds(772, 134, 375, 812);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -1138,10 +1138,11 @@ public class crime_main {
 						if (crime_cnt[i]) {
 							cnt++;
 						}
-					}if(cnt >= Integer.parseInt(vo_alarm.getCr_cnt())&&currentTime.getHour()>Integer.parseInt(vo_alarm.getSet_start())&&currentTime.getHour()<Integer.parseInt(vo_alarm.getSet_end())) {
+					}if(dao.check_alarm((new VO(vo_alarm.getId(),null)))==0) {
+					}else if(cnt >= Integer.parseInt(vo_alarm.getCr_cnt())&&currentTime.getHour()>Integer.parseInt(vo_alarm.getSet_start())&&currentTime.getHour()<Integer.parseInt(vo_alarm.getSet_end())) {
 						dao.alarmPlayer();
 						int num = JOptionPane.INFORMATION_MESSAGE;
-						JOptionPane.showMessageDialog(null, "회원님이 설정하신 수 이상의 범죄가 탐지되었습니다.", "알람",JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "회원님이 설정하신 수 이상의 범죄가 탐지되었습니다.", "우범 지역 알림",JOptionPane.INFORMATION_MESSAGE);
 					}
 				}else if (lbl_76.isVisible()) {
 					crime_cnt = new boolean[] {lbl_강2_1280.isVisible(),lbl_강1_1338.isVisible(),lbl_강3_1251.isVisible(),lbl_절2_1048.isVisible(),lbl_상1_1135.isVisible(),
@@ -1151,10 +1152,11 @@ public class crime_main {
 						if (crime_cnt[i]) {
 							cnt++;
 						}
-					}if(cnt >= Integer.parseInt(vo_alarm.getCr_cnt())&&currentTime.getHour()>Integer.parseInt(vo_alarm.getSet_start())&&currentTime.getHour()<Integer.parseInt(vo_alarm.getSet_end())) {
+					}if(dao.check_alarm((new VO(vo_alarm.getId(),null)))==0) {
+					}else if(cnt >= Integer.parseInt(vo_alarm.getCr_cnt())&&currentTime.getHour()>Integer.parseInt(vo_alarm.getSet_start())&&currentTime.getHour()<Integer.parseInt(vo_alarm.getSet_end())) {
 						dao.alarmPlayer();
 						int num = JOptionPane.INFORMATION_MESSAGE;
-						JOptionPane.showMessageDialog(null, "회원님이 설정하신 수 이상의 범죄가 탐지되었습니다.", "알람",JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "회원님이 설정하신 수 이상의 범죄가 탐지되었습니다.", "우범 지역 알림", JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 			}

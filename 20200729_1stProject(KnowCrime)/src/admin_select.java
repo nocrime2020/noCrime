@@ -48,7 +48,7 @@ public class admin_select {
 	 */
 	private void initialize(VO vo) {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 375, 812);
+		frame.setBounds(772, 134, 375, 812);
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
