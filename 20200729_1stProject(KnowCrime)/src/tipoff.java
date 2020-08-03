@@ -227,31 +227,25 @@ public class tipoff {
 		frame.getContentPane().add(rd_rape);
 		
 		JComboBox combo_city = new JComboBox();
-		combo_city.setEnabled(false);
 		combo_city.setForeground(new Color(0, 0, 128));
 		combo_city.setModel(new DefaultComboBoxModel(new String[] {"도시를 선택하세요", "서울특별시", "광주광역시"}));
 		combo_city.setBackground(new Color(204, 204, 255));
-		combo_city.setEditable(true);
 		combo_city.setFont(new Font("함초롬돋움", Font.BOLD, 10));
 		combo_city.setBounds(110, 159, 219, 18);
 		frame.getContentPane().add(combo_city);
 		
 		JComboBox combo_gu = new JComboBox();
-		combo_gu.setEnabled(false);
 		combo_gu.setForeground(new Color(0, 0, 128));
 		combo_gu.setBackground(new Color(204, 204, 255));
-		combo_gu.setEditable(true);
 		combo_gu.setFont(new Font("함초롬돋움", Font.BOLD, 10));
 		combo_gu.setModel(new DefaultComboBoxModel(new String[] {"구를 선택하세요", "광산구", "동구", "서구", "남구", "북구"}));
 		combo_gu.setBounds(110, 187, 219, 19);
 		frame.getContentPane().add(combo_gu);
 		
 		JComboBox combo_street = new JComboBox();
-		combo_street.setEnabled(false);
 		combo_street.setForeground(new Color(0, 0, 128));
 		combo_street.setModel(new DefaultComboBoxModel(new String[] {"상세주소를 선택하세요", "2순환로","서문대로","서문대로402번길","서문대로473번길","서문대로499번길","서문대로517번길","서문대로556번길","서문대로627번길","송암로","송암로130번길","송암로24번길","송암로24번가길","송암로24번나길","송암로27번길","송암로42번길","송암로58번길","송암로76번길","송암로98번길","원효천길","원효천1길","원효천2길","입하길","입하1길","입하2길","입하2안길","효덕로","효덕로303번길","효천길","효천3로"}));
 		combo_street.setBackground(new Color(204, 204, 255));
-		combo_street.setEditable(true);
 		combo_street.setFont(new Font("함초롬돋움", Font.BOLD, 10));
 		combo_street.setBounds(110, 216, 219, 19);
 		frame.getContentPane().add(combo_street);
