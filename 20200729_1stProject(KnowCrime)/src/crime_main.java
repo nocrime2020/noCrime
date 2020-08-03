@@ -1106,6 +1106,8 @@ public class crime_main {
 							cnt++;
 						}
 					}if(cnt >= Integer.parseInt(vo_alarm.getCr_cnt())&&currentTime.getHour()>Integer.parseInt(vo_alarm.getSet_start())&&currentTime.getHour()<Integer.parseInt(vo_alarm.getSet_end())) {
+						dao.alarmPlayer();
+						int num = JOptionPane.INFORMATION_MESSAGE;
 						JOptionPane.showMessageDialog(null, "회원님이 설정하신 수 이상의 범죄가 탐지되었습니다.", "알람",JOptionPane.INFORMATION_MESSAGE);
 					}
 				}else if (lbl_76.isVisible()) {
@@ -1117,6 +1119,8 @@ public class crime_main {
 							cnt++;
 						}
 					}if(cnt >= Integer.parseInt(vo_alarm.getCr_cnt())&&currentTime.getHour()>Integer.parseInt(vo_alarm.getSet_start())&&currentTime.getHour()<Integer.parseInt(vo_alarm.getSet_end())) {
+						dao.alarmPlayer();
+						int num = JOptionPane.INFORMATION_MESSAGE;
 						JOptionPane.showMessageDialog(null, "회원님이 설정하신 수 이상의 범죄가 탐지되었습니다.", "알람",JOptionPane.INFORMATION_MESSAGE);
 					}
 				}

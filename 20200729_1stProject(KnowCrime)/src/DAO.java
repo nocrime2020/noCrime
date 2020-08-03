@@ -510,21 +510,11 @@ public class DAO {
 	}
 
 	public void alarmPlayer() {
-		int cnt = 0;
-		do {
-			player.play(DAO.class.getResource("").getPath() + "..\\..\\src\\res\\ppipp.mp3");
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			cnt++;
-			System.out.println(cnt);
-		} while (cnt < 2);
-		player.stop();
+		player.play(DAO.class.getResource("").getPath() + "..\\src\\res\\ppipp.mp3");
 	}
 	
 	public void alarmStop() {
+		if (player.isPlaying())
 		player.stop();
 	}
 }
