@@ -1,27 +1,27 @@
 
-
-public class VO {	//아래컬럼 하나로 묶어서 관리할 수 있는 메소드
-	//member테이블이 가지고 있는 컬럼
+//member테이블이 가지고 있는 아래 컬럼들을 하나로 묶어서 관리할 수 있는 메소드
+public class VO {	
 	private String id;
 	private String pw;
 	private String name;
 	private String email;
 	private int[] settings;
 	
+	//회원가입 기능 구현시 사용
 	public VO(String id, String pw, String name, String email) {
-		this.id = id;		//인스턴스변수(this.id)와 매개변수로 정의된 지역변수(id)를 구분하기 위함.
+		this.id = id;		//line4의 인스턴스변수(this.id)와 line10의 매개변수로 정의된 지역변수(id)를 구분하기 위함.
 		this.pw = pw;
 		this.name = name;
 		this.email = email;
 	}
 
-
-
-
+	//로그인 기능 구현시 사용
 	public VO(String id, String pw) {
 		this.id = id;
 		this.pw = pw;
 	}
+	
+	
 	
 	public VO(String id, int[] settings) {
 		this.id = id;
@@ -37,6 +37,9 @@ public class VO {	//아래컬럼 하나로 묶어서 관리할 수 있는 메소드
 		this.settings = settings;
 	}
 
+	
+	
+	
 	public String getId() {
 		return id;
 	}
@@ -61,9 +64,6 @@ public class VO {	//아래컬럼 하나로 묶어서 관리할 수 있는 메소드
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
-
 
 	
 	

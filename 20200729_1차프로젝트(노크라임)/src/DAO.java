@@ -56,12 +56,14 @@ public class DAO {
 			String sql = "select pw from member where id = ? and pw = ?";
 
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo.getId());
+			
+			psmt.setString(1, vo.getId()); //login페이지에서 사용자가 txtfield에 기재한 정보들보고 select문 사용하여 pw가져와 봄
 			psmt.setString(2, vo.getPw());
+			
 			rs = psmt.executeQuery();
 
-			if (rs.next()) {
-				String dbpw = rs.getString(1);
+			if (rs.next()) {	//커서가 아래로 이동하는가? (=불러와진 정보가 있다)
+				String dbpw = rs.getString(1);	
 				if (dbpw.equals(vo.getPw())) {
 				} else {
 					vo = null; // 잘못된 비번
@@ -78,16 +80,17 @@ public class DAO {
 		return vo;
 	}
 
-	// 회원가입 메소드
+	// 회원가입 메소드 (login.java)
 	public int insert(VO vo) {
 		int cnt = 0;
 		try {
-			getConnection();
+			getConnection();	//line19~33의 연결메소드 
+			
 			String sql = "insert into member values(?,?,?,?)";
 
 			psmt = conn.prepareStatement(sql);
 
-			psmt.setString(1, vo.getId());
+			psmt.setString(1, vo.getId());		//login페이지에서 사용자가 txtfield에 기재한 정보들 DB에 insert
 			psmt.setString(2, vo.getPw());
 			psmt.setString(3, vo.getName());
 			psmt.setString(4, vo.getEmail());
