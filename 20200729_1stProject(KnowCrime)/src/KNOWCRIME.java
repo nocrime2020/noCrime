@@ -1,9 +1,9 @@
 //
-//public class KNOWCRIME {
+public class KNOWCRIME {
 //
-//   public static void main(String[] args) {   //노크라임 프로젝트 내의 유일한 main 메소드
+   public static void main(String[] args) {   //노크라임 프로젝트 내의 유일한 main 메소드
 ////      
-//      login login = new login();
+     login login = new login();
 ////      
 ////
 ////기능 만들면서 페이지 띄우며 테스트하기위해 아래선언들도 남겨두었다가 마무리 후 주석 처리
@@ -22,6 +22,6 @@
 ////      admin_member admin_member = new admin_member();
 ////      
 //      
-//   }
-//
-//}
+   }
+
+}
