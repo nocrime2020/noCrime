@@ -166,7 +166,7 @@ public class DAO {
       return cnt;
    }
 
-   //전체 회원 목록 가져오기
+   //전체 회원 목록 가져오기 (admin_member)
    public ArrayList<VO> allSelect() {
       ArrayList<VO> list = new ArrayList<VO>();
       try {
@@ -197,7 +197,7 @@ public class DAO {
    }
 
    
-   // 제보테이블용
+   // 제보테이블용 (admin_tipoff)
    public ArrayList<tipoff_VO> allSelect1() {
       ArrayList<tipoff_VO> list = new ArrayList<tipoff_VO>();
       try {
@@ -209,6 +209,7 @@ public class DAO {
          psmt = conn.prepareStatement(sql);
 
          rs = psmt.executeQuery();
+         
          while (rs.next()) {
             String tip_info_id = rs.getString(1);
             String cr_loc_id = rs.getString(2);
@@ -231,7 +232,7 @@ public class DAO {
    }
 
    
-   // 관리자의 회원강제탈퇴용
+   // 관리자의 회원강제탈퇴용(admin_member)
    public int deleteMember(String id) {
 
       int cnt = 0;
@@ -241,7 +242,6 @@ public class DAO {
          String sql = "DELETE FROM member WHERE id = ?"; // ?자리에 id나pw 적으면 id,pw라는 문자열이 들어가는 것
 
          psmt = conn.prepareStatement(sql); //
-
          psmt.setString(1, id); // 아이디만 가져와서 비교하면 되기때문)
 
          cnt = psmt.executeUpdate();
@@ -255,7 +255,7 @@ public class DAO {
    }
 
    
-   //메인으로 제보전송하기용
+   //메인으로 제보전송하기용 (admin_tipoff에서 사용 (crime_main으로 보내는 용))
    public int sending_tipoff(String tip_info_id, String cr_type_id, String cr_date, String cr_loc_id, String evidence,
          String cr_name) {
 

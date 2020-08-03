@@ -1,21 +1,15 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.EventQueue;
 
-import javax.swing.DefaultCellEditor;
+import java.awt.Color;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,9 +19,7 @@ import java.util.ArrayList;
 
 import javax.swing.JTable;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JScrollBar;
+
 
 public class admin_tipoff {
 
@@ -37,8 +29,9 @@ public class admin_tipoff {
 	DAO dao = new DAO();
 
 	int cnt;
-	private JTable table;
-	private JTable table_1;
+//	private JTable table;
+//	private JTable table_1;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -75,14 +68,13 @@ public class admin_tipoff {
 		JLabel lbl_title = new JLabel("");
 		lbl_title.setBounds(128, 10, 103, 56);
 		lbl_title.setIcon(new ImageIcon(admin_tipoff.class.getResource("/res/\uC791\uC740 \uD22C\uBA85.png")));
+		//타이틀로고 클릭시
 		lbl_title.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
 				frame.dispose();
 //				admin_select.main(null);
 				admin_select admin_select = new admin_select(vo);
-
 			}
 		});
 		frame.getContentPane().setLayout(null);
@@ -92,14 +84,13 @@ public class admin_tipoff {
 		JLabel lbl_signout = new JLabel("");
 		lbl_signout.setBounds(307, 10, 40, 29);
 		lbl_signout.setIcon(new ImageIcon(admin_tipoff.class.getResource("/res/logout2.png")));
+		//로그아웃
 		lbl_signout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
 				frame.dispose();
 //				login.main(null);
 				login login = new login();
-
 			}
 		});
 		frame.getContentPane().add(lbl_signout);
@@ -111,6 +102,7 @@ public class admin_tipoff {
 		lbl_tipoffmanage.setFont(new Font("함초롬돋움", Font.BOLD, 24));
 		frame.getContentPane().add(lbl_tipoffmanage);
 
+		//회원에게 제보받은 목록 테이블에 불러오기
 		ArrayList<tipoff_VO> tipoffList = dao.allSelect1();
 		String[] column = { "제보정보코드", "범죄종류", "범죄발생일", "범죄장소코드", "증거자료","범죄 세부명"};
 		Object[][] data = new Object[tipoffList.size()][column.length];
@@ -122,33 +114,30 @@ public class admin_tipoff {
 			data[i][4] = tipoffList.get(i).getEvidence();
 			data[i][5] = tipoffList.get(i).getCr_name();
 		}
-
 		DefaultTableModel model = new DefaultTableModel(data, column); // DefaultTableModel 선언 후 데이터 담기
 		table_tipoffmanage = new JTable(model); // JTable에 DefaultTableModel을 담기
 		table_tipoffmanage.setBounds(37, 146, 287, 493);
 
-		JScrollPane scrollPane = new JScrollPane(table_tipoffmanage);
+		JScrollPane scrollPane = new JScrollPane(table_tipoffmanage);	//스크롤
 		scrollPane.setBounds(36, 146, 287, 493);
 		frame.getContentPane().add(scrollPane);
 
-		table_tipoffmanage.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		table_tipoffmanage.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);	//사이즈조절 자동으로 
 
 		JButton btn_upload = new JButton("\uC804\uC1A1 \uD558\uAE30");
 		btn_upload.setBackground(new Color(204, 204, 255));
+		//회원에게 제보받은 제보를 검토 후 관리자가 범죄정보조회에 업로드
 		btn_upload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				int row = table_tipoffmanage.getSelectedRow();
 				int result = JOptionPane.showConfirmDialog(null, "전송 하기", "제보 관리", JOptionPane.YES_NO_OPTION);
-
 				if (result == JOptionPane.YES_OPTION) {
 					if (row != 0) {
 						row = table_tipoffmanage.getSelectedRow();
-//						int[] rows = (table_tipoffmanage.getSelectedRows());
-						String[] toto=new String[6];
+						String[] toto = new String[6];
 						for (int i = 0; i < 6; i++) {
 							Object value = table_tipoffmanage.getValueAt(row, i);
-							toto[i] = (String) value;
+							toto[i] = (String)value;
 						}
 						cnt = dao.sending_tipoff(toto[0], toto[1], toto[2], toto[3],toto[4],toto[5]);
 						if (cnt > 0) {
@@ -160,6 +149,7 @@ public class admin_tipoff {
 					}
 
 				} else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {
+					JOptionPane.showMessageDialog(null, "선택 제보 업로드를 취소합니다.", "제보 관리", JOptionPane.WARNING_MESSAGE );
 					return;
 				}
 
