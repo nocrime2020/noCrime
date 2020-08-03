@@ -5,6 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javazoom.jl.player.MP3Player;
+import practice.pr1;
+
 public class DAO {
 
 	// 필드 ---> DAO클래스 전역에 닿을 수 있게 생성
@@ -477,8 +480,8 @@ public class DAO {
 
 		return cnt;
 	}
-	
-	//VO알람을 id,pw,name,email이 포함된 VO로 전환
+
+	// VO알람을 id,pw,name,email이 포함된 VO로 전환
 	public VO alarmToVO(VO_alarm vo_alarm) {
 		VO vo2 = null;
 		try {
@@ -487,7 +490,7 @@ public class DAO {
 			String sql = "SELECT * FROM member where id = ?";
 
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1,vo_alarm.getId());
+			psmt.setString(1, vo_alarm.getId());
 
 			rs = psmt.executeQuery();
 
@@ -506,4 +509,20 @@ public class DAO {
 		return vo2; // 반환해줌
 	}
 
+	public void alarmPlayer() {
+		MP3Player player = new MP3Player();
+		int cnt = 0;
+		do {
+			player.play(pr1.class.getResource("").getPath() + "..\\..\\src\\res\\ppipp.mp3");
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			cnt++;
+			System.out.println(cnt);
+		} while (cnt < 2);
+		player.stop();
+	}
 }
