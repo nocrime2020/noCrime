@@ -4,6 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
 	<classpathentry kind="lib" path="src/opencsv-1.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SMT076/git/noCrime/20200729_1차프로젝트(노크라임)/src/player.jar"/>
+	<classpathentry kind="lib" path="src/player.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

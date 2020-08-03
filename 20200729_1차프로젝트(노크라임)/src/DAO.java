@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javazoom.jl.player.MP3Player;
-import practice.pr1;
 
 public class DAO {
 
@@ -14,6 +13,7 @@ public class DAO {
 	private Connection conn = null;
 	private PreparedStatement psmt = null; // Statement 클래스 => SQL구문 실행, 스스로 sql구문 이해는 못함=전달역할)
 	private ResultSet rs = null;
+	private MP3Player player = new MP3Player();
 
 	// 데이터베이스와 연결하는 메소드 생성
 	private void getConnection() {
@@ -510,19 +510,21 @@ public class DAO {
 	}
 
 	public void alarmPlayer() {
-		MP3Player player = new MP3Player();
 		int cnt = 0;
 		do {
-			player.play(pr1.class.getResource("").getPath() + "..\\..\\src\\res\\ppipp.mp3");
+			player.play(DAO.class.getResource("").getPath() + "..\\..\\src\\res\\ppipp.mp3");
 			try {
 				Thread.sleep(5000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			cnt++;
 			System.out.println(cnt);
 		} while (cnt < 2);
+		player.stop();
+	}
+	
+	public void alarmStop() {
 		player.stop();
 	}
 }
