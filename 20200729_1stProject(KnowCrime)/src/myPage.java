@@ -213,7 +213,7 @@ public class myPage {
 				if (result == JOptionPane.YES_OPTION) {
 					
 					if (((combo_startalarm1 == -1&&combo_startalarm.getSelectedItem().equals("")) || (combo_endalarm1 == -1&&combo_endalarm.getSelectedItem().equals("")) || occur_cnt1 == 0)) {
-						JOptionPane.showMessageDialog(null, "설정하지 않은 값이 존재합니다.11", "알람 설정", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "설정하지 않은 값이 존재합니다.", "알람 설정", JOptionPane.WARNING_MESSAGE);
 					} else if ((combo_startalarm1 != -1 && combo_endalarm1 != -1 && occur_cnt1 != 0)) {	//시작,종료시간 및 횟수설정 빼놓지 않고 설정한 경우
 						cnt2 = dao.check_alarm(vo);
 						
@@ -224,7 +224,7 @@ public class myPage {
 						}
 
 						if (cnt > 0) {
-							JOptionPane.showMessageDialog(null, "알람이 설정 되었습니다.11", "알람 설정", JOptionPane.INFORMATION_MESSAGE);
+							JOptionPane.showMessageDialog(null, "알람이 설정 되었습니다.", "알람 설정", JOptionPane.INFORMATION_MESSAGE);
 						} 
 //						else {
 //							
@@ -242,7 +242,7 @@ public class myPage {
 						}
 
 						if (cnt > 0) {
-							JOptionPane.showMessageDialog(null, "알람이 설정 되었습니다.22_변경사항없음");
+							JOptionPane.showMessageDialog(null, "알람이 설정 되었습니다.", "알람 설정", JOptionPane.INFORMATION_MESSAGE);
 						}
 						//else {
 //							JOptionPane.showMessageDialog(null, "설정하지 않은 값이 존재합니다22.", "알람 설정", JOptionPane.WARNING_MESSAGE);
