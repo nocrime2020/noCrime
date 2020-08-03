@@ -166,10 +166,7 @@ public class DAO {
       return cnt;
    }
 
-   
-   // 메소드명 -> allSelect()
-   // 리턴타입은 여러분들이 생각해보세요!
-   // 내부에서 출력 x
+   //전체 회원 목록 가져오기
    public ArrayList<VO> allSelect() {
       ArrayList<VO> list = new ArrayList<VO>();
       try {
