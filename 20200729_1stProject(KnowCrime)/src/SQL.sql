@@ -9,8 +9,6 @@ drop sequence cr_type_id_seq;
 drop sequence cr_loc_id_seq;
 drop sequence cr_id_seq;
 drop sequence tip_info_id_seq;
-drop sequence tip_id_seq;
-
 
 create table member
 (ID varchar2(16),
@@ -33,8 +31,7 @@ constraints alarm_id_fk foreign key(id) references member(id)
 create table crime_type
 (cr_type_id varchar2(20),
 cr_type varchar2(20) not null,
-constraints crimetype_crtypeid_pk primary key(cr_type_id),
-constraints crimetype_crtype_CK CHECK (cr_type IN('살인', '상해폭행', '강간추행', '절도강도', '약취유인'))
+constraints crimetype_crtypeid_pk primary key(cr_type_id)
 );
 
 create table crime_location
@@ -80,23 +77,19 @@ nocache;
 
 CREATE SEQUENCE cr_loc_id_seq
 increment by 1
-start with 1
+start with 101
 nocache;
 
 CREATE SEQUENCE cr_id_seq
 increment by 1
-start with 1
+start with 1001
 nocache;
 
 CREATE SEQUENCE tip_info_id_seq
 increment by 1
-start with 1000010
+start with 1000001
 nocache;
 
-CREATE SEQUENCE tip_id_seq
-increment by 1
-start with 1
-nocache;
 
 INSERT INTO member VALUES('admin','admin','administrator','1@1');
 insert into member values('abd12','3098','마현아','dkskdfjk@gmail.com');
@@ -113,24 +106,24 @@ insert into alarm values('akqk12','6','9','13');
 insert into alarm values('tkwk14','1','23','4');
 insert into alarm values('abd13','12','19','7');
 
-insert into crime_type values('1','절도강도');
-insert into crime_type values('2','살인');
-insert into crime_type values('3','강간추행');
-insert into crime_type values('4','약취유인');
-insert into crime_type values('5','상해폭행');
+insert into crime_type values(cr_type_id_seq.nextval,'절도강도');
+insert into crime_type values(cr_type_id_seq.nextval,'살인');
+insert into crime_type values(cr_type_id_seq.nextval,'강간추행');
+insert into crime_type values(cr_type_id_seq.nextval,'약취유인');
+insert into crime_type values(cr_type_id_seq.nextval,'상해폭행');
 
 insert into crime_location values('118','광주광역시','남구','송암로58번길');
 insert into crime_location values('119','광주광역시','남구','송암로76번길');
 
-insert into tip_info values('1000001','3',to_date('17/09/24'),'118',null,null);
-insert into tip_info values('1000002','3',to_date('19/08/14'),'119',null,null);
-insert into tip_info values('1000003','4',to_date('18/05/24'),'118',null,null);
-insert into tip_info values('1000004','2',to_date('18/11/05'),'119',null,null);
-insert into tip_info values('1000005','5',to_date('18/12/06'),'118',null,null);
-insert into tip_info values('1000006','5',to_date('20/05/08'),'119',null,null);
-insert into tip_info values('1000007','4',to_date('19/09/04'),'118',null,null);
-insert into tip_info values('1000008','1',to_date('20/05/29'),'118',null,null);
-insert into tip_info values('1000009','4',to_date('20/05/28'),'118',null,null);
+insert into tip_info values(tip_info_id_seq.nextval,'3',to_date('17/09/24'),'118',null,null);
+insert into tip_info values(tip_info_id_seq.nextval,'3',to_date('19/08/14'),'119',null,null);
+insert into tip_info values(tip_info_id_seq.nextval,'4',to_date('18/05/24'),'118',null,null);
+insert into tip_info values(tip_info_id_seq.nextval,'2',to_date('18/11/05'),'119',null,null);
+insert into tip_info values(tip_info_id_seq.nextval,'5',to_date('18/12/06'),'118',null,null);
+insert into tip_info values(tip_info_id_seq.nextval,'5',to_date('20/05/08'),'119',null,null);
+insert into tip_info values(tip_info_id_seq.nextval,'4',to_date('19/09/04'),'118',null,null);
+insert into tip_info values(tip_info_id_seq.nextval,'1',to_date('20/05/29'),'118',null,null);
+insert into tip_info values(tip_info_id_seq.nextval,'4',to_date('20/05/28'),'118',null,null);
 
 insert into crime values('1001','118',to_date('19/05/18'),'1',null,null);
 insert into crime values('1018','118',to_date('17/02/01'),'4',null,null);
@@ -148,9 +141,4 @@ insert into crime values('1251','119',to_date('05/11/29'),'3',null,null);
 insert into crime values('1280','119',to_date('17/11/18'),'3',null,null);
 insert into crime values('1309','119',to_date('19/08/14'),'3',null,null);
 insert into crime values('1338','119',to_date('17/12/26'),'3',null,null);
-
-
-select * from alarm;
-
-select * from member;
 
