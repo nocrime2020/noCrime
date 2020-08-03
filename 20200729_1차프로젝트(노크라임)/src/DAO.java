@@ -5,12 +5,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javazoom.jl.player.MP3Player;
+
 public class DAO {
 
 	// 필드 ---> DAO클래스 전역에 닿을 수 있게 생성
 	private Connection conn = null;
 	private PreparedStatement psmt = null; // Statement 클래스 => SQL구문 실행, 스스로 sql구문 이해는 못함=전달역할)
 	private ResultSet rs = null;
+	private MP3Player player = new MP3Player();
 
 	// 데이터베이스와 연결하는 메소드 생성
 	private void getConnection() {
@@ -477,8 +480,8 @@ public class DAO {
 
 		return cnt;
 	}
-	
-	//VO알람을 id,pw,name,email이 포함된 VO로 전환
+
+	// VO알람을 id,pw,name,email이 포함된 VO로 전환
 	public VO alarmToVO(VO_alarm vo_alarm) {
 		VO vo2 = null;
 		try {
@@ -487,7 +490,7 @@ public class DAO {
 			String sql = "SELECT * FROM member where id = ?";
 
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1,vo_alarm.getId());
+			psmt.setString(1, vo_alarm.getId());
 
 			rs = psmt.executeQuery();
 
@@ -506,4 +509,22 @@ public class DAO {
 		return vo2; // 반환해줌
 	}
 
+	public void alarmPlayer() {
+		int cnt = 0;
+		do {
+			player.play(DAO.class.getResource("").getPath() + "..\\..\\src\\res\\ppipp.mp3");
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			cnt++;
+			System.out.println(cnt);
+		} while (cnt < 2);
+		player.stop();
+	}
+	
+	public void alarmStop() {
+		player.stop();
+	}
 }
