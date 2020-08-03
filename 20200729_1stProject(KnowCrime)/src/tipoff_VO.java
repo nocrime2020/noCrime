@@ -8,7 +8,7 @@ public class tipoff_VO {
 	private String evidence;
 	private String cr_name;
 	
-	
+	//범죄 제보받은 목록 중 관리자가 선택하여 crime_main으로 업로드하는 용도(admin_tipoff)
 	public tipoff_VO(String tip_info_id, String cr_type_id, String cr_date, String cr_loc_id, String evidence, String cr_name) {
 		this.tip_info_id = tip_info_id;
 		this.cr_type_id = cr_type_id;
@@ -18,7 +18,7 @@ public class tipoff_VO {
 		this.cr_name = cr_name;
 	}
 	
-	//회원의 범죄 제보 위함(tipoff.java)
+	//회원의 범죄 제보 위함(tipoff)
 	public tipoff_VO(String cr_type_id, String cr_date, String cr_loc_id, String evidence) {
 		this.cr_type_id = cr_type_id;
 		this.cr_date = cr_date;
