@@ -8,6 +8,7 @@ public class updateVO {
 	private String newEmail;
 	private String click;
 	
+	//회원수정시 비밀번호 혹은 이메일 중 1개만 수정 시
 	public updateVO(String id, String pw, String newPwEmail, String click) {
 		this.id = id;
 		this.pw = pw;
@@ -15,7 +16,7 @@ public class updateVO {
 		this.click = click;
 	}
 	
-	
+	//회원수정시 비밀번호와 이메일 둘 다 변경을 원하는 경우
 	public updateVO(String id, String pw, String newPw, String newEmail, String click) {
 		this.id = id;
 		this.pw = pw;

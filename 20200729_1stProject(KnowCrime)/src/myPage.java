@@ -213,7 +213,7 @@ public class myPage {
 				if (result == JOptionPane.YES_OPTION) {
 					
 					if (((combo_startalarm1 == -1&&combo_startalarm.getSelectedItem().equals("")) || (combo_endalarm1 == -1&&combo_endalarm.getSelectedItem().equals("")) || occur_cnt1 == 0)) {
-						JOptionPane.showMessageDialog(null, "설정하지 않은 값이 존재합니다.", "알람 설정", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "설정하지 않은 값이 존재합니다.11", "알람 설정", JOptionPane.WARNING_MESSAGE);
 					} else if ((combo_startalarm1 != -1 && combo_endalarm1 != -1 && occur_cnt1 != 0)) {	//시작,종료시간 및 횟수설정 빼놓지 않고 설정한 경우
 						cnt2 = dao.check_alarm(vo);
 						
@@ -224,7 +224,7 @@ public class myPage {
 						}
 
 						if (cnt > 0) {
-							JOptionPane.showMessageDialog(null, "알람이 설정 되었습니다.", "알람 설정", JOptionPane.INFORMATION_MESSAGE);
+							JOptionPane.showMessageDialog(null, "알람이 설정 되었습니다.11", "알람 설정", JOptionPane.INFORMATION_MESSAGE);
 						} 
 //						else {
 //							
@@ -234,7 +234,6 @@ public class myPage {
 						cnt2 = dao.check_alarm(vo);
 						
 						if (cnt2 > 0) {
-							System.out.println("되나요?");
 							cnt = dao.sending_alarm(vo, Integer.parseInt(dao.check_alarm2(vo).getSet_start()),
 									Integer.parseInt(dao.check_alarm2(vo).getSet_end()), occur_cnt1);
 						} else {
@@ -243,12 +242,14 @@ public class myPage {
 						}
 
 						if (cnt > 0) {
-							JOptionPane.showMessageDialog(null, "알람이 설정 되었습니다.");
-						} else {
-							JOptionPane.showMessageDialog(null, "설정하지 않은 값이 존재합니다.", "알람 설정", JOptionPane.WARNING_MESSAGE);
+							JOptionPane.showMessageDialog(null, "알람이 설정 되었습니다.22_변경사항없음");
 						}
+						//else {
+//							JOptionPane.showMessageDialog(null, "설정하지 않은 값이 존재합니다22.", "알람 설정", JOptionPane.WARNING_MESSAGE);
+//						}
 					}
-				} else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {
+				} 
+				else if ((result == JOptionPane.CLOSED_OPTION) || (result == JOptionPane.NO_OPTION)) {
 					JOptionPane.showMessageDialog(null, "알람 설정 취소", "알람 설정", JOptionPane.WARNING_MESSAGE );
 					return;
 				}
@@ -270,11 +271,13 @@ public class myPage {
 				if (result == JOptionPane.YES_OPTION) { // 사용자가 탈퇴를 원하는 경우
 
 					if (cnt2 > 0) {	//알람이 있는 회원이라면
+						JOptionPane.showMessageDialog(null, "회원 탈퇴 완료", "회원 탈퇴", JOptionPane.INFORMATION_MESSAGE);
 						cnt4 = dao.delete_alarm(vo);	//알람을 먼저 삭제하고
 						dao.delete(vo);					//회원 탈퇴
 						frame.dispose();
 						login login = new login();
 					} else {		//설정된 알람이 없는 회원이라면
+						JOptionPane.showMessageDialog(null, "회원 탈퇴 완료", "회원 탈퇴", JOptionPane.INFORMATION_MESSAGE);
 						dao.delete(vo);					//바로 회원 탈퇴
 						frame.dispose();
 						login login = new login();
@@ -313,8 +316,6 @@ public class myPage {
 		txt_pw.setColumns(10);
 		frame.getContentPane().add(txt_pw);
 
-		
-
 		JLabel lbl_mypage = new JLabel("MY PAGE");
 		lbl_mypage.setForeground(new Color(0, 0, 128));
 		lbl_mypage.setHorizontalAlignment(SwingConstants.CENTER);
@@ -335,7 +336,7 @@ public class myPage {
 		txt_newpw = new JTextField();
 		txt_newpw.setBackground(new Color(255, 250, 250));
 		txt_newpw.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		// 회원정보 수정시 pw란 클릭했는지? email란 클릭했는지? 구분하기 위함 (주의! 클릭말고 tap으로 하면 에러 발생)
+		// 회원정보 수정시 pw란 클릭했는지? email란 클릭했는지? 구분하기 위함 (주의! 클릭말고 tap으로 필드 이동시 에러 발생)
 		txt_newpw.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -349,7 +350,7 @@ public class myPage {
 		txt_newemail = new JTextField();
 		txt_newemail.setBackground(new Color(255, 250, 250));
 		txt_newemail.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		// 회원정보 수정시 pw란 클릭했는지? email란 클릭했는지? 구분하기 위함 (주의! 클릭말고 tap으로 하면 에러 발생)
+		// 회원정보 수정시 pw란 클릭했는지? email란 클릭했는지? 구분하기 위함 (주의! 클릭말고 tap으로 필드 이동시 에러 발생)
 		txt_newemail.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -362,19 +363,17 @@ public class myPage {
 
 		JButton btn_okedit = new JButton("\uD655\uC778");
 		btn_okedit.setBackground(new Color(204, 204, 255));
-
+		//회원 정보 수정
 		btn_okedit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				String id = txt_id.getText();
+				String id = txt_id.getText();			//필드에 받은 값을 가져와 변수에 저장
 				String pw = txt_pw.getText();
 				String newPw = txt_newpw.getText();
 				String newEmail = txt_newemail.getText();
 
-				// 2. DAO update문을 수정한다! 매개변수를 vo만 받게!
-				// 3. vo.getId()
-				if (click.equals("password")) {
+				if (click.equals("password")) {			//비밀번호 수정을 원하는 경우
 					updateVO updatevo = new updateVO(id, pw, newPw, click);
 					int cnt = dao.update(updatevo);
 					if (cnt > 0) {
@@ -387,7 +386,7 @@ public class myPage {
 //						txt_newemail.setText("");	
 						myPage myPage = new myPage(vo);
 					}
-				} else if (click.equals("email")) {
+				} else if (click.equals("email")) {		//이메일 수정을 원하는 경우
 					updateVO updatevo = new updateVO(id, pw, newEmail, click);
 					int cnt = dao.update(updatevo);
 					if (cnt > 0) {
