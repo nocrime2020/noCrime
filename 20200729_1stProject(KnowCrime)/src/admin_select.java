@@ -1,5 +1,5 @@
+
 import java.awt.Color;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 public class admin_select {
 
 	private JFrame frame;
+	
 	DAO dao = new DAO();
 
 	/**
@@ -37,7 +38,7 @@ public class admin_select {
 	/**
 	 * Create the application.
 	 */
-	public admin_select(VO vo) {
+	public admin_select(VO vo) {		//admin으로 로그인된 회원정보 가져오고
 		initialize(vo);
 		frame.setVisible(true);
 	}
@@ -55,10 +56,10 @@ public class admin_select {
 		
 		JLabel lbl_title = new JLabel("");
 		lbl_title.setIcon(new ImageIcon(admin_select.class.getResource("/res/\uC791\uC740 \uD22C\uBA85.png")));
+		//타이틀로고 클릭시 범죄조회 페이지로 이동
 		lbl_title.addMouseListener(new MouseAdapter() {
-			@Override // 회원가입 메소드
+			@Override 
 			public void mouseClicked(MouseEvent e) {
-
 				frame.dispose();
 //				crime_main.main(null);
 				crime_main crime = new crime_main(dao.check_alarm2(vo));
@@ -68,17 +69,15 @@ public class admin_select {
 		lbl_title.setBounds(131, 9, 97, 55);
 		frame.getContentPane().add(lbl_title);
 		
-		
 		JLabel lbl_signout = new JLabel("");
 		lbl_signout.setIcon(new ImageIcon(admin_select.class.getResource("/res/logout2.png")));
+		//로그아웃
 		lbl_signout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
 				frame.dispose();
 //				login.main(null);
 				login login = new login();
-				
 			}
 		});
 		lbl_signout.setBounds(307, 10, 40, 29);
@@ -96,30 +95,26 @@ public class admin_select {
 		btn_tipoffmanage.setBackground(SystemColor.activeCaption);
 		btn_tipoffmanage.setFont(new Font("함초롬돋움", Font.BOLD, 16));
 		btn_tipoffmanage.setBounds(53, 219, 253, 75);
+		//제보관리 페이지
 		btn_tipoffmanage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
 //				admin_tipoff.main(null);
 				admin_tipoff admin_tipoff = new admin_tipoff(vo);
-			
 			}
 		});
 		frame.getContentPane().add(btn_tipoffmanage);
 		
 		JButton btn_membermanage = new JButton("\uD68C\uC6D0\uAD00\uB9AC \uD398\uC774\uC9C0");
 		btn_membermanage.setBackground(new Color(204, 204, 255));
-		btn_membermanage.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btn_membermanage.setBackground(SystemColor.activeCaption);
 		btn_membermanage.setFont(new Font("함초롬돋움", Font.BOLD, 16));
 		btn_membermanage.setBounds(53, 349, 253, 75);
+		//회원관리 페이지
 		btn_membermanage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
 				frame.dispose();
 //				admin_member.main(null);
 				admin_member admin_member = new admin_member(vo);
@@ -132,10 +127,10 @@ public class admin_select {
 		btn_crimemain.setBackground(SystemColor.activeCaption);
 		btn_crimemain.setFont(new Font("함초롬돋움", Font.BOLD, 16));
 		btn_crimemain.setBounds(53, 480, 253, 75);
+		//범죄정보 페이지
 		btn_crimemain.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
 				frame.dispose();
 //				crime_main.main(null);
 				crime_main crime = new crime_main(new VO_alarm(vo.getId(),null,null,null));

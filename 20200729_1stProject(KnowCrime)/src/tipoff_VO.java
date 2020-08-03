@@ -10,7 +10,6 @@ public class tipoff_VO {
 	
 	
 	public tipoff_VO(String tip_info_id, String cr_type_id, String cr_date, String cr_loc_id, String evidence, String cr_name) {
-//		super();
 		this.tip_info_id = tip_info_id;
 		this.cr_type_id = cr_type_id;
 		this.cr_date = cr_date;
@@ -19,6 +18,7 @@ public class tipoff_VO {
 		this.cr_name = cr_name;
 	}
 	
+	//회원의 범죄 제보 위함(tipoff.java)
 	public tipoff_VO(String cr_type_id, String cr_date, String cr_loc_id, String evidence) {
 		this.cr_type_id = cr_type_id;
 		this.cr_date = cr_date;
@@ -26,7 +26,6 @@ public class tipoff_VO {
 		this.evidence = evidence;
 	}
 	
-//	public tipoff_VO(St)
 	
 	
 	public String getTip_info_id() {
