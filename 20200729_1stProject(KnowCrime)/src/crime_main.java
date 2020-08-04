@@ -46,7 +46,7 @@ public class crime_main {
 //		});
 //	}
 
-	public crime_main(VO_alarm vo_alarm) {	//알람기능이 이 페이지에서 조건에 맞게 작동해야 하기 때문에 
+	public crime_main(VO_alarm vo_alarm) {	//알람기능이 이 페이지에서 조건에 맞게 작동해야 하기 때문에 VO알람을 받음 
 		initialize(vo_alarm);
 		frame.setVisible(true);
 	}
@@ -60,20 +60,20 @@ public class crime_main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JPanel panel = new JPanel();
+		JPanel panel = new JPanel();	// 검색, 필터창
 		panel.setBackground(new Color(230, 230, 250));
 		panel.setBounds(0, 110, 359, 663);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JPanel panel_1 = new JPanel();
+		JPanel panel_1 = new JPanel();	// 58번길
 		panel_1.setBackground(new Color(230, 230, 250));
 		panel_1.setBounds(0, 110, 359, 663);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		panel_1.setVisible(false);
 
-		JPanel panel_2 = new JPanel();
+		JPanel panel_2 = new JPanel();	// 76번길
 		panel_2.setBackground(new Color(230, 230, 250));
 		panel_2.setBounds(0, 110, 359, 663);
 		frame.getContentPane().add(panel_2);
@@ -84,7 +84,7 @@ public class crime_main {
 		lbl_mypage.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_mypage.setForeground(new Color(0, 0, 128));
 		lbl_mypage.setFont(new Font("함초롬돋움", Font.BOLD, 12));
-		//회원의 마마이페이지 이동 
+		//회원의 마이페이지 이동 
 		lbl_mypage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -183,9 +183,9 @@ public class crime_main {
 		lbl_fold.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (panel.getHeight() < 200) {			//작게 접어진 상태면 702로 세로크기 키우고
+				if (panel.getHeight() < 200) {			//작게 접어진 상태면 가로 세로 크기 키우고
 					panel.setBounds(0, 110, 375, 702);
-				} else									//펼쳐진 상태라면 세로크기 5로 줄임
+				} else									//펼쳐진 상태라면 가로 세로 크기를 5로 줄임
 					panel.setBounds(0, 110, 5, 5);
 			}
 		});
@@ -228,13 +228,13 @@ public class crime_main {
 		panel.add(lbl_date);
 		lbl_date.setFont(new Font("함초롬돋움", Font.BOLD, 15));
 
-		JComboBox combo_fromYear = new JComboBox();
+		JComboBox combo_fromYear = new JComboBox();	// 연도설정(부터)
 		combo_fromYear.setBackground(new Color(204, 204, 255));
 		combo_fromYear.setBounds(134, 233, 65, 18);
 		panel.add(combo_fromYear);
 		combo_fromYear.setModel(new DefaultComboBoxModel(new String[] { "", "1980", "1990", "2000", "2010", "2015", "2018", "2019", "2020" }));
 
-		JComboBox combo_toYear = new JComboBox();
+		JComboBox combo_toYear = new JComboBox();	// 연도설정(까지)
 		combo_toYear.setBackground(new Color(204, 204, 255));
 		combo_toYear.setBounds(134, 261, 65, 18);
 		panel.add(combo_toYear);
@@ -293,7 +293,7 @@ public class crime_main {
 		check_절도강도.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == 1) {
-					theft = 1;
+					theft = 1;	// 나중에 회원정보에 검색설정(날짜,범죄종류체크) 저장할 때 사용하기 위해
 				} else {
 					theft = 0;
 				}
@@ -366,6 +366,7 @@ public class crime_main {
 		check_강간추행.setFont(new Font("함초롬돋움", Font.BOLD, 12));
 		check_강간추행.setBackground(new Color(230, 230, 250));
 
+		// textArea : 범죄정보(주소, 범죄종류, 날짜) 출력
 		JTextArea textArea_약 = new JTextArea();
 		textArea_약.setBackground(new Color(230, 230, 250));
 		textArea_약.setForeground(new Color(0, 0, 128));
@@ -410,6 +411,7 @@ public class crime_main {
 		panel_1.add(textArea_절);
 		textArea_절.setVisible(false);
 
+		// lbl_범죄종류 : 범죄아이콘
 		JLabel lbl_상_1030 = new JLabel("");
 		lbl_상_1030.setIcon(new ImageIcon(crime_main.class.getResource("/res/\uD3ED\uC0C1\uC2A4\uBAB0.png")));
 		lbl_상_1030.addMouseListener(new MouseAdapter() {
@@ -841,6 +843,7 @@ public class crime_main {
 		panel_2.add(lbl_76);
 		lbl_76.setVisible(false);
 
+		// 검색설정 초기화
 		JLabel lbl_reset = new JLabel("");
 		lbl_reset.setIcon(new ImageIcon(crime_main.class.getResource("/res/reset2.png")));
 		lbl_reset.setFont(new Font("굴림", Font.PLAIN, 14));
@@ -852,25 +855,25 @@ public class crime_main {
 				rape = 0;
 				theft = 0;
 				violence = 0;
-				check_강간추행.setSelected(false);
+				check_강간추행.setSelected(false);	// 체크박스초기화
 				check_살인.setSelected(false);
 				check_상해폭행.setSelected(false);
 				check_악취유인.setSelected(false);
 				check_절도강도.setSelected(false);
-				combo_city.setSelectedIndex(0);
+				combo_city.setSelectedIndex(0);	// 주소 초기화
 				combo_gu.setSelectedIndex(0);
 				combo_street.setSelectedIndex(0);
-				combo_fromYear.setSelectedIndex(0);
+				combo_fromYear.setSelectedIndex(0);	// 연도설정 초기화
 				combo_fromMon.setSelectedIndex(0);
 				combo_fromDay.setSelectedIndex(0);
 				combo_toYear.setSelectedIndex(0);
 				combo_toMon.setSelectedIndex(0);
 				combo_toDay.setSelectedIndex(0);
-				lbl_약2_1047.setVisible(false);
+				lbl_약2_1047.setVisible(false);	// 아이콘 출력 초기화
 				lbl_약_1018.setVisible(false);
 				lbl_절_1001.setVisible(false);
 				lbl_상_1030.setVisible(false);
-				textArea_상.setVisible(false);
+				textArea_상.setVisible(false);	// 범죄정보 출력 초기화
 				textArea_약.setVisible(false);
 				textArea_약2.setVisible(false);
 				textArea_절.setVisible(false);
@@ -902,55 +905,57 @@ public class crime_main {
 				lbl_76.setVisible(false);
 				lbl_살_New.setVisible(false);
 				textArea_살.setVisible(false);
-				if (panel.getHeight() < 100) {
-					panel.setBounds(0, 110, 359, 663);
+				if (panel.getHeight() < 100) { // 초기화버튼 클릭시 검색설정창이 접혀있는 경우
+					panel.setBounds(0, 110, 359, 663);	// 검색설정창을 펼쳐줌
 				}
 			}
 		});
 		lbl_reset.setBounds(36, 79, 36, 29);
 		frame.getContentPane().add(lbl_reset);
 
-		JButton btn_search = new JButton("SEARCH");
+		JButton btn_search = new JButton("SEARCH");	// 검색버튼
 		btn_search.setBounds(12, 489, 324, 23);
 		panel.add(btn_search);
 		btn_search.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				panel.setBounds(0, 106, 1, 1);
+				panel.setBounds(0, 106, 1, 1); // 검색설정창크기 축소
+				//발생년 설정 확인하여 미선택시 혹은 시작년도가 2005년보다 작거나 끝년도가 2020년보다 클 때는 전체범죄 검색
+				//년도 미선택시 getSelectedItem()이 null값이라 오류가 나기 때문에 삼항연산자로 조건판별을 하여 미선택시 getSelectedItem()을 안 쓰고 바로 true
 				if ((combo_fromYear.getSelectedIndex() == 0?true:Integer.parseInt((String) combo_fromYear.getSelectedItem()) <= 2005)
 						&& (combo_toYear.getSelectedIndex() == 0? true:Integer.parseInt((String) combo_toYear.getSelectedItem()) >= 2020)) {
-					if (combo_street.getSelectedIndex() == 16) {
-						panel_2.setVisible(false);
-						lbl_76.setVisible(false);
-						panel_1.setVisible(true);
-						lbl_58.setVisible(true);
-						if (kidnap == 1) {
+					if (combo_street.getSelectedIndex() == 16) { //58번길
+						panel_2.setVisible(false);	// 76번길 패널 끄기
+						lbl_76.setVisible(false);	// 76번길 지도 끄기
+						panel_1.setVisible(true);	// 58번길 패널 켜기
+						lbl_58.setVisible(true);	// 58번길 지도 켜기
+						if (kidnap == 1) {	//약취유인 체크됐을 때
 							lbl_약2_1047.setVisible(true);
 							lbl_약_1018.setVisible(true);
 						} else {
 							lbl_약2_1047.setVisible(false);
 							lbl_약_1018.setVisible(false);
 						}
-						if (violence == 1) {
+						if (violence == 1) { // 상해폭력 체크됐을 때
 							lbl_상_1030.setVisible(true);
 						} else {
 							lbl_상_1030.setVisible(false);
 						}
-						if (theft == 1) {
+						if (theft == 1) {	// 절도강도 체크됐을 때
 							lbl_절_1001.setVisible(true);
 						} else {
 							lbl_절_1001.setVisible(false);
 						}
-						if (murder == 1) {
+						if (murder == 1) {	// 살인 체크됐을 때
 							lbl_살_New.setVisible(true);
 						}else {
 							lbl_살_New.setVisible(false);
 						}
-					} else if (combo_street.getSelectedIndex() == 17) {
-						panel_1.setVisible(false);
-						lbl_58.setVisible(false);
-						panel_2.setVisible(true);
-						lbl_76.setVisible(true);
+					} else if (combo_street.getSelectedIndex() == 17) {	//76번길
+						panel_1.setVisible(false);	// 58번길 패널 끄기
+						lbl_58.setVisible(false);	// 58번길 지도 끄기
+						panel_2.setVisible(true);	// 76번길 패널 켜기
+						lbl_76.setVisible(true);	// 76번길 지도 켜기
 					}
 					if (kidnap == 1) {
 					} else {
@@ -988,8 +993,10 @@ public class crime_main {
 						lbl_강3_1251.setVisible(false);
 						lbl_강4_1309.setVisible(false);
 					}
-				} else if (combo_fromYear.getSelectedIndex()==0?false:Integer.parseInt((String) combo_fromYear.getSelectedItem()) > 2010) {
-					if (combo_street.getSelectedIndex() == 16) {
+				}//발생년 설정 확인하여 2010년 이후 선택시(더 옛날 범죄를 필터링하기 위해)
+				//년도 미선택시 getSelectedItem()이 null값이라 오류가 나기 때문에 삼항연산자로 조건판별을 하여 미선택시 getSelectedItem()을 안 쓰고 바로 false
+				else if (combo_fromYear.getSelectedIndex()==0?false:Integer.parseInt((String) combo_fromYear.getSelectedItem()) > 2010) {
+					if (combo_street.getSelectedIndex() == 16) {	// 58번길
 						panel_2.setVisible(false);
 						lbl_76.setVisible(false);
 						panel_1.setVisible(true);
@@ -1016,7 +1023,7 @@ public class crime_main {
 						}else {
 							lbl_살_New.setVisible(false);
 						}
-					} else if (combo_street.getSelectedIndex() == 17) {
+					} else if (combo_street.getSelectedIndex() == 17) {	// 76번길
 						panel_1.setVisible(false);
 						lbl_58.setVisible(false);
 						panel_2.setVisible(true);
@@ -1058,7 +1065,9 @@ public class crime_main {
 						lbl_강3_1251.setVisible(false);
 						lbl_강4_1309.setVisible(false);
 					}
-				}else if(combo_toYear.getSelectedIndex()==0?false:Integer.parseInt((String) combo_toYear.getSelectedItem()) <= 2016) {
+				}//발생년 설정 확인하여 2016년 이전까지 선택시
+				//년도 미선택시 getSelectedItem()이 null값이라 오류가 나기 때문에 삼항연산자로 조건판별을 하여 미선택시 getSelectedItem()을 안 쓰고 바로 false
+				else if(combo_toYear.getSelectedIndex()==0?false:Integer.parseInt((String) combo_toYear.getSelectedItem()) <= 2016) {
 					if (combo_street.getSelectedIndex() == 16) {
 						panel_2.setVisible(false);
 						lbl_76.setVisible(false);
@@ -1130,21 +1139,23 @@ public class crime_main {
 					}
 				}
 				cnt = 0;
-				LocalTime currentTime = LocalTime.now();
-				boolean[] crime_cnt;
-				if (lbl_58.isVisible()) {
+				LocalTime currentTime = LocalTime.now();	// 현재시간 확인
+				boolean[] crime_cnt;	// 화면에 보이는 범죄들을 배열로 저장
+				if (lbl_58.isVisible()) {	// 58번길
+					// 58번길에서 화면에 보이는 범죄를 배열로 저장
 					crime_cnt = new boolean[] {lbl_상_1030.isVisible(),lbl_약2_1047.isVisible(),lbl_절_1001.isVisible(),lbl_약_1018.isVisible(),lbl_살_New.isVisible()};
 					for(int i = 0; i < crime_cnt.length;i++) {
-						if (crime_cnt[i]) {
+						if (crime_cnt[i]) {	// crime_cnt[i]가 라벨.isVisible()로 boolean값
 							cnt++;
 						}
-					}if(dao.check_alarm((new VO(vo_alarm.getId(),null)))==0) {
-					}else if(cnt >= Integer.parseInt(vo_alarm.getCr_cnt())&&currentTime.getHour()>Integer.parseInt(vo_alarm.getSet_start())&&currentTime.getHour()<Integer.parseInt(vo_alarm.getSet_end())) {
-						dao.alarmPlayer();
-						int num = JOptionPane.INFORMATION_MESSAGE;
+					}if(dao.check_alarm((new VO(vo_alarm.getId(),null)))==0) {	// 알람설정 없을 시 미작동
+					}// 화면에 보이는 범죄 수가 설정된 알람 수보다 크고 현재 시간이 설정시간 범위 내에 있을 경우
+					else if(cnt >= Integer.parseInt(vo_alarm.getCr_cnt())&&currentTime.getHour()>Integer.parseInt(vo_alarm.getSet_start())&&currentTime.getHour()<Integer.parseInt(vo_alarm.getSet_end())) {
+						dao.alarmPlayer();	// 알람재생
+						// 알람 메세지
 						JOptionPane.showMessageDialog(null, "회원님이 설정하신 수 이상의 범죄가 탐지되었습니다.", "우범 지역 알림",JOptionPane.INFORMATION_MESSAGE);
 					}
-				}else if (lbl_76.isVisible()) {
+				}else if (lbl_76.isVisible()) {	// 76번길도 같음
 					crime_cnt = new boolean[] {lbl_강2_1280.isVisible(),lbl_강1_1338.isVisible(),lbl_강3_1251.isVisible(),lbl_절2_1048.isVisible(),lbl_상1_1135.isVisible(),
 					lbl_절4_1106.isVisible(),lbl_상4_1222.isVisible(),lbl_강4_1309.isVisible(),lbl_상2_1164.isVisible(),
 					lbl_상3_1193.isVisible(),lbl_절3_1077.isVisible(),lbl_절1_1019.isVisible()};
@@ -1155,7 +1166,6 @@ public class crime_main {
 					}if(dao.check_alarm((new VO(vo_alarm.getId(),null)))==0) {
 					}else if(cnt >= Integer.parseInt(vo_alarm.getCr_cnt())&&currentTime.getHour()>Integer.parseInt(vo_alarm.getSet_start())&&currentTime.getHour()<Integer.parseInt(vo_alarm.getSet_end())) {
 						dao.alarmPlayer();
-						int num = JOptionPane.INFORMATION_MESSAGE;
 						JOptionPane.showMessageDialog(null, "회원님이 설정하신 수 이상의 범죄가 탐지되었습니다.", "우범 지역 알림", JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
